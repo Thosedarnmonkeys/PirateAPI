@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using PirateAPI.Logging;
 
@@ -10,23 +11,42 @@ namespace PirateAPI.WebServer
 {
   public class WebServer
   {
+    #region private fields
     private HttpListener listener;
     private Func<string, string> responseFunc;
     private ILogger logger;
+    private Thread requestServeThread;
 
+    private int port;
+    private string webroot;
+    #endregion
+
+    #region constructor
     public WebServer(string webroot, int port, Func<string, string> responseFunc, ILogger logger)
     {
-      listener = new HttpListener();
-      listener.Prefixes.Add("http://localhost:" + port + webroot + "/");
+      this.webroot = webroot;
+      this.port = port;
       this.responseFunc = responseFunc;
       this.logger = logger;
     }
+    #endregion
 
+    #region public methods
     public bool StartServing()
     {
       try
       {
+        if (listener != null)
+        {
+          logger.LogError("WebServer.StartServing was called by listener is not null");
+          return false;
+        }
+
+        listener = new HttpListener();
+        listener.Prefixes.Add("http://localhost:" + port + webroot + "/");
         listener.Start();
+        listener.BeginGetContext(ServeRequest, listener);
+        logger.LogMessage("WebServer started serving on address " + listener.Prefixes.First());
         return true;
       }
       catch (Exception e)
@@ -42,6 +62,7 @@ namespace PirateAPI.WebServer
       {
         listener.Stop();
         listener.Close();
+        logger.LogMessage("WebServer has stopped serving");
       }
       catch (Exception e)
       {
@@ -49,5 +70,24 @@ namespace PirateAPI.WebServer
         throw;
       }
     }
+
+    #endregion
+
+    #region private methods
+    private void ServeRequest(IAsyncResult asyncResult)
+    {
+      HttpListener asyncListener = asyncResult.AsyncState as HttpListener;
+      if (asyncListener == null)
+        throw new ArgumentException("Async method WebServer.ServerRequest was passed an object of type" + (asyncResult.AsyncState == null ? "null" : asyncResult.AsyncState.ToString()) + " instead of an HttpListener");
+
+      HttpListenerContext context = listener.EndGetContext(asyncResult);
+      string response = responseFunc.Invoke(context.Request.RawUrl);
+
+      byte[] buffer = Encoding.UTF8.GetBytes(response);
+      context.Response.ContentLength64 = buffer.Length;
+      context.Response.OutputStream.Write(buffer, 0, buffer.Length);
+      context.Response.OutputStream.Close();
+    }
+    #endregion
   }
 }

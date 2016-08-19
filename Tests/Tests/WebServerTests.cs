@@ -34,7 +34,7 @@ namespace Tests.Tests
     [Test]
     public void TestAlternateWebRoot()
     {
-      string webRoot = "webroot";
+      string webRoot = "/webroot";
       int port = 8080;
 
       WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
@@ -42,16 +42,32 @@ namespace Tests.Tests
 
       Assert.IsTrue(listening);
 
+      string response;
       WebClient webClient = new WebClient();
-      string response = webClient.DownloadString("http://localhost:" + port);
 
-      Assert.IsNull(response);
+      try
+      {
+        response = webClient.DownloadString("http://localhost:" + port);
+      }
+      catch (Exception)
+      {
+        response = "Exception";
+      }
 
-      response = webClient.DownloadString("http://localhost:" + port + "something");
+      Assert.AreEqual("Exception", response);
 
-      Assert.IsNull(response);
+      try
+      {
+        response = webClient.DownloadString("http://localhost:" + port + "/something");
+      }
+      catch (Exception)
+      {
+        response = "ExceptionAgain";
+      }
 
-      response = webClient.DownloadString("http://localhost:" + port + "webroot");
+      Assert.AreEqual("ExceptionAgain", response);
+
+      response = webClient.DownloadString("http://localhost:" + port + "/webroot");
 
       Assert.AreEqual("Response", response);
     }
@@ -68,13 +84,29 @@ namespace Tests.Tests
       Assert.IsTrue(listening);
 
       WebClient webClient = new WebClient();
-      string response = webClient.DownloadString("http://localhost:8080");
+      string response;
 
-      Assert.IsNull(response);
+      try
+      {
+        response = webClient.DownloadString("http://localhost:8080");
+      }
+      catch (Exception)
+      {
+        response = "Exception";
+      }
 
-      response = webClient.DownloadString("http://localhost:8082");
+      Assert.AreEqual("Exception", response);
 
-      Assert.IsNull(response);
+      try
+      {
+        response = webClient.DownloadString("http://localhost:8082");
+      }
+      catch (Exception)
+      {
+        response = "ExceptionAgain";
+      }
+
+      Assert.AreEqual("ExceptionAgain", response);
 
       response = webClient.DownloadString("http://localhost:8081");
 
@@ -132,7 +164,7 @@ namespace Tests.Tests
 
       listening = webServer.StartServing();
 
-      Assert.IsTrue(listening);
+      Assert.IsFalse(listening);
 
       response = webClient.DownloadString("http://localhost:" + port);
       Assert.AreEqual("Response", response);

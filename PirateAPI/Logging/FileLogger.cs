@@ -28,7 +28,7 @@ namespace PirateAPI.Logging
     public void LogMessage(string message)
     {
       if (string.IsNullOrWhiteSpace(message))
-        this.LogMessage("FileLogger was asked to LogMessage but message was null or whitespace");
+        LogError("FileLogger was asked to LogMessage but message was null or whitespace");
 
       CreateLogFileIfMissing();
 
@@ -41,12 +41,12 @@ namespace PirateAPI.Logging
 
     public void LogError(string message)
     {
-      if (e == null && message == null)
-        this.LogMessage("FileLogger was asked to LogException but exception and message were null");
+      if (string.IsNullOrWhiteSpace(message))
+        LogError("FileLogger was asked to LogError but message was null or whitespace");
 
       CreateLogFileIfMissing();
 
-      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, message + ": " + e.Message);
+      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, message);
       using (StreamWriter writer = new StreamWriter(logFilePath))
       {
         writer.WriteLine(formattedMessage);
@@ -56,10 +56,10 @@ namespace PirateAPI.Logging
     public void LogException(Exception e, string message = null)
     {
       if (e == null && message == null)
-        LogMessage("FileLogger was asked to LogException but exception and message were null");
+        LogError("FileLogger was asked to LogException but exception and message were null");
 
       if (e == null && string.IsNullOrWhiteSpace(message))
-        LogMessage("FileLogger was asked to LogException but exception was null and message was whitespace");
+        LogError("FileLogger was asked to LogException but exception was null and message was whitespace");
 
       CreateLogFileIfMissing();
 
