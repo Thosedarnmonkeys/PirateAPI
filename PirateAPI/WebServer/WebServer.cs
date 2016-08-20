@@ -62,6 +62,7 @@ namespace PirateAPI.WebServer
       {
         listener.Stop();
         listener.Close();
+        listener = null;
         logger.LogMessage("WebServer has stopped serving");
       }
       catch (Exception e)
@@ -80,7 +81,9 @@ namespace PirateAPI.WebServer
       if (asyncListener == null)
         throw new ArgumentException("Async method WebServer.ServerRequest was passed an object of type" + (asyncResult.AsyncState == null ? "null" : asyncResult.AsyncState.ToString()) + " instead of an HttpListener");
 
-      HttpListenerContext context = listener.EndGetContext(asyncResult);
+      HttpListenerContext context = asyncListener.EndGetContext(asyncResult);
+      asyncListener.BeginGetContext(ServeRequest, asyncListener);
+
       string response = responseFunc.Invoke(context.Request.RawUrl);
 
       byte[] buffer = Encoding.UTF8.GetBytes(response);

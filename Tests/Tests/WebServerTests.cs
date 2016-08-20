@@ -148,7 +148,7 @@ namespace Tests.Tests
     }
 
     [Test]
-    public void TestStartServingWhileAlreadyRunning()
+    public void TestTryStartServingWhileAlreadyRunning()
     {
       string webRoot = "";
       int port = 8080;
@@ -167,6 +167,28 @@ namespace Tests.Tests
       Assert.IsFalse(listening);
 
       response = webClient.DownloadString("http://localhost:" + port);
+      Assert.AreEqual("Response", response);
+    }
+
+    [Test]
+    public void TestBasicResponseTwiceInRow()
+    {
+      string webRoot = "";
+      int port = 8080;
+
+      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      bool listening = webServer.StartServing();
+
+      Assert.IsTrue(listening);
+
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString("http://localhost:" + port);
+
+      Assert.AreEqual("Response", response);
+
+      response = null;
+      response = webClient.DownloadString("http://localhost:" + port);
+
       Assert.AreEqual("Response", response);
     }
 
