@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ProxyPickerTests.cs" />
     <Compile Include="Tests\StubClasses\StubLogger.cs" />
+    <Compile Include="Tests\ThePirateBayProxyListProviderTests.cs" />
     <Compile Include="Tests\WebServerTests.cs" />
   </ItemGroup>
   <ItemGroup>

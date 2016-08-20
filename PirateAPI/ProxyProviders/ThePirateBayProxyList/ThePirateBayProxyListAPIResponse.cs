@@ -10,9 +10,9 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
   [DataContract]
   public class ThePirateBayProxyListAPIResponse
   {
-    [DataMember]
+    [DataMember(Name = "proxies")]
     public ThePirateBayProxyListAPIProxy[] Proxies { get; set; }
-    [DataMember]
+    [DataMember(Name = "meta")]
     public ThePirateBayProxyListAPIMeta Meta { get; set; }
   }
 }

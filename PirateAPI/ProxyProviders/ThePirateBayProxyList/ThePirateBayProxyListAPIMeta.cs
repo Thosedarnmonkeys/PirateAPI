@@ -10,7 +10,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
   [DataContract]
   public class ThePirateBayProxyListAPIMeta
   {
-    [DataMember]
-    public DateTime LastUpdated { get; set; }
+    [DataMember(Name = "last_updated")]
+    public long LastUpdated { get; set; }
   }
 }

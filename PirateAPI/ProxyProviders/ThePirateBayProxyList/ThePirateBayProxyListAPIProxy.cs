@@ -10,15 +10,15 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
   [DataContract]
   public class ThePirateBayProxyListAPIProxy
   {
-    [DataMember]
+    [DataMember(Name = "domain")]
     public string Domain { get; set; }
-    [DataMember]
+    [DataMember(Name = "speed")]
     public float Speed { get; set; }
-    [DataMember]
+    [DataMember(Name = "secure")]
     public bool Secure { get; set; }
-    [DataMember]
+    [DataMember(Name = "country")]
     public string Country { get; set; }
-    [DataMember]
+    [DataMember(Name = "probed")]
     public bool Probed { get; set; }
   }
 }
