@@ -14,7 +14,7 @@ namespace PirateAPI.ProxyProviders
     public ProxySpeed Speed { get; set; }
     public bool IsResponding
     {
-      get { return Speed == ProxySpeed.NotResponding; }
+      get { return Speed != ProxySpeed.NotResponding; }
     }
 
     private string country;

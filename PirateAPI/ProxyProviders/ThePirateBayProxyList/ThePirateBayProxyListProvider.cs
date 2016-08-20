@@ -71,6 +71,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
         return new List<Proxy>();
       }
 
+      //convert api proxies to internal proxy objs
       List<Proxy> proxies = new List<Proxy>();
       foreach (ThePirateBayProxyListAPIProxy proxy in apiResponse.Proxies)
       {
