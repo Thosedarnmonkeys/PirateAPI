@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 {
   [DataContract]
-  public class ThePirateBayProxyListAPIResponse
+  public class ThePirateBayProxyListAPIMeta
   {
     [DataMember]
-    public ThePirateBayProxyListAPIProxy[] Proxies { get; set; }
-    [DataMember]
-    public ThePirateBayProxyListAPIMeta Meta { get; set; }
+    public DateTime LastUpdated { get; set; }
   }
 }

@@ -34,34 +34,65 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
       WebClient webClient = new WebClient();
       string response;
 
+      //Get api listing of proxies
       try
       {
         response = webClient.DownloadString(address);
       }
-      catch(Exception e)
+      catch (Exception e)
       {
-        logger.LogException(e, "ThePirateBayProxyListProvider.ListProxies threw exception: ");
+        logger.LogException(e, "ThePirateBayProxyListProvider.GetProxysListingString threw exception trying to download string: ");
         return new List<Proxy>();
       }
-      
+
       if (string.IsNullOrWhiteSpace(response))
       {
         logger.LogError("Response string from " + address + " was null or empty");
         return new List<Proxy>();
       }
 
+      //Deserialise response to API response obj
       DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(ThePirateBayProxyListAPIResponse));
-
       byte[] responseBytes = Encoding.Unicode.GetBytes(response);
+      ThePirateBayProxyListAPIResponse apiResponse;
+
       using (MemoryStream stream = new MemoryStream(responseBytes))
+        apiResponse = serialiser.ReadObject(stream) as ThePirateBayProxyListAPIResponse;
+
+      if (apiResponse == null)
       {
-        ThePirateBayProxyListAPIResponse apiResponse = serialiser.ReadObject(stream) as ThePirateBayProxyListAPIResponse;
-        if (apiResponse == null)
-        {
-          logger.LogError("Couldn't deserialise ");
-        }
+        logger.LogError("ThePirateBayProxyListProvider.ListProxies couldn't deserialise API Response of " + response);
+        return new List<Proxy>();
       }
-        
+
+      if (apiResponse.Proxies == null)
+      {
+        logger.LogError("ThePirateBayProxyListProvider.ListProxies deserialised API response, but proxies properties was null for response " + response);
+        return new List<Proxy>();
+      }
+
+      List<Proxy> proxies = new List<Proxy>();
+      foreach (ThePirateBayProxyListAPIProxy proxy in apiResponse.Proxies)
+      {
+        ProxySpeed speed;
+        if (proxy.Speed < 0.3)
+          speed = ProxySpeed.VeryFast;
+
+        else if (proxy.Speed < 1)
+          speed = ProxySpeed.Fast;
+
+        else
+          speed = ProxySpeed.Slow;
+
+        proxies.Add(new Proxy
+        {
+          Domain = proxy.Domain,
+          Country = proxy.Country,
+          Speed = speed
+        });
+      }
+
+      return proxies;
     }
     #endregion
   }

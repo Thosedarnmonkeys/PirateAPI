@@ -47,6 +47,8 @@
     <Compile Include="PirateProxyPicker\ProxyPicker.cs" />
     <Compile Include="ProxyProviders\IProxyProvider.cs" />
     <Compile Include="ProxyProviders\Proxy.cs" />
+    <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListAPIMeta.cs" />
+    <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListAPIProxy.cs" />
     <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListAPIResponse.cs" />
     <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
