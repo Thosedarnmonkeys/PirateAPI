@@ -9,7 +9,7 @@ using PirateAPI.Logging;
 
 namespace PirateAPI.WebServer
 {
-  public class BasicWebServer
+  public class BasicWebServer : IWebServer
   {
     #region private fields
     private HttpListener listener;

@@ -19,7 +19,7 @@ namespace PirateAPI
     #endregion
 
     #region private fields
-    private BasicWebServer webServer;
+    private IWebServer webServer;
     private ILogger logger;
     #endregion
 
