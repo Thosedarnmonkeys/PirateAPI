@@ -20,7 +20,7 @@ namespace Tests.Tests
       string webRoot = "";
       int port = 8080;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);
@@ -37,7 +37,7 @@ namespace Tests.Tests
       string webRoot = "/webroot";
       int port = 8080;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);
@@ -78,7 +78,7 @@ namespace Tests.Tests
       string webRoot = "";
       int port = 8081;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);
@@ -119,7 +119,7 @@ namespace Tests.Tests
       string webRoot = "";
       int port = 8080;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);
@@ -153,7 +153,7 @@ namespace Tests.Tests
       string webRoot = "";
       int port = 8080;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);
@@ -176,7 +176,7 @@ namespace Tests.Tests
       string webRoot = "";
       int port = 8080;
 
-      WebServer webServer = new WebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
+      BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
 
       Assert.IsTrue(listening);

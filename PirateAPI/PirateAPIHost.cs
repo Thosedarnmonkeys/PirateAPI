@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using PirateAPI.WebServer;
+using PirateAPI.Logging;
 
 namespace PirateAPI
 {
@@ -14,6 +16,11 @@ namespace PirateAPI
     public string WebRoot { get; private set; }
     public int Port { get; private set; }
     public List<string> ProxyLocationPrefs { get; private set; }
+    #endregion
+
+    #region private fields
+    private BasicWebServer webServer;
+    private ILogger logger;
     #endregion
 
     #region constructor

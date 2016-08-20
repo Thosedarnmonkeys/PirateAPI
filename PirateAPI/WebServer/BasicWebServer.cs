@@ -9,20 +9,19 @@ using PirateAPI.Logging;
 
 namespace PirateAPI.WebServer
 {
-  public class WebServer
+  public class BasicWebServer
   {
     #region private fields
     private HttpListener listener;
     private Func<string, string> responseFunc;
     private ILogger logger;
-    private Thread requestServeThread;
 
     private int port;
     private string webroot;
     #endregion
 
     #region constructor
-    public WebServer(string webroot, int port, Func<string, string> responseFunc, ILogger logger)
+    public BasicWebServer(string webroot, int port, Func<string, string> responseFunc, ILogger logger)
     {
       this.webroot = webroot;
       this.port = port;
