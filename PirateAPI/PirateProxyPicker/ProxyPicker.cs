@@ -28,6 +28,11 @@ namespace PirateAPI.PirateProxyPicker
     {
       throw new NotImplementedException();
     }
+
+    public void BlacklistDomain(string domain)
+    {
+
+    }
     #endregion
   }
 }
