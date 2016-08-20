@@ -12,6 +12,16 @@ namespace PirateAPI
 {
   public class PirateAPIHost
   {
+    //broad workflow:
+
+    //Proxypicker picks proxy to use, refreshes every hour or if there is error
+
+    //Webserver gets request
+    //Parser parses Torznab to TPB web
+    //RequestMaker makes actual request to proxy
+    //second parser parses TPB web to Torznab
+    //Webserver returns request
+
     #region public properties
     public string WebRoot { get; private set; }
     public int Port { get; private set; }
