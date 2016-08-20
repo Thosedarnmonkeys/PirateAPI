@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateAPI", "PirateAPI\PirateAPI.csproj", "{C71981FF-45AE-47A5-8CD0-39CB65DFF433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateAPITests", "Tests\PirateAPITests.csproj", "{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

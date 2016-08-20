@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tests.Tests.StubClasses;
+using PirateAPITests.Tests.StubClasses;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class ThePirateBayProxyListProviderTests

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PirateAPI.Logging;
 
-namespace Tests.Tests.StubClasses
+namespace PirateAPITests.Tests.StubClasses
 {
   public class StubLogger : ILogger
   {

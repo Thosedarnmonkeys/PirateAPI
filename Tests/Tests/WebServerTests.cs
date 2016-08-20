@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI.WebServer;
-using Tests.Tests.StubClasses;
+using PirateAPITests.Tests.StubClasses;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class WebServerTests

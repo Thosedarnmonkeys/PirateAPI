@@ -8,7 +8,7 @@ using NUnit.Framework;
 using PirateAPI;
 
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class PirateAPIHostTests
