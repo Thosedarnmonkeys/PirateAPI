@@ -143,5 +143,27 @@ namespace PirateAPITests.Tests
       chosenProxy = picker.BestProxy(proxies);
       Assert.AreEqual(bestProxy, chosenProxy);
     }
+
+    [Test]
+    public void TestBestProxyReturnsNullWhenAllDomainsBlackListed()
+    {
+      List<string> locationPrefs = new List<string> { "uk", "us", "sd" };
+
+      List<Proxy> proxies = new List<Proxy>
+      {
+        new Proxy {Country = "uk", Domain = "domain", Speed = ProxySpeed.Fast},
+        new Proxy {Country = "it", Domain = "domain", Speed = ProxySpeed.NotResponding },
+        new Proxy {Country = "us", Domain = "domain", Speed = ProxySpeed.Slow },
+        new Proxy {Country = "sd", Domain = "domain", Speed = ProxySpeed.VeryFast },
+      };
+
+      ProxyPicker picker = new ProxyPicker(locationPrefs, new StubLogger());
+
+      picker.BlacklistDomain("domain");
+
+      Proxy chosenProxy = picker.BestProxy(proxies);
+      Assert.IsNull(chosenProxy);
+    }
+
   }
 }

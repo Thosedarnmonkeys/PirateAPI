@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PirateAPI.ProxyProviders
 {
-  public enum ProxySpeed { VeryFast, Fast, Slow, NotResponding };
+  //using explicit numbers to show that lower number is faster
+  public enum ProxySpeed { VeryFast = 0, Fast = 1, Slow = 2, NotResponding = 3 };
 
   public class Proxy
   {

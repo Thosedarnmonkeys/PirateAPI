@@ -13,6 +13,7 @@ namespace PirateAPI.PirateProxyPicker
     #region private fields
     private ILogger logger;
     private List<string> locationPrefs;
+    private List<string> blackListedDomains = new List<string>();
     #endregion
 
     #region constructor
@@ -26,12 +27,45 @@ namespace PirateAPI.PirateProxyPicker
     #region public methods
     public Proxy BestProxy(List<Proxy> proxies)
     {
-      throw new NotImplementedException();
+      IEnumerable<Proxy> goodProxies = from p in proxies
+                                       where !blackListedDomains.Contains(p.Domain)
+                                       select p;
+
+      if (goodProxies.Count() == 0)
+        return null;
+
+      IEnumerable<Proxy> matchedProxies = null;
+
+      if (locationPrefs != null && locationPrefs.Count != 0)
+      {
+        foreach(string loc in locationPrefs)
+        {
+          if (goodProxies.Any(p => p.Country == loc))
+          {
+            matchedProxies = from p in goodProxies
+                                    where p.Country == loc
+                                    select p;
+            break;
+          }
+        }
+      }
+
+      if (matchedProxies == null)
+        matchedProxies = goodProxies;
+
+      matchedProxies = matchedProxies.OrderBy(p => p.Speed);
+
+      Proxy bestProxy = matchedProxies.FirstOrDefault();
+
+      logger.LogMessage($"Picker determined best proxy was domain {bestProxy.Domain} with speed {bestProxy.Speed} and location {bestProxy.Country}");
+
+      return bestProxy;
     }
 
     public void BlacklistDomain(string domain)
     {
-
+      if (!blackListedDomains.Contains(domain))
+        blackListedDomains.Add(domain);
     }
     #endregion
   }
