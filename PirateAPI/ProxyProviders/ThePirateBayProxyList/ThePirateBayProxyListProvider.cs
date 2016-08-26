@@ -47,7 +47,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
       if (string.IsNullOrWhiteSpace(response))
       {
-        logger.LogError("Response string from " + address + " was null or empty");
+        logger.LogError($"Response string from {address} was null or empty");
         return new List<Proxy>();
       }
 
@@ -61,13 +61,13 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
       if (apiResponse == null)
       {
-        logger.LogError("ThePirateBayProxyListProvider.ListProxies couldn't deserialise API Response of " + response);
+        logger.LogError($"ThePirateBayProxyListProvider.ListProxies couldn't deserialise API Response of {response}");
         return new List<Proxy>();
       }
 
       if (apiResponse.Proxies == null)
       {
-        logger.LogError("ThePirateBayProxyListProvider.ListProxies deserialised API response, but proxies properties was null for response " + response);
+        logger.LogError($"ThePirateBayProxyListProvider.ListProxies deserialised API response, but proxies properties was null for response {response}");
         return new List<Proxy>();
       }
 

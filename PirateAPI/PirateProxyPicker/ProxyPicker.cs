@@ -32,7 +32,10 @@ namespace PirateAPI.PirateProxyPicker
                                        select p;
 
       if (goodProxies.Count() == 0)
+      {
+        logger.LogError("All available proxies are blacklisted");
         return null;
+      }
 
       IEnumerable<Proxy> matchedProxies = null;
 
@@ -65,7 +68,10 @@ namespace PirateAPI.PirateProxyPicker
     public void BlacklistDomain(string domain)
     {
       if (!blackListedDomains.Contains(domain))
+      {
+        logger.LogMessage($"Domain {domain} was blacklisted");
         blackListedDomains.Add(domain);
+      }
     }
     #endregion
   }

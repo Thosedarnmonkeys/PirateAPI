@@ -45,7 +45,7 @@ namespace PirateAPI.WebServer
         listener.Prefixes.Add("http://localhost:" + port + webroot + "/");
         listener.Start();
         listener.BeginGetContext(ServeRequest, listener);
-        logger.LogMessage("WebServer started serving on address " + listener.Prefixes.First());
+        logger.LogMessage($"WebServer started serving on address {listener.Prefixes.First()}");
         return true;
       }
       catch (Exception e)
