@@ -35,6 +35,15 @@ namespace PirateAPI.Parser
         return null;
       }
 
+      Match match = regex.Match(torznabQuery);
+
+      if (match.Groups.Count != 1)
+      {
+        logger.LogError($"Torznab request {torznabQuery} had {match.Groups.Count} capture groups, not 1 as expected");
+        return null;
+      }
+
+      string[] args = match.Groups[0].Value.Split('&');
 
     }
   }
