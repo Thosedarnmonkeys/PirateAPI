@@ -8,9 +8,53 @@ namespace PirateAPI.Parser
 {
   public class PirateRequest
   {
-    public string RequestUrl { get; set; }
+    #region public properties
+    public string RequestUrl
+    {
+      get
+      {
+        string pirateProxy = string.IsNullOrWhiteSpace(PirateProxyURL) ? "" : PirateProxyURL;
+        string searchArg = string.IsNullOrWhiteSpace(ShowName) ? "" : ShowName.Replace("+", "%20");
+
+        return $"{pirateProxy}/search/{searchArg}/0/99/0";
+      }
+    }
+
+    public string PirateProxyURL { get; set; }
+    public string ShowName { get; set; }
     public int Limit { get; set; }
     public int Offset { get; set; }
     public bool ExtendedAttributes { get; set; }
+    #endregion
+
+
+    #region public methods
+    public override bool Equals(object obj)
+    {
+      PirateRequest other = obj as PirateRequest;
+      if (other == null)
+        return false;
+
+      if (other.RequestUrl != RequestUrl)
+        return false;
+
+      if (other.PirateProxyURL != PirateProxyURL)
+        return false;
+
+      if (other.ShowName != ShowName)
+        return false;
+
+      if (other.Limit != Limit)
+        return false;
+
+      if (other.Offset != Offset)
+        return false;
+
+      if (other.ExtendedAttributes != ExtendedAttributes)
+        return false;
+
+      return true;
+    }
+    #endregion
   }
 }

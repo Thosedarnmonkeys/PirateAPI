@@ -11,6 +11,7 @@ namespace PirateAPI.ProxyProviders
 
   public class Proxy
   {
+    #region public properties
     public string Domain { get; set; }
     public ProxySpeed Speed { get; set; }
     public bool IsResponding
@@ -24,5 +25,26 @@ namespace PirateAPI.ProxyProviders
       get { return country.ToLower(); }
       set { country = value; }
     }
+    #endregion
+
+    #region public methods
+    public override bool Equals(object obj)
+    {
+      Proxy other = obj as Proxy;
+      if (other == null)
+        return false;
+
+      if (other.Domain != Domain)
+        return false;
+
+      if (other.Speed != Speed)
+        return false;
+
+      if (other.Country != Country)
+        return false;
+
+      return true;
+    } 
+    #endregion
   }
 }
