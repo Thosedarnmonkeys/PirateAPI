@@ -27,6 +27,7 @@ namespace Tests.Tests
         Offset = 0,
         Limit = 100,
         ExtendedAttributes = false,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -53,6 +54,7 @@ namespace Tests.Tests
         Offset = 0,
         Limit = 20,
         ExtendedAttributes = true,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -79,6 +81,7 @@ namespace Tests.Tests
         Offset = 50,
         Limit = 100,
         ExtendedAttributes = true,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -105,6 +108,7 @@ namespace Tests.Tests
         Offset = 0,
         Limit = 100,
         ExtendedAttributes = true,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -131,6 +135,7 @@ namespace Tests.Tests
         Offset = 0,
         Limit = 100,
         ExtendedAttributes = true,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -157,6 +162,7 @@ namespace Tests.Tests
         Offset = 0,
         Limit = 100,
         ExtendedAttributes = true,
+        Quality = VideoQuality.Both
       };
 
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
@@ -164,6 +170,60 @@ namespace Tests.Tests
       Assert.AreEqual(correctRequest, parsedRequest);
 
       string correctPirateURL = "http://adifferentfakepirateproxy.com/search/A%20TV%20Show/0/99/0";
+
+      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
+    }
+
+    [Test]
+    public void TestParsesVideoQualityHD()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5040&extended=0&offset=0&limit=100";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = 100,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.HD
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+
+      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/0";
+
+      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
+    }
+
+    [Test]
+    public void TestParsesVideoQualitySD()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030&extended=0&offset=0&limit=100";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = 100,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.SD
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+
+      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/0";
 
       Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PirateAPI.Parser
 {
+  public enum VideoQuality { HD, SD, Both}
+
   public class PirateRequest
   {
     #region public properties
@@ -25,6 +27,7 @@ namespace PirateAPI.Parser
     public int Limit { get; set; }
     public int Offset { get; set; }
     public bool ExtendedAttributes { get; set; }
+    public VideoQuality Quality { get; set; }
     #endregion
 
 
@@ -51,6 +54,9 @@ namespace PirateAPI.Parser
         return false;
 
       if (other.ExtendedAttributes != ExtendedAttributes)
+        return false;
+
+      if (other.Quality != Quality)
         return false;
 
       return true;

@@ -10,6 +10,11 @@ namespace PirateAPI.Parser
 {
   public class TorznabQueryParser
   {
+    #region private consts
+    private const string sdCategory = "5030";
+    private const string hdCategory = "5040";
+    #endregion
+
     #region private fields
     private ILogger logger;
     #endregion
@@ -87,6 +92,10 @@ namespace PirateAPI.Parser
             parsedRequest.ShowName = tuple.Item2;
             break;
 
+          case "cat":
+            parsedRequest.Quality = ParseShowQuality(tuple.Item2);
+            break;
+
           default:
             break;
         }
@@ -109,6 +118,39 @@ namespace PirateAPI.Parser
       }
 
       return parsedValue;
+    }
+
+    private VideoQuality ParseShowQuality(string categories)
+    {
+      if (string.IsNullOrWhiteSpace(categories))
+      {
+        logger.LogError("TorznabQueryParser.ParseShowQuality was passed a null or empty string for show quality categories, defaulting to SD");
+        return VideoQuality.SD;
+      }
+
+      string[] cats = categories.Split(',');
+
+      bool sd = false;
+      bool hd = false;
+
+      foreach (string cat in cats)
+      {
+        if (cat == sdCategory)
+          sd = true;
+
+        if (cat == hdCategory)
+          hd = true;
+      }
+
+      VideoQuality quality = VideoQuality.SD;
+
+      if (sd && hd)
+        quality = VideoQuality.Both;
+
+      else if (hd)
+        quality = VideoQuality.HD;
+
+      return quality;
     }
     #endregion
   }
