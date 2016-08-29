@@ -54,6 +54,8 @@
     <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListAPIResponse.cs" />
     <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestResolver\PirateRequestResolver.cs" />
+    <Compile Include="RequestResolver\Torrent.cs" />
     <Compile Include="WebServer\BasicWebServer.cs" />
     <Compile Include="WebServer\IWebServer.cs" />
   </ItemGroup>

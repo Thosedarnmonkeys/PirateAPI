@@ -17,8 +17,27 @@ namespace PirateAPI.Parser
       {
         string pirateProxy = string.IsNullOrWhiteSpace(PirateProxyURL) ? "" : PirateProxyURL;
         string searchArg = string.IsNullOrWhiteSpace(ShowName) ? "" : ShowName.Replace("+", "%20");
+        string categories;
+        switch (Quality)
+        {
+          case VideoQuality.SD:
+            categories = "205";
+            break;
 
-        return $"{pirateProxy}/search/{searchArg}/0/99/0";
+          case VideoQuality.HD:
+            categories = "208";
+            break;
+
+          case VideoQuality.Both:
+            categories = "205,208";
+            break;
+
+          default:
+            categories = "205";
+            break;
+        }
+
+        return $"{pirateProxy}/search/{searchArg}/0/99/{categories}";
       }
     }
 

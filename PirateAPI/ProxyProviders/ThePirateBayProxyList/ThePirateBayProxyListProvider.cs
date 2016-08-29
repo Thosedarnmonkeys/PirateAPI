@@ -85,9 +85,11 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
         else
           speed = ProxySpeed.Slow;
 
+        string protocol = proxy.Secure ? "https" : "http";
+
         proxies.Add(new Proxy
         {
-          Domain = proxy.Domain,
+          Domain = $"{protocol}://www.{proxy.Domain}",
           Country = proxy.Country,
           Speed = speed
         });
