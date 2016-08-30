@@ -77,13 +77,37 @@ namespace Tests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 		&lt;tr class=&quot;header&quot;&gt;
-        ///			&lt;th&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/13/205,208&quot; title=&quot;Order by Type&quot;&gt;Type&lt;/a&gt;&lt;/th&gt;
-        ///			&lt;th&gt;&lt;div class=&quot;sortby&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/1/205,208&quot; title=&quot;Order by Name&quot;&gt;Name&lt;/a&gt; (Order by: &lt;a href=&quot;/search/Rick%20And%20Morty/0/3/205,208&quot; title=&quot;Order by Uploaded&quot;&gt;Uploaded&lt;/a&gt;, &lt;a href=&quot;/search/Rick%20And%20Morty/0/5/205,208&quot; title=&quot;Order by Size&quot;&gt;Size&lt;/a&gt;, &lt;span style=&quot;white-space: nowrap;&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/11/205,208&quot; title=&quot;Order by ULed b [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;
+        ///    &lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;google-site-verification&quot; content=&quot;bERYeomIC5eBWlPLupPPYPYGA9GvAUKzFHh3WIw24Xs&quot;&gt;
+        ///    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;Search The Pirate Bay&quot;&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//pirateproxy.red/static/css/pirate6.css&quot;&gt;
+        ///    [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PiratePageSearchRickAndMortyCorrectResolve {
+        internal static string PiratePageSearchRickAndMorty5Rows {
             get {
-                return ResourceManager.GetString("PiratePageSearchRickAndMortyCorrectResolve", resourceCulture);
+                return ResourceManager.GetString("PiratePageSearchRickAndMorty5Rows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/208&quot; title=&quot;More from this category&quot;&gt;HD - TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/12678054/Rick_and_Morty_Season_2_[WEBRIP]_[1080p]_[HEVC]&quot; class=&quot;detLink&quot; title=&quot;Details for Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&quot;&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:0494a80532b5b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PiratePageSearchRickAndMorty5RowsSplit {
+            get {
+                return ResourceManager.GetString("PiratePageSearchRickAndMorty5RowsSplit", resourceCulture);
             }
         }
     }
