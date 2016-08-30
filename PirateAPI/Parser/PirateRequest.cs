@@ -17,6 +17,7 @@ namespace PirateAPI.Parser
       {
         string pirateProxy = string.IsNullOrWhiteSpace(PirateProxyURL) ? "" : PirateProxyURL;
         string searchArg = string.IsNullOrWhiteSpace(ShowName) ? "" : ShowName.Replace("+", "%20");
+        double page = Math.Floor((double)Offset/30);
         string categories;
         switch (Quality)
         {
@@ -37,7 +38,7 @@ namespace PirateAPI.Parser
             break;
         }
 
-        return $"{pirateProxy}/search/{searchArg}/0/99/{categories}";
+        return $"{pirateProxy}/search/{searchArg}/{page}/99/{categories}";
       }
     }
 

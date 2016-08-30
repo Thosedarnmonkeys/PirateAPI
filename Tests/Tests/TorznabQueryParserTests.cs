@@ -88,7 +88,7 @@ namespace Tests.Tests
 
       Assert.AreEqual(correctRequest, parsedRequest);
 
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/205,208";
+      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/1/99/205,208";
 
       Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
