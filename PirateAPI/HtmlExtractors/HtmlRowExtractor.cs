@@ -24,6 +24,7 @@ namespace PirateAPI.HtmlExtractors
     }
     #endregion
 
+    #region public methods
     public List<string> ExtractRows(string html)
     {
       if (string.IsNullOrWhiteSpace(html))
@@ -45,7 +46,7 @@ namespace PirateAPI.HtmlExtractors
       }
 
       MatchCollection matches = tableRowsRegex.Matches(html);
-      List<string> rows= new List<string>();
+      List<string> rows = new List<string>();
 
       foreach (Match match in matches)
       {
@@ -54,5 +55,6 @@ namespace PirateAPI.HtmlExtractors
 
       return rows;
     }
+    #endregion
   }
 }
