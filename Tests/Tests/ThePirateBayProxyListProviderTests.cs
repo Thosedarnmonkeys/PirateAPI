@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PirateAPITests.Tests.StubClasses;
+using Tests.Tests.StubClasses;
 
 namespace PirateAPITests.Tests
 {
@@ -17,6 +18,15 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestListProxies()
     {
+      string responseString = "{\"proxies\":[" +
+        "{\"domain\":\"gameofbay.org\",\"speed\":0.002,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
+        "{\"domain\":\"unblockedbay.info\",\"speed\":0.061,\"secure\":true,\"country\":\"US\",\"probed\":true}," +
+        "{\"domain\":\"tpbunblocked.org\",\"speed\":1.112,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
+        "{\"domain\":\"thepiratebay.uk.net\",\"speed\":0.179,\"secure\":true,\"country\":\"IT\",\"probed\":true}," +
+        "{\"domain\":\"piratebay.host\",\"speed\":0.208,\"secure\":false,\"country\":\"NO\",\"probed\":true}," +
+        "{\"domain\":\"piratebay.click\",\"speed\":0.416,\"secure\":true,\"country\":\"UK\",\"probed\":true}]," +
+        "{\"last_updated\":1472467201}}";
+
       List<Proxy> correctProxies = new List<Proxy>
       {
         new Proxy { Domain = "https://www.gameofbay.org", Country = "uk", Speed = ProxySpeed.VeryFast },
@@ -27,27 +37,11 @@ namespace PirateAPITests.Tests
         new Proxy { Domain = "https://www.piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
       };
 
-      BasicWebServer server = new BasicWebServer("", 80, ProxyString, new StubLogger());
-
-      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger());
+      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), new StubWebClient(() => responseString));
 
       List<Proxy> proxies = provider.ListProxies();
 
       Assert.AreEqual(correctProxies, proxies);
-    }
-
-    private string ProxyString(string s)
-    {
-      string response = "{\"proxies\":[" +
-        "{\"domain\":\"gameofbay.org\",\"speed\":0.002,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
-        "{\"domain\":\"unblockedbay.info\",\"speed\":0.061,\"secure\":true,\"country\":\"US\",\"probed\":true}," +
-        "{\"domain\":\"tpbunblocked.org\",\"speed\":1.112,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
-        "{\"domain\":\"thepiratebay.uk.net\",\"speed\":0.179,\"secure\":true,\"country\":\"IT\",\"probed\":true}," +
-        "{\"domain\":\"piratebay.host\",\"speed\":0.208,\"secure\":false,\"country\":\"NO\",\"probed\":true}," +
-        "{\"domain\":\"piratebay.click\",\"speed\":0.416,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
-        "{\"last_updated\":1472467201}}";
-
-      return response;
     }
   }
 }

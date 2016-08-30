@@ -49,6 +49,7 @@
     <Compile Include="Tests\PirateRequestResolverTests.cs" />
     <Compile Include="Tests\ProxyPickerTests.cs" />
     <Compile Include="Tests\StubClasses\StubLogger.cs" />
+    <Compile Include="Tests\StubClasses\StubWebClient.cs" />
     <Compile Include="Tests\ThePirateBayProxyListProviderTests.cs" />
     <Compile Include="Tests\TorznabQueryParserTests.cs" />
     <Compile Include="Tests\WebServerTests.cs" />

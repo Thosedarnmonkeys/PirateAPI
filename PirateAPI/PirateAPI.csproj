@@ -56,6 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestResolver\PirateRequestResolver.cs" />
     <Compile Include="RequestResolver\Torrent.cs" />
+    <Compile Include="WebClient\BasicWebClient.cs" />
+    <Compile Include="WebClient\IWebClient.cs" />
     <Compile Include="WebServer\BasicWebServer.cs" />
     <Compile Include="WebServer\IWebServer.cs" />
   </ItemGroup>

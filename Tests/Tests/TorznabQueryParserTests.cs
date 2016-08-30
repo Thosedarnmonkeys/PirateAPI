@@ -33,10 +33,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -60,10 +56,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -87,10 +79,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/1/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -114,10 +102,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20Different%20Thing/0/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -141,10 +125,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -168,10 +148,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://adifferentfakepirateproxy.com/search/A%20TV%20Show/0/99/205,208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -195,10 +171,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/208";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
     [Test]
@@ -222,10 +194,6 @@ namespace Tests.Tests
       PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
 
       Assert.AreEqual(correctRequest, parsedRequest);
-
-      string correctPirateURL = "http://fakepirateproxy.com/search/A%20TV%20Show/0/99/205";
-
-      Assert.AreEqual(correctPirateURL, parsedRequest.RequestUrl);
     }
 
   }

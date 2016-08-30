@@ -8,6 +8,7 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.IO;
 using PirateAPI.Logging;
+using PirateAPI.WebClient;
 
 namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 {
@@ -19,19 +20,20 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
     #region private fields
     private ILogger logger;
+    private IWebClient webClient;
     #endregion
 
     #region constructor
-    public ThePirateBayProxyListProvider(ILogger logger)
+    public ThePirateBayProxyListProvider(ILogger logger, IWebClient webClient)
     {
       this.logger = logger;
+      this.webClient = webClient;
     }
     #endregion
 
     #region public methods
     public List<Proxy> ListProxies()
     {
-      WebClient webClient = new WebClient();
       string response;
 
       //Get api listing of proxies
