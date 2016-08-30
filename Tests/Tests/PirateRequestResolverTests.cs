@@ -3,9 +3,15 @@ using PirateAPI.Parser;
 using PirateAPI.RequestResolver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
+using PirateAPITests.Tests.StubClasses;
+using Tests.Properties;
+using Tests.Tests.StubClasses;
 
 namespace Tests.Tests
 {
@@ -15,7 +21,7 @@ namespace Tests.Tests
     [Test]
     public void TestHandleBasicRequest()
     {
-      DateTime pubDate = new DateTime(2016, 8, 1);
+      string responseString = Resources.PiratePageSearchRickAndMorty;
 
       string correctResponse = "";
 
@@ -29,7 +35,7 @@ namespace Tests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      PirateRequestResolver resolver = new PirateRequestResolver();
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), new StubWebClient(() => responseString));
 
       string torrentsString = resolver.Resolve(request);
 
