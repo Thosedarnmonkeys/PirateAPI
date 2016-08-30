@@ -81,7 +81,7 @@ namespace PirateAPI.Parser
             break;
 
           case "offset":
-            parsedRequest.Offset = ParseInt(tuple.Item2, tuple.Item1);
+            parsedRequest.Offset = ParseInt(tuple.Item2, tuple.Item1) ?? 0;
             break;
 
           case "limit":
@@ -96,7 +96,16 @@ namespace PirateAPI.Parser
             parsedRequest.Quality = ParseShowQuality(tuple.Item2);
             break;
 
-          default:
+          case "season":
+            parsedRequest.Season = ParseInt(tuple.Item2, tuple.Item1);
+            break;
+
+          case "ep":
+            parsedRequest.Episode = ParseInt(tuple.Item2, tuple.Item1);
+            break;
+
+          case "maxage":
+            parsedRequest.MaxAge = ParseInt(tuple.Item2, tuple.Item1);
             break;
         }
       }
@@ -108,13 +117,13 @@ namespace PirateAPI.Parser
 
 
     #region private methods
-    private int ParseInt(string value, string paramName)
+    private int? ParseInt(string value, string paramName)
     {
       int parsedValue;
       if (!int.TryParse(value, out parsedValue))
       {
         logger.LogError($"Unable to parse value {value} to int, param name of {paramName}");
-        return 0;
+        return null;
       }
 
       return parsedValue;

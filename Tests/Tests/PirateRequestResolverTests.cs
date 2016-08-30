@@ -22,24 +22,28 @@ namespace Tests.Tests
     public void TestHandleBasicRequest()
     {
       string responseString = Resources.PiratePageSearchRickAndMorty;
+      StubWebClient webClient = new StubWebClient(() => responseString);
 
-      string correctResponse = "";
-
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
         Offset = 0,
         Quality = VideoQuality.Both,
-        ExtendedAttributes = false,
-        ShowName = "A+TV+Show",
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), new StubWebClient(() => responseString));
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent() { }
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
 
-      string torrentsString = resolver.Resolve(request);
-
-      Assert.AreEqual(correctResponse, torrentsString);
+      string addressRequested = "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208";
+      Assert.AreEqual(addressRequested, webClient.LastRequest);
     }
   }
 }

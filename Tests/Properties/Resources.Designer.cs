@@ -75,5 +75,16 @@ namespace Tests.Properties {
                 return ResourceManager.GetString("PiratePageSearchRickAndMorty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 		&lt;tr class=&quot;header&quot;&gt;
+        ///			&lt;th&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/13/205,208&quot; title=&quot;Order by Type&quot;&gt;Type&lt;/a&gt;&lt;/th&gt;
+        ///			&lt;th&gt;&lt;div class=&quot;sortby&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/1/205,208&quot; title=&quot;Order by Name&quot;&gt;Name&lt;/a&gt; (Order by: &lt;a href=&quot;/search/Rick%20And%20Morty/0/3/205,208&quot; title=&quot;Order by Uploaded&quot;&gt;Uploaded&lt;/a&gt;, &lt;a href=&quot;/search/Rick%20And%20Morty/0/5/205,208&quot; title=&quot;Order by Size&quot;&gt;Size&lt;/a&gt;, &lt;span style=&quot;white-space: nowrap;&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/11/205,208&quot; title=&quot;Order by ULed b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PiratePageSearchRickAndMortyCorrectResolve {
+            get {
+                return ResourceManager.GetString("PiratePageSearchRickAndMortyCorrectResolve", resourceCulture);
+            }
+        }
     }
 }

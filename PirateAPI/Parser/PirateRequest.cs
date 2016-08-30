@@ -11,43 +11,15 @@ namespace PirateAPI.Parser
   public class PirateRequest
   {
     #region public properties
-    //public string RequestUrl
-    //{
-    //  get
-    //  {
-    //    string pirateProxy = string.IsNullOrWhiteSpace(PirateProxyURL) ? "" : PirateProxyURL;
-    //    string searchArg = string.IsNullOrWhiteSpace(ShowName) ? "" : ShowName.Replace("+", "%20");
-    //    double page = Math.Floor((double)Offset/30);
-    //    string categories;
-    //    switch (Quality)
-    //    {
-    //      case VideoQuality.SD:
-    //        categories = "205";
-    //        break;
-
-    //      case VideoQuality.HD:
-    //        categories = "208";
-    //        break;
-
-    //      case VideoQuality.Both:
-    //        categories = "205,208";
-    //        break;
-
-    //      default:
-    //        categories = "205";
-    //        break;
-    //    }
-
-    //    return $"{pirateProxy}/search/{searchArg}/{page}/99/{categories}";
-    //  }
-    //}
-
     public string PirateProxyURL { get; set; }
     public string ShowName { get; set; }
-    public int Limit { get; set; }
+    public int? Limit { get; set; }
     public int Offset { get; set; }
     public bool ExtendedAttributes { get; set; }
     public VideoQuality Quality { get; set; }
+    public int? Season { get; set; }
+    public int? Episode { get; set; }
+    public int? MaxAge { get; set; }
     #endregion
 
 
@@ -74,6 +46,15 @@ namespace PirateAPI.Parser
         return false;
 
       if (other.Quality != Quality)
+        return false;
+
+      if (other.Season != Season)
+        return false;
+
+      if (other.Episode != Episode)
+        return false;
+
+      if (other.MaxAge != MaxAge)
         return false;
 
       return true;

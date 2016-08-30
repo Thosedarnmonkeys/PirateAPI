@@ -196,5 +196,122 @@ namespace Tests.Tests
       Assert.AreEqual(correctRequest, parsedRequest);
     }
 
+    [Test]
+    public void TestOmitsLimitIfNotPresent()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040&extended=0&offset=0";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = null,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.Both
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
+    [Test]
+    public void TestParsesSeason()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040&season=1";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = null,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.Both,
+        Season = 1
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
+    [Test]
+    public void TestParsesEpisode()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040&ep=10";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = null,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.Both,
+        Episode = 10
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
+    [Test]
+    public void TestParsesSeasonAndEpisode()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040&ep=12&season=3";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = null,
+        ExtendedAttributes = false,
+        Quality = VideoQuality.Both,
+        Episode = 12,
+        Season = 3
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
+    [Test]
+    public void TestParsesMaxAge()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040&maxage=30";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A+TV+Show",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Quality = VideoQuality.Both,
+        MaxAge = 30
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
   }
 }

@@ -1,0 +1,84 @@
+﻿<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/208" title="More from this category">HD - TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/12678054/Rick_and_Morty_Season_2_[WEBRIP]_[1080p]_[HEVC]" class="detLink" title="Details for Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]">Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]</a>
+</div>
+<a href="magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDowNDk0YTgwNTMyYjViMDVkZGU1NjdjNjEyMjBkOTM0MDZiN2UyMmU3JmRuPVJpY2srYW5kK01vcnR5K1NlYXNvbisyKyU1QldFQlJJUCU1RCslNUIxMDgwcCU1RCslNUJIRVZDJTVEJnRyPXVkcCUzQSUyRiUyRnRyYWNrZXIubGVlY2hlcnMtcGFyYWRpc2Uub3JnJTNBNjk2OSZ0cj11ZHAlM0ElMkYlMkZ6ZXIwZGF5LmNoJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZvcGVuLmRlbW9uaWkuY29tJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZ0cmFja2VyLmNvcHBlcnN1cmZlci50ayUzQTY5NjkmdHI9dWRwJTNBJTJGJTJGZXhvZHVzLmRlc3luYy5jb20lM0E2OTY5&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX"><img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link"></a><img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 5 comments." title="This torrent has 5 comments."><a href="/user/.BONE."><img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0"></a>
+			<font class="detDesc">Uploaded 11-03&nbsp;2015, Size 2.23&nbsp;GiB, ULed by <a class="detDesc" href="/user/.BONE./" title="Browse .BONE.">.BONE.</a></font>
+		</td>
+		<td align="right">590</td>
+		<td align="right">109</td>
+	</tr>
+	#
+	<tr class="alt">
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/208" title="More from this category">HD - TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/12162845/Rick_and_Morty_Season_1_[1080p]_[HEVC]" class="detLink" title="Details for Rick and Morty Season 1 [1080p] [HEVC]">Rick and Morty Season 1 [1080p] [HEVC]</a>
+</div>
+<a href="magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDowOGFkMTEyZDM0NjlmNDVlZDQ5MGZmZWQ4MjUzZDQ4YWEwMWU3MDJkJmRuPVJpY2srYW5kK01vcnR5K1NlYXNvbisxKyU1QjEwODBwJTVEKyU1QkhFVkMlNUQmdHI9dWRwJTNBJTJGJTJGdHJhY2tlci5sZWVjaGVycy1wYXJhZGlzZS5vcmclM0E2OTY5JnRyPXVkcCUzQSUyRiUyRnplcjBkYXkuY2glM0ExMzM3JnRyPXVkcCUzQSUyRiUyRm9wZW4uZGVtb25paS5jb20lM0ExMzM3JnRyPXVkcCUzQSUyRiUyRnRyYWNrZXIuY29wcGVyc3VyZmVyLnRrJTNBNjk2OSZ0cj11ZHAlM0ElMkYlMkZleG9kdXMuZGVzeW5jLmNvbSUzQTY5Njk=&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX"><img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link"></a><img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 18 comments." title="This torrent has 18 comments."><img src="//pirateproxy.red/static/img/11x11p.png">
+			<font class="detDesc">Uploaded 07-26&nbsp;2015, Size 2.98&nbsp;GiB, ULed by <i>Anonymous</i></font>
+		</td>
+		<td align="right">364</td>
+		<td align="right">60</td>
+	</tr>
+	#
+	<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/208" title="More from this category">HD - TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/12678018/Rick_and_Morty_Season_1_[UNCENSORED]_[BDRip]_[1080p]_[HEVC]" class="detLink" title="Details for Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]">Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]</a>
+</div>
+<a href="magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDplNDZiY2E5OThmNzI0MTFmN2VjNDNmODhhMWZmMzQ2MGY0YzQzZmE0JmRuPVJpY2srYW5kK01vcnR5K1NlYXNvbisxKyU1QlVOQ0VOU09SRUQlNUQrJTVCQkRSaXAlNUQrJTVCMTA4MHAlNUQrJTVCSEVWQyU1RCZ0cj11ZHAlM0ElMkYlMkZ0cmFja2VyLmxlZWNoZXJzLXBhcmFkaXNlLm9yZyUzQTY5NjkmdHI9dWRwJTNBJTJGJTJGemVyMGRheS5jaCUzQTEzMzcmdHI9dWRwJTNBJTJGJTJGb3Blbi5kZW1vbmlpLmNvbSUzQTEzMzcmdHI9dWRwJTNBJTJGJTJGdHJhY2tlci5jb3BwZXJzdXJmZXIudGslM0E2OTY5JnRyPXVkcCUzQSUyRiUyRmV4b2R1cy5kZXN5bmMuY29tJTNBNjk2OQ==&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX"><img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link"></a><img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 1 comments." title="This torrent has 1 comments."><a href="/user/.BONE."><img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0"></a>
+			<font class="detDesc">Uploaded 11-03&nbsp;2015, Size 3.21&nbsp;GiB, ULed by <a class="detDesc" href="/user/.BONE./" title="Browse .BONE.">.BONE.</a></font>
+		</td>
+		<td align="right">196</td>
+		<td align="right">67</td>
+	</tr>
+	#
+	<tr class="alt">
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/205" title="More from this category">TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/12557729/Rick_and_Morty_Season_2_Complete_720p_MKV" class="detLink" title="Details for Rick and Morty Season 2 Complete 720p MKV">Rick and Morty Season 2 Complete 720p MKV</a>
+</div>
+<a href="magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDo4Y2RjYjI0YzkwYzA2ZmIxYmYyYzY5NDg1Yzc2MzkwYWVkNTBjM2E1JmRuPVJpY2srYW5kK01vcnR5K1NlYXNvbisyK0NvbXBsZXRlKzcyMHArTUtWJnRyPXVkcCUzQSUyRiUyRnRyYWNrZXIubGVlY2hlcnMtcGFyYWRpc2Uub3JnJTNBNjk2OSZ0cj11ZHAlM0ElMkYlMkZ6ZXIwZGF5LmNoJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZvcGVuLmRlbW9uaWkuY29tJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZ0cmFja2VyLmNvcHBlcnN1cmZlci50ayUzQTY5NjkmdHI9dWRwJTNBJTJGJTJGZXhvZHVzLmRlc3luYy5jb20lM0E2OTY5&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX"><img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link"></a><img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 3 comments." title="This torrent has 3 comments."><img src="//pirateproxy.red/static/img/11x11p.png">
+			<font class="detDesc">Uploaded 10-12&nbsp;2015, Size 5.07&nbsp;GiB, ULed by <a class="detDesc" href="/user/ToyUp/" title="Browse ToyUp">ToyUp</a></font>
+		</td>
+		<td align="right">131</td>
+		<td align="right">25</td>
+	</tr>
+	#
+	<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/205" title="More from this category">TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/12525247/Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]" class="detLink" title="Details for Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]">Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]</a>
+</div>
+<a href="magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDo0NzVlZTkxNDdjOWMzYTRjMmMxZjNjMmE3YzA3OGQ4NTUyY2Y3NTk4JmRuPVJpY2suYW5kLk1vcnR5LlMwMkUxMC5IRFRWLngyNjQtQkFUViU1QmV0dHYlNUQmdHI9dWRwJTNBJTJGJTJGdHJhY2tlci5sZWVjaGVycy1wYXJhZGlzZS5vcmclM0E2OTY5JnRyPXVkcCUzQSUyRiUyRnplcjBkYXkuY2glM0ExMzM3JnRyPXVkcCUzQSUyRiUyRm9wZW4uZGVtb25paS5jb20lM0ExMzM3JnRyPXVkcCUzQSUyRiUyRnRyYWNrZXIuY29wcGVyc3VyZmVyLnRrJTNBNjk2OSZ0cj11ZHAlM0ElMkYlMkZleG9kdXMuZGVzeW5jLmNvbSUzQTY5Njk=&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX"><img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link"></a><img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 2 comments." title="This torrent has 2 comments."><a href="/user/ettv"><img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0"></a>
+			<font class="detDesc">Uploaded 10-05&nbsp;2015, Size 142.63&nbsp;MiB, ULed by <a class="detDesc" href="/user/ettv/" title="Browse ettv">ettv</a></font>
+		</td>
+		<td align="right">66</td>
+		<td align="right">22</td>
+	</tr>

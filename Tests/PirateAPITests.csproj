@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NUnit\nunit.framework.dll" />
+    <EmbeddedResource Include="Resources\PiratePageSearchRickAndMortyCorrectResolve.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

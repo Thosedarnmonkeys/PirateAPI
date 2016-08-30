@@ -11,6 +11,8 @@ namespace Tests.Tests.StubClasses
   {
     private Func<string> responseStringFunc;
 
+    public string LastRequest { get; set; }
+
     public StubWebClient(Func<string> responseStringFunc)
     {
       this.responseStringFunc = responseStringFunc;
@@ -18,6 +20,7 @@ namespace Tests.Tests.StubClasses
 
     public string DownloadString(string address)
     {
+      LastRequest = address;
       return responseStringFunc.Invoke();
     }
   }
