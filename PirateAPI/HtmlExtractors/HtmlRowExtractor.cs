@@ -29,10 +29,11 @@ namespace PirateAPI.HtmlExtractors
       if (string.IsNullOrWhiteSpace(html))
       {
         logger.LogError($"HtmlRowExtractor.ExtractRows was passed a null or empty string for {nameof(html)}");
-        return null;
+        return new List<string>();
       }
 
       html = html.Replace(Environment.NewLine, "");
+      html = html.Replace("\t", "");
 
       string tableRowsRegexPattern = @"(<tr.*?>.*?<\/tr>)";
       Regex tableRowsRegex = new Regex(tableRowsRegexPattern);
@@ -40,7 +41,7 @@ namespace PirateAPI.HtmlExtractors
       if (!tableRowsRegex.IsMatch(html))
       {
         logger.LogError($"Html {html} didn't match regex {tableRowsRegexPattern} in HtmlRowExtractor.ExtractRows");
-        return null;
+        return new List<string>();
       }
 
       MatchCollection matches = tableRowsRegex.Matches(html);

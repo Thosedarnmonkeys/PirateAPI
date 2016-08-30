@@ -14,14 +14,61 @@ namespace Tests.Tests
   public class HtmlRowExtractorTests
   {
     [Test]
-    public void TestRealPiratePage5Rows()
+    public void TestPiratePage5Rows()
     {
       string piratePage = Resources.PiratePageSearchRickAndMorty5Rows;
 
       HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
 
       List<string> rows = extractor.ExtractRows(piratePage);
-      List<string> correctRows = Resources.PiratePageSearchRickAndMorty5RowsSplit.Replace(Environment.NewLine, "").Split('#').ToList();
+      List<string> correctRows = Resources.PiratePageSearchRickAndMorty5RowsSplit
+                                  .Replace(Environment.NewLine, "")
+                                  .Replace("\t", "")
+                                  .Split('#')
+                                  .ToList();
+
+      Assert.AreEqual(correctRows, rows);
+    }
+
+    [Test]
+    public void TestPiratePage30Rows()
+    {
+      string piratePage = Resources.PiratePageSearchRickAndMorty;
+
+      HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
+
+      List<string> rows = extractor.ExtractRows(piratePage);
+      List<string> correctRows = Resources.PiratePageSearchRickAndMortySplit
+                                  .Replace(Environment.NewLine, "")
+                                  .Replace("\t", "")
+                                  .Split('#')
+                                  .ToList();
+
+      Assert.AreEqual(correctRows, rows);
+    }
+
+    [Test]
+    public void TestPiratePageNoResults()
+    {
+      string piratePage = Resources.PiratePageNoResults;
+
+      HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
+
+      List<string> rows = extractor.ExtractRows(piratePage);
+      List<string> correctRows = new List<string>();
+
+      Assert.AreEqual(correctRows, rows);
+    }
+
+    [Test]
+    public void TestEmptyPage()
+    {
+      string piratePage = "";
+
+      HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
+
+      List<string> rows = extractor.ExtractRows(piratePage);
+      List<string> correctRows = new List<string>();
 
       Assert.AreEqual(correctRows, rows);
     }

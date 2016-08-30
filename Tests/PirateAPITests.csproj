@@ -62,11 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NUnit\nunit.framework.dll" />
+    <None Include="Resources\PiratePageNoResults.txt" />
+    <None Include="Resources\PiratePageSearchRickAndMortySplit.txt" />
     <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty5Rows.txt" />
     <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty5RowsSplit.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty.txt" />
   </ItemGroup>
