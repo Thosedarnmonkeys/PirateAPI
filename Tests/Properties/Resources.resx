@@ -121,16 +121,16 @@
   <data name="PiratePageNoResults" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePageNoResults.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PiratePageSearchRickAndMorty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="PiratePageSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePageSearchRickAndMorty.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="PiratePageSearchRickAndMorty5Rows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="PiratePageSearch5Rows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePageSearchRickAndMorty5Rows.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="PiratePageSearchRickAndMorty5RowsSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="PiratePageSearch5RowsSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePageSearchRickAndMorty5RowsSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="PiratePageSearchRickAndMortySplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="PiratePageSearchSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePageSearchRickAndMortySplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowBasic" type="System.Resources.ResXFileRef, System.Windows.Forms">

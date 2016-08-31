@@ -86,9 +86,9 @@ namespace Tests.Properties {
         ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//pirateproxy.red/static/css/pirate6.css&quot;&gt;
         ///    [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PiratePageSearchRickAndMorty {
+        internal static string PiratePageSearch {
             get {
-                return ResourceManager.GetString("PiratePageSearchRickAndMorty", resourceCulture);
+                return ResourceManager.GetString("PiratePageSearch", resourceCulture);
             }
         }
         
@@ -102,9 +102,9 @@ namespace Tests.Properties {
         ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//pirateproxy.red/static/css/pirate6.css&quot;&gt;
         ///    [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PiratePageSearchRickAndMorty5Rows {
+        internal static string PiratePageSearch5Rows {
             get {
-                return ResourceManager.GetString("PiratePageSearchRickAndMorty5Rows", resourceCulture);
+                return ResourceManager.GetString("PiratePageSearch5Rows", resourceCulture);
             }
         }
         
@@ -113,9 +113,9 @@ namespace Tests.Properties {
         ///			&lt;th&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/13/205,208&quot; title=&quot;Order by Type&quot;&gt;Type&lt;/a&gt;&lt;/th&gt;
         ///			&lt;th&gt;&lt;div class=&quot;sortby&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/1/205,208&quot; title=&quot;Order by Name&quot;&gt;Name&lt;/a&gt; (Order by: &lt;a href=&quot;/search/Rick%20And%20Morty/0/3/205,208&quot; title=&quot;Order by Uploaded&quot;&gt;Uploaded&lt;/a&gt;, &lt;a href=&quot;/search/Rick%20And%20Morty/0/5/205,208&quot; title=&quot;Order by Size&quot;&gt;Size&lt;/a&gt;, &lt;span style=&quot;white-space: nowrap;&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/11/205,208&quot; title=&quot;Order by ULed by&quot; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PiratePageSearchRickAndMorty5RowsSplit {
+        internal static string PiratePageSearch5RowsSplit {
             get {
-                return ResourceManager.GetString("PiratePageSearchRickAndMorty5RowsSplit", resourceCulture);
+                return ResourceManager.GetString("PiratePageSearch5RowsSplit", resourceCulture);
             }
         }
         
@@ -124,9 +124,9 @@ namespace Tests.Properties {
         ///			&lt;th&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/13/205,208&quot; title=&quot;Order by Type&quot;&gt;Type&lt;/a&gt;&lt;/th&gt;
         ///			&lt;th&gt;&lt;div class=&quot;sortby&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/1/205,208&quot; title=&quot;Order by Name&quot;&gt;Name&lt;/a&gt; (Order by: &lt;a href=&quot;/search/Rick%20And%20Morty/0/3/205,208&quot; title=&quot;Order by Uploaded&quot;&gt;Uploaded&lt;/a&gt;, &lt;a href=&quot;/search/Rick%20And%20Morty/0/5/205,208&quot; title=&quot;Order by Size&quot;&gt;Size&lt;/a&gt;, &lt;span style=&quot;white-space: nowrap;&quot;&gt;&lt;a href=&quot;/search/Rick%20And%20Morty/0/11/205,208&quot; title=&quot;Order by ULed b [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PiratePageSearchRickAndMortySplit {
+        internal static string PiratePageSearchSplit {
             get {
-                return ResourceManager.GetString("PiratePageSearchRickAndMortySplit", resourceCulture);
+                return ResourceManager.GetString("PiratePageSearchSplit", resourceCulture);
             }
         }
         

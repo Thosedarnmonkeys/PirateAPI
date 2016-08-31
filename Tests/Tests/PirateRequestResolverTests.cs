@@ -22,7 +22,7 @@ namespace Tests.Tests
     [Test]
     public void TestHandleBasicRequest()
     {
-      string responseString = Resources.PiratePageSearchRickAndMorty;
+      string responseString = Resources.PiratePageSearch;
       StubWebClient webClient = new StubWebClient(() => responseString);
 
       PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);

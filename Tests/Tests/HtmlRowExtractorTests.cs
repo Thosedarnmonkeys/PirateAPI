@@ -16,12 +16,12 @@ namespace Tests.Tests
     [Test]
     public void TestPiratePage5Rows()
     {
-      string piratePage = Resources.PiratePageSearchRickAndMorty5Rows;
+      string piratePage = Resources.PiratePageSearch5Rows;
 
       HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
 
       List<string> rows = extractor.ExtractRows(piratePage);
-      List<string> correctRows = Resources.PiratePageSearchRickAndMorty5RowsSplit
+      List<string> correctRows = Resources.PiratePageSearch5RowsSplit
                                   .Replace(Environment.NewLine, "")
                                   .Replace("\t", "")
                                   .Split('#')
@@ -33,12 +33,12 @@ namespace Tests.Tests
     [Test]
     public void TestPiratePage30Rows()
     {
-      string piratePage = Resources.PiratePageSearchRickAndMorty;
+      string piratePage = Resources.PiratePageSearch;
 
       HtmlRowExtractor extractor = new HtmlRowExtractor(new StubLogger());
 
       List<string> rows = extractor.ExtractRows(piratePage);
-      List<string> correctRows = Resources.PiratePageSearchRickAndMortySplit
+      List<string> correctRows = Resources.PiratePageSearchSplit
                                   .Replace(Environment.NewLine, "")
                                   .Replace("\t", "")
                                   .Split('#')
