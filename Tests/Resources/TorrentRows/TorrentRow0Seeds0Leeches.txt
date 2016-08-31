@@ -1,0 +1,16 @@
+<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/100" title="More from this category">Audio</a><br>
+				(<a href="/browse/101" title="More from this category">Music</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/6063457/Edie_Brickell___New_Bohemians_-_Stranger_Things_(2006)" class="detLink" title="Details for Edie Brickell &amp; New Bohemians - Stranger Things (2006)">Edie Brickell &amp; New Bohemians - Stranger Things (2006)</a>
+</div>
+<a href="magnet:?xt=urn:btih:64db09320c813375fad8d14782bff07286adfbfe&amp;dn=Edie+Brickell+%26+New+Bohemians+-+Stranger+Things+%282006%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><img src="//pirateproxy.red/static/img/11x11p.png"><img src="//pirateproxy.red/static/img/11x11p.png">
+			<font class="detDesc">Uploaded 12-24&nbsp;2010, Size 130.18&nbsp;MiB, ULed by <a class="detDesc" href="/user/CanadaJoe/" title="Browse CanadaJoe">CanadaJoe</a></font>
+		</td>
+		<td align="right">0</td>
+		<td align="right">0</td>
+	</tr>

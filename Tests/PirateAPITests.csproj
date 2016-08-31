@@ -63,16 +63,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\PiratePageNoResults.txt" />
-    <None Include="Resources\PiratePageSearchSplit.txt" />
-    <None Include="Resources\PiratePageSearch5Rows.txt" />
-    <None Include="Resources\PiratePageSearch5RowsSplit.txt" />
+    <None Include="Resources\PiratePages\PiratePageNoResults.txt" />
+    <None Include="Resources\PiratePages\PiratePageSearchSplit.txt" />
+    <None Include="Resources\PiratePages\PiratePageSearch5Rows.txt" />
+    <None Include="Resources\PiratePages\PiratePageSearch5RowsSplit.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Resources\PiratePageSearch.txt" />
+    <None Include="Resources\PiratePages\PiratePageSearch.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PirateAPI\PirateAPI.csproj">
@@ -84,13 +84,16 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TorrentRowBasic.txt" />
+    <None Include="Resources\TorrentRows\TorrentRowVipUploader.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TorrentRowNoUploaderStatus.txt" />
+    <None Include="Resources\TorrentRows\TorrentRowNoUploaderStatus.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TorrentRowTrustedUploader.txt" />
+    <None Include="Resources\TorrentRows\TorrentRowTrustedUploader.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

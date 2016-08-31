@@ -119,27 +119,30 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PiratePageNoResults" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageNoResults.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\PiratePages\PiratePageNoResults.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="PiratePageSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearch.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePages\PiratePageSearch.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearch5Rows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearch5Rows.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePages\PiratePageSearch5Rows.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearch5RowsSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearch5RowsSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePages\PiratePageSearch5RowsSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearchSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearchSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\PiratePages\PiratePageSearchSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TorrentRow0Seeds0Leeches" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowNoUploaderStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TorrentRowNoUploaderStatus.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\TorrentRows\TorrentRowNoUploaderStatus.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowTrustedUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TorrentRowTrustedUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\TorrentRows\TorrentRowTrustedUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowVipUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TorrentRowBasic.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\TorrentRows\TorrentRowVipUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

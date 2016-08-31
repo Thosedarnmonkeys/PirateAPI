@@ -62,7 +62,47 @@ namespace Tests.Tests
     [Test]
     public void TestParseTrustedUploaderStatus()
     {
-      
+      string unparsedRow = Resources.TorrentRowVipUploader;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV[ettv]",
+        UploaderName = "EtHD",
+        Link = @"magnet:?xt=urn:btih:c17abf3885fd16a5e5405295ac6212c56700ac6c&amp;dn=Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2016, 7, 15),
+        UploaderStatus = TorrentUploaderStatus.Trusted,
+        Size = 1413763699,
+        Seeds = 238,
+        Leeches = 43
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
+    }
+
+    [Test]
+    public void TestParses0SeedsAnd0Leeches()
+    {
+      string unparsedRow = Resources.TorrentRow0Seeds0Leeches;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "Edie Brickell & New Bohemians - Stranger Things (2006)",
+        UploaderName = "CanadaJoe",
+        Link = @"magnet:?xt=urn:btih:64db09320c813375fad8d14782bff07286adfbfe&amp;dn=Edie+Brickell+%26+New+Bohemians+-+Stranger+Things+%282006%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2010, 12, 24),
+        UploaderStatus = TorrentUploaderStatus.None,
+        Size = 136507588,
+        Seeds = 0,
+        Leeches = 0
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
     }
   }
 }
