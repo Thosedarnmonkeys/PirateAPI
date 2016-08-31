@@ -117,7 +117,7 @@ namespace PirateAPITests.Tests
     public void TestStopAndRestartServing()
     {
       string webRoot = "";
-      int port = 8080;
+      int port = 8082;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -151,7 +151,7 @@ namespace PirateAPITests.Tests
     public void TestTryStartServingWhileAlreadyRunning()
     {
       string webRoot = "";
-      int port = 8080;
+      int port = 8083;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -174,7 +174,7 @@ namespace PirateAPITests.Tests
     public void TestBasicResponseTwiceInRow()
     {
       string webRoot = "";
-      int port = 8080;
+      int port = 8084;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();

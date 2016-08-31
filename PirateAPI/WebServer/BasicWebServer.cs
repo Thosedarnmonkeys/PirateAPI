@@ -37,12 +37,12 @@ namespace PirateAPI.WebServer
       {
         if (listener != null)
         {
-          logger.LogError("WebServer.StartServing was called by listener is not null");
+          logger.LogError("WebServer.StartServing was called when listener is not null");
           return false;
         }
 
         listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:" + port + webroot + "/");
+        listener.Prefixes.Add($"http://localhost:{port}{webroot}/");
         listener.Start();
         listener.BeginGetContext(ServeRequest, listener);
         logger.LogMessage($"WebServer started serving on address {listener.Prefixes.First()}");
