@@ -14,9 +14,9 @@ namespace Tests.Tests
   public class HtmlTorrentTableRowParserTests
   {
     [Test]
-    public void TestParseBasicRow()
+    public void TestParseVipUploaderStatus()
     {
-      string unparsedRow = Resources.TorrentRowBasic;
+      string unparsedRow = Resources.TorrentRowVipUploader;
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 

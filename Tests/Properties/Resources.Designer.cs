@@ -132,6 +132,44 @@ namespace Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/100&quot; title=&quot;More from this category&quot;&gt;Audio&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/101&quot; title=&quot;More from this category&quot;&gt;Music&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/15599437/Stranger_Things_vol._1__amp__2_soundtrack&quot; class=&quot;detLink&quot; title=&quot;Details for Stranger Things vol. 1 &amp;amp; 2 soundtrack&quot;&gt;Stranger Things vol. 1 &amp;amp; 2 soundtrack&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:d2a7e42ca278f125e3c27b62ad3381e713d1f6a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowNoUploaderStatus {
+            get {
+                return ResourceManager.GetString("TorrentRowNoUploaderStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/208&quot; title=&quot;More from this category&quot;&gt;HD - TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/15314146/Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV[ettv]&quot; class=&quot;detLink&quot; title=&quot;Details for Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV[ettv]&quot;&gt;Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV[ettv]&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowTrustedUploader {
+            get {
+                return ResourceManager.GetString("TorrentRowTrustedUploader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
         ///  &lt;td class=&quot;vertTh&quot;&gt;
         ///    &lt;center&gt;
         ///	  &lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;
@@ -147,28 +185,9 @@ namespace Tests.Properties {
         ///    &lt;/div&gt;
         ///    &lt;a href=&quot;ma [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TorrentRowBasic {
+        internal static string TorrentRowVipUploader {
             get {
-                return ResourceManager.GetString("TorrentRowBasic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;tr&gt;
-        ///		&lt;td class=&quot;vertTh&quot;&gt;
-        ///			&lt;center&gt;
-        ///				&lt;a href=&quot;/browse/100&quot; title=&quot;More from this category&quot;&gt;Audio&lt;/a&gt;&lt;br&gt;
-        ///				(&lt;a href=&quot;/browse/101&quot; title=&quot;More from this category&quot;&gt;Music&lt;/a&gt;)
-        ///			&lt;/center&gt;
-        ///		&lt;/td&gt;
-        ///		&lt;td&gt;
-        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/15599437/Stranger_Things_vol._1__amp__2_soundtrack&quot; class=&quot;detLink&quot; title=&quot;Details for Stranger Things vol. 1 &amp;amp; 2 soundtrack&quot;&gt;Stranger Things vol. 1 &amp;amp; 2 soundtrack&lt;/a&gt;
-        ///&lt;/div&gt;
-        ///&lt;a href=&quot;magnet:?xt=urn:btih:d2a7e42ca278f125e3c27b62ad3381e713d1f6a [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TorrentRowNoUploaderStatus {
-            get {
-                return ResourceManager.GetString("TorrentRowNoUploaderStatus", resourceCulture);
+                return ResourceManager.GetString("TorrentRowVipUploader", resourceCulture);
             }
         }
     }

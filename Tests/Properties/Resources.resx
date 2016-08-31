@@ -122,21 +122,24 @@
     <value>..\Resources\PiratePageNoResults.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="PiratePageSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearchRickAndMorty.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePageSearch.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearch5Rows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearchRickAndMorty5Rows.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePageSearch5Rows.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearch5RowsSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearchRickAndMorty5RowsSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\PiratePageSearch5RowsSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="PiratePageSearchSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PiratePageSearchRickAndMortySplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TorrentRowBasic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TorrentRowBasic.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\PiratePageSearchSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowNoUploaderStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRowNoUploaderStatus.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TorrentRowTrustedUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRowTrustedUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TorrentRowVipUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRowBasic.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

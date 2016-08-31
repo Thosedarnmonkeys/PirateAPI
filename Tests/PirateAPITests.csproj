@@ -64,15 +64,15 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\PiratePageNoResults.txt" />
-    <None Include="Resources\PiratePageSearchRickAndMortySplit.txt" />
-    <None Include="Resources\PiratePageSearchRickAndMorty5Rows.txt" />
-    <None Include="Resources\PiratePageSearchRickAndMorty5RowsSplit.txt" />
+    <None Include="Resources\PiratePageSearchSplit.txt" />
+    <None Include="Resources\PiratePageSearch5Rows.txt" />
+    <None Include="Resources\PiratePageSearch5RowsSplit.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Resources\PiratePageSearchRickAndMorty.txt" />
+    <None Include="Resources\PiratePageSearch.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PirateAPI\PirateAPI.csproj">
@@ -88,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TorrentRowNoUploaderStatus.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TorrentRowTrustedUploader.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
