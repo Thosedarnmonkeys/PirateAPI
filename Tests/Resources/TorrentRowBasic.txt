@@ -1,0 +1,30 @@
+<tr>
+  <td class="vertTh">
+    <center>
+	  <a href="/browse/200" title="More from this category">Video</a>
+	  <br>
+	  (<a href="/browse/208" title="More from this category">HD - TV shows</a>)
+	</center>
+  </td>
+  <td>
+    <div class="detName">
+      <a href="/torrent/12678054/Rick_and_Morty_Season_2_[WEBRIP]_[1080p]_[HEVC]" class="detLink" title="Details for Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]">
+	    Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]
+	  </a>
+    </div>
+    <a href="magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet">
+	  <img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link">
+	</a>
+	<a href="//cdn.bitx.tv/bx.php?torrent=bWFnbmV0Oj94dD11cm46YnRpaDowNDk0YTgwNTMyYjViMDVkZGU1NjdjNjEyMjBkOTM0MDZiN2UyMmU3JmRuPVJpY2srYW5kK01vcnR5K1NlYXNvbisyKyU1QldFQlJJUCU1RCslNUIxMDgwcCU1RCslNUJIRVZDJTVEJnRyPXVkcCUzQSUyRiUyRnRyYWNrZXIubGVlY2hlcnMtcGFyYWRpc2Uub3JnJTNBNjk2OSZ0cj11ZHAlM0ElMkYlMkZ6ZXIwZGF5LmNoJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZvcGVuLmRlbW9uaWkuY29tJTNBMTMzNyZ0cj11ZHAlM0ElMkYlMkZ0cmFja2VyLmNvcHBlcnN1cmZlci50ayUzQTY5NjkmdHI9dWRwJTNBJTJGJTJGZXhvZHVzLmRlc3luYy5jb20lM0E2OTY5&amp;affid=1337&amp;imdb=" target="_blank" title="Play now using BitX">
+      <img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link">
+    </a>
+    <img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 5 comments." title="This torrent has 5 comments.">
+      <a href="/user/.BONE."><img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0">
+    </a>
+    <font class="detDesc">
+      Uploaded 11-03&nbsp;2015, Size 2.23&nbsp;GiB, ULed by <a class="detDesc" href="/user/.BONE./" title="Browse .BONE.">.BONE.</a>
+    </font>
+  </td>
+  <td align="right">590</td>
+  <td align="right">109</td>
+</tr>

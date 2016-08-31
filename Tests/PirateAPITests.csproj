@@ -50,6 +50,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Tests\HtmlRowExtractorTests.cs" />
+    <Compile Include="Tests\HtmlTorrentTableRowParserTests.cs" />
     <Compile Include="Tests\PirateAPIHostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\PirateRequestResolverTests.cs" />
@@ -64,14 +65,14 @@
     <None Include="packages.config" />
     <None Include="Resources\PiratePageNoResults.txt" />
     <None Include="Resources\PiratePageSearchRickAndMortySplit.txt" />
-    <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty5Rows.txt" />
-    <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty5RowsSplit.txt" />
+    <None Include="Resources\PiratePageSearchRickAndMorty5Rows.txt" />
+    <None Include="Resources\PiratePageSearchRickAndMorty5RowsSplit.txt" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\PiratePageSearchRickAndMorty.txt" />
+    <None Include="Resources\PiratePageSearchRickAndMorty.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PirateAPI\PirateAPI.csproj">
@@ -81,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TorrentRowBasic.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
