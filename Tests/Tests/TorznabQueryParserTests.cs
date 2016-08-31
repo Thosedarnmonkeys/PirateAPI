@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using PirateAPI.Parser;
+using PirateAPI.Parsers.Torznab;
 using PirateAPITests.Tests.StubClasses;
 using System;
 using System.Collections.Generic;

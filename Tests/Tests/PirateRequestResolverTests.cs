@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
-using PirateAPI.Parser;
+using PirateAPI.Parsers.Torznab;
+using PirateAPI.Parsers.Torrents;
 using PirateAPI.RequestResolver;
 using System;
 using System.Collections.Generic;
