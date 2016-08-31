@@ -15,7 +15,7 @@ namespace PirateAPI.Parsers.Torrents
     public DateTime PublishDate { get; set; }
     public string Link { get; set; }
     public TorrentUploaderStatus UploaderStatus { get; set; }
-    public ulong Size { get; set; }
+    public long Size { get; set; }
     public int Seeds { get; set; }
     public int Leeches { get; set; }
 

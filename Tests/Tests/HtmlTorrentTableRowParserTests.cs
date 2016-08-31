@@ -23,12 +23,12 @@ namespace Tests.Tests
       Torrent torrent = parser.ParseRow(unparsedRow);
       Torrent correctTorrent = new Torrent
       {
-        Title = "Rick and Morty Season 2[WEBRIP][1080p][HEVC]",
+        Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
         UploaderName = ".BONE.",
         Link = @"magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-        PublishDate = new DateTime(2016, 11, 3),
+        PublishDate = new DateTime(2015, 11, 3),
         UploaderStatus = TorrentUploaderStatus.Vip,
-        Size = 2399284168,
+        Size = 2394444267,
         Seeds = 590,
         Leeches = 109
       };
@@ -46,14 +46,14 @@ namespace Tests.Tests
       Torrent torrent = parser.ParseRow(unparsedRow);
       Torrent correctTorrent = new Torrent
       {
-        Title = "Stranger Things vol. 1 & 2 ",
+        Title = "Stranger Things vol. 1 &amp; 2 soundtrack",
         UploaderName = "Rant423",
         Link = @"magnet:?xt=urn:btih:d2a7e42ca278f125e3c27b62ad3381e713d1f6a8&amp;dn=Stranger+Things+vol.+1+%26amp%3B+2+soundtrack&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
         PublishDate = new DateTime(2016, 8, 19, 12, 55, 0),
         UploaderStatus = TorrentUploaderStatus.None,
-        Size = 353204324,
-        Seeds = 82,
-        Leeches = 14
+        Size = 353202339,
+        Seeds = 99,
+        Leeches = 17
       };
 
       Assert.AreEqual(correctTorrent, torrent);
@@ -62,7 +62,7 @@ namespace Tests.Tests
     [Test]
     public void TestParseTrustedUploaderStatus()
     {
-      string unparsedRow = Resources.TorrentRowVipUploader;
+      string unparsedRow = Resources.TorrentRowTrustedUploader;
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
@@ -74,7 +74,7 @@ namespace Tests.Tests
         Link = @"magnet:?xt=urn:btih:c17abf3885fd16a5e5405295ac6212c56700ac6c&amp;dn=Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
         PublishDate = new DateTime(2016, 7, 15, 18, 23, 0),
         UploaderStatus = TorrentUploaderStatus.Trusted,
-        Size = 1413763699,
+        Size = 1417339207,
         Seeds = 238,
         Leeches = 43
       };
@@ -92,12 +92,12 @@ namespace Tests.Tests
       Torrent torrent = parser.ParseRow(unparsedRow);
       Torrent correctTorrent = new Torrent
       {
-        Title = "Edie Brickell & New Bohemians - Stranger Things (2006)",
+        Title = "Edie Brickell &amp; New Bohemians - Stranger Things (2006)",
         UploaderName = "CanadaJoe",
         Link = @"magnet:?xt=urn:btih:64db09320c813375fad8d14782bff07286adfbfe&amp;dn=Edie+Brickell+%26+New+Bohemians+-+Stranger+Things+%282006%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
         PublishDate = new DateTime(2010, 12, 24),
         UploaderStatus = TorrentUploaderStatus.None,
-        Size = 136507588,
+        Size = 136503623,
         Seeds = 0,
         Leeches = 0
       };

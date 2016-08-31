@@ -33,18 +33,21 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
+      rowString = rowString.Replace(Environment.NewLine, "")
+                           .Replace("\t", "");
+
       Torrent torrent = new Torrent();
 
-      string namePattern = @"""detName"">\s*?<a.*?>(.*?)<";
+      string namePattern = @"""detName"">\s*?<a.*?>\s*?(\w.*?)\s*?<";
       torrent.Title = CheckMatchAndGetFirst(rowString, namePattern, "Title");
 
       string linkPattern = @"href=""(magnet:\?.*?)""";
       torrent.Link = CheckMatchAndGetFirst(rowString, linkPattern, "Link");
 
-      string uploaderPattern = @"<a href=""\/ user\/ (.*?)""";
+      string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
       torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName");
 
-      string statusPattern = $@"<a href=""\/ user\/{torrent.UploaderName}"">.*?<img.*?title=""(.*?)""";
+      string statusPattern = $@"<a href=""\/user\/{torrent.UploaderName}"">.*?<img.*?title=""(.*?)""";
       string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus");
       torrent.UploaderStatus = ParseUploaderStatus(statusString);
 
@@ -52,7 +55,14 @@ namespace PirateAPI.Parsers.Torrents
       string publishString = CheckMatchAndGetFirst(rowString, publishPattern, "PublishDate");
       torrent.PublishDate = ParsePublishDateTime(publishString);
 
+      string sizePattern = @"""detDesc"">.*?Size (.*?),";
+      string sizeString = CheckMatchAndGetFirst(rowString, sizePattern, "Size");
+      torrent.Size = ParseSizeULong(sizeString);
 
+      string seedsAndLeechesPattern = @"<td align=""right"">(.*?)<";
+      Tuple<string, string> seedsAndLeechesTuple = CheckMatchAndGetFirstTuple(rowString, seedsAndLeechesPattern, "Seeds", "Leeches");
+      torrent.Seeds = ParseInt(seedsAndLeechesTuple.Item1, "Seeds");
+      torrent.Leeches = ParseInt(seedsAndLeechesTuple.Item2, "Leeches");
 
       return torrent;
     }
@@ -71,7 +81,30 @@ namespace PirateAPI.Parsers.Torrents
 
       Match match = regex.Match(input);
 
-      return match.Value;
+      return match.Groups[1].Value;
+    }
+
+    private Tuple<string, string> CheckMatchAndGetFirstTuple(string input, string pattern, string firstParam, string secondParam)
+    {
+      Regex regex = new Regex(pattern);
+
+      if (!regex.IsMatch(input))
+      {
+        logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input} for Torrent props {firstParam} and {secondParam}");
+        return null;
+      }
+
+      MatchCollection matches = regex.Matches(input);
+
+      if (matches.Count != 2)
+      {
+        logger.LogError($"Regex pattern {pattern} had {matches.Count} matches, instead of 2, for input {input}");
+        return new Tuple<string, string>("0", "0");
+      }
+
+      string seeds = matches[0].Groups[1].Value;
+      string leeches = matches[1].Groups[1].Value;
+      return new Tuple<string, string>(seeds, leeches);
     }
 
     private TorrentUploaderStatus ParseUploaderStatus(string input)
@@ -167,6 +200,81 @@ namespace PirateAPI.Parsers.Torrents
       }
 
       return dateTime;
+    }
+
+    private long ParseSizeULong(string input)
+    {
+      if (string.IsNullOrWhiteSpace(input))
+      {
+        logger.LogError($"HtmlTorrentTableRowParser.ParseSizeLong was passed a null or empty string for {nameof(input)}");
+        return 0;
+      }
+
+      input = input.Replace("&nbsp;", " ");
+      string[] vals = input.Split(' ');
+
+      bool divBy100 = false;
+      int qualifiedSize;
+
+      if (vals[0].Contains('.'))
+      {
+        vals[0] = vals[0].Replace(".", "");
+        divBy100 = true;
+      }
+
+      if (!int.TryParse(vals[0], out qualifiedSize))
+      {
+        logger.LogError($"Unable to parse {vals[0]} to int for qualifiedSize");
+        return 0;
+      }
+
+      long multiplier;
+      switch (vals[1])
+      {
+        case "B":
+          multiplier = 1;
+          break;
+
+        case "KiB":
+          multiplier = 1024;
+          break;
+
+        case "MiB":
+          multiplier = 1048576;
+          break;
+
+        case "GiB":
+          multiplier = 1073741824;
+          break;
+
+        case "TiB":
+          multiplier = 1099511627776;
+          break;
+
+        //Stopping here, because you should too
+        
+        default:
+          multiplier = 1;
+          break;
+      }
+
+      long size = qualifiedSize*multiplier;
+      if (divBy100)
+        size = size/100;
+
+      return size;
+    }
+
+    private int ParseInt(string input, string paramName)
+    {
+      int val;
+      if (!int.TryParse(input, out val))
+      {
+        logger.LogError($"Couldn't parse value {input} to int for {paramName}");
+        return 0;
+      }
+
+      return val;
     }
     #endregion
   }
