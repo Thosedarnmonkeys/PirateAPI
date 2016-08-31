@@ -1,0 +1,16 @@
+<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/100" title="More from this category">Audio</a><br>
+				(<a href="/browse/101" title="More from this category">Music</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/15599437/Stranger_Things_vol._1__amp__2_soundtrack" class="detLink" title="Details for Stranger Things vol. 1 &amp; 2 soundtrack">Stranger Things vol. 1 &amp; 2 soundtrack</a>
+</div>
+<a href="magnet:?xt=urn:btih:d2a7e42ca278f125e3c27b62ad3381e713d1f6a8&amp;dn=Stranger+Things+vol.+1+%26amp%3B+2+soundtrack&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.red/static/img/icon-magnet.gif" alt="Magnet link"></a><img src="//pirateproxy.red/static/img/11x11p.png"><img src="//pirateproxy.red/static/img/11x11p.png">
+			<font class="detDesc">Uploaded 08-19&nbsp;12:55, Size 336.84&nbsp;MiB, ULed by <a class="detDesc" href="/user/Rant423/" title="Browse Rant423">Rant423</a></font>
+		</td>
+		<td align="right">99</td>
+		<td align="right">17</td>
+	</tr>

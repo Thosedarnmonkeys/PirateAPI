@@ -11,10 +11,11 @@ namespace PirateAPI.Parsers.Torrents
   public class Torrent
   {
     public string Title { get; set; }
+    public string UploaderName { get; set; }
     public DateTime PublishDate { get; set; }
     public string Link { get; set; }
     public TorrentUploaderStatus UploaderStatus { get; set; }
-    public long Size { get; set; }
+    public ulong Size { get; set; }
     public int Seeds { get; set; }
     public int Leeches { get; set; }
 
@@ -26,6 +27,9 @@ namespace PirateAPI.Parsers.Torrents
         return false;
 
       if (other.Title != Title)
+        return false;
+
+      if (other.UploaderName!= UploaderName)
         return false;
 
       if (other.PublishDate != PublishDate)

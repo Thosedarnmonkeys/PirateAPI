@@ -19,7 +19,8 @@
       <img src="//pirateproxy.red/static/img/icons/icon-bitx.png" alt="Play link">
     </a>
     <img src="//pirateproxy.red/static/img/icon_comment.gif" alt="This torrent has 5 comments." title="This torrent has 5 comments.">
-      <a href="/user/.BONE."><img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0">
+    <a href="/user/.BONE.">
+	  <img src="//pirateproxy.red/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0">
     </a>
     <font class="detDesc">
       Uploaded 11-03&nbsp;2015, Size 2.23&nbsp;GiB, ULed by <a class="detDesc" href="/user/.BONE./" title="Browse .BONE.">.BONE.</a>
