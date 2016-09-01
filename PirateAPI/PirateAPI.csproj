@@ -48,7 +48,7 @@
     <Compile Include="Parsers\Torznab\PirateRequest.cs" />
     <Compile Include="Parsers\Torznab\TorznabQueryParser.cs" />
     <Compile Include="PirateAPIHost.cs" />
-    <Compile Include="PirateProxyPicker\ProxyPicker.cs" />
+    <Compile Include="ProxyPicker\PirateProxyPicker.cs" />
     <Compile Include="ProxyProviders\IProxyProvider.cs" />
     <Compile Include="ProxyProviders\Proxy.cs" />
     <Compile Include="ProxyProviders\ThePirateBayProxyList\ThePirateBayProxyListAPIMeta.cs" />
