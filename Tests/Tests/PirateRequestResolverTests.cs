@@ -65,6 +65,39 @@ namespace Tests.Tests
           Size = 2458868777,
           Seeds = 364,
           Leeches = 60
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 11, 03),
+          UploaderName = ".BONE.",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 3446711255,
+          Seeds = 196,
+          Leeches = 67
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2 Complete 720p MKV",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 10, 12),
+          UploaderName = "ToyUp",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 5443871048,
+          Seeds = 131,
+          Leeches = 25
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 10, 5),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 149558395,
+          Seeds = 66,
+          Leeches = 22
         }
       };
       Assert.AreEqual(correctResponse, torrentStrings);
