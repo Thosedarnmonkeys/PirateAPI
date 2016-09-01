@@ -209,5 +209,26 @@ namespace Tests.Properties {
                 return ResourceManager.GetString("TorrentRowVipUploader", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
+        ///  &lt;td class=&quot;vertTh&quot;&gt;
+        ///    &lt;center&gt;
+        ///	  &lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;
+        ///	  &lt;br&gt;
+        ///	  (&lt;a href=&quot;/browse/208&quot; title=&quot;More from this category&quot;&gt;HD - TV shows&lt;/a&gt;)
+        ///	&lt;/center&gt;
+        ///  &lt;/td&gt;
+        ///  &lt;td&gt;
+        ///    &lt;div class=&quot;detName&quot;&gt;
+        ///      &lt;a href=&quot;/torrent/12678054/Rick_and_Morty_Season_2_[WEBRIP]_[1080p]_[HEVC]&quot; class=&quot;detLink&quot; title=&quot;Details for Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&quot;&gt;		      		Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]     	  &lt;/a&gt;
+        ///    &lt;/div&gt;
+        ///    &lt;a hr [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowWhiteSpaceAroundTitle {
+            get {
+                return ResourceManager.GetString("TorrentRowWhiteSpaceAroundTitle", resourceCulture);
+            }
+        }
     }
 }
