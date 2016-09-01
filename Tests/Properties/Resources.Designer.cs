@@ -150,6 +150,25 @@ namespace Tests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;tr class=&quot;alt&quot;&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/208&quot; title=&quot;More from this category&quot;&gt;HD - TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/12162845/Rick_and_Morty_Season_1_[1080p]_[HEVC]&quot; class=&quot;detLink&quot; title=&quot;Details for Rick and Morty Season 1 [1080p] [HEVC]&quot;&gt;Rick and Morty Season 1 [1080p] [HEVC]&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowAnonymousUploader {
+            get {
+                return ResourceManager.GetString("TorrentRowAnonymousUploader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
         ///		&lt;td class=&quot;vertTh&quot;&gt;
         ///			&lt;center&gt;

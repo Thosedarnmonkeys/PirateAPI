@@ -128,6 +128,28 @@ namespace Tests.Tests
       Assert.AreEqual(correctTorrent, torrent);
     }
 
+    [Test]
+    public void TestParseAnonymousUploader()
+    {
+      string unparsedRow = Resources.TorrentRowAnonymousUploader;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "Rick and Morty Season 1 [1080p] [HEVC]",
+        Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2015, 7, 26),
+        UploaderName = "Anonymous",
+        UploaderStatus = TorrentUploaderStatus.None,
+        Size = 3199750636,
+        Seeds = 364,
+        Leeches = 60
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
+    }
 
   }
 }

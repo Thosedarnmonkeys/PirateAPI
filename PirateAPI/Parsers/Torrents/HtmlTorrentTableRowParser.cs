@@ -47,6 +47,12 @@ namespace PirateAPI.Parsers.Torrents
       string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
       torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName");
 
+      if (torrent.UploaderName == null)
+      {
+        string anonymousPattern = @"ULed by <i>(.*?)<\/i>";
+        torrent.UploaderName = CheckMatchAndGetFirst(rowString, anonymousPattern, "UploaderNameAnonymous");
+      }
+
       string statusPattern = $@"href=""\/user\/{torrent.UploaderName}"">.*?<img.*?title=""(.*?)""";
       string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus");
       torrent.UploaderStatus = ParseUploaderStatus(statusString);

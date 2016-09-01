@@ -96,6 +96,7 @@
     <None Include="Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
