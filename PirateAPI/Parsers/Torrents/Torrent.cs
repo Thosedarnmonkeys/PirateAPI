@@ -41,16 +41,29 @@ namespace PirateAPI.Parsers.Torrents
       if (other.UploaderStatus != UploaderStatus)
         return false;
 
-      if (other.Size != Size)
-        return false;
-
       if (other.Seeds != Seeds)
         return false;
 
       if (other.Leeches != Leeches)
         return false;
 
+      //I've tried 3 different methods for accurate size calculation, and they all have different answers
+      //Here if you're within 3 sig fig, you're the same
+
+      double mySize = RoundToSignificantDigits(Size, 3);
+      double theirSize = RoundToSignificantDigits(other.Size, 3);
+
+      if (!mySize.Equals(theirSize))
+        return false;
+
       return true;
+    }
+
+    private double RoundToSignificantDigits(double d, int digits)
+    {
+      double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(d))) + 1);
+      double val = scale * Math.Round(d / scale, digits);
+      return Math.Floor(val);
     }
   }
 }
