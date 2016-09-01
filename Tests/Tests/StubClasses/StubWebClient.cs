@@ -9,19 +9,24 @@ namespace Tests.Tests.StubClasses
 {
   public class StubWebClient : IWebClient
   {
-    private Func<string> responseStringFunc;
+    private List<string> responseStrings;
 
-    public string LastRequest { get; set; }
+    public List<string> RequestsMade { get; set; } = new List<string>();
 
-    public StubWebClient(Func<string> responseStringFunc)
+    public StubWebClient(List<string> responseStrings)
     {
-      this.responseStringFunc = responseStringFunc;
+      this.responseStrings = responseStrings;
     }
 
     public string DownloadString(string address)
     {
-      LastRequest = address;
-      return responseStringFunc.Invoke();
+      RequestsMade.Add(address);
+
+      string response = responseStrings.First();
+
+      responseStrings.RemoveAt(0);
+
+      return response;
     }
   }
 }

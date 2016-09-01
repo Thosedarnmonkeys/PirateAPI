@@ -37,7 +37,7 @@ namespace PirateAPITests.Tests
         new Proxy { Domain = "https://www.piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
       };
 
-      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), new StubWebClient(() => responseString));
+      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), new StubWebClient(new List<string> { responseString }));
 
       List<Proxy> proxies = provider.ListProxies();
 

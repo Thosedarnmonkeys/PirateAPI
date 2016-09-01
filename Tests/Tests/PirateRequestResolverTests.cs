@@ -23,7 +23,12 @@ namespace Tests.Tests
     public void TestHandleBasicRequest()
     {
       string responseString = Resources.PiratePageSearch;
-      StubWebClient webClient = new StubWebClient(() => responseString);
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
 
       PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
       PirateRequest request = new PirateRequest
@@ -39,12 +44,15 @@ namespace Tests.Tests
       List<Torrent> torrentStrings = resolver.Resolve(request);
       List<Torrent> correctResponse = new List<Torrent>
       {
-        new Torrent() { }
+        new Torrent() {}
       };
       Assert.AreEqual(correctResponse, torrentStrings);
 
-      string addressRequested = "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208";
-      Assert.AreEqual(addressRequested, webClient.LastRequest);
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
   }
 }
