@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Resources\PiratePages\PiratePageDifferentShowName.txt" />
     <Content Include="Resources\PiratePages\PiratePageHDOnly.txt" />
+    <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
   </ItemGroup>
