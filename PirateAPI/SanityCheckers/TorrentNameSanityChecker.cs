@@ -85,12 +85,22 @@ namespace PirateAPI.SanityCheckers
       string paddedInput = input.PadLeft(input.Length + 1)
                                 .PadRight(input.Length + 2);
 
+
       string seasonString = $" season {season} ";
       if (paddedInput.Contains(seasonString))
         return true;
 
+      string zeroedSeason = season < 10 ? "0" + season : season.ToString();
+      string zeroedString = $" season {zeroedSeason} ";
+      if (paddedInput.Contains(zeroedString))
+        return true;
+
       string seasonStringAbbrev = $" s{season} ";
       if (paddedInput.Contains(seasonStringAbbrev))
+        return true;
+
+      string zeroedAbbrevString = $" s{zeroedSeason} ";
+      if (paddedInput.Contains(zeroedAbbrevString))
         return true;
 
       return false;

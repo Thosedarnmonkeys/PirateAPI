@@ -105,6 +105,7 @@ namespace Tests.Tests
       Assert.IsTrue(answer);
     }
 
+
     [Test]
     public void TestSingleSeasonWrongName()
     {
@@ -139,6 +140,34 @@ namespace Tests.Tests
       string showName = "Rick and Morty";
       int season = 2;
       string torTitle = "Rick and Morty S2 [WEBRIP] [1080p] [HEVC]";
+
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
+
+      bool answer = checker.Check(showName, season, torTitle);
+
+      Assert.IsTrue(answer);
+    }
+
+    [Test]
+    public void TestSingleSeasonCorrectNameAbbrevWithZero()
+    {
+      string showName = "Rick and Morty";
+      int season = 2;
+      string torTitle = "Rick and Morty S02 [WEBRIP] [1080p] [HEVC]";
+
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
+
+      bool answer = checker.Check(showName, season, torTitle);
+
+      Assert.IsTrue(answer);
+    }
+
+    [Test]
+    public void TestSingleSeasonCorrectNameVerboseWithZero()
+    {
+      string showName = "Rick and Morty";
+      int season = 2;
+      string torTitle = "Rick and Morty Season 02 [WEBRIP] [1080p] [HEVC]";
 
       TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
