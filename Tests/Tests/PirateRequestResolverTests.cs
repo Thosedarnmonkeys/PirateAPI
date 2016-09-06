@@ -760,9 +760,11 @@ namespace Tests.Tests
     public void TestSingleSeason()
     {
       string responseString = Resources.PiratePageSingleSeason;
+      string noResultsString = Resources.PiratePageNoResults;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        responseString,
+        noResultsString
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -952,7 +954,73 @@ namespace Tests.Tests
     [Test]
     public void TestMaxAge()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageSearch;
+      string noResultsString = Resources.PiratePageNoResults;
+      List<string> responseStrings = new List<string>
+      {
+        responseString,
+        noResultsString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, new DateTime(2016, 9, 6));
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 0,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        MaxAge = 250
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
+          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          UploaderName = "AtaraxiaPrime",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 9334060183,
+          Seeds = 36,
+          Leeches = 5
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
+          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          UploaderName = "AtaraxiaPrime",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 4955735608,
+          Seeds = 22,
+          Leeches = 5
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 1[BDRip 1080p AC3][AtaraxiaPrime]",
+          Link = "magnet:?xt=urn:btih:687a7cda14d35bf06a67964b6bda6d02328429e9&amp;dn=Rick+and+Morty+Season+1%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 7, 2, 3, 12, 0),
+          UploaderName = "AtaraxiaPrime",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 4830388434,
+          Seeds = 13,
+          Leeches = 2
+        },
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
   }
 }

@@ -16,13 +16,16 @@ namespace PirateAPI.RequestResolver
     #region private fields
     private ILogger logger;
     private IWebClient webClient;
+    private DateTime currentDate = DateTime.Now;
     #endregion
 
     #region constructor
-    public PirateRequestResolver(ILogger logger, IWebClient webClient)
+    public PirateRequestResolver(ILogger logger, IWebClient webClient, DateTime? currentDate = null)
     {
       this.logger = logger;
       this.webClient = webClient;
+      if (currentDate.HasValue)
+        this.currentDate = currentDate.Value;
     }
     #endregion
 
