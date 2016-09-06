@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI.SanityCheckers;
+using PirateAPITests.Tests.StubClasses;
 
 namespace Tests.Tests
 {
@@ -17,7 +18,7 @@ namespace Tests.Tests
       string showName = "Rick and Morty";
       string torTitle = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, torTitle);
 
@@ -25,12 +26,26 @@ namespace Tests.Tests
     }
 
     [Test]
+    public void TestNoSeasonNoEpisodeCorrectNameWithAmpersand()
+    {
+      string showName = "Rick and Morty";
+      string torTitle = "Rick & Morty Season 2 [WEBRIP] [1080p] [HEVC]";
+
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
+
+      bool answer = checker.Check(showName, torTitle);
+
+      Assert.IsTrue(answer);
+    }
+
+
+    [Test]
     public void TestNoSeasonNoEpisodeWrongName()
     {
       string showName = "Rick and Morty";
       string torTitle = "Arrow.S04E23.HDTV.x264-LOL[ettv]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, torTitle);
 
@@ -43,7 +58,7 @@ namespace Tests.Tests
       string showName = " ";
       string torTitle = "Arrow.S04E23.HDTV.x264-LOL[ettv]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, torTitle);
 
@@ -56,7 +71,7 @@ namespace Tests.Tests
       string showName = "Rick and Morty";
       string torTitle = " ";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, torTitle);
 
@@ -69,7 +84,7 @@ namespace Tests.Tests
       string showName = "Rick and Morty";
       string torTitle = "Rick and Murty Season 2 [WEBRIP] [1080p] [HEVC]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, torTitle);
 
@@ -83,7 +98,7 @@ namespace Tests.Tests
       int season = 2;
       string torTitle = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, torTitle);
 
@@ -97,7 +112,7 @@ namespace Tests.Tests
       int season = 2;
       string torTitle = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, torTitle);
 
@@ -111,7 +126,7 @@ namespace Tests.Tests
       int season = 2;
       string torTitle = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, torTitle);
 
@@ -125,7 +140,7 @@ namespace Tests.Tests
       int season = 2;
       string torTitle = "Rick and Morty S2 [WEBRIP] [1080p] [HEVC]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, torTitle);
 
@@ -140,7 +155,7 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
@@ -155,7 +170,7 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick.and.Morty.S02E03.HDTV.x264-BATV";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
@@ -170,7 +185,7 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick and Morty Season 2 Episode 1";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
@@ -185,11 +200,11 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick and Morty Season 1 Episode 1";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
-      Assert.IsTrue(answer);
+      Assert.IsFalse(answer);
     }
 
     [Test]
@@ -200,7 +215,7 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick.and.Morty.S02 E01.HDTV.x264-BATV[ettv]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
@@ -215,7 +230,7 @@ namespace Tests.Tests
       int episode = 1;
       string torTitle = "Rick.and.Morty.S2E1.HDTV.x264-BATV[ettv]";
 
-      TorrentNameSanityChecker checker = new TorrentNameSanityChecker();
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
 
       bool answer = checker.Check(showName, season, episode, torTitle);
 
