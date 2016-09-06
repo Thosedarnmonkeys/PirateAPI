@@ -1,4 +1,4 @@
-﻿<html lang="en"><head>
+﻿<!DOCTYPE html><html lang="en"><head>
     <title>The Pirate Bay - The galaxy's most resilient bittorrent site</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="google-site-verification" content="bERYeomIC5eBWlPLupPPYPYGA9GvAUKzFHh3WIw24Xs">

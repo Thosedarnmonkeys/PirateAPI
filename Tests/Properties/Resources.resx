@@ -121,6 +121,9 @@
   <data name="PiratePageDifferentShowName" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePages\PiratePageDifferentShowName.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="PiratePageHDOnly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PiratePages\PiratePageHDOnly.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="PiratePageNoResults" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePages\PiratePageNoResults.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
