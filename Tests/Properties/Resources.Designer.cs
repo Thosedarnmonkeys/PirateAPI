@@ -177,6 +177,21 @@ namespace Tests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;
+        ///    &lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;google-site-verification&quot; content=&quot;bERYeomIC5eBWlPLupPPYPYGA9GvAUKzFHh3WIw24Xs&quot;&gt;
+        ///    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;Search The Pirate Bay&quot;&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;//pirateproxy.red/static/css/pirate6.css&quot;&gt;
+        ///    &lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PiratePageSingleSeason {
+            get {
+                return ResourceManager.GetString("PiratePageSingleSeason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
         ///		&lt;td class=&quot;vertTh&quot;&gt;
         ///			&lt;center&gt;

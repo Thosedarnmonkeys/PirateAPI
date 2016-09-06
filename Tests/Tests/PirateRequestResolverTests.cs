@@ -81,7 +81,7 @@ namespace Tests.Tests
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
           Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 10, 12),
+          PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 5443871048,
@@ -171,7 +171,7 @@ namespace Tests.Tests
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
           Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 10, 12),
+          PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 5443871048,
@@ -457,7 +457,7 @@ namespace Tests.Tests
             Title = "Rick and Morty Season 2 Complete 720p MKV",
             Link =
               "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-            PublishDate = new DateTime(2016, 10, 12),
+            PublishDate = new DateTime(2015, 10, 12),
             UploaderName = "ToyUp",
             UploaderStatus = TorrentUploaderStatus.None,
             Size = 5443871048,
@@ -759,7 +759,82 @@ namespace Tests.Tests
     [Test]
     public void TestSingleSeason()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageSingleSeason;
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequest request = new PirateRequest
+      {
+        Offset = 0,
+        Limit = 0,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Season = 2
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 11, 3),
+          UploaderName = ".BONE.",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 2394284168,
+          Seeds = 564,
+          Leeches = 126
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2 Complete 720p MKV",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 10, 12),
+          UploaderName = "ToyUp",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 5443871048,
+          Seeds = 117,
+          Leeches = 28
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
+          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          UploaderName = "AtaraxiaPrime",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 4955735608,
+          Seeds = 43,
+          Leeches = 7
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
+          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          UploaderName = "AtaraxiaPrime",
+          UploaderStatus = TorrentUploaderStatus.None,
+          Size = 9334060183,
+          Seeds = 36,
+          Leeches = 5
+        },
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty%20Season%202/0/99/205,208",
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty%20Season%202/1/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
 
     [Test]
