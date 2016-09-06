@@ -304,19 +304,276 @@ namespace Tests.Tests
     [Test]
     public void TestOffsetLessThan30()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageSearch;
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 15,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Rick and Morty S01E07 HDTV x264-2HD [eztv]",
+          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&amp;dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 148530007,
+          Seeds = 31,
+          Leeches = 9
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]",
+          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 7, 27),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 217987493,
+          Seeds = 30,
+          Leeches = 5
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.S02E08.720p.HDTV.x264-BATV[EtHD]",
+          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&amp;dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 9, 21),
+          UploaderName = "EtHD",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 478054108,
+          Seeds = 27,
+          Leeches = 18
+        },
+        new Torrent()
+        {
+          Title = "Rick And Morty S01E10 HDTV x264-MiNDTHEGAP [eztv]",
+          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&amp;dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 180212379,
+          Seeds = 26,
+          Leeches = 6
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty S01E09 PROPER HDTV x264-2HD [eztv]",
+          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&amp;dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 140810356,
+          Seeds = 23,
+          Leeches = 9
+        }
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
 
     [Test]
     public void TestOffsetExactly30()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageSearch;
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 30,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+        {
+          new Torrent()
+          {
+            Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
+            Link =
+              "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+            PublishDate = new DateTime(2015, 11, 3),
+            UploaderName = ".BONE.",
+            UploaderStatus = TorrentUploaderStatus.Vip,
+            Size = 2394284168,
+            Seeds = 590,
+            Leeches = 109
+          },
+          new Torrent()
+          {
+            Title = "Rick and Morty Season 1 [1080p] [HEVC]",
+            Link =
+              "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+            PublishDate = new DateTime(2015, 7, 26),
+            UploaderName = "Anonymous",
+            UploaderStatus = TorrentUploaderStatus.None,
+            Size = 2458868777,
+            Seeds = 364,
+            Leeches = 60
+          },
+          new Torrent()
+          {
+            Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
+            Link =
+              "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+            PublishDate = new DateTime(2015, 11, 03),
+            UploaderName = ".BONE.",
+            UploaderStatus = TorrentUploaderStatus.Vip,
+            Size = 3446711255,
+            Seeds = 196,
+            Leeches = 67
+          },
+          new Torrent()
+          {
+            Title = "Rick and Morty Season 2 Complete 720p MKV",
+            Link =
+              "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+            PublishDate = new DateTime(2016, 10, 12),
+            UploaderName = "ToyUp",
+            UploaderStatus = TorrentUploaderStatus.None,
+            Size = 5443871048,
+            Seeds = 131,
+            Leeches = 25
+          },
+          new Torrent()
+          {
+            Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
+            Link =
+              "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+            PublishDate = new DateTime(2015, 10, 5),
+            UploaderName = "ettv",
+            UploaderStatus = TorrentUploaderStatus.Vip,
+            Size = 149558395,
+            Seeds = 66,
+            Leeches = 22
+          }
+        };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
 
     [Test]
     public void TestOffsetOver30()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageSearch;
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 45,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Rick and Morty S01E07 HDTV x264-2HD [eztv]",
+          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&amp;dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 148530007,
+          Seeds = 31,
+          Leeches = 9
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]",
+          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 7, 27),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 217987493,
+          Seeds = 30,
+          Leeches = 5
+        },
+        new Torrent()
+        {
+          Title = "Rick.and.Morty.S02E08.720p.HDTV.x264-BATV[EtHD]",
+          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&amp;dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 9, 21),
+          UploaderName = "EtHD",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 478054108,
+          Seeds = 27,
+          Leeches = 18
+        },
+        new Torrent()
+        {
+          Title = "Rick And Morty S01E10 HDTV x264-MiNDTHEGAP [eztv]",
+          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&amp;dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 180212379,
+          Seeds = 26,
+          Leeches = 6
+        },
+        new Torrent()
+        {
+          Title = "Rick and Morty S01E09 PROPER HDTV x264-2HD [eztv]",
+          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&amp;dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2014, 4, 12),
+          UploaderName = "eztv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 140810356,
+          Seeds = 23,
+          Leeches = 9
+        }
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
 
     [Test]
