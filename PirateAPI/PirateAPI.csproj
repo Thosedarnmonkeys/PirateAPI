@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestResolver\PirateRequestResolver.cs" />
     <Compile Include="Parsers\Torrents\Torrent.cs" />
+    <Compile Include="SanityCheckers\TorrentNameSanityChecker.cs" />
     <Compile Include="WebClient\BasicWebClient.cs" />
     <Compile Include="WebClient\IWebClient.cs" />
     <Compile Include="WebServer\BasicWebServer.cs" />

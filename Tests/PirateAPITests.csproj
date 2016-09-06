@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\PirateRequestResolverTests.cs" />
     <Compile Include="Tests\PirateProxyPickerTests.cs" />
+    <Compile Include="Tests\TorrentNameSanityCheckerTests.cs" />
     <Compile Include="Tests\StubClasses\StubLogger.cs" />
     <Compile Include="Tests\StubClasses\StubWebClient.cs" />
     <Compile Include="Tests\ThePirateBayProxyListProviderTests.cs" />
