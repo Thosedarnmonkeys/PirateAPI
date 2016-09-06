@@ -142,6 +142,9 @@
   <data name="PiratePageSearchSplit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePages\PiratePageSearchSplit.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="PiratePageSingleEpisode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PiratePages\PiratePageSingleEpisode.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="PiratePageSingleSeason" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PiratePages\PiratePageSingleSeason.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
