@@ -20,7 +20,7 @@ namespace Tests.Tests
   public class PirateRequestResolverTests
   {
     [Test]
-    public void TestHandleLimit5()
+    public void TestLimitUnder30()
     {
       string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
@@ -202,7 +202,91 @@ namespace Tests.Tests
     [Test]
     public void TestShowName()
     {
-      Assert.Fail();
+      string responseString = Resources.PiratePageDifferentShowName;
+      List<string> responseStrings = new List<string>
+      {
+        responseString
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 0,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Arrow",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Arrow.S04E23.HDTV.x264-LOL[ettv]",
+          Link = "magnet:?xt=urn:btih:d83c61ea0b60b641cf13f61bfbf8095113e9573d&amp;dn=Arrow.S04E23.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 5, 26, 3, 21, 0),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 315358342,
+          Seeds = 287,
+          Leeches = 17
+        },
+        new Torrent()
+        {
+          Title = "Arrow.S04E15.HDTV.x264-LOL[ettv]",
+          Link = "magnet:?xt=urn:btih:941a4cc66d4cb39b23a5cc9f59948eb22f72eff5&amp;dn=Arrow.S04E15.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 2, 25, 3, 1, 0),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 256413261,
+          Seeds = 279,
+          Leeches = 8
+        },
+        new Torrent()
+        {
+          Title = "Arrow Season 4 Complete x264-TJ [TJET]",
+          Link = "magnet:?xt=urn:btih:0a3a4ac8aa690951a5d19593e8c1b83a61382baf&amp;dn=Arrow+Season+4+Complete+x264-TJ+%5BTJET%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 5, 26, 4, 5, 0),
+          UploaderName = "CenaCme",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 6579307167,
+          Seeds = 268,
+          Leeches = 132
+        },
+        new Torrent()
+        {
+          Title = "Arrow.S04E11.HDTV.x264-LOL[ettv]",
+          Link = "magnet:?xt=urn:btih:c1c2a53e4bf77af86550f4b0ea64287acdda248d&amp;dn=Arrow.S04E11.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 1, 28, 3, 3, 0),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 247661544,
+          Seeds = 255,
+          Leeches = 13
+        },
+        new Torrent()
+        {
+          Title = "Arrow.S04E20.HDTV.x264-LOL[ettv]",
+          Link = "magnet:?xt=urn:btih:25387dadd54dade2a5ccba39b3a6e206886a00d0&amp;dn=Arrow.S04E20.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2016, 5, 5, 3, 0, 0),
+          UploaderName = "ettv",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 253518567,
+          Seeds = 244,
+          Leeches = 12
+        }
+      };
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/search/Arrow/0/99/205,208"
+      };
+      Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
 
     [Test]
