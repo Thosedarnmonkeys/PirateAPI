@@ -3,10 +3,13 @@ using PirateAPI.Parsers.Torznab;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using PirateAPI.HtmlExtractors;
 using PirateAPI.Logging;
+using PirateAPI.SanityCheckers;
 using PirateAPI.WebClient;
 
 namespace PirateAPI.RequestResolver
@@ -17,6 +20,9 @@ namespace PirateAPI.RequestResolver
     private ILogger logger;
     private IWebClient webClient;
     private DateTime currentDate = DateTime.Now;
+    private HtmlRowExtractor rowExtractor;
+    private HtmlTorrentTableRowParser rowParser;
+    private TorrentNameSanityChecker checker;
     #endregion
 
     #region constructor
@@ -26,51 +32,141 @@ namespace PirateAPI.RequestResolver
       this.webClient = webClient;
       if (currentDate.HasValue)
         this.currentDate = currentDate.Value;
+
+      rowExtractor = new HtmlRowExtractor(logger);
+      rowParser = new HtmlTorrentTableRowParser(logger);
+      checker = new TorrentNameSanityChecker(logger);
     }
     #endregion
 
     #region public methods
     public List<Torrent> Resolve(PirateRequest request)
     {
-      //if (request == null)
-      //{
-      //  logger.LogError("PirateRequestResolver.Resolve was passed a null request");
-      //  return null;
-      //}
+      string errorMessage;
+      if (!IsRequestValid(request, out errorMessage))
+      {
+        logger.LogError(errorMessage);
+        return null;
+      }
 
-      //string pirateProxy = string.IsNullOrWhiteSpace(request.PirateProxyURL) ? "" : request.PirateProxyURL;
-      //string searchArg = string.IsNullOrWhiteSpace(request.ShowName) ? "" : request.ShowName.Replace("+", "%20");
-      //double page = Math.Floor((double)request.Offset / 30);
-      //string categories;
-      //switch (request.Quality)
-      //{
-      //  case VideoQuality.SD:
-      //    categories = "205";
-      //    break;
+      request.ShowName = request.ShowName.Replace("+", " ");
 
-      //  case VideoQuality.HD:
-      //    categories = "208";
-      //    break;
+      //Set up initial values
+      int requestPage = (int)Math.Floor((double)request.Offset / 30);
+      int limit = request.Limit ?? 100;
+      List<Torrent> results = new List<Torrent>();
 
-      //  case VideoQuality.Both:
-      //    categories = "205,208";
-      //    break;
+      //run till we reach required number
+      while (results.Count < limit)
+      {
+        //Get page
+        string requestUrl = ConstructQueryForPage(request, requestPage);
+        string piratePage = webClient.DownloadString(requestUrl);
 
-      //  default:
-      //    categories = "205";
-      //    break;
-      //}
+        List<string> rows = rowExtractor.ExtractRows(piratePage);
 
-      //List<string> rows = new List<string>();
+        if (rows.Count == 0)
+          //we have run out of results
+          break;
 
-      //while (rows.Count < request.Limit)
-      //{
-      //  string requestUrl = $"{pirateProxy}/search/{searchArg}/{page}/99/{categories}";
-      //  string[] rowArray = GetRowsFromAddress(requestUrl);
-      //  page++;
-      //}
+        //first row is always headers
+        rows.RemoveAt(0);
 
-      throw new NotImplementedException();
+        foreach (string row in rows)
+        {
+          Torrent torrent = rowParser.ParseRow(row);
+          if (IsValidTorrentForRequest(request, torrent))
+            results.Add(torrent);
+        }
+
+        requestPage++;
+      }
+
+      if (results.Count > limit)
+        results = results.GetRange(0, limit);
+
+      return results;
+    }
+    #endregion
+
+    #region private methods
+    private bool IsRequestValid(PirateRequest request, out string errorMessage)
+    {
+      if (request == null)
+      {
+        errorMessage = "PirateRequestResolver was passed a null request";
+        return false;
+      }
+
+      if (request.Episode.HasValue && !request.Season.HasValue)
+      {
+        errorMessage = "PirateRequestResolver was passed request with episode number but no season number";
+        return false;
+      }
+
+      if (string.IsNullOrWhiteSpace(request.ShowName))
+      {
+        errorMessage = "PirateRequestResolver was passed request with null or empty ShowName";
+        return false;
+      }
+
+      if (string.IsNullOrWhiteSpace(request.PirateProxyURL))
+      {
+        errorMessage = "PirateRequestResolver was passed request with null or empty PirateProxyURL";
+        return false;
+      }
+
+      errorMessage = "";
+      return true;
+    }
+
+    private string ConstructQueryForPage(PirateRequest request, int page)
+    {
+      string categories;
+      switch (request.Quality)
+      {
+        case VideoQuality.SD:
+          categories = "205";
+          break;
+
+        case VideoQuality.HD:
+          categories = "208";
+          break;
+
+        case VideoQuality.Both:
+          categories = "205,208";
+          break;
+
+        default:
+          categories = "205";
+          break;
+      }
+
+      string sanitisedShowName = request.ShowName.Replace(" ", "%20")
+                                                 .Replace("&", "and");
+
+      string searchArg;
+      if (request.Episode.HasValue && request.Season.HasValue)
+        searchArg = $"{sanitisedShowName}%20S{request.Season.Value}E{request.Episode.Value}";
+
+      else if (request.Season.HasValue)
+        searchArg = $"{sanitisedShowName} Season {request.Season.Value}";
+
+      else
+        searchArg = sanitisedShowName;
+
+      return $"{request.PirateProxyURL}/search/{searchArg}/{page}/99/{categories}";
+    }
+
+    private bool IsValidTorrentForRequest(PirateRequest request, Torrent torrent)
+    {
+      if (request.Season.HasValue && request.Episode.HasValue)
+        return checker.Check(request.ShowName, request.Season.Value, request.Episode.Value, torrent.Title);
+
+      if (request.Season.HasValue)
+        return checker.Check(request.ShowName, request.Season.Value, torrent.Title);
+
+      return checker.Check(request.ShowName, torrent.Title);
     }
     #endregion
   }
