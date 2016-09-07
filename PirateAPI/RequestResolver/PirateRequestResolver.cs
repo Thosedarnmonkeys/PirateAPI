@@ -147,7 +147,12 @@ namespace PirateAPI.RequestResolver
 
       string searchArg;
       if (request.Episode.HasValue && request.Season.HasValue)
-        searchArg = $"{sanitisedShowName}%20S{request.Season.Value}E{request.Episode.Value}";
+      {
+        string zeroedSeasonNum = request.Season.Value < 10 ? "0" + request.Season.Value : request.Season.Value.ToString();
+        string zeroedEpisodeNum = request.Episode.Value < 10 ? "0" + request.Episode.Value : request.Episode.Value.ToString();
+
+        searchArg = $"{sanitisedShowName}%20S{zeroedSeasonNum}E{zeroedEpisodeNum}";
+      }
 
       else if (request.Season.HasValue)
         searchArg = $"{sanitisedShowName}%20Season%20{request.Season.Value}";

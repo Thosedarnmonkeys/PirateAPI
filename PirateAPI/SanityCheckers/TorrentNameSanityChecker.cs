@@ -59,6 +59,8 @@ namespace PirateAPI.SanityCheckers
       string normalisedInput = input.Replace(".", " ")
                                     .Replace("_", " ")
                                     .Replace("-", " ")
+                                    .Replace("[", " ")
+                                    .Replace("]", " ")
                                     .Replace("&", "and")
                                     .ToLower();
                         

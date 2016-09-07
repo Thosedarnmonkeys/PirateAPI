@@ -105,6 +105,20 @@ namespace Tests.Tests
       Assert.IsTrue(answer);
     }
 
+    [Test]
+    public void TestSingleSeasonCorrectNameBracketsTouchSeason()
+    {
+      string showName = "Rick and Morty";
+      int season = 2;
+      string torTitle = "Rick and Morty Season 2[WEBRIP] [1080p] [HEVC]";
+
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
+
+      bool answer = checker.Check(showName, season, torTitle);
+
+      Assert.IsTrue(answer);
+    }
+
 
     [Test]
     public void TestSingleSeasonWrongName()

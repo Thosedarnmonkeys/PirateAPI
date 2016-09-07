@@ -304,10 +304,10 @@ namespace Tests.Tests
     [Test]
     public void TestNoLimit()
     {
-      string responseString = Resources.PiratePageSearch5Rows;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageSearch5Rows,
+        Resources.PiratePageNoResults
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -385,7 +385,8 @@ namespace Tests.Tests
 
       List<string> addressesRequested = new List<string>
       {
-        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
@@ -806,7 +807,7 @@ namespace Tests.Tests
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
           Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2015, 11, 5),
+          PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 149558451,
@@ -909,12 +910,12 @@ namespace Tests.Tests
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
           Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
-          UploaderName = "AtaraxiaPrime",
+          PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
+          UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 9334060183,
-          Seeds = 36,
-          Leeches = 5
+          Seeds = 34,
+          Leeches = 3
         },
       };
       Assert.AreEqual(correctResponse, torrentStrings);
@@ -950,10 +951,10 @@ namespace Tests.Tests
     [Test]
     public void TestSingleEpisodeAndSeason()
     {
-      string responseString = Resources.PiratePageSingleEpisode;
+      
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageSingleEpisode,
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -1035,7 +1036,6 @@ namespace Tests.Tests
       List<string> addressesRequested = new List<string>
       {
         "http://fakepirateproxy.com/search/Rick%20And%20Morty%20S02E01/0/99/205,208",
-        "http://fakepirateproxy.com/search/Rick%20And%20Morty%20S02E01/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
     }
@@ -1072,12 +1072,12 @@ namespace Tests.Tests
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
           Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
-          UploaderName = "AtaraxiaPrime",
+          PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
+          UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 9334060183,
-          Seeds = 36,
-          Leeches = 5
+          Seeds = 39,
+          Leeches = 8
         },
         new Torrent()
         {
