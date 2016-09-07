@@ -86,6 +86,15 @@ namespace PirateAPI.SanityCheckers
                                 .PadRight(input.Length + 2);
 
 
+      List<string> exclusionStrings = new List<string>
+      {
+        " episode ",
+        " ep ",
+        " e ",
+      };
+      if (exclusionStrings.Any(es => paddedInput.Contains(es)))
+        return false;
+
       string seasonString = $" season {season} ";
       if (paddedInput.Contains(seasonString))
         return true;

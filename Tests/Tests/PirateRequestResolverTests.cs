@@ -862,7 +862,6 @@ namespace Tests.Tests
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
-        Limit = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
         ShowName = "Rick+And+Morty",
@@ -935,7 +934,6 @@ namespace Tests.Tests
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
-        Limit = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
         ShowName = "Rick+And+Morty",
@@ -943,8 +941,10 @@ namespace Tests.Tests
         Episode = 2
       };
 
-      
-      Assert.Throws<ArgumentException>(() => resolver.Resolve(request));
+
+      List<Torrent> torrents = resolver.Resolve(request);
+
+      Assert.IsNull(torrents);
     }
 
     [Test]

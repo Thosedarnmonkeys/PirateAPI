@@ -177,6 +177,22 @@ namespace Tests.Tests
     }
 
     [Test]
+    public void TestSingleSeasonWrongNameVerboseDoesntPass()
+    {
+      string showName = "Rick and Morty";
+      int season = 2;
+      string torTitle = "Rick and Morty Season 2 Episode 4";
+
+      TorrentNameSanityChecker checker = new TorrentNameSanityChecker(new StubLogger());
+
+      bool answer = checker.Check(showName, season, torTitle);
+
+      Assert.IsFalse(answer);
+    }
+
+
+
+    [Test]
     public void TestSingleEpisodeCorrectName()
     {
       string showName = "Rick and Morty";
