@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel xmlns:torznab="http://torznab.com/schemas/2015/feed">
+		<title>fakepirateproxy.com</title>
+		<description>PirateAPI results</description>
+		<newznab:response offset="0" total="1"/>
+		<item>
+			<title>Show Name S01E01 SD</title>
+			<link>MagnetLink</link>
+			<pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
+			<enclosure url="MagnetLink" length="1024" type="application/x-bittorrent" />
+			<torznab:attr name="Size"  value="1024"/>
+			<torznab:attr name="magneturl"  value="MagnetLink"/>
+			<torznab:attr name="seeders"  value="1"/>
+			<torznab:attr name="leechers"  value="1"/>
+			<torznab:attr name="peers"  value="2"/>
+		</item>
+	</channel>
+</rss>

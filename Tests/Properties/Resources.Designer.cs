@@ -325,5 +325,14 @@ namespace PirateAPITests.Properties {
                 return ResourceManager.GetString("TorrentRowWhiteSpaceAroundTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TorznabResponseSingleItem {
+            get {
+                return ResourceManager.GetString("TorznabResponseSingleItem", resourceCulture);
+            }
+        }
     }
 }

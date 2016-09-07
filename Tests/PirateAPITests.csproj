@@ -105,6 +105,7 @@
     <Content Include="Resources\PiratePages\PiratePageSingleSeason.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
+    <Content Include="Resources\TorznabResponses\TorznabResponseSingleItem.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
