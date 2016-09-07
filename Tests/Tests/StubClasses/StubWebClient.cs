@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PirateAPI.WebClient;
 
-namespace Tests.Tests.StubClasses
+namespace PirateAPITests.Tests.StubClasses
 {
   public class StubWebClient : IWebClient
   {

@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PirateAPITests.Tests.StubClasses;
-using Tests.Tests.StubClasses;
 
 namespace PirateAPITests.Tests
 {

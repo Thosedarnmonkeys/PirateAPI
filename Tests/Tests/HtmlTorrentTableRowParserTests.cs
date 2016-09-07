@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI.Parsers.Torrents;
 using PirateAPITests.Tests.StubClasses;
-using Tests.Properties;
+using PirateAPITests.Properties;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class HtmlTorrentTableRowParserTests

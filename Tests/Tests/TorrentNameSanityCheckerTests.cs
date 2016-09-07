@@ -7,7 +7,7 @@ using NUnit.Framework;
 using PirateAPI.SanityCheckers;
 using PirateAPITests.Tests.StubClasses;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class TorrentNameSanityCheckerTests

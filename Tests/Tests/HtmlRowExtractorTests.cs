@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI.HtmlExtractors;
+using PirateAPITests.Properties;
 using PirateAPITests.Tests.StubClasses;
-using Tests.Properties;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class HtmlRowExtractorTests

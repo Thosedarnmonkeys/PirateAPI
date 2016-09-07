@@ -11,10 +11,9 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using PirateAPITests.Tests.StubClasses;
-using Tests.Properties;
-using Tests.Tests.StubClasses;
+using PirateAPITests.Properties;
 
-namespace Tests.Tests
+namespace PirateAPITests.Tests
 {
   [TestFixture]
   public class PirateRequestResolverTests

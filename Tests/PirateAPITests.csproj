@@ -7,7 +7,7 @@
     <ProjectGuid>{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
+    <RootNamespace>PirateAPITests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -60,6 +60,7 @@
     <Compile Include="Tests\StubClasses\StubWebClient.cs" />
     <Compile Include="Tests\ThePirateBayProxyListProviderTests.cs" />
     <Compile Include="Tests\TorznabQueryParserTests.cs" />
+    <Compile Include="Tests\TorznabResponseBuilderTests.cs" />
     <Compile Include="Tests\WebServerTests.cs" />
   </ItemGroup>
   <ItemGroup>
