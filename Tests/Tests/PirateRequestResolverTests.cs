@@ -62,7 +62,7 @@ namespace Tests.Tests
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
-          Size = 2458868777,
+          Size = 3195130865,
           Seeds = 364,
           Leeches = 60
         },
@@ -152,7 +152,7 @@ namespace Tests.Tests
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
-          Size = 2458868777,
+          Size = 3195130865,
           Seeds = 364,
           Leeches = 60
         },
@@ -343,7 +343,7 @@ namespace Tests.Tests
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
-          Size = 2458868777,
+          Size = 3195130865,
           Seeds = 364,
           Leeches = 60
         },
@@ -526,7 +526,7 @@ namespace Tests.Tests
             PublishDate = new DateTime(2015, 7, 26),
             UploaderName = "Anonymous",
             UploaderStatus = TorrentUploaderStatus.None,
-            Size = 2458868777,
+            Size = 3195130865,
             Seeds = 364,
             Leeches = 60
           },
@@ -698,7 +698,7 @@ namespace Tests.Tests
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
-          Size = 2399284168,
+          Size = 2394284168,
           Seeds = 573,
           Leeches = 112
         },
@@ -709,7 +709,7 @@ namespace Tests.Tests
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
-          Size = 2458868777,
+          Size = 3195130865,
           Seeds = 341,
           Leeches = 75
         },

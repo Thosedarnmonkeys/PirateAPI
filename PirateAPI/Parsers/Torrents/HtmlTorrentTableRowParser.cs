@@ -219,18 +219,11 @@ namespace PirateAPI.Parsers.Torrents
       input = input.Replace("&nbsp;", " ");
       string[] vals = input.Split(' ');
 
-      bool divBy100 = false;
-      int qualifiedSize;
+      double qualifiedSize;
 
-      if (vals[0].Contains('.'))
+      if (!double.TryParse(vals[0], out qualifiedSize))
       {
-        vals[0] = vals[0].Replace(".", "");
-        divBy100 = true;
-      }
-
-      if (!int.TryParse(vals[0], out qualifiedSize))
-      {
-        logger.LogError($"Unable to parse {vals[0]} to int for qualifiedSize");
+        logger.LogError($"Unable to parse {vals[0]} to double for qualifiedSize");
         return 0;
       }
 
@@ -264,9 +257,7 @@ namespace PirateAPI.Parsers.Torrents
           break;
       }
 
-      long size = qualifiedSize*multiplier;
-      if (divBy100)
-        size = size/100;
+      long size = (long)(qualifiedSize*multiplier);
 
       return size;
     }
