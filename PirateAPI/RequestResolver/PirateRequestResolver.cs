@@ -150,7 +150,7 @@ namespace PirateAPI.RequestResolver
         searchArg = $"{sanitisedShowName}%20S{request.Season.Value}E{request.Episode.Value}";
 
       else if (request.Season.HasValue)
-        searchArg = $"{sanitisedShowName} Season {request.Season.Value}";
+        searchArg = $"{sanitisedShowName}%20Season%20{request.Season.Value}";
 
       else
         searchArg = sanitisedShowName;
