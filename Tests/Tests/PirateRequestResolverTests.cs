@@ -1232,7 +1232,7 @@ namespace PirateAPITests.Tests
           Size = 9334060183,
           Seeds = 34,
           Leeches = 3
-        },
+        }
       };
       Assert.AreEqual(correctResponse, torrentStrings);
 
