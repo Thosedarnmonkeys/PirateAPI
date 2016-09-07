@@ -160,6 +160,11 @@ namespace PirateAPI.RequestResolver
 
     private bool IsValidTorrentForRequest(PirateRequest request, Torrent torrent)
     {
+      double age = Math.Floor((currentDate - torrent.PublishDate).TotalDays);
+
+      if (age > request.MaxAge)
+        return false;
+
       if (request.Season.HasValue && request.Episode.HasValue)
         return checker.Check(request.ShowName, request.Season.Value, request.Episode.Value, torrent.Title);
 
