@@ -53,6 +53,8 @@ namespace PirateAPI.RequestResolver
 
       //Set up initial values
       int requestPage = (int)Math.Floor((double)request.Offset / 30);
+      int firstPageOffset = request.Offset%30;
+      bool isFirstPage = true;
       int limit = request.Limit ?? 100;
       List<Torrent> results = new List<Torrent>();
 
@@ -64,6 +66,13 @@ namespace PirateAPI.RequestResolver
         string piratePage = webClient.DownloadString(requestUrl);
 
         List<string> rows = rowExtractor.ExtractRows(piratePage);
+
+        //if first page, remove up to offset
+        if (isFirstPage)
+        {
+          MatchRowsToOffset(firstPageOffset, rows);
+          isFirstPage = false;
+        }
 
         if (rows.Count == 0)
           //we have run out of results
@@ -177,6 +186,20 @@ namespace PirateAPI.RequestResolver
         return checker.Check(request.ShowName, request.Season.Value, torrent.Title);
 
       return checker.Check(request.ShowName, torrent.Title);
+    }
+
+    private void MatchRowsToOffset(int offset, List<string> rows)
+    {
+      if (rows.Count == 0)
+        return;
+
+      if (offset >= rows.Count - 1)
+      {
+        rows.Clear();
+        return;
+      }
+
+      rows.RemoveRange(1, offset);
     }
     #endregion
   }
