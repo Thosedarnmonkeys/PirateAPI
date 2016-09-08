@@ -48,6 +48,11 @@
     <Compile Include="Parsers\Torznab\PirateRequest.cs" />
     <Compile Include="Parsers\Torznab\TorznabQueryParser.cs" />
     <Compile Include="PirateAPIHost.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ProxyPicker\PirateProxyPicker.cs" />
     <Compile Include="ProxyProviders\IProxyProvider.cs" />
     <Compile Include="ProxyProviders\Proxy.cs" />
@@ -65,7 +70,15 @@
     <Compile Include="WebServer\BasicWebServer.cs" />
     <Compile Include="WebServer\IWebServer.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ResponseBuilders\TorznabResponseTemplate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

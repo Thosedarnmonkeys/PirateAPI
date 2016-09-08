@@ -14,7 +14,6 @@
       <torznab:attr name="seeders" value="1" />
       <torznab:attr name="peers" value="2" />
     </item>
-
     <item>
       <title>Show Name S01E01 SD</title>
       <link>fakeUrl</link>
@@ -24,7 +23,6 @@
       <torznab:attr name="seeders" value="1" />
       <torznab:attr name="peers" value="2" />
     </item>
-
     <item>
       <title>Show Name S01E01 SD</title>
       <link>fakeUrl</link>
@@ -34,7 +32,6 @@
       <torznab:attr name="seeders" value="1" />
       <torznab:attr name="peers" value="2" />
     </item>
-
     <item>
       <title>Show Name S01E01 SD</title>
       <link>fakeUrl</link>
@@ -44,7 +41,6 @@
       <torznab:attr name="seeders" value="1" />
       <torznab:attr name="peers" value="2" />
     </item>
-
     <item>
       <title>Show Name S01E01 SD</title>
       <link>fakeUrl</link>
