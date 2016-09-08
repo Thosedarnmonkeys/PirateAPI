@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="1.0" xmlns:torznab="http://torznab.com/schemas/2015/feed">
-  <channel>
-    <title>PirateAPI</title>
-    <description>PirateBay Torznab API</description>
-    <link>https://github.com/Thosedarnmonkeys/PirateAPI</link>
-
-	{0}
-
-  </channel>
+<channel>
+<title>PirateAPI</title>
+<description>PirateBay Torznab API</description>
+<link>https://github.com/Thosedarnmonkeys/PirateAPI</link>
+{0}</channel>
 </rss>

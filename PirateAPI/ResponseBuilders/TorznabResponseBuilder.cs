@@ -44,6 +44,7 @@ namespace PirateAPI.ResponseBuilders
 
       string response = Resources.TorznabResponseTemplate;
       response = string.Format(response, builder);
+      response = response.Replace("\r", "");
 
       return response;
     }
