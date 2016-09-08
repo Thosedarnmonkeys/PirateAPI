@@ -327,7 +327,40 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///  &lt;channel&gt;
+        ///    &lt;title&gt;PirateAPI&lt;/title&gt;
+        ///    &lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///    &lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///
+        ///    &lt;item&gt;
+        ///      &lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///      &lt;link&gt;fakeUrl&lt;/link&gt;
+        ///      &lt;pubDate&gt;Wed, 07 Aug 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///      &lt;size&gt;1024&lt;/size&gt;
+        ///      &lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bitt [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorznabResponse5Items {
+            get {
+                return ResourceManager.GetString("TorznabResponse5Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///  &lt;channel&gt;
+        ///    &lt;title&gt;PirateAPI&lt;/title&gt;
+        ///    &lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///    &lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///
+        ///    &lt;item&gt;
+        ///      &lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///      &lt;link&gt;fakeUrl&lt;/link&gt;
+        ///      &lt;pubDate&gt;Wed, 07 Aug 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///      &lt;size&gt;1024&lt;/size&gt;
+        ///      &lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bitt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleItem {
             get {

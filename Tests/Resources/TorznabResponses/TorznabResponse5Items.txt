@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="1.0" xmlns:torznab="http://torznab.com/schemas/2015/feed">
+  <channel>
+    <title>PirateAPI</title>
+    <description>PirateBay Torznab API</description>
+    <link>https://github.com/Thosedarnmonkeys/PirateAPI</link>
+
+    <item>
+      <title>Show Name S01E01 SD</title>
+      <link>fakeUrl</link>
+      <pubDate>Wed, 07 Aug 2016 00:00:00 +0000</pubDate>
+      <size>1024</size>
+      <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
+      <torznab:attr name="seeders" value="1" />
+      <torznab:attr name="peers" value="2" />
+    </item>
+
+    <item>
+      <title>Show Name S01E01 SD</title>
+      <link>fakeUrl</link>
+      <pubDate>Wed, 07 Aug 2016 00:00:00 +0000</pubDate>
+      <size>1024</size>
+      <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
+      <torznab:attr name="seeders" value="1" />
+      <torznab:attr name="peers" value="2" />
+    </item>
+
+    <item>
+      <title>Show Name S01E01 SD</title>
+      <link>fakeUrl</link>
+      <pubDate>Wed, 07 Aug 2016 00:00:00 +0000</pubDate>
+      <size>1024</size>
+      <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
+      <torznab:attr name="seeders" value="1" />
+      <torznab:attr name="peers" value="2" />
+    </item>
+
+    <item>
+      <title>Show Name S01E01 SD</title>
+      <link>fakeUrl</link>
+      <pubDate>Wed, 07 Aug 2016 00:00:00 +0000</pubDate>
+      <size>1024</size>
+      <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
+      <torznab:attr name="seeders" value="1" />
+      <torznab:attr name="peers" value="2" />
+    </item>
+
+    <item>
+      <title>Show Name S01E01 SD</title>
+      <link>fakeUrl</link>
+      <pubDate>Wed, 07 Aug 2016 00:00:00 +0000</pubDate>
+      <size>1024</size>
+      <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
+      <torznab:attr name="seeders" value="1" />
+      <torznab:attr name="peers" value="2" />
+    </item>
+
+  </channel>
+</rss>

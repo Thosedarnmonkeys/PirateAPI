@@ -166,6 +166,9 @@
   <data name="TorrentRowWhiteSpaceAroundTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TorznabResponse5Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorznabResponses\TorznabResponse5Items.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="TorznabResponseSingleItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorznabResponses\TorznabResponseSingleItem.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
