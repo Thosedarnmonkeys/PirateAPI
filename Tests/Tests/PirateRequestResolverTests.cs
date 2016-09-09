@@ -1259,9 +1259,7 @@ namespace PirateAPITests.Tests
       };
 
 
-      List<Torrent> torrents = resolver.Resolve(request);
-
-      Assert.IsNull(torrents);
+      Assert.Throws<ArgumentException>(() => resolver.Resolve(request));
     }
 
     [Test]
@@ -1426,6 +1424,33 @@ namespace PirateAPITests.Tests
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
+    }
+
+    [Test]
+    public void TestUnresponsiveProxy()
+    {
+      List<string> responseStrings = new List<string>
+      {
+        null
+      };
+
+      StubWebClient webClient = new StubWebClient(responseStrings);
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 5,
+        Offset = 0,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick+And+Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrents = resolver.Resolve(request);
+
+      Assert.IsNull(torrents);
     }
   }
 }

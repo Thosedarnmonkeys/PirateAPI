@@ -46,7 +46,7 @@ namespace PirateAPI.RequestResolver
       if (!IsRequestValid(request, out errorMessage))
       {
         logger.LogError(errorMessage);
-        return null;
+        throw new ArgumentException($"{nameof(request)} was not a valid PirateRequest");
       }
 
       request.ShowName = request.ShowName.Replace("+", " ");
@@ -64,6 +64,9 @@ namespace PirateAPI.RequestResolver
         //Get page
         string requestUrl = ConstructQueryForPage(request, requestPage);
         string piratePage = webClient.DownloadString(requestUrl);
+
+        if (piratePage == null)
+          return null;
 
         List<string> rows = rowExtractor.ExtractRows(piratePage);
 
