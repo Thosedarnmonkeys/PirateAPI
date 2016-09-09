@@ -35,7 +35,7 @@ namespace PirateAPI.Parsers.Torznab
       if (string.IsNullOrWhiteSpace(pirateProxy))
         logger.LogError("PirateRequest.Parse was passed a null or empty string for pirateProxy");
 
-      string regexPattern = @"http.*\/api\?(.*)";
+      string regexPattern = @"\/api\?(.*)";
 
       Regex regex = new Regex(regexPattern);
 
