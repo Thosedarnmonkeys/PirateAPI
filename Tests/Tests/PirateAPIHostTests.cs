@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -42,6 +43,8 @@ namespace PirateAPITests.Tests
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -73,6 +76,8 @@ namespace PirateAPITests.Tests
 
       string correctResponse = Resources.TorznabResponseSingleSeason;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -96,15 +101,16 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
 
-      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
       WebClient webClient = new WebClient();
       string response = webClient.DownloadString(request);
-      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual(2, client.RequestsMade.Count);
       Assert.AreEqual("https://www.thepiratebay.uk.net/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
-      Assert.AreEqual("https://www.thepiratebay.uk.net/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -127,15 +133,16 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
 
-      string request = $"http://localhost:{port}/pirateapi/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      string request = $"http://localhost:{port}/pirateapi/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
       WebClient webClient = new WebClient();
       string response = webClient.DownloadString(request);
-      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual(2, client.RequestsMade.Count);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
-      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -149,8 +156,8 @@ namespace PirateAPITests.Tests
       {
         Resources.ProxyListSimple,
         Resources.PiratePageSingleEpisode,
-        Resources.PiratePageNoResults,
         Resources.ProxyListBestProxyNowSlow,
+        Resources.PiratePageSingleEpisode
       };
       StubWebClient client = new StubWebClient(responses);
 
@@ -159,26 +166,28 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
 
-      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
       WebClient webClient = new WebClient();
       string response = webClient.DownloadString(request);
-      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual(2, client.RequestsMade.Count);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
-      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
 
-      Thread.Sleep(new TimeSpan(0, 0, 10));
+      Thread.Sleep(new TimeSpan(0, 0, 7));
 
-      Assert.AreEqual(4, client.RequestsMade.Count);
-      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[3]);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[2]);
 
       response = webClient.DownloadString(request);
-      Assert.AreEqual(6, client.RequestsMade.Count);
-      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[4]);
-      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[5]);
+      Assert.AreEqual(4, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[3]);
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -204,18 +213,19 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
 
-      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
       WebClient webClient = new WebClient();
       string response = webClient.DownloadString(request);
-      Assert.AreEqual(6, client.RequestsMade.Count);
+      Assert.AreEqual(5, client.RequestsMade.Count);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[2]);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[3]);
       Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[4]);
-      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[5]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
 
@@ -232,10 +242,8 @@ namespace PirateAPITests.Tests
         null,
         null,
         Resources.PiratePageSingleEpisode,
-        Resources.PiratePageNoResults,
         Resources.ProxyListSimple,
         Resources.PiratePageSingleEpisode,
-        Resources.PiratePageNoResults
       };
       StubWebClient client = new StubWebClient(responses);
 
@@ -244,30 +252,55 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
 
-      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
       WebClient webClient = new WebClient();
       string response = webClient.DownloadString(request);
-      Assert.AreEqual(6, client.RequestsMade.Count);
+      Assert.AreEqual(5, client.RequestsMade.Count);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[2]);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[3]);
       Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[4]);
-      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[5]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
 
-      Thread.Sleep(new TimeSpan(0, 0, 10));
+      Thread.Sleep(new TimeSpan(0, 0, 7));
 
-      Assert.AreEqual(7, client.RequestsMade.Count);
-      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[6]);
+      Assert.AreEqual(6, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[5]);
 
       response = webClient.DownloadString(request);
-      Assert.AreEqual(9, client.RequestsMade.Count);
-      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[7]);
-      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[8]);
+      Assert.AreEqual(7, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[6]);
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
+    }
+
+    private string SetSizeAndLengthTo3SigFig(string input)
+    {
+      string sizePattern = "<size>(.*?)</size>";
+      Regex sizeRegex = new Regex(sizePattern);
+
+      MatchCollection matches = sizeRegex.Matches(input);
+
+      foreach (Match match in matches)
+      {
+        string numString = match.Groups[1].Value;
+        double d = double.Parse(numString);
+
+        double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(d))) + 1);
+        double val = scale * Math.Round(d / scale, 3);
+        double roundedNumber = Math.Floor(val);
+
+        input = input.Replace($">{numString}<", $">{roundedNumber}<");
+        input = input.Replace($"\"{numString}\"", $"\"{roundedNumber}\"");
+      }
+
+      return input;
     }
   }
 }
