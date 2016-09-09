@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateAPI", "PirateAPI\Pira
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateAPITests", "Tests\PirateAPITests.csproj", "{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateAPIConsole", "PirateAPIConsole\PirateAPIConsole.csproj", "{EC560C9E-D18E-445E-9D70-A79A8A8BC16D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70FFC502-66B6-4CF9-9BB7-5635178E2D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC560C9E-D18E-445E-9D70-A79A8A8BC16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC560C9E-D18E-445E-9D70-A79A8A8BC16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC560C9E-D18E-445E-9D70-A79A8A8BC16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC560C9E-D18E-445E-9D70-A79A8A8BC16D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

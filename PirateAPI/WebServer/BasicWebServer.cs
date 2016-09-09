@@ -50,7 +50,7 @@ namespace PirateAPI.WebServer
       }
       catch (Exception e)
       {
-        logger.LogException(e, "WebServer.StartServing threw exception: ");
+        logger.LogException(e, "WebServer.StartServing threw exception");
         return false;
       }
     }
@@ -66,7 +66,7 @@ namespace PirateAPI.WebServer
       }
       catch (Exception e)
       {
-        logger.LogException(e, "WebServer.StopServing threw exception: ");
+        logger.LogException(e, "WebServer.StopServing threw exception");
         throw;
       }
     }
@@ -94,7 +94,7 @@ namespace PirateAPI.WebServer
       }
       catch (Exception e)
       {
-        logger.LogException(e, "BasicWebServer.ServerRequest threw exception: ");
+        logger.LogException(e, "BasicWebServer.ServerRequest threw exception");
       }
       
     }

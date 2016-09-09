@@ -63,7 +63,7 @@ namespace PirateAPI.Logging
 
       CreateLogFileIfMissing();
 
-      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, message ?? "" + (message == null || e == null ? "" : ": ") + e?.Message);
+      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
       using (StreamWriter writer = new StreamWriter(logFilePath))
       {
         writer.WriteLine(formattedMessage);

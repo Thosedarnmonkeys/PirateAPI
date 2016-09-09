@@ -137,7 +137,7 @@ namespace PirateAPI
           }
           catch (Exception e)
           {
-            logger.LogException(e, "PirateRequestResolver.Resolve threw exception: ");
+            logger.LogException(e, "PirateRequestResolver.Resolve threw exception");
             logger.LogError("PirateRequestResolver.Resolve threw error, returning null string");
             return null;
           }

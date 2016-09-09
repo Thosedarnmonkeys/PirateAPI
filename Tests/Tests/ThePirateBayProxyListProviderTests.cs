@@ -23,12 +23,12 @@ namespace PirateAPITests.Tests
 
       List<Proxy> correctProxies = new List<Proxy>
       {
-        new Proxy { Domain = "https://www.gameofbay.org", Country = "uk", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "https://www.unblockedbay.info", Country = "us", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "https://www.tpbunblocked.org", Country = "uk", Speed = ProxySpeed.Slow },
-        new Proxy { Domain = "https://www.thepiratebay.uk.net", Country = "it", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "http://www.piratebay.host", Country = "no", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "https://www.piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
+        new Proxy { Domain = "https://gameofbay.org", Country = "uk", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "https://unblockedbay.info", Country = "us", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "https://tpbunblocked.org", Country = "uk", Speed = ProxySpeed.Slow },
+        new Proxy { Domain = "https://thepiratebay.uk.net", Country = "it", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "http://piratebay.host", Country = "no", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "https://piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
       };
 
       ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), webClient);
@@ -48,12 +48,12 @@ namespace PirateAPITests.Tests
 
       List<Proxy> correctProxies = new List<Proxy>
       {
-        new Proxy { Domain = "https://www.gameofbay.org", Country = "uk", Speed = ProxySpeed.Slow },
-        new Proxy { Domain = "https://www.unblockedbay.info", Country = "us", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "https://www.tpbunblocked.org", Country = "uk", Speed = ProxySpeed.Slow },
-        new Proxy { Domain = "https://www.thepiratebay.uk.net", Country = "it", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "http://www.piratebay.host", Country = "no", Speed = ProxySpeed.VeryFast },
-        new Proxy { Domain = "https://www.piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
+        new Proxy { Domain = "https://gameofbay.org", Country = "uk", Speed = ProxySpeed.Slow },
+        new Proxy { Domain = "https://unblockedbay.info", Country = "us", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "https://tpbunblocked.org", Country = "uk", Speed = ProxySpeed.Slow },
+        new Proxy { Domain = "https://thepiratebay.uk.net", Country = "it", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "http://piratebay.host", Country = "no", Speed = ProxySpeed.VeryFast },
+        new Proxy { Domain = "https://piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
       };
 
       ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), webClient);

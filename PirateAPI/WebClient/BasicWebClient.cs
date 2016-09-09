@@ -34,7 +34,7 @@ namespace PirateAPI.WebClient
       }
       catch (Exception e)
       {
-        logger.LogException(e, $"BasicWebClient.DownloadString threw exception while trying to download from address {address} : "); 
+        logger.LogException(e, $"BasicWebClient.DownloadString threw exception while trying to download from address {address} "); 
         return null;
       }
     }

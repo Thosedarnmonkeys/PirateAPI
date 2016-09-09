@@ -43,7 +43,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
       }
       catch (Exception e)
       {
-        logger.LogException(e, "ThePirateBayProxyListProvider.GetProxysListingString threw exception trying to download string: ");
+        logger.LogException(e, "ThePirateBayProxyListProvider.GetProxysListingString threw exception trying to download string");
         return new List<Proxy>();
       }
 
@@ -91,7 +91,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
         proxies.Add(new Proxy
         {
-          Domain = $"{protocol}://www.{proxy.Domain}",
+          Domain = $"{protocol}://{proxy.Domain}",
           Country = proxy.Country,
           Speed = speed
         });
