@@ -85,6 +85,23 @@ namespace PirateAPI
 
       return true;
     }
+
+    public bool StopServing()
+    {
+      refreshProxiesTimer.Stop();
+
+      try
+      {
+        webServer.StopServing();
+      }
+      catch (Exception)
+      {
+        logger.LogError("WebServer did not shut down cleanly");
+        return false;
+      }
+
+      return true;
+    }
     #endregion
 
     #region private methods

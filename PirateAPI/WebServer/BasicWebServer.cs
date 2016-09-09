@@ -80,15 +80,23 @@ namespace PirateAPI.WebServer
       if (asyncListener == null)
         throw new ArgumentException("Async method WebServer.ServerRequest was passed an object of type" + (asyncResult.AsyncState == null ? "null" : asyncResult.AsyncState.ToString()) + " instead of an HttpListener");
 
-      HttpListenerContext context = asyncListener.EndGetContext(asyncResult);
-      asyncListener.BeginGetContext(ServeRequest, asyncListener);
+      try
+      {
+        HttpListenerContext context = asyncListener.EndGetContext(asyncResult);
+        asyncListener.BeginGetContext(ServeRequest, asyncListener);
 
-      string response = responseFunc.Invoke(context.Request.RawUrl);
+        string response = responseFunc.Invoke(context.Request.RawUrl);
 
-      byte[] buffer = Encoding.UTF8.GetBytes(response);
-      context.Response.ContentLength64 = buffer.Length;
-      context.Response.OutputStream.Write(buffer, 0, buffer.Length);
-      context.Response.OutputStream.Close();
+        byte[] buffer = Encoding.UTF8.GetBytes(response);
+        context.Response.ContentLength64 = buffer.Length;
+        context.Response.OutputStream.Write(buffer, 0, buffer.Length);
+        context.Response.OutputStream.Close();
+      }
+      catch (Exception e)
+      {
+        logger.LogException(e, "BasicWebServer.ServerRequest threw exception: ");
+      }
+      
     }
     #endregion
   }

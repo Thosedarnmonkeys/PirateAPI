@@ -81,7 +81,6 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctResponse, response);
     }
 
-
     [Test]
     public void TestDifferentLocationPriority()
     {
@@ -278,6 +277,65 @@ namespace PirateAPITests.Tests
       correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
       response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestStopServingAfterSingleRequest()
+    {
+      int port = 8093;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), new StubLogger(), client);
+      Assert.IsTrue(host.StartServing());
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(2, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
+      Assert.AreEqual(correctResponse, response);
+
+      Assert.IsTrue(host.StopServing());
+
+      Assert.Throws<WebException>(() => client.DownloadString(request));
+    }
+
+    [Test]
+    public void TestStopServingAfterNoRequests()
+    {
+      int port = 8094;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), new StubLogger(), client);
+      Assert.IsTrue(host.StartServing());
+      Assert.IsTrue(host.StopServing());
+
+      WebClient webClient = new WebClient();
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=5";
+      Assert.Throws<WebException>(() => webClient.DownloadString(request));
     }
 
     private string SetSizeAndLengthTo3SigFig(string input)
