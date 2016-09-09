@@ -13,14 +13,16 @@ namespace PirateAPI.ProxyPicker
     #region private fields
     private ILogger logger;
     private List<string> locationPrefs;
-    private List<string> blackListedDomains = new List<string>();
+    private List<string> tempBlackListedDomains = new List<string>();
+    private List<string> permBlackListedDomains;
     #endregion
 
     #region constructor
-    public PirateProxyPicker(List<string> locationPrefs, ILogger logger)
+    public PirateProxyPicker(List<string> locationPrefs, List<string> permanentBlackList, ILogger logger)
     {
       this.locationPrefs = locationPrefs;
       this.logger = logger;
+      this.permBlackListedDomains = permanentBlackList ?? new List<string>();
     }
     #endregion
 
@@ -28,7 +30,7 @@ namespace PirateAPI.ProxyPicker
     public Proxy BestProxy(List<Proxy> proxies)
     {
       IEnumerable<Proxy> goodProxies = from p in proxies
-                                       where !blackListedDomains.Contains(p.Domain)
+                                       where !permBlackListedDomains.Contains(p.Domain) &&!tempBlackListedDomains.Contains(p.Domain)
                                        select p;
 
       if (goodProxies.Count() == 0)
@@ -65,13 +67,18 @@ namespace PirateAPI.ProxyPicker
       return bestProxy;
     }
 
-    public void BlacklistDomain(string domain)
+    public void TempBlacklistDomain(string domain)
     {
-      if (!blackListedDomains.Contains(domain))
+      if (!tempBlackListedDomains.Contains(domain))
       {
-        logger.LogMessage($"Domain {domain} was blacklisted");
-        blackListedDomains.Add(domain);
+        logger.LogMessage($"Domain {domain} was temporarily blacklisted");
+        tempBlackListedDomains.Add(domain);
       }
+    }
+
+    public void ClearTempBlacklist()
+    {
+      tempBlackListedDomains.Clear();
     }
     #endregion
   }

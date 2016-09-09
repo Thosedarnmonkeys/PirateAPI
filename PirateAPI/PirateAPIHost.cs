@@ -42,6 +42,7 @@ namespace PirateAPI
     private IWebClient webClient;
     private PirateProxyPicker proxyPicker;
     private Proxy bestProxy;
+    private List<Proxy> proxies;
     private Timer refreshProxiesTimer;
     #endregion
 
@@ -54,9 +55,7 @@ namespace PirateAPI
       ProxyRefreshInterval = proxyResfreshInterval;
       this.logger = logger;
       this.webClient = webClient;
-      proxyPicker = new PirateProxyPicker(proxyLocationPreferences, logger);
-
-      blacklistedProxies?.ForEach(p => proxyPicker.BlacklistDomain(p));
+      proxyPicker = new PirateProxyPicker(proxyLocationPreferences, blacklistedProxies, logger);
     }
     #endregion
 
@@ -64,7 +63,7 @@ namespace PirateAPI
     public bool StartServing()
     {
       IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
-      List<Proxy> proxies = proxyProvider.ListProxies();
+      proxies = proxyProvider.ListProxies();
       if (proxies == null)
       {
         logger.LogError("Failed to start serving: ThePirateBayProxyListProvider.ListProxies returned null");
@@ -99,23 +98,63 @@ namespace PirateAPI
       }
 
       TorznabQueryParser torznabParser = new TorznabQueryParser(logger);
-      PirateRequest pirateRequest = torznabParser.Parse(request, bestProxy.Domain);
-      if (pirateRequest == null)
+      List<Torrent> torrents = null;
+      while (torrents == null)
       {
-        logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
-        return null;
-      }
+        //create request using the current best proxy
+        PirateRequest pirateRequest = torznabParser.Parse(request, bestProxy.Domain);
+        if (pirateRequest == null)
+        {
+          logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
+          return null;
+        }
 
-      PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient);
-      List<Torrent> torrents = requestResolver.Resolve(pirateRequest);
-      if (torrents == null)
-      {
-        logger.LogError("PirateRequestResolver.Resolve returned null, returning null string");
-        return null;
+        int remainingAttempts = 3;
+        while (remainingAttempts > 0)
+        {
+          //try getting a response from proxy up to 3 times
+          PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient);
+          try
+          {
+            torrents = requestResolver.Resolve(pirateRequest);
+          }
+          catch (Exception e)
+          {
+            logger.LogException(e, "PirateRequestResolver.Resolve threw exception: ");
+            logger.LogError("PirateRequestResolver.Resolve threw error, returning null string");
+            return null;
+          }
+
+          if (torrents != null)
+            break;
+
+          remainingAttempts--;
+        }
+
+        //if null here then proxy never responded, as malformed response/request throws exception
+        if (torrents == null)
+        {
+          //remove proxy from current pool and try again on next loop using next best proxy
+          proxyPicker.TempBlacklistDomain(bestProxy.Domain);
+          Proxy proxy = proxyPicker.BestProxy(proxies);
+          if (proxy == null)
+          {
+            logger.LogError("PirateProxyPicker.BestProxy returned null, reutrning null string");
+            return null;
+          }
+          bestProxy = proxy;
+        }
       }
 
       TorznabResponseBuilder responseBuilder = new TorznabResponseBuilder(logger);
-      return responseBuilder.BuildResponse(torrents);
+      string response = responseBuilder.BuildResponse(torrents);
+      if (response == null)
+      {
+        logger.LogError("TorznabResponseBuilder.BuildReponse returned null, returning null string");
+        return null;
+      }
+
+      return response;
     }
 
     private void OnRefreshProxiesTimerInterval(object sender, ElapsedEventArgs e)
@@ -126,13 +165,14 @@ namespace PirateAPI
     private void RefreshProxies()
     {
       IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
-      List<Proxy> proxies = proxyProvider.ListProxies();
+      proxies = proxyProvider.ListProxies();
       if (proxies == null)
       {
         logger.LogError("Failed to refresh proxies: ThePirateBayProxyListProvider.ListProxies returned null");
         return;
       }
 
+      proxyPicker.ClearTempBlacklist();
       bestProxy = proxyPicker.BestProxy(proxies);
     }
     #endregion

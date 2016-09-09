@@ -35,7 +35,7 @@ namespace PirateAPITests.Tests
     public void TestAlternateWebRoot()
     {
       string webRoot = "/webroot";
-      int port = 8080;
+      int port = 8081;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -76,7 +76,7 @@ namespace PirateAPITests.Tests
     public void TestAlternatePort()
     {
       string webRoot = "";
-      int port = 8081;
+      int port = 8082;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -99,7 +99,7 @@ namespace PirateAPITests.Tests
 
       try
       {
-        response = webClient.DownloadString("http://localhost:8082");
+        response = webClient.DownloadString("http://localhost:8081");
       }
       catch (Exception)
       {
@@ -108,7 +108,7 @@ namespace PirateAPITests.Tests
 
       Assert.AreEqual("ExceptionAgain", response);
 
-      response = webClient.DownloadString("http://localhost:8081");
+      response = webClient.DownloadString("http://localhost:8082");
 
       Assert.AreEqual("Response", response);
     }
@@ -117,7 +117,7 @@ namespace PirateAPITests.Tests
     public void TestStopAndRestartServing()
     {
       string webRoot = "";
-      int port = 8082;
+      int port = 8083;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -151,7 +151,7 @@ namespace PirateAPITests.Tests
     public void TestTryStartServingWhileAlreadyRunning()
     {
       string webRoot = "";
-      int port = 8083;
+      int port = 8084;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
@@ -174,7 +174,7 @@ namespace PirateAPITests.Tests
     public void TestBasicResponseTwiceInRow()
     {
       string webRoot = "";
-      int port = 8084;
+      int port = 8085;
 
       BasicWebServer webServer = new BasicWebServer(webRoot, port, GiveSimpleResponse, new StubLogger());
       bool listening = webServer.StartServing();
