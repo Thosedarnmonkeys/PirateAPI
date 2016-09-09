@@ -207,6 +207,15 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;proxies&quot;:[{&quot;domain&quot;:&quot;gameofbay.org&quot;,&quot;speed&quot;:0.002,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;unblockedbay.info&quot;,&quot;speed&quot;:0.061,&quot;secure&quot;:true,&quot;country&quot;:&quot;US&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;tpbunblocked.org&quot;,&quot;speed&quot;:1.112,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;thepiratebay.uk.net&quot;,&quot;speed&quot;:0.179,&quot;secure&quot;:true,&quot;country&quot;:&quot;IT&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.host&quot;,&quot;speed&quot;:0.208,&quot;secure&quot;:false,&quot;country&quot;:&quot;NO&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.click&quot;,&quot;speed&quot;:0.416,&quot;secure&quot;:true,&quot;country&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ProxyListSimple {
+            get {
+                return ResourceManager.GetString("ProxyListSimple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
         ///		&lt;td class=&quot;vertTh&quot;&gt;
         ///			&lt;center&gt;
@@ -329,17 +338,17 @@ namespace PirateAPITests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
         ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
-        ///  &lt;channel&gt;
-        ///    &lt;title&gt;PirateAPI&lt;/title&gt;
-        ///    &lt;description&gt;PirateBay Torznab API&lt;/description&gt;
-        ///    &lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
-        ///
-        ///    &lt;item&gt;
-        ///      &lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///      &lt;link&gt;fakeUrl&lt;/link&gt;
-        ///      &lt;pubDate&gt;Wed, 07 Aug 2016 00:00:00 +0000&lt;/pubDate&gt;
-        ///      &lt;size&gt;1024&lt;/size&gt;
-        ///      &lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bitt [rest of string was truncated]&quot;;.
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///&lt;item&gt;
+        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///&lt;size&gt;1024&lt;/size&gt;
+        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
+        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponse5Items {
             get {
@@ -348,19 +357,28 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TorznabResponseSingleEpisode {
+            get {
+                return ResourceManager.GetString("TorznabResponseSingleEpisode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
         ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
-        ///  &lt;channel&gt;
-        ///    &lt;title&gt;PirateAPI&lt;/title&gt;
-        ///    &lt;description&gt;PirateBay Torznab API&lt;/description&gt;
-        ///    &lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
-        ///
-        ///    &lt;item&gt;
-        ///      &lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///      &lt;link&gt;fakeUrl&lt;/link&gt;
-        ///      &lt;pubDate&gt;Wed, 07 Aug 2016 00:00:00 +0000&lt;/pubDate&gt;
-        ///      &lt;size&gt;1024&lt;/size&gt;
-        ///      &lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bitt [rest of string was truncated]&quot;;.
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///&lt;item&gt;
+        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///&lt;size&gt;1024&lt;/size&gt;
+        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
+        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleItem {
             get {

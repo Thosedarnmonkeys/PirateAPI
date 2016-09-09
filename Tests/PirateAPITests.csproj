@@ -103,9 +103,11 @@
     <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleEpisode.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleSeason.txt" />
+    <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponse5Items.txt" />
+    <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisode.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponseSingleItem.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

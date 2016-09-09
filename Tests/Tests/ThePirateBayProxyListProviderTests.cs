@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PirateAPITests.Properties;
 using PirateAPITests.Tests.StubClasses;
 
 namespace PirateAPITests.Tests
@@ -17,14 +18,8 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestListProxies()
     {
-      string responseString = "{\"proxies\":[" +
-        "{\"domain\":\"gameofbay.org\",\"speed\":0.002,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
-        "{\"domain\":\"unblockedbay.info\",\"speed\":0.061,\"secure\":true,\"country\":\"US\",\"probed\":true}," +
-        "{\"domain\":\"tpbunblocked.org\",\"speed\":1.112,\"secure\":true,\"country\":\"UK\",\"probed\":true}," +
-        "{\"domain\":\"thepiratebay.uk.net\",\"speed\":0.179,\"secure\":true,\"country\":\"IT\",\"probed\":true}," +
-        "{\"domain\":\"piratebay.host\",\"speed\":0.208,\"secure\":false,\"country\":\"NO\",\"probed\":true}," +
-        "{\"domain\":\"piratebay.click\",\"speed\":0.416,\"secure\":true,\"country\":\"UK\",\"probed\":true}]," +
-        "{\"last_updated\":1472467201}}";
+      string responseString = Resources.ProxyListSimple;
+      StubWebClient webClient = new StubWebClient(new List<string>() {responseString});
 
       List<Proxy> correctProxies = new List<Proxy>
       {
@@ -36,11 +31,13 @@ namespace PirateAPITests.Tests
         new Proxy { Domain = "https://www.piratebay.click", Country = "uk", Speed = ProxySpeed.Fast }
       };
 
-      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), new StubWebClient(new List<string> { responseString }));
+      ThePirateBayProxyListProvider provider = new ThePirateBayProxyListProvider(new StubLogger(), webClient);
 
       List<Proxy> proxies = provider.ListProxies();
 
       Assert.AreEqual(correctProxies, proxies);
+      Assert.AreEqual(1, webClient.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", webClient.RequestsMade[0]);
     }
   }
 }
