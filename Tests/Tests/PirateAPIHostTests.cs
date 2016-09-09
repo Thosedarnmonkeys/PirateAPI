@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI;
@@ -17,7 +18,7 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestSingleEpisode()
     {
-      int port = 8080;
+      int port = 8085;
       string webroot = "";
       List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
       List<string> responses = new List<string>()
@@ -28,7 +29,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(1, 0, 0),  new StubLogger(), client);
       host.StartServing();
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -39,6 +40,177 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(3, client.RequestsMade.Count);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
       Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      correctResponse = correctResponse.Replace("\r", "");
+      Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestSingleSeason()
+    {
+      int port = 8085;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleSeason,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      host.StartServing();
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&season=2";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20Season%202/0/99/205,208", client.RequestsMade[1]);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20Season%202/1/99/205,208", client.RequestsMade[2]);
+
+      string correctResponse = Resources.TorznabResponseSingleSeason;
+      correctResponse = correctResponse.Replace("\r", "");
+      Assert.AreEqual(correctResponse, response);
+    }
+
+
+    [Test]
+    public void TestDifferentLocationPriority()
+    {
+      int port = 8086;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() {"it", "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      host.StartServing();
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.thepiratebay.uk.net/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
+      Assert.AreEqual("https://www.thepiratebay.uk.net/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      correctResponse = correctResponse.Replace("\r", "");
+      Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestDifferentWebRoot()
+    {
+      int port = 8087;
+      string webroot = "/pirateapi";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      host.StartServing();
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/pirateapi/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      correctResponse = correctResponse.Replace("\r", "");
+      Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestProxyPickerRefreshesAfterInterval()
+    {
+      int port = 8088;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults,
+        Resources.ProxyListBestProxyNowSlow,
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(0, 0, 5), new StubLogger(), client);
+      host.StartServing();
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
+      Assert.AreEqual("https://www.gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      correctResponse = correctResponse.Replace("\r", "");
+      Assert.AreEqual(correctResponse, response);
+
+      Thread.Sleep(new TimeSpan(0, 0, 10));
+
+      Assert.AreEqual(4, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[3]);
+
+      response = webClient.DownloadString(request);
+      Assert.AreEqual(6, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[4]);
+      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[5]);
+      Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestProxyChangesAfterProxyFails()
+    {
+      int port = 8089;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        null,
+        null,
+        null,
+        Resources.PiratePageSingleEpisode,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      host.StartServing();
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(3, client.RequestsMade.Count);
+      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[1]);
+      Assert.AreEqual("https://www.piratebay.click/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[2]);
 
       string correctResponse = Resources.TorznabResponseSingleEpisode;
       correctResponse = correctResponse.Replace("\r", "");

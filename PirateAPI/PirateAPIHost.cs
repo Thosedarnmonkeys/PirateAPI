@@ -7,20 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using PirateAPI.WebServer;
 using PirateAPI.Logging;
+using PirateAPI.WebClient;
 
 namespace PirateAPI
 {
   public class PirateAPIHost
   {
-    //broad workflow:
+    //Broad workflow:
 
-    //Proxypicker picks proxy to use, refreshes every hour or if there is error
+    //On StartServing() Proxypicker picks proxy to use, refreshes every hour or if there is error
 
-    //Webserver gets request
-    //Parser parses Torznab to TPB web
-    //RequestMaker makes actual request to proxy
-    //second parser parses TPB web to Torznab
-    //Webserver returns request
+    //WebServer gets request
+    //TorznabQueryParser parses Torznab string to PirateRequest obj
+    //PirateRequestResolver takes PirateRequest, returns list Torrent obj
+    //TorznabResponseBuilder takes list of torrents, returns torznab string
+    //Webserver returns torznab string
 
     #region public properties
     public string WebRoot { get; private set; }
@@ -34,7 +35,7 @@ namespace PirateAPI
     #endregion
 
     #region constructor
-    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences)
+    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, TimeSpan proxyResfreshInterval, ILogger logger, IWebClient webClient)
     {
       WebRoot = webRoot;
       Port = port;

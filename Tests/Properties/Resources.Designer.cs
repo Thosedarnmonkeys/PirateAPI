@@ -207,6 +207,15 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;proxies&quot;:[{&quot;domain&quot;:&quot;gameofbay.org&quot;,&quot;speed&quot;:5.002,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;unblockedbay.info&quot;,&quot;speed&quot;:0.061,&quot;secure&quot;:true,&quot;country&quot;:&quot;US&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;tpbunblocked.org&quot;,&quot;speed&quot;:1.112,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;thepiratebay.uk.net&quot;,&quot;speed&quot;:0.179,&quot;secure&quot;:true,&quot;country&quot;:&quot;IT&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.host&quot;,&quot;speed&quot;:0.208,&quot;secure&quot;:false,&quot;country&quot;:&quot;NO&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.click&quot;,&quot;speed&quot;:0.416,&quot;secure&quot;:true,&quot;country&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ProxyListBestProxyNowSlow {
+            get {
+                return ResourceManager.GetString("ProxyListBestProxyNowSlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;proxies&quot;:[{&quot;domain&quot;:&quot;gameofbay.org&quot;,&quot;speed&quot;:0.002,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;unblockedbay.info&quot;,&quot;speed&quot;:0.061,&quot;secure&quot;:true,&quot;country&quot;:&quot;US&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;tpbunblocked.org&quot;,&quot;speed&quot;:1.112,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;thepiratebay.uk.net&quot;,&quot;speed&quot;:0.179,&quot;secure&quot;:true,&quot;country&quot;:&quot;IT&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.host&quot;,&quot;speed&quot;:0.208,&quot;secure&quot;:false,&quot;country&quot;:&quot;NO&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.click&quot;,&quot;speed&quot;:0.416,&quot;secure&quot;:true,&quot;country&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ProxyListSimple {
@@ -357,7 +366,15 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///&lt;item&gt;
+        ///&lt;title&gt;Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]&lt;/title&gt;
+        ///&lt;link&gt;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;amp;tr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleEpisode {
             get {
@@ -383,6 +400,28 @@ namespace PirateAPITests.Properties {
         internal static string TorznabResponseSingleItem {
             get {
                 return ResourceManager.GetString("TorznabResponseSingleItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///
+        ///&lt;item&gt;
+        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///&lt;size&gt;1024&lt;/size&gt;
+        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
+        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorznabResponseSingleSeason {
+            get {
+                return ResourceManager.GetString("TorznabResponseSingleSeason", resourceCulture);
             }
         }
     }
