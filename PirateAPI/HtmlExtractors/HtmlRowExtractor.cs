@@ -42,7 +42,6 @@ namespace PirateAPI.HtmlExtractors
 
       if (!tableRowsRegex.IsMatch(html))
       {
-        logger.LogError($"Html {html} didn't match regex {tableRowsRegexPattern} in HtmlRowExtractor.ExtractRows");
         return new List<string>();
       }
 

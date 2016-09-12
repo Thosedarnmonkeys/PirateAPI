@@ -62,7 +62,7 @@ namespace PirateAPI.ProxyPicker
 
       Proxy bestProxy = matchedProxies.FirstOrDefault();
 
-      logger.LogMessage($"Picker determined best proxy was domain {bestProxy.Domain} with speed {bestProxy.Speed} and location {bestProxy.Country}");
+      logger.LogMessage($"Picker determined best proxy was domain {bestProxy.Domain} with speed {bestProxy.Speed} and location {bestProxy.Country.ToUpper()}");
 
       return bestProxy;
     }
