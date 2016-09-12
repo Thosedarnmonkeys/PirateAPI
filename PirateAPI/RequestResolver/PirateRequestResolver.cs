@@ -49,7 +49,8 @@ namespace PirateAPI.RequestResolver
         throw new ArgumentException($"{nameof(request)} was not a valid PirateRequest");
       }
 
-      request.ShowName = request.ShowName.Replace("+", " ");
+      if (!string.IsNullOrWhiteSpace(request.ShowName))
+        request.ShowName = request.ShowName.Replace("+", " ");
 
       //Set up initial values
       int requestPage = (int)Math.Floor((double)request.Offset / 30);
@@ -62,7 +63,9 @@ namespace PirateAPI.RequestResolver
       while (results.Count < limit)
       {
         //Get page
-        string requestUrl = ConstructQueryForPage(request, requestPage);
+        string requestUrl;
+        requestUrl = string.IsNullOrWhiteSpace(request.ShowName) ? ConstructQueryForBrowsePage(request, requestPage) : ConstructQueryForTvSearchPage(request, requestPage);
+
         string piratePage = webClient.DownloadString(requestUrl);
 
         if (piratePage == null)
@@ -116,12 +119,6 @@ namespace PirateAPI.RequestResolver
         return false;
       }
 
-      if (string.IsNullOrWhiteSpace(request.ShowName))
-      {
-        errorMessage = "PirateRequestResolver was passed request with null or empty ShowName";
-        return false;
-      }
-
       if (string.IsNullOrWhiteSpace(request.PirateProxyURL))
       {
         errorMessage = "PirateRequestResolver was passed request with null or empty PirateProxyURL";
@@ -132,7 +129,7 @@ namespace PirateAPI.RequestResolver
       return true;
     }
 
-    private string ConstructQueryForPage(PirateRequest request, int page)
+    private string ConstructQueryForTvSearchPage(PirateRequest request, int page)
     {
       string categories;
       switch (request.Quality)
@@ -175,6 +172,11 @@ namespace PirateAPI.RequestResolver
       return $"{request.PirateProxyURL}/search/{searchArg}/{page}/99/{categories}";
     }
 
+    private string ConstructQueryForBrowsePage(PirateRequest request, int page)
+    {
+      return $"{request.PirateProxyURL}/browse/208/{page}/3";
+    }
+
     private bool IsValidTorrentForRequest(PirateRequest request, Torrent torrent)
     {
       double age = Math.Floor((currentDate - torrent.PublishDate).TotalDays);
@@ -188,7 +190,10 @@ namespace PirateAPI.RequestResolver
       if (request.Season.HasValue)
         return checker.Check(request.ShowName, request.Season.Value, torrent.Title);
 
-      return checker.Check(request.ShowName, torrent.Title);
+      if (!string.IsNullOrWhiteSpace(request.ShowName))
+        return checker.Check(request.ShowName, torrent.Title);
+
+      return true;
     }
 
     private void MatchRowsToOffset(int offset, List<string> rows)

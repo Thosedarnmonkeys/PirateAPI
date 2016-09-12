@@ -67,8 +67,11 @@ namespace PirateAPI.Parsers.Torrents
 
       string seedsAndLeechesPattern = @"<td align=""right"">(.*?)<";
       Tuple<string, string> seedsAndLeechesTuple = CheckMatchAndGetFirstTuple(rowString, seedsAndLeechesPattern, "Seeds", "Leeches");
-      torrent.Seeds = ParseInt(seedsAndLeechesTuple.Item1, "Seeds");
-      torrent.Leeches = ParseInt(seedsAndLeechesTuple.Item2, "Leeches");
+      if (seedsAndLeechesTuple != null)
+      {
+        torrent.Seeds = ParseInt(seedsAndLeechesTuple.Item1, "Seeds");
+        torrent.Leeches = ParseInt(seedsAndLeechesTuple.Item2, "Leeches");
+      }
 
       return torrent;
     }
