@@ -33,7 +33,7 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = string.Format(logMessageFormat, DateTime.Now, messageText, message);
-      using (StreamWriter writer = new StreamWriter(logFilePath))
+      using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }
@@ -47,7 +47,7 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, message);
-      using (StreamWriter writer = new StreamWriter(logFilePath))
+      using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }
@@ -64,7 +64,7 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
-      using (StreamWriter writer = new StreamWriter(logFilePath))
+      using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }

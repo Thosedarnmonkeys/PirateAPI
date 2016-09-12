@@ -141,6 +141,7 @@ namespace PirateAPI.Parsers.Torrents
       }
 
       input = input.Replace("&nbsp;", " ");
+      input = input.Replace("Â ", " ");
       input = input.Replace("-", " ");
 
       DateTime dateTime;
@@ -217,6 +218,8 @@ namespace PirateAPI.Parsers.Torrents
       }
 
       input = input.Replace("&nbsp;", " ");
+      input = input.Replace("Â ", " ");
+
       string[] vals = input.Split(' ');
 
       double qualifiedSize;
@@ -254,6 +257,7 @@ namespace PirateAPI.Parsers.Torrents
         
         default:
           multiplier = 1;
+          logger.LogError($"Couldn't match string {vals[1]} to size quantifier");
           break;
       }
 
