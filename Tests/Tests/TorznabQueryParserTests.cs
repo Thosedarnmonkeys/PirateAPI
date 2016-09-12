@@ -20,6 +20,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -42,6 +46,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://fakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -66,6 +74,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -88,6 +100,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://fakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -112,6 +128,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -134,6 +154,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://adifferentfakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -158,6 +182,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -180,6 +208,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://fakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -204,6 +236,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -226,6 +262,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://fakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -251,6 +291,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -274,6 +318,10 @@ namespace PirateAPITests.Tests
       string pirateProxy = "http://fakepirateproxy.com";
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
 
       PirateRequest correctRequest = new PirateRequest
       {
@@ -300,6 +348,10 @@ namespace PirateAPITests.Tests
 
       TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
 
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
       PirateRequest correctRequest = new PirateRequest
       {
         ShowName = "A+TV+Show",
@@ -313,5 +365,16 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctRequest, parsedRequest);
     }
 
+    [Test]
+    public void TestCapsResponse()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=caps";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.Caps;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+    }
   }
 }

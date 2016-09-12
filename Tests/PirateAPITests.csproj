@@ -98,6 +98,7 @@
     <None Include="Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\CapsResponses\CapsResponseBasic.txt" />
     <Content Include="Resources\PiratePages\PiratePageDifferentShowName.txt" />
     <Content Include="Resources\PiratePages\PiratePageHDOnly.txt" />
     <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />

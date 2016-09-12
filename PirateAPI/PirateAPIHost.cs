@@ -12,6 +12,7 @@ using PirateAPI.ProxyPicker;
 using PirateAPI.ProxyProviders;
 using PirateAPI.ProxyProviders.ThePirateBayProxyList;
 using PirateAPI.RequestResolver;
+using PirateAPI.ResponseBuilders.Caps;
 using PirateAPI.ResponseBuilders.Torznab;
 using PirateAPI.WebClient;
 
@@ -76,7 +77,7 @@ namespace PirateAPI
       refreshProxiesTimer.Elapsed += OnRefreshProxiesTimerInterval;
       refreshProxiesTimer.Start();
 
-      webServer  = new BasicWebServer(WebRoot, Port, ProcessRequest, logger);
+      webServer = new BasicWebServer(WebRoot, Port, ProcessRequest, logger);
       if (!webServer.StartServing())
       {
         logger.LogError("Failed to start serving: BasicWebServer.StartServing returned false");
@@ -111,6 +112,35 @@ namespace PirateAPI
       if (string.IsNullOrWhiteSpace(request))
       {
         logger.LogError("PirateApiHost.ProcessRequest was passed a null or whitespace string for request");
+        return null;
+      }
+
+      TorznabQueryParser torznabParser = new TorznabQueryParser(logger);
+
+      switch (torznabParser.DiscernQueryType(request))
+      {
+        case TorznabQueryType.Caps:
+          return ProcessCapsRequest();
+
+        case TorznabQueryType.TvSearch:
+          return ProcessTvSearchRequest(request);
+
+        default:
+          return null;
+      }
+    }
+
+    private string ProcessCapsRequest()
+    {
+      CapsResponseBuilder builder = new CapsResponseBuilder();
+      return builder.BuildResponse();
+    }
+
+    private string ProcessTvSearchRequest(string request)
+    {
+      if (string.IsNullOrWhiteSpace(request))
+      {
+        logger.LogError("PirateApiHost.ProcessTvSearchRequest was passed a null or whitespace string for request");
         return null;
       }
 

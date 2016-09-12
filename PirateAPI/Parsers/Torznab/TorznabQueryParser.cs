@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PirateAPI.Parsers.Torznab
 {
+  public enum TorznabQueryType { TvSearch, Caps, None }
   public class TorznabQueryParser
   {
     #region private consts
@@ -41,7 +42,7 @@ namespace PirateAPI.Parsers.Torznab
 
       if (!regex.IsMatch(torznabQuery))
       {
-        logger.LogError($"Torznab request {torznabQuery} didn't match pattern {regexPattern}");
+        logger.LogError($"Unable to Parse torznab request {torznabQuery} as it didn't match pattern {regexPattern}");
         return null;
       }
 
@@ -49,7 +50,7 @@ namespace PirateAPI.Parsers.Torznab
 
       if (match.Groups.Count != 2)
       {
-        logger.LogError($"Torznab request {torznabQuery} had {match.Groups.Count} capture groups, not 2 as expected");
+        logger.LogError($"Torznab request {torznabQuery} had {match.Groups.Count} capture groups for parsing, not 2 as expected");
         return null;
       }
 
@@ -113,6 +114,45 @@ namespace PirateAPI.Parsers.Torznab
       return parsedRequest;
     }
 
+    public TorznabQueryType DiscernQueryType(string torznabQuery)
+    {
+      if (string.IsNullOrWhiteSpace(torznabQuery))
+      {
+        logger.LogError("PirateRequest.DiscernQueryType was passed a null or empty string for torznabQuery");
+        return TorznabQueryType.None;
+      }
+
+      string queryTypePattern = @"\/api\?t=(\w*)";
+
+      Regex regex = new Regex(queryTypePattern);
+
+      if (!regex.IsMatch(torznabQuery))
+      {
+        logger.LogError($"Torznab request {torznabQuery} didn't match pattern {queryTypePattern}");
+        return TorznabQueryType.None;
+      }
+
+      Match match = regex.Match(torznabQuery);
+
+      if (match.Groups.Count != 2)
+      {
+        logger.LogError($"Torznab request {torznabQuery} had {match.Groups.Count} capture groups while discerning type, not 2 as expected");
+        return TorznabQueryType.None;
+      }
+
+      switch (match.Groups[1].Value)
+      {
+        case "tvsearch":
+          return TorznabQueryType.TvSearch;
+
+        case "caps":
+          return TorznabQueryType.Caps;
+
+        default:
+          logger.LogError($"Couldn't discern torznab query type of {match.Groups[1].Value}");
+          return TorznabQueryType.None;
+      }
+    }
     #endregion
 
 

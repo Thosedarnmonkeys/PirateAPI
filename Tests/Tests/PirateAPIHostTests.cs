@@ -338,6 +338,30 @@ namespace PirateAPITests.Tests
       Assert.Throws<WebException>(() => webClient.DownloadString(request));
     }
 
+    [Test]
+    public void TestCapsRequest()
+    {
+      int port = 8095;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>();
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), new StubLogger(), client);
+      Assert.IsTrue(host.StartServing());
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=caps";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      string correctResponse = Resources.CapsResponseBasic;
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual(correctResponse, response);
+    }
+
+
+
     private string SetSizeAndLengthTo3SigFig(string input)
     {
       string sizePattern = "<size>(.*?)</size>";

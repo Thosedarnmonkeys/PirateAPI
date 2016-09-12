@@ -61,6 +61,28 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///   &lt;caps&gt;
+        ///      &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
+        ///
+        ///      &lt;limits max=&quot;1000&quot; default=&quot;100&quot;/&gt;
+        ///
+        ///      &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
+        ///
+        ///      &lt;searching&gt;
+        ///         &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///         &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
+        ///         &lt;movie-search available=&quot;no&quot; supportedParams=&quot;q&quot; /&gt;
+        ///      &lt;/searching&gt;
+        ///        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CapsResponseBasic {
+            get {
+                return ResourceManager.GetString("CapsResponseBasic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;
         ///    &lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;
         ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
@@ -410,14 +432,9 @@ namespace PirateAPITests.Properties {
         ///&lt;title&gt;PirateAPI&lt;/title&gt;
         ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
-        ///
         ///&lt;item&gt;
-        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///&lt;link&gt;fakeUrl&lt;/link&gt;
-        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
-        ///&lt;size&gt;1024&lt;/size&gt;
-        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
-        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot; [rest of string was truncated]&quot;;.
+        ///&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/title&gt;
+        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;amp;tr=udp%3A%2F%2Ftracker.leechers-paradise [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleSeason {
             get {

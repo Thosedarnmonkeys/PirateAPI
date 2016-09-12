@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ResponseBuilders\Caps\CapsResponseTemplate.txt" />
-    <Content Include="ResponseBuilders\TorznabResponseTemplate.txt" />
     <None Include="ResponseBuilders\Torznab\TorznabResponseTemplate.txt" />
   </ItemGroup>
   <ItemGroup>
