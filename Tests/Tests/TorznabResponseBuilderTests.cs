@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PirateAPI.Parsers.Torrents;
-using PirateAPI.ResponseBuilders;
+using PirateAPI.ResponseBuilders.Torznab;
 using PirateAPITests.Properties;
 using PirateAPITests.Tests.StubClasses;
 

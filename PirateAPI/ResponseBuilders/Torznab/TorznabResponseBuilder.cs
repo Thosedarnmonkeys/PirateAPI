@@ -7,7 +7,7 @@ using PirateAPI.Logging;
 using PirateAPI.Parsers.Torrents;
 using PirateAPI.Properties;
 
-namespace PirateAPI.ResponseBuilders
+namespace PirateAPI.ResponseBuilders.Torznab
 {
   public class TorznabResponseBuilder
   {

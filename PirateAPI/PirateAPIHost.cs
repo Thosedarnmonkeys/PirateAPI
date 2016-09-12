@@ -12,7 +12,7 @@ using PirateAPI.ProxyPicker;
 using PirateAPI.ProxyProviders;
 using PirateAPI.ProxyProviders.ThePirateBayProxyList;
 using PirateAPI.RequestResolver;
-using PirateAPI.ResponseBuilders;
+using PirateAPI.ResponseBuilders.Torznab;
 using PirateAPI.WebClient;
 
 namespace PirateAPI

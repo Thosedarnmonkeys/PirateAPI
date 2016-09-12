@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -84,6 +85,12 @@ namespace PirateAPI.WebServer
       {
         HttpListenerContext context = asyncListener.EndGetContext(asyncResult);
         asyncListener.BeginGetContext(ServeRequest, asyncListener);
+
+        //debug
+        //using (StreamWriter writer = new StreamWriter(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "RequestsLog.txt", true))
+        //{
+        //  writer.WriteLine(context.Request.RawUrl);
+        //}
 
         string response = responseFunc.Invoke(context.Request.RawUrl);
 

@@ -16,8 +16,8 @@ namespace PirateAPIConsole
     {
       string webRoot = "";
       int port = 8080;
-      List<string> locationPref = new List<string> { "in", "uk" };
-      List<string> blackList = new List<string>() { "https://gameofbay.org" };
+      List<string> locationPref = new List<string> { "uk" };
+      List<string> blackList = new List<string>() { };
       TimeSpan proxyRefreshInterval = new TimeSpan(1, 0, 0);
       ILogger logger = new FileLogger(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt");
       IWebClient webClient = new BasicWebClient(logger);

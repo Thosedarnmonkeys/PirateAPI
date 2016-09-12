@@ -61,16 +61,34 @@ namespace PirateAPI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to       &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///         &lt;caps&gt;
+        ///            &lt;!-- server information --&gt;
+        ///            &lt;server version=&quot;1.0&quot; title=&quot;site&quot; strapline=&quot;...&quot;
+        ///             email=&quot;info@site.com&quot; url=&quot;http://servername.com/&quot; image=&quot;http://servername.com/theme/black/images/banner.jpg&quot;/&gt;
+        ///
+        ///            &lt;limits max=&quot;100&quot; default=&quot;50&quot;/&gt;
+        ///
+        ///            &lt;registration available=&quot;yes&quot; open=&quot;yes&quot; /&gt;
+        ///
+        ///            &lt;searching&gt;
+        ///               &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///               &lt;tv-s [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CapsResponseTemplate {
+            get {
+                return ResourceManager.GetString("CapsResponseTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
         ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
-        ///  &lt;channel&gt;
-        ///    &lt;title&gt;PirateAPI&lt;/title&gt;
-        ///    &lt;description&gt;PirateBay Torznab API&lt;/description&gt;
-        ///    &lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
-        ///
-        ///	{0}
-        ///
-        ///  &lt;/channel&gt;
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///{0}&lt;/channel&gt;
         ///&lt;/rss&gt;.
         /// </summary>
         internal static string TorznabResponseTemplate {
