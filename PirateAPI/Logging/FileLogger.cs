@@ -73,7 +73,10 @@ namespace PirateAPI.Logging
     private void CreateLogFileIfMissing()
     {
       if (!File.Exists(logFilePath))
-        File.Create(logFilePath);
+        using (File.Create(logFilePath))
+        {
+          
+        };
     }
   }
 }
