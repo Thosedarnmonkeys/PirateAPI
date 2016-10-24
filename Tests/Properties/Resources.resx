@@ -157,11 +157,17 @@
   <data name="ProxyListSimple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="RickAndMortySeason2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingleTorrentPages\RickAndMortySeason2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="TorrentRow0Seeds0Leeches" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TorrentRowAnonymousUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowAnonymousUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TorrentRowNoMagnetLink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRows\TorrentRowNoMagnetLink.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TorrentRowNoUploaderStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowNoUploaderStatus.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

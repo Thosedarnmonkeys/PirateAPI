@@ -8,7 +8,7 @@ using PirateAPI.Logging;
 
 namespace PirateAPI.Parsers.Torrents
 {
-  public class HtmlTorrentTableRowParser
+  public class HtmlTorrentTableRowParser : ITorrentRowParser
   {
     #region private fields
     private ILogger logger;

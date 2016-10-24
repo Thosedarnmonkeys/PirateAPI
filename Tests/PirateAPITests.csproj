@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Tests\HtmlRowExtractorTests.cs" />
     <Compile Include="Tests\HtmlTorrentTableRowParserTests.cs" />
+    <Compile Include="Tests\HtmlTorrentTableRowWithoutMagnetLinkParserTests.cs" />
     <Compile Include="Tests\PirateAPIHostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\PirateRequestResolverTests.cs" />
@@ -104,9 +105,11 @@
     <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleEpisode.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleSeason.txt" />
+    <Content Include="Resources\SingleTorrentPages\RickAndMortySeason2.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListBestProxyNowSlow.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
+    <Content Include="Resources\TorrentRows\TorrentRowNoMagnetLink.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponse5Items.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisode.txt" />

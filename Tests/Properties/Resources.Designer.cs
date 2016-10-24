@@ -247,6 +247,17 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC] (download torrent) - TPB&lt;/title&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;&lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;Search The Pirate Bay&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/static/css/pirate6.css&quot;&gt;&lt;link rel=&quot;canonical&quot; href=&quot;/torrent/12678054/Rick_and_Morty_Season_2_%5BWEBRIP%5D_%5B1080p%5D_%5BHEVC%5D&quot;&gt;&lt;style type=&quot;text/css&quot;&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RickAndMortySeason2 {
+            get {
+                return ResourceManager.GetString("RickAndMortySeason2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;
         ///		&lt;td class=&quot;vertTh&quot;&gt;
         ///			&lt;center&gt;
@@ -281,6 +292,15 @@ namespace PirateAPITests.Properties {
         internal static string TorrentRowAnonymousUploader {
             get {
                 return ResourceManager.GetString("TorrentRowAnonymousUploader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TorrentRowNoMagnetLink {
+            get {
+                return ResourceManager.GetString("TorrentRowNoMagnetLink", resourceCulture);
             }
         }
         
