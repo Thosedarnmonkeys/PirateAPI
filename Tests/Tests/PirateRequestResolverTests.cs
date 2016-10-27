@@ -46,7 +46,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -57,7 +57,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -68,7 +68,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -79,7 +79,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -90,7 +90,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -136,7 +136,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -147,7 +147,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -158,7 +158,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -169,7 +169,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -180,7 +180,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -226,7 +226,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Arrow.S04E23.HDTV.x264-LOL[ettv]",
-          Link = "magnet:?xt=urn:btih:d83c61ea0b60b641cf13f61bfbf8095113e9573d&amp;dn=Arrow.S04E23.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:d83c61ea0b60b641cf13f61bfbf8095113e9573d&dn=Arrow.S04E23.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 5, 26, 3, 21, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -237,7 +237,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Arrow.S04E15.HDTV.x264-LOL[ettv]",
-          Link = "magnet:?xt=urn:btih:941a4cc66d4cb39b23a5cc9f59948eb22f72eff5&amp;dn=Arrow.S04E15.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:941a4cc66d4cb39b23a5cc9f59948eb22f72eff5&dn=Arrow.S04E15.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 2, 25, 3, 1, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -248,7 +248,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Arrow Season 4 Complete x264-TJ [TJET]",
-          Link = "magnet:?xt=urn:btih:0a3a4ac8aa690951a5d19593e8c1b83a61382baf&amp;dn=Arrow+Season+4+Complete+x264-TJ+%5BTJET%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0a3a4ac8aa690951a5d19593e8c1b83a61382baf&dn=Arrow+Season+4+Complete+x264-TJ+%5BTJET%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 5, 26, 4, 5, 0),
           UploaderName = "CenaCme",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -259,7 +259,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Arrow.S04E11.HDTV.x264-LOL[ettv]",
-          Link = "magnet:?xt=urn:btih:c1c2a53e4bf77af86550f4b0ea64287acdda248d&amp;dn=Arrow.S04E11.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:c1c2a53e4bf77af86550f4b0ea64287acdda248d&dn=Arrow.S04E11.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 1, 28, 3, 3, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -270,7 +270,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Arrow.S04E20.HDTV.x264-LOL[ettv]",
-          Link = "magnet:?xt=urn:btih:25387dadd54dade2a5ccba39b3a6e206886a00d0&amp;dn=Arrow.S04E20.HDTV.x264-LOL%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:25387dadd54dade2a5ccba39b3a6e206886a00d0&dn=Arrow.S04E20.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 5, 5, 3, 0, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -317,7 +317,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -328,7 +328,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -339,7 +339,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -350,7 +350,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -361,7 +361,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -372,7 +372,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -419,7 +419,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -430,7 +430,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -441,7 +441,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -452,7 +452,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -463,7 +463,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -508,7 +508,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -519,7 +519,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -530,7 +530,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -541,7 +541,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -552,7 +552,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -631,7 +631,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E07 HDTV x264-2HD [eztv]",
-          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&amp;dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -642,7 +642,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 27),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -653,7 +653,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E08.720p.HDTV.x264-BATV[EtHD]",
-          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&amp;dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 9, 21),
           UploaderName = "EtHD",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -664,7 +664,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick And Morty S01E10 HDTV x264-MiNDTHEGAP [eztv]",
-          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&amp;dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -675,7 +675,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E09 PROPER HDTV x264-2HD [eztv]",
-          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&amp;dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -722,7 +722,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -733,7 +733,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -744,7 +744,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -755,7 +755,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -766,7 +766,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -777,7 +777,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -826,7 +826,7 @@ namespace PirateAPITests.Tests
           {
             Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
             Link =
-              "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+              "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
             PublishDate = new DateTime(2015, 11, 3),
             UploaderName = ".BONE.",
             UploaderStatus = TorrentUploaderStatus.Vip,
@@ -838,7 +838,7 @@ namespace PirateAPITests.Tests
           {
             Title = "Rick and Morty Season 1 [1080p] [HEVC]",
             Link =
-              "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+              "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
             PublishDate = new DateTime(2015, 7, 26),
             UploaderName = "Anonymous",
             UploaderStatus = TorrentUploaderStatus.None,
@@ -850,7 +850,7 @@ namespace PirateAPITests.Tests
           {
             Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
             Link =
-              "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+              "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
             PublishDate = new DateTime(2015, 11, 03),
             UploaderName = ".BONE.",
             UploaderStatus = TorrentUploaderStatus.Vip,
@@ -862,7 +862,7 @@ namespace PirateAPITests.Tests
           {
             Title = "Rick and Morty Season 2 Complete 720p MKV",
             Link =
-              "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+              "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
             PublishDate = new DateTime(2015, 10, 12),
             UploaderName = "ToyUp",
             UploaderStatus = TorrentUploaderStatus.None,
@@ -874,7 +874,7 @@ namespace PirateAPITests.Tests
           {
             Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
             Link =
-              "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+              "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
             PublishDate = new DateTime(2015, 10, 5),
             UploaderName = "ettv",
             UploaderStatus = TorrentUploaderStatus.Vip,
@@ -920,7 +920,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E07 HDTV x264-2HD [eztv]",
-          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&amp;dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:607be29a58b962d9baa3b5dbd2477e2fccc2c66e&dn=Rick+and+Morty+S01E07+HDTV+x264-2HD+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -931,7 +931,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 27),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -942,7 +942,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E08.720p.HDTV.x264-BATV[EtHD]",
-          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&amp;dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:39749ebdafc47a3287c52e04f6da0c6172a43143&dn=Rick.and.Morty.S02E08.720p.HDTV.x264-BATV%5BEtHD%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 9, 21),
           UploaderName = "EtHD",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -953,7 +953,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick And Morty S01E10 HDTV x264-MiNDTHEGAP [eztv]",
-          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&amp;dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:61c34ea7b6e51c69b07ee0df34f2acccc3926e93&dn=Rick+And+Morty+S01E10+HDTV+x264-MiNDTHEGAP+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -964,7 +964,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E09 PROPER HDTV x264-2HD [eztv]",
-          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&amp;dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:a5a508354eb847f681b84a28f9ed2e265ae65686&dn=Rick+and+Morty+S01E09+PROPER+HDTV+x264-2HD+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1010,7 +1010,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1021,7 +1021,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&amp;dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:08ad112d3469f45ed490ffed8253d48aa01e702d&dn=Rick+and+Morty+Season+1+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 26),
           UploaderName = "Anonymous",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1032,7 +1032,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 [UNCENSORED] [BDRip] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&amp;dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:e46bca998f72411f7ec43f88a1ff3460f4c43fa4&dn=Rick+and+Morty+Season+1+%5BUNCENSORED%5D+%5BBDRip%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 03),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1043,7 +1043,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
-          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1054,7 +1054,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1 (1280x720) [Phr0stY",
-          Link = "magnet:?xt=urn:btih:827e404e8dc1e32542b23a41036b6e64b6bc2d66&amp;dn=Rick+and+Morty+Season+1+%281280x720%29+%5BPhr0stY&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:827e404e8dc1e32542b23a41036b6e64b6bc2d66&dn=Rick+and+Morty+Season+1+%281280x720%29+%5BPhr0stY&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 15),
           UploaderName = "frostyon420",
           UploaderStatus = TorrentUploaderStatus.Trusted,
@@ -1100,7 +1100,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1111,7 +1111,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E02 HDTV x264-KILLERS [eztv]",
-          Link = "magnet:?xt=urn:btih:55dad47c3a28b1c2f482206a47dff151fac45aa4&amp;dn=Rick+and+Morty+S01E02+HDTV+x264-KILLERS+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:55dad47c3a28b1c2f482206a47dff151fac45aa4&dn=Rick+and+Morty+S01E02+HDTV+x264-KILLERS+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1122,7 +1122,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E10.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&amp;dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:475ee9147c9c3a4c2c1f3c2a7c078d8552cf7598&dn=Rick.and.Morty.S02E10.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 5),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1133,7 +1133,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E01 HDTV x264-2HD [eztv]",
-          Link = "magnet:?xt=urn:btih:d335feab9035201c28d5cd59e406d3031374d3c6&amp;dn=Rick+and+Morty+S01E01+HDTV+x264-2HD+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:d335feab9035201c28d5cd59e406d3031374d3c6&dn=Rick+and+Morty+S01E01+HDTV+x264-2HD+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1144,7 +1144,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S01E03 HDTV x264-KILLERS [eztv]",
-          Link = "magnet:?xt=urn:btih:2b3a3ca8b82d6c8b339159be8a15a361236b8910&amp;dn=Rick+and+Morty+S01E03+HDTV+x264-KILLERS+%5Beztv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:2b3a3ca8b82d6c8b339159be8a15a361236b8910&dn=Rick+and+Morty+S01E03+HDTV+x264-KILLERS+%5Beztv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2014, 4, 12),
           UploaderName = "eztv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1192,7 +1192,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
-          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 11, 3),
           UploaderName = ".BONE.",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1203,7 +1203,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2 Complete 720p MKV",
-          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&amp;dn=Rick+and+Morty+Season+2+Complete+720p+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:8cdcb24c90c06fb1bf2c69485c76390aed50c3a5&dn=Rick+and+Morty+Season+2+Complete+720p+MKV&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 10, 12),
           UploaderName = "ToyUp",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1214,7 +1214,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
-          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1225,7 +1225,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
-          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
           UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1292,7 +1292,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]",
-          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 27),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1303,7 +1303,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E01.720p.HDTV.x264-BATV[EtHD]",
-          Link = "magnet:?xt=urn:btih:557e9645fe4978a13344897ecef352fca9acc251&amp;dn=Rick.and.Morty.S02E01.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:557e9645fe4978a13344897ecef352fca9acc251&dn=Rick.and.Morty.S02E01.720p.HDTV.x264-BATV%5BEtHD%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 27),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
@@ -1314,7 +1314,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick_and_Morty_S02E01",
-          Link = "magnet:?xt=urn:btih:1ffb54f72363facedd9c7c3a72470a33fcf32946&amp;dn=Rick_and_Morty_S02E01&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:1ffb54f72363facedd9c7c3a72470a33fcf32946&dn=Rick_and_Morty_S02E01&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 2),
           UploaderName = "BeefcakeChan",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1325,7 +1325,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty S02E01-E02 (Leaked) (600x300)",
-          Link = "magnet:?xt=urn:btih:0649e51d1dce5d418518325f7cb973034abc1cef&amp;dn=Rick+and+Morty+S02E01-E02+%28Leaked%29+%28600x300%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:0649e51d1dce5d418518325f7cb973034abc1cef&dn=Rick+and+Morty+S02E01-E02+%28Leaked%29+%28600x300%29&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 2),
           UploaderName = "frostyon420",
           UploaderStatus = TorrentUploaderStatus.Trusted,
@@ -1336,7 +1336,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG",
-          Link = "magnet:?xt=urn:btih:74b6ac581cd54687c8fd1da25f89ab01fe098d05&amp;dn=Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:74b6ac581cd54687c8fd1da25f89ab01fe098d05&dn=Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2015, 7, 27),
           UploaderName = "frostyon420",
           UploaderStatus = TorrentUploaderStatus.Trusted,
@@ -1385,7 +1385,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
-          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
           UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1396,7 +1396,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
-          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
@@ -1407,7 +1407,7 @@ namespace PirateAPITests.Tests
         new Torrent()
         {
           Title = "Rick and Morty Season 1[BDRip 1080p AC3][AtaraxiaPrime]",
-          Link = "magnet:?xt=urn:btih:687a7cda14d35bf06a67964b6bda6d02328429e9&amp;dn=Rick+and+Morty+Season+1%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          Link = "magnet:?xt=urn:btih:687a7cda14d35bf06a67964b6bda6d02328429e9&dn=Rick+and+Morty+Season+1%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
           PublishDate = new DateTime(2016, 7, 2, 3, 12, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,

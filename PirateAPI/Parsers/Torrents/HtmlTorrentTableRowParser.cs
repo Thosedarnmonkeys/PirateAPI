@@ -25,7 +25,7 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region public methods
-    public Torrent ParseRow(string rowString)
+    public virtual Torrent ParseRow(string rowString)
     {
       if (string.IsNullOrWhiteSpace(rowString))
       {
@@ -36,13 +36,14 @@ namespace PirateAPI.Parsers.Torrents
       rowString = rowString.Replace(Environment.NewLine, "")
                            .Replace("\t", "");
 
+      rowString = rowString.Replace("&amp;", "&");
+
       Torrent torrent = new Torrent();
 
       string namePattern = @"""detName"">\s*?<a.*?>\s*?(\w.*?)\s*?<";
       torrent.Title = CheckMatchAndGetFirst(rowString, namePattern, "Title");
 
-      string linkPattern = @"href=""(magnet:\?.*?)""";
-      torrent.Link = CheckMatchAndGetFirst(rowString, linkPattern, "Link");
+      torrent.Link = ParseLink(rowString);
 
       string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
       torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName");
@@ -77,8 +78,14 @@ namespace PirateAPI.Parsers.Torrents
     }
     #endregion
 
-    #region private methods
-    private string CheckMatchAndGetFirst(string input, string pattern, string paramName)
+    #region protected methods
+    protected virtual string ParseLink(string rowString)
+    {
+      string linkPattern = @"href=""(magnet:\?.*?)""";
+      return CheckMatchAndGetFirst(rowString, linkPattern, "Link");
+    }
+
+    protected string CheckMatchAndGetFirst(string input, string pattern, string paramName)
     {
       Regex regex = new Regex(pattern);
 
@@ -92,7 +99,9 @@ namespace PirateAPI.Parsers.Torrents
 
       return match.Groups[1].Value;
     }
+    #endregion
 
+    #region private methods
     private Tuple<string, string> CheckMatchAndGetFirstTuple(string input, string pattern, string firstParam, string secondParam)
     {
       Regex regex = new Regex(pattern);

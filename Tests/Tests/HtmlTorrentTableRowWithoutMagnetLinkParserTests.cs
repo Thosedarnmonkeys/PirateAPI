@@ -21,8 +21,9 @@ namespace PirateAPITests.Tests
       StubLogger logger = new StubLogger();
 
       string torrentRow = Resources.TorrentRowNoMagnetLink;
+      string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
       Torrent parsedTorrent = parser.ParseRow(torrentRow);
 
       Torrent correctTorrent = new Torrent()
@@ -38,18 +39,63 @@ namespace PirateAPITests.Tests
       };
 
       Assert.AreEqual(correctTorrent, parsedTorrent);
+      Assert.AreEqual(1, webClient.RequestsMade.Count);
+      Assert.AreEqual("fakedomain.com/torrent/12678054/Rick_and_Morty_Season_2_%5BWEBRIP%5D_%5B1080p%5D_%5BHEVC%5D", webClient.RequestsMade[0]);
     }
 
     [Test]
-    public void TestMagnetLinkMissing()
+    public void TestLinkedPageCouldntParse()
     {
+      List<string> response = new List<string>() {"Test"};
+      StubWebClient webClient = new StubWebClient(response);
+      StubLogger logger = new StubLogger();
 
+      string torrentRow = Resources.TorrentRowNoMagnetLink;
+      string domain = "fakedomain.com";
+
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+
+      Assert.IsNull(parsedTorrent);
+      Assert.AreEqual(1, webClient.RequestsMade.Count);
+      Assert.AreEqual("fakedomain.com/torrent/12678054/Rick_and_Morty_Season_2_%5BWEBRIP%5D_%5B1080p%5D_%5BHEVC%5D", webClient.RequestsMade[0]);
     }
 
     [Test]
     public void TestDomainNotReponding()
     {
-      
+      List<string> response = new List<string>() {null};
+      StubWebClient webClient = new StubWebClient(response);
+      StubLogger logger = new StubLogger();
+
+      string torrentRow = Resources.TorrentRowNoMagnetLink;
+      string domain = "fakedomain.com";
+
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+
+      Assert.IsNull(parsedTorrent);
+      Assert.AreEqual(1, webClient.RequestsMade.Count);
+      Assert.AreEqual("fakedomain.com/torrent/12678054/Rick_and_Morty_Season_2_%5BWEBRIP%5D_%5B1080p%5D_%5BHEVC%5D", webClient.RequestsMade[0]);
     }
+
+    [Test]
+    public void TestTorrentRowCouldntParse()
+    {
+      List<string> response = new List<string>() { "Test" };
+      StubWebClient webClient = new StubWebClient(response);
+      StubLogger logger = new StubLogger();
+
+      string torrentRow = "Test";
+      string domain = "fakedomain.com";
+
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+
+      Assert.IsNull(parsedTorrent);
+      Assert.AreEqual(0, webClient.RequestsMade.Count);
+    }
+
+
   }
 }

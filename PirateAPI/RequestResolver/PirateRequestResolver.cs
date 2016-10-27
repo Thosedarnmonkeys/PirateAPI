@@ -179,6 +179,9 @@ namespace PirateAPI.RequestResolver
 
     private bool IsValidTorrentForRequest(PirateRequest request, Torrent torrent)
     {
+      if (request == null || torrent == null)
+        return false;
+
       double age = Math.Floor((currentDate - torrent.PublishDate).TotalDays);
 
       if (age > request.MaxAge)
