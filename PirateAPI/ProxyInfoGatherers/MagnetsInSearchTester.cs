@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using PirateAPI.Logging;
+using PirateAPI.WebClient;
+
+namespace PirateAPI.ProxyInfoGatherers
+{
+  public class MagnetsInSearchTester
+  {
+    #region private fields
+    private ILogger logger;
+    private IWebClient webClient;
+    private const string top100VideosPath = "/top/200";
+    #endregion
+
+    #region constructor
+
+    public MagnetsInSearchTester(IWebClient webClient, ILogger logger)
+    {
+      this.webClient = webClient;
+      this.logger = logger;
+    }
+    #endregion
+
+    #region public methods
+    public bool? DomainHasMagnetsInSearch(string domain)
+    {
+      if (string.IsNullOrWhiteSpace(domain))
+        return null;
+
+      string top100Page = webClient.DownloadString(domain + top100VideosPath);
+      if (string.IsNullOrWhiteSpace(top100Page))
+        return null;
+
+      string magnetLinkPattern = @"href=""magnet:\?.*?""";
+      Regex regex = new Regex(magnetLinkPattern);
+
+      return regex.IsMatch(top100Page);
+    } 
+    #endregion
+  }
+}

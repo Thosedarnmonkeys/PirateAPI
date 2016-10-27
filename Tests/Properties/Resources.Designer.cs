@@ -229,6 +229,35 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;&lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;Search The Pirate Bay&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/static/css/pirate6.css&quot;&gt;&lt;link rel=&quot;canonical&quot; href=&quot;/top/200&quot;&gt;&lt;style type=&quot;text/css&quot;&gt;
+        ///        .searchBox{
+        ///            margin: 6px;
+        ///            width: 300px;
+        ///        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PiratePageTop100NoMagnets {
+            get {
+                return ResourceManager.GetString("PiratePageTop100NoMagnets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;
+        ///    &lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;
+        ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;google-site-verification&quot; content=&quot;bERYeomIC5eBWlPLupPPYPYGA9GvAUKzFHh3WIw24Xs&quot;&gt;
+        ///    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;Search The Pirate Bay&quot;&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://pirateproxy.vip/static/css/pirate6.css&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PiratePageTop100WithMagnets {
+            get {
+                return ResourceManager.GetString("PiratePageTop100WithMagnets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;proxies&quot;:[{&quot;domain&quot;:&quot;gameofbay.org&quot;,&quot;speed&quot;:5.002,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;unblockedbay.info&quot;,&quot;speed&quot;:0.061,&quot;secure&quot;:true,&quot;country&quot;:&quot;US&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;tpbunblocked.org&quot;,&quot;speed&quot;:1.112,&quot;secure&quot;:true,&quot;country&quot;:&quot;UK&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;thepiratebay.uk.net&quot;,&quot;speed&quot;:0.179,&quot;secure&quot;:true,&quot;country&quot;:&quot;IT&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.host&quot;,&quot;speed&quot;:0.208,&quot;secure&quot;:false,&quot;country&quot;:&quot;NO&quot;,&quot;probed&quot;:true},{&quot;domain&quot;:&quot;piratebay.click&quot;,&quot;speed&quot;:0.416,&quot;secure&quot;:true,&quot;country&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ProxyListBestProxyNowSlow {
@@ -296,7 +325,16 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;tr&gt;&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/208&quot; title=&quot;More from this category&quot;&gt;HD - TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/12678054/Rick_and_Morty_Season_2_%5BWEBRIP%5D_%5B1080p%5D_%5BHEVC%5D&quot; class=&quot;detLink&quot; title=&quot;Details for Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&quot;&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;/torrent/12678054/Rick_an [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorrentRowNoMagnetLink {
             get {
@@ -416,7 +454,7 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]&lt;/title&gt;
-        ///&lt;link&gt;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;amp;tr [rest of string was truncated]&quot;;.
+        ///&lt;link&gt;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleEpisode {
             get {
@@ -454,7 +492,7 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/title&gt;
-        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;amp;tr=udp%3A%2F%2Ftracker.leechers-paradise [rest of string was truncated]&quot;;.
+        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleSeason {
             get {

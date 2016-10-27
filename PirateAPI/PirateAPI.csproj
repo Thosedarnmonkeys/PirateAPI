@@ -55,6 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ProxyInfoGatherers\MagnetsInSearchTester.cs" />
     <Compile Include="ProxyPicker\PirateProxyPicker.cs" />
     <Compile Include="ProxyProviders\IProxyProvider.cs" />
     <Compile Include="ProxyProviders\Proxy.cs" />
