@@ -1458,6 +1458,7 @@ namespace PirateAPITests.Tests
     {
       List<string> responses = new List<string>()
       {
+        Resources.PiratePageTop100NoMagnets,
         Resources.PiratePageSearch3RowsNoMagnets,
         Resources.RickAndMortySeason2,
         Resources.RickAndMortySeason2,
@@ -1520,6 +1521,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
         "http://fakepirateproxy.com/torrent/rickandmortyseason2",
         "http://fakepirateproxy.com/torrent/rickandmortyseason1",
