@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PirateAPI.HtmlExtractors;
 using PirateAPI.Logging;
+using PirateAPI.ProxyInfoGatherers;
 using PirateAPI.SanityCheckers;
 using PirateAPI.WebClient;
 
@@ -21,8 +22,9 @@ namespace PirateAPI.RequestResolver
     private IWebClient webClient;
     private DateTime currentDate = DateTime.Now;
     private HtmlRowExtractor rowExtractor;
-    private HtmlTorrentTableRowParser rowParser;
+    private ITorrentRowParser rowParser;
     private TorrentNameSanityChecker checker;
+    private MagnetsInSearchTester magnetTester;
     #endregion
 
     #region constructor
@@ -34,8 +36,8 @@ namespace PirateAPI.RequestResolver
         this.currentDate = currentDate.Value;
 
       rowExtractor = new HtmlRowExtractor(logger);
-      rowParser = new HtmlTorrentTableRowParser(logger);
       checker = new TorrentNameSanityChecker(logger);
+      magnetTester = new MagnetsInSearchTester(webClient, logger);
     }
     #endregion
 
@@ -48,6 +50,15 @@ namespace PirateAPI.RequestResolver
         logger.LogError(errorMessage);
         throw new ArgumentException($"{nameof(request)} was not a valid PirateRequest");
       }
+
+      //Test if proxy has magnet links in search pages
+      bool? proxyHasSearchMagnets = magnetTester.DomainHasMagnetsInSearch(request.PirateProxyURL);
+      if (!proxyHasSearchMagnets.HasValue)
+      {
+        logger.LogError($"Pirate proxy domain {request.PirateProxyURL} failed to respond when testing for magnets in search pages");
+        return null;
+      }
+      rowParser = proxyHasSearchMagnets.Value ? new HtmlTorrentTableRowParser(logger) : new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, webClient, logger);
 
       if (!string.IsNullOrWhiteSpace(request.ShowName))
         request.ShowName = request.ShowName.Replace("+", " ");
