@@ -104,6 +104,7 @@
     <Content Include="Resources\PiratePages\PiratePageDifferentShowName.txt" />
     <Content Include="Resources\PiratePages\PiratePageHDOnly.txt" />
     <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />
+    <Content Include="Resources\PiratePages\PiratePageSearch3RowsNoMagnets.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleEpisode.txt" />
     <Content Include="Resources\PiratePages\PiratePageSingleSeason.txt" />
     <Content Include="Resources\PiratePages\PiratePageTop100NoMagnets.txt" />
