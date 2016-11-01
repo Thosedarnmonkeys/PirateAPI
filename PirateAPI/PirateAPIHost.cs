@@ -178,7 +178,7 @@ namespace PirateAPI
           remainingAttempts--;
         }
 
-        //if null here then proxy never responded, as malformed response/request throws exception
+        //if null here then either proxy never responded or we have a malformed response/request which throws exception
         if (torrents == null)
         {
           //remove proxy from current pool and try again on next loop using next best proxy
