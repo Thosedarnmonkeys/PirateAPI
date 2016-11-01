@@ -33,10 +33,9 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
-      rowString = rowString.Replace(Environment.NewLine, "")
-                           .Replace("\t", "");
-
-      rowString = rowString.Replace("&amp;", "&");
+      rowString = rowString.Replace("\n", "")
+                           .Replace("\t", "")
+                           .Replace("&amp;", "&");
 
       Torrent torrent = new Torrent();
 

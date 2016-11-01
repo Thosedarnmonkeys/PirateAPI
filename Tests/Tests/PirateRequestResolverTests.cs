@@ -21,10 +21,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestLimitUnder30()
     {
-      string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -103,6 +103,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -111,10 +112,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestDifferentProxy()
     {
-      string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -193,6 +194,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://adifferentfakepirateproxy.com/top/200",
         "http://adifferentfakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -201,10 +203,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestShowName()
     {
-      string responseString = Resources.PiratePageDifferentShowName;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageDifferentShowName
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -283,6 +285,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Arrow/0/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -291,11 +294,11 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestLimitOverPageSize()
     {
-      string responseString = Resources.PiratePageSearch5Rows;
       List<string> responseStrings = new List<string>
       {
-        responseString,
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch5Rows,
+        Resources.PiratePageSearch5Rows
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -385,6 +388,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
@@ -394,10 +398,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestLimitExactlyPageSize()
     {
-      string responseString = Resources.PiratePageSearch5Rows;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch5Rows
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -476,6 +480,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -486,6 +491,7 @@ namespace PirateAPITests.Tests
     {
       List<string> responseStrings = new List<string>
       {
+        Resources.PiratePageTop100WithMagnets,
         Resources.PiratePageSearch5Rows,
         Resources.PiratePageNoResults
       };
@@ -565,6 +571,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
@@ -576,6 +583,7 @@ namespace PirateAPITests.Tests
     {
       List<string> responseStrings = new List<string>
       {
+        Resources.PiratePageTop100WithMagnets,
         Resources.PiratePageSearch5Rows,
       };
 
@@ -597,6 +605,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -606,10 +615,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestOffsetLessThan30()
     {
-      string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -688,6 +697,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -699,8 +709,9 @@ namespace PirateAPITests.Tests
       string responseString = Resources.PiratePageSearch5Rows;
       List<string> responseStrings = new List<string>
       {
-        responseString,
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch5Rows,
+        Resources.PiratePageSearch5Rows
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -790,6 +801,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
@@ -800,10 +812,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestOffsetExactly30()
     {
-      string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -887,6 +899,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -895,10 +908,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestOffsetOver30()
     {
-      string responseString = Resources.PiratePageSearch;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -977,6 +990,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -985,10 +999,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestVideoQualityHd()
     {
-      string responseString = Resources.PiratePageHDOnly;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageHDOnly
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -1067,6 +1081,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -1075,10 +1090,10 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestVideoQualitySd()
     {
-      string responseString = Resources.PiratePageSDOnly;
       List<string> responseStrings = new List<string>
       {
-        responseString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSDOnly
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -1157,6 +1172,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -1165,12 +1181,11 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestSingleSeason()
     {
-      string responseString = Resources.PiratePageSingleSeason;
-      string noResultsString = Resources.PiratePageNoResults;
       List<string> responseStrings = new List<string>
       {
-        responseString,
-        noResultsString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSingleSeason,
+        Resources.PiratePageNoResults
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -1238,6 +1253,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty%20Season%202/0/99/205,208",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty%20Season%202/1/99/205,208"
       };
@@ -1265,9 +1281,9 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestSingleEpisodeAndSeason()
     {
-      
       List<string> responseStrings = new List<string>
       {
+        Resources.PiratePageTop100WithMagnets,
         Resources.PiratePageSingleEpisode,
       };
 
@@ -1349,6 +1365,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty%20S02E01/0/99/205,208",
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
@@ -1357,12 +1374,11 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestMaxAge()
     {
-      string responseString = Resources.PiratePageSearch;
-      string noResultsString = Resources.PiratePageNoResults;
       List<string> responseStrings = new List<string>
       {
-        responseString,
-        noResultsString
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch,
+        Resources.PiratePageNoResults
       };
 
       StubWebClient webClient = new StubWebClient(responseStrings);
@@ -1420,6 +1436,7 @@ namespace PirateAPITests.Tests
 
       List<string> addressesRequested = new List<string>
       {
+        "http://fakepirateproxy.com/top/200",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
         "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };

@@ -22,7 +22,7 @@ namespace PirateAPITests.Tests
 
       List<string> rows = extractor.ExtractRows(piratePage);
       List<string> correctRows = Resources.PiratePageSearch5RowsSplit
-                                  .Replace(Environment.NewLine, "")
+                                  .Replace("\n", "")
                                   .Replace("\t", "")
                                   .Split('#')
                                   .ToList();
@@ -39,7 +39,7 @@ namespace PirateAPITests.Tests
 
       List<string> rows = extractor.ExtractRows(piratePage);
       List<string> correctRows = Resources.PiratePageSearchSplit
-                                  .Replace(Environment.NewLine, "")
+                                  .Replace("\n", "")
                                   .Replace("\t", "")
                                   .Split('#')
                                   .ToList();

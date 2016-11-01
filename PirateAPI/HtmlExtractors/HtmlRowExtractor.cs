@@ -33,9 +33,8 @@ namespace PirateAPI.HtmlExtractors
         return new List<string>();
       }
 
-      html = html.Replace(Environment.NewLine, "");
-      html = html.Replace("\t", "");
-      html = html.Replace("\n", "");
+      html = html.Replace("\n", "")
+                 .Replace("\t", "");
 
       string tableRowsRegexPattern = @"(<tr.*?>.*?<\/tr>)";
       Regex tableRowsRegex = new Regex(tableRowsRegexPattern);
