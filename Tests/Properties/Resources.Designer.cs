@@ -469,6 +469,27 @@ namespace PirateAPITests.Properties {
         ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
+        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
+        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
+        ///&lt;size&gt;1024&lt;/size&gt;
+        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
+        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorznabResponseNoMagnets {
+            get {
+                return ResourceManager.GetString("TorznabResponseNoMagnets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///&lt;item&gt;
         ///&lt;title&gt;Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]&lt;/title&gt;
         ///&lt;link&gt;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2 [rest of string was truncated]&quot;;.
         /// </summary>

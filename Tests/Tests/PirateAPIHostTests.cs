@@ -414,6 +414,47 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctResponse, response);
     }
 
+    [Test]
+    public void TestProxyHasNoMagnetsInSearch()
+    {
+      int port = 8097;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageTop100NoMagnets,
+        Resources.PiratePageSearch3RowsNoMagnets,
+        Resources.RickAndMortySeason2,
+        Resources.RickAndMortySeason2,
+        Resources.RickAndMortySeason2,
+        Resources.PiratePageNoResults
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      Assert.IsTrue(apiHost.StartServing());
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/api?t=tvsearch&cat=5030,5040&q=Rick+And+Morty";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(7, client.RequestsMade.Count);
+      Assert.AreEqual("https://gameofbay.org/top/200", client.RequestsMade[1]);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty/0/99/205,208", client.RequestsMade[2]);
+      Assert.AreEqual("https://gameofbay.org/torrent/rickandmortyseason2", client.RequestsMade[3]);
+      Assert.AreEqual("https://gameofbay.org/torrent/rickandmortyseason1", client.RequestsMade[4]);
+      Assert.AreEqual("https://gameofbay.org/torrent/rickandmortyseason1and2", client.RequestsMade[5]);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty/1/99/205,208", client.RequestsMade[6]);
+
+      string correctResponse = Resources.TorznabResponseNoMagnets;
+      correctResponse = correctResponse.Replace("\r", "");
+      correctResponse = SetSizeAndLengthTo3SigFig(correctResponse);
+      response = SetSizeAndLengthTo3SigFig(response);
+      Assert.AreEqual(correctResponse, response);
+    }
+
 
     private string SetSizeAndLengthTo3SigFig(string input)
     {

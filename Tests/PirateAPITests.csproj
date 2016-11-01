@@ -116,7 +116,12 @@
     <Content Include="Resources\TorrentRows\TorrentRowNoMagnetLink.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponse5Items.txt" />
-    <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisode.txt" />
+    <Content Include="Resources\TorznabResponses\TorznabResponseNoMagnets.txt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisode.txt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\TorznabResponses\TorznabResponseSingleItem.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponseSingleSeason.txt" />
   </ItemGroup>
