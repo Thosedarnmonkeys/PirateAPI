@@ -33,7 +33,9 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
-      rowString = rowString.Replace("\n", "")
+      rowString = rowString.Replace(Environment.NewLine, "")
+                           .Replace("\n", "")
+                           .Replace("\r", "")
                            .Replace("\t", "")
                            .Replace("&amp;", "&");
 
@@ -43,6 +45,8 @@ namespace PirateAPI.Parsers.Torrents
       torrent.Title = CheckMatchAndGetFirst(rowString, namePattern, "Title");
 
       torrent.Link = ParseLink(rowString);
+      if (torrent.Link == null)
+        return null;
 
       string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
       torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName");
