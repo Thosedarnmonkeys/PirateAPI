@@ -376,5 +376,62 @@ namespace PirateAPITests.Tests
       TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
       Assert.AreEqual(correctQueryType, queryType);
     }
+
+    [Test]
+    public void TestIsTorznabQuerySuccess()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show&cat=5030,5040";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsTrue(parser.IsValidRequest(torznabQuery));
+    }
+
+    [Test]
+    public void TestIsTorznabQuerySuccessOnCaps()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=caps";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsTrue(parser.IsValidRequest(torznabQuery));
+    }
+
+    [Test]
+    public void TestIsTorznabQueryFailureDueToMissingTEqualsParam()
+    {
+      string torznabQuery = "http://localhost:8080/api?q=A+TV+Show&cat=5030,5040";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsFalse(parser.IsValidRequest(torznabQuery));
+    }
+
+    [Test]
+    public void TestIsTorznabQueryFailureDueToMissingCatParam()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A+TV+Show";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsFalse(parser.IsValidRequest(torznabQuery));
+    }
+
+    [Test]
+    public void TestIsTorznabQueryFailureDueToMalformedInput()
+    {
+      string torznabQuery = "http://localhost:8080/ap?t=tvsearch&q=A+TV+Show&cat=5030,5040";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsFalse(parser.IsValidRequest(torznabQuery));
+    }
+
+    [Test]
+    public void TestIsTorznabQueryFailureDueToNoParams()
+    {
+      string torznabQuery = "http://localhost:8080/api?";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsFalse(parser.IsValidRequest(torznabQuery));
+    }
+
+
+    [Test]
+    public void TestIsTorznabQueryFailureDueToGarbage()
+    {
+      string torznabQuery = "http://localhost:8080/favicon.ico";
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+      Assert.IsFalse(parser.IsValidRequest(torznabQuery));
+    }
   }
 }

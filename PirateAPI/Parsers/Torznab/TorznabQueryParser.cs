@@ -36,25 +36,11 @@ namespace PirateAPI.Parsers.Torznab
       if (string.IsNullOrWhiteSpace(pirateProxy))
         logger.LogError("PirateRequest.Parse was passed a null or empty string for pirateProxy");
 
-      string regexPattern = @"\/api\?(.*)";
-
-      Regex regex = new Regex(regexPattern);
-
-      if (!regex.IsMatch(torznabQuery))
-      {
-        logger.LogError($"Unable to Parse torznab request {torznabQuery} as it didn't match pattern {regexPattern}");
+      string request = TryExtractRequest(torznabQuery);
+      if (string.IsNullOrWhiteSpace(request))
         return null;
-      }
 
-      Match match = regex.Match(torznabQuery);
-
-      if (match.Groups.Count != 2)
-      {
-        logger.LogError($"Torznab request {torznabQuery} had {match.Groups.Count} capture groups for parsing, not 2 as expected");
-        return null;
-      }
-
-      string[] args = match.Groups[1].Value.Split('&');
+      string[] args = request.Split('&');
 
       List<Tuple<string, string>> paramsAndValues = new List<Tuple<string, string>>();
 
@@ -153,10 +139,66 @@ namespace PirateAPI.Parsers.Torznab
           return TorznabQueryType.None;
       }
     }
+
+    public bool IsValidRequest(string torznabQuery)
+    {
+      if (string.IsNullOrWhiteSpace(torznabQuery))
+        return false;
+
+      string request = TryExtractRequest(torznabQuery);
+      if (string.IsNullOrWhiteSpace(request))
+        return false;
+
+      List<string> args = request.Split('&').ToList();
+
+      if (args.Count == 0)
+        return false;
+
+      //special case for caps request
+      if (args.Count == 1 && args[0] == "t=caps")
+        return true;
+
+      if (!args.Any(a => a == "t=tvsearch"))
+        return false;
+
+      string categoryPattern = $"^cat={sdCategory}|{hdCategory}|{sdCategory},{hdCategory}|{hdCategory},{sdCategory}$";
+      Regex categoyRegex = new Regex(categoryPattern);
+      if (!args.Any(a => categoyRegex.IsMatch(a)))
+        return false;
+
+      return true;
+    }
     #endregion
 
 
     #region private methods
+    private string TryExtractRequest(string rawUrl)
+    {
+      if (string.IsNullOrWhiteSpace(rawUrl))
+      {
+        logger.LogError($"TorznabQueryParser.TryExtractRequest was passed a null or empty url");
+        return null;
+      }
+
+      string regexPattern = @"\/api\?(.*)";
+      Regex regex = new Regex(regexPattern);
+
+      if (!regex.IsMatch(rawUrl))
+      {
+        logger.LogError($"Unable to extract torznab request {rawUrl} as it didn't match pattern {regexPattern}");
+        return null;
+      }
+
+      Match match = regex.Match(rawUrl);
+      if (match.Groups.Count != 2)
+      {
+        logger.LogError($"Torznab request {rawUrl} had {match.Groups.Count} capture groups for parsing, not 2 as expected");
+        return null;
+      }
+
+      return match.Groups[1].Value;
+    }
+
     private int? ParseInt(string value, string paramName)
     {
       int parsedValue;

@@ -87,6 +87,8 @@ namespace PirateAPI.WebServer
         asyncListener.BeginGetContext(ServeRequest, asyncListener);
         logger.LogMessage($"Request received: {context.Request.RawUrl}");
         string response = responseFunc.Invoke(context.Request.RawUrl);
+        if (string.IsNullOrWhiteSpace(response))
+          response = "Oh noes! Something went wrong :(";
 
         byte[] buffer = Encoding.UTF8.GetBytes(response);
         context.Response.ContentLength64 = buffer.Length;

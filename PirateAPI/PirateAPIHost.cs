@@ -116,6 +116,11 @@ namespace PirateAPI
       }
 
       TorznabQueryParser torznabParser = new TorznabQueryParser(logger);
+      if (!torznabParser.IsValidRequest(request))
+      {
+        logger.LogMessage($"Ignoring non Torznab request {request}");
+        return null;
+      }
 
       switch (torznabParser.DiscernQueryType(request))
       {
@@ -145,6 +150,12 @@ namespace PirateAPI
       }
 
       TorznabQueryParser torznabParser = new TorznabQueryParser(logger);
+      if (!torznabParser.IsValidRequest(request))
+      {
+        logger.LogMessage($"Ignoring non Torznab request {request}");
+        return null;
+      }
+
       List<Torrent> torrents = null;
       while (torrents == null)
       {

@@ -455,6 +455,31 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctResponse, response);
     }
 
+    [Test]
+    public void TestNonTorznabRequest()
+    {
+      int port = 8098;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+      };
+      StubWebClient client = new StubWebClient(responses);
+
+      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), new StubLogger(), client);
+      Assert.IsTrue(apiHost.StartServing());
+      Assert.AreEqual(1, client.RequestsMade.Count);
+      Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
+
+      string request = $"http://localhost:{port}/favicon.ico";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(1, client.RequestsMade.Count);
+
+      Assert.AreEqual("Oh noes! Something went wrong :(", response);
+    }
+
 
     private string SetSizeAndLengthTo3SigFig(string input)
     {
