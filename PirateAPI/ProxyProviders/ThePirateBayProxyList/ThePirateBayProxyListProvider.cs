@@ -8,6 +8,7 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.IO;
 using PirateAPI.Logging;
+using PirateAPI.ProxyInfoGatherers;
 using PirateAPI.WebClient;
 
 namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
@@ -33,6 +34,19 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
     #region public methods
     public List<Proxy> ListProxies()
+    {
+      return ListProxyImpl(false);
+    }
+
+    public List<Proxy> ListMagnetInSearchProxies()
+    {
+      return ListProxyImpl(true);
+    }
+    #endregion
+
+    #region private methods
+
+    private List<Proxy> ListProxyImpl(bool magnetsInSearchOnly)
     {
       string response;
 
@@ -89,15 +103,34 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
 
         string protocol = proxy.Secure ? "https" : "http";
 
-        proxies.Add(new Proxy
+        Proxy proxyObj = new Proxy()
         {
           Domain = $"{protocol}://{proxy.Domain}",
           Country = proxy.Country,
           Speed = speed
-        });
+        };
+
+        if (!magnetsInSearchOnly)
+          proxies.Add(proxyObj);
+
+        else if (HasMagnetsInSearch(proxyObj.Domain))
+          proxies.Add(proxyObj);
       }
 
       return proxies;
+    }
+
+    private bool HasMagnetsInSearch(string domain)
+    {
+      if (string.IsNullOrWhiteSpace(domain))
+      {
+        logger.LogError("ThePirateBayProxyListProvider.HasMagnetsInSearch was passed a null or empty string");
+        return false;
+      }
+
+      MagnetsInSearchTester tester = new MagnetsInSearchTester(webClient, logger);
+      bool? result = tester.DomainHasMagnetsInSearch(domain);
+      return result.HasValue && result.Value;
     }
     #endregion
   }

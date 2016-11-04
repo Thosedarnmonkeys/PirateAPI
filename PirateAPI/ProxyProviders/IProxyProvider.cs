@@ -9,5 +9,6 @@ namespace PirateAPI.ProxyProviders
   interface IProxyProvider
   {
     List<Proxy> ListProxies();
+    List<Proxy> ListMagnetInSearchProxies();
   }
 }
