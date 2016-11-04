@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace PirateAPI.Logging
 {
-  public class FileLogger : ILogger
+  public class FileLogger : AbstractLogger
   {
+    #region private fields
     private string logFilePath;
-    private const string logMessageFormat = "{0}  |  {1}  |  {2}";
-    private const string messageText = "Info ";
-    private const string errorText = "Error";
+    #endregion
 
+    #region constructor
     public FileLogger(string path)
     {
       if (string.IsNullOrWhiteSpace(path))
@@ -24,59 +24,76 @@ namespace PirateAPI.Logging
 
       logFilePath = path;
     }
+    #endregion
 
-    public void LogMessage(string message)
+    #region public overrides
+    public override void LogMessage(string message)
     {
       if (string.IsNullOrWhiteSpace(message))
+      {
         LogError("FileLogger was asked to LogMessage but message was null or whitespace");
+        return;
+      }
 
       CreateLogFileIfMissing();
 
-      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, messageText, message);
+      string formattedMessage = FormatMessage(DateTime.Now, message);
       using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }
     }
 
-    public void LogError(string message)
+    public override void LogError(string message)
     {
       if (string.IsNullOrWhiteSpace(message))
+      {
         LogError("FileLogger was asked to LogError but message was null or whitespace");
+        return;
+      }
 
       CreateLogFileIfMissing();
 
-      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, message);
+      string formattedMessage = FormatErrorMessage(DateTime.Now, message);
       using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }
     }
 
-    public void LogException(Exception e, string message = null)
+    public override void LogException(Exception e, string message = null)
     {
       if (e == null && message == null)
+      {
         LogError("FileLogger was asked to LogException but exception and message were null");
+        return;
+      }
 
       if (e == null && string.IsNullOrWhiteSpace(message))
+      {
         LogError("FileLogger was asked to LogException but exception was null and message was whitespace");
+        return;
+      }
 
       CreateLogFileIfMissing();
 
-      string formattedMessage = string.Format(logMessageFormat, DateTime.Now, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
+      string formattedMessage = FormatExceptionMessage(DateTime.Now, e, message);
       using (StreamWriter writer = new StreamWriter(logFilePath, true))
       {
         writer.WriteLine(formattedMessage);
       }
     }
+    #endregion
 
+    #region private methods
     private void CreateLogFileIfMissing()
     {
       if (!File.Exists(logFilePath))
         using (File.Create(logFilePath))
         {
-          
+          //empty so we create empty file and close it
         };
-    }
+    } 
+    #endregion
   }
 }

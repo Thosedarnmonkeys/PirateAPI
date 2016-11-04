@@ -19,7 +19,7 @@ namespace PirateAPIConsole
       List<string> locationPref = new List<string> { "uk" };
       List<string> blackList = new List<string>() { };
       TimeSpan proxyRefreshInterval = new TimeSpan(1, 0, 0);
-      ILogger logger = new FileLogger(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt");
+      ILogger logger = new FileAndConsoleLogger(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt");
       IWebClient webClient = new BasicWebClient(logger);
 
       PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPref, blackList, proxyRefreshInterval, logger, webClient);
