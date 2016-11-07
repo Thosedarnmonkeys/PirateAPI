@@ -35,6 +35,7 @@ namespace PirateAPI
     public int Port { get; private set; }
     public List<string> ProxyLocationPrefs { get; private set; }
     public TimeSpan ProxyRefreshInterval { get; private set; }
+    public bool MagnetSearchProxiesOnly { get; set; }
     #endregion
 
     #region private fields
@@ -48,12 +49,13 @@ namespace PirateAPI
     #endregion
 
     #region constructor
-    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, ILogger logger, IWebClient webClient)
+    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, ILogger logger, IWebClient webClient)
     {
       WebRoot = webRoot;
       Port = port;
       ProxyLocationPrefs = proxyLocationPreferences;
       ProxyRefreshInterval = proxyResfreshInterval;
+      MagnetSearchProxiesOnly = magnetSearchProxiesOnly;
       this.logger = logger;
       this.webClient = webClient;
       proxyPicker = new PirateProxyPicker(proxyLocationPreferences, blacklistedProxies, logger);
@@ -64,10 +66,10 @@ namespace PirateAPI
     public bool StartServing()
     {
       IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
-      proxies = proxyProvider.ListProxies();
+      proxies = MagnetSearchProxiesOnly ? proxyProvider.ListMagnetInSearchProxies() : proxyProvider.ListProxies();
       if (proxies == null)
       {
-        logger.LogError("Failed to start serving: ThePirateBayProxyListProvider.ListProxies returned null");
+        logger.LogError("Failed to start serving: ThePirateBayProxyListProvider." + (MagnetSearchProxiesOnly ? "ListMagnetInSearchProxies" : "ListProxies") + " returned null");
         return false;
       }
 
