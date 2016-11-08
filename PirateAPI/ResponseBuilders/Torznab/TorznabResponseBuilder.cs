@@ -59,7 +59,7 @@ namespace PirateAPI.ResponseBuilders.Torznab
       StringBuilder builder = new StringBuilder();
       builder.Append("<item>\n");
       builder.Append($"<title>{torrent.Title}</title>\n");
-      builder.Append($"<link>{torrent.Link}</link>\n");
+      builder.Append($"<torznab:attr name=\"magneturl\" value=\"{torrent.Link.Replace("&", "&amp;")}\" />\n");
       builder.Append($"<pubDate>{torrent.PublishDate.ToString(dateFormat)}</pubDate>\n");
       builder.Append($"<size>{torrent.Size}</size>\n");
       builder.Append($"<enclosure url=\"{torrent.Link}\" length=\"{torrent.Size}\" type=\"application/x-bittorrent\" />\n");
