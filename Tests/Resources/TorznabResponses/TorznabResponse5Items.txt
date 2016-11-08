@@ -6,7 +6,7 @@
 <link>https://github.com/Thosedarnmonkeys/PirateAPI</link>
 <item>
 <title>Show Name S01E01 SD</title>
-<link>fakeUrl</link>
+<torznab:attr name="magneturl" value="fakeUrl" />
 <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
 <size>1024</size>
 <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
@@ -15,7 +15,7 @@
 </item>
 <item>
 <title>Show Name S01E01 SD</title>
-<link>fakeUrl</link>
+<torznab:attr name="magneturl" value="fakeUrl" />
 <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
 <size>1024</size>
 <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
@@ -24,7 +24,7 @@
 </item>
 <item>
 <title>Show Name S01E01 SD</title>
-<link>fakeUrl</link>
+<torznab:attr name="magneturl" value="fakeUrl" />
 <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
 <size>1024</size>
 <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
@@ -33,7 +33,7 @@
 </item>
 <item>
 <title>Show Name S01E01 SD</title>
-<link>fakeUrl</link>
+<torznab:attr name="magneturl" value="fakeUrl" />
 <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
 <size>1024</size>
 <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />
@@ -42,7 +42,7 @@
 </item>
 <item>
 <title>Show Name S01E01 SD</title>
-<link>fakeUrl</link>
+<torznab:attr name="magneturl" value="fakeUrl" />
 <pubDate>Wed, 07 Sep 2016 00:00:00 +0000</pubDate>
 <size>1024</size>
 <enclosure url="fakeUrl" length="1024" type="application/x-bittorrent" />

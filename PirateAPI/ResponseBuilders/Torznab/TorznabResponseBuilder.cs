@@ -56,13 +56,15 @@ namespace PirateAPI.ResponseBuilders.Torznab
       if (torrent == null)
         return string.Empty;
 
+      string escapedAmpersandLink = torrent.Link.Replace("&", "&amp;");
+
       StringBuilder builder = new StringBuilder();
       builder.Append("<item>\n");
       builder.Append($"<title>{torrent.Title}</title>\n");
-      builder.Append($"<torznab:attr name=\"magneturl\" value=\"{torrent.Link.Replace("&", "&amp;")}\" />\n");
+      builder.Append($"<torznab:attr name=\"magneturl\" value=\"{escapedAmpersandLink}\" />\n");
       builder.Append($"<pubDate>{torrent.PublishDate.ToString(dateFormat)}</pubDate>\n");
       builder.Append($"<size>{torrent.Size}</size>\n");
-      builder.Append($"<enclosure url=\"{torrent.Link}\" length=\"{torrent.Size}\" type=\"application/x-bittorrent\" />\n");
+      builder.Append($"<enclosure url=\"{escapedAmpersandLink}\" length=\"{torrent.Size}\" type=\"application/x-bittorrent\" />\n");
       builder.Append($"<torznab:attr name=\"seeders\" value=\"{torrent.Seeds}\" />\n");
       builder.Append($"<torznab:attr name=\"peers\" value=\"{torrent.Seeds + torrent.Leeches}\" />\n");
       builder.Append("</item>\n");
