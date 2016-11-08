@@ -1,0 +1,16 @@
+﻿<tr class="alt">
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/205" title="More from this category">TV shows</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/16216005/Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta" class="detLink" title="Details for Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta">Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta</a>
+</div>
+<a href="magnet:?xt=urn:btih:cd73cdc6abbd19a9e319dc3607ec7c3e3d107b39&amp;dn=Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.vip/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="/user/TvTeam"><img src="//pirateproxy.vip/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0"></a><img src="//pirateproxy.vip/static/img/11x11p.png">
+			<font class="detDesc">Uploaded Y-day&nbsp;20:50, Size 966&nbsp;B, ULed by <a class="detDesc" href="/user/TvTeam/" title="Browse TvTeam">TvTeam</a></font>
+		</td>
+		<td align="right">0</td>
+		<td align="right">3</td>
+	</tr>

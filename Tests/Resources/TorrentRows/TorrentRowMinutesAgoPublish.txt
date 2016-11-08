@@ -1,0 +1,16 @@
+﻿<tr>
+		<td class="vertTh">
+			<center>
+				<a href="/browse/200" title="More from this category">Video</a><br>
+				(<a href="/browse/201" title="More from this category">Movies</a>)
+			</center>
+		</td>
+		<td>
+<div class="detName">			<a href="/torrent/16223850/Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO" class="detLink" title="Details for Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO">Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO</a>
+</div>
+<a href="magnet:?xt=urn:btih:9a5ba6f454374e561445b793bd241d0ab6d4d716&amp;dn=Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" title="Download this torrent using magnet"><img src="//pirateproxy.vip/static/img/icon-magnet.gif" alt="Magnet link"></a><a href="/user/TvTeam"><img src="//pirateproxy.vip/static/img/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0"></a><img src="//pirateproxy.vip/static/img/11x11p.png">
+			<font class="detDesc">Uploaded <b>50&nbsp;mins&nbsp;ago</b>, Size 1.41&nbsp;GiB, ULed by <a class="detDesc" href="/user/TvTeam/" title="Browse TvTeam">TvTeam</a></font>
+		</td>
+		<td align="right">0</td>
+		<td align="right">0</td>
+	</tr>

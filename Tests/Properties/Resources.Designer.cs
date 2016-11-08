@@ -341,6 +341,25 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/201&quot; title=&quot;More from this category&quot;&gt;Movies&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/16223850/Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO&quot; class=&quot;detLink&quot; title=&quot;Details for Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO&quot;&gt;Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:9a5ba6f454374e561445b793bd [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowMinutesAgoPublish {
+            get {
+                return ResourceManager.GetString("TorrentRowMinutesAgoPublish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;tr&gt;&lt;td class=&quot;vertTh&quot;&gt;
         ///			&lt;center&gt;
         ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
@@ -374,6 +393,25 @@ namespace PirateAPITests.Properties {
         internal static string TorrentRowNoUploaderStatus {
             get {
                 return ResourceManager.GetString("TorrentRowNoUploaderStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;tr&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/205&quot; title=&quot;More from this category&quot;&gt;TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/16221650/BBC.World.News.2016.09.21.(Eng.Subs).SDTV.x264-[2Maverick]&quot; class=&quot;detLink&quot; title=&quot;Details for BBC.World.News.2016.09.21.(Eng.Subs).SDTV.x264-[2Maverick]&quot;&gt;BBC.World.News.2016.09.21.(Eng.Subs).SDTV.x264-[2Maverick]&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magne [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowTodayWordPublish {
+            get {
+                return ResourceManager.GetString("TorrentRowTodayWordPublish", resourceCulture);
             }
         }
         
@@ -441,6 +479,25 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;tr class=&quot;alt&quot;&gt;
+        ///		&lt;td class=&quot;vertTh&quot;&gt;
+        ///			&lt;center&gt;
+        ///				&lt;a href=&quot;/browse/200&quot; title=&quot;More from this category&quot;&gt;Video&lt;/a&gt;&lt;br&gt;
+        ///				(&lt;a href=&quot;/browse/205&quot; title=&quot;More from this category&quot;&gt;TV shows&lt;/a&gt;)
+        ///			&lt;/center&gt;
+        ///		&lt;/td&gt;
+        ///		&lt;td&gt;
+        ///&lt;div class=&quot;detName&quot;&gt;			&lt;a href=&quot;/torrent/16216005/Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta&quot; class=&quot;detLink&quot; title=&quot;Details for Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta&quot;&gt;Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta&lt;/a&gt;
+        ///&lt;/div&gt;
+        ///&lt;a href=&quot;magnet:?xt=urn:btih:cd73cdc6abbd19a9e3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorrentRowYdayPublish {
+            get {
+                return ResourceManager.GetString("TorrentRowYdayPublish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
         ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
         ///&lt;channel&gt;
@@ -469,12 +526,8 @@ namespace PirateAPITests.Properties {
         ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
-        ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///&lt;link&gt;fakeUrl&lt;/link&gt;
-        ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
-        ///&lt;size&gt;1024&lt;/size&gt;
-        ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
-        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
+        ///&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/title&gt;
+        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseNoMagnets {
             get {

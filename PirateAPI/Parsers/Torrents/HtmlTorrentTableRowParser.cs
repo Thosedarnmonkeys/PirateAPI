@@ -12,15 +12,32 @@ namespace PirateAPI.Parsers.Torrents
   {
     #region private fields
     private ILogger logger;
+    private DateTime? fixedDateTime;
+    #endregion
+
+    #region private properties
+    private DateTime currentDateTime
+    {
+      get
+      {
+        if (fixedDateTime.HasValue)
+          return fixedDateTime.Value;
+
+        return DateTime.Now;
+      }
+    }
     #endregion
 
     #region constructor
-    public HtmlTorrentTableRowParser(ILogger logger)
+    public HtmlTorrentTableRowParser(ILogger logger) : this(logger, null) {}
+
+    public HtmlTorrentTableRowParser(ILogger logger, DateTime? fixedDateTime)
     {
       if (logger == null)
         throw new ArgumentException("HtmlTorrentTableRowParser Constructor was passed a null ILogger", nameof(logger));
 
       this.logger = logger;
+      this.fixedDateTime = fixedDateTime;
     }
     #endregion
 
@@ -158,70 +175,156 @@ namespace PirateAPI.Parsers.Torrents
       input = input.Replace("&nbsp;", " ");
       input = input.Replace("Â ", " ");
       input = input.Replace("-", " ");
+      input = RemoveHtmlElements(input);
 
-      DateTime dateTime;
-      string[] vals = input.Split(' ');
+      if (input.Contains("Today"))
+        return ParseTodayDateString(input);
+
+      //Y-Day or yesterday
+      if (input.Contains("day"))
+        return ParseYesterdayDayDateString(input);
+
+      if (input.Contains("min"))
+        return ParseMinutesAgoDateString(input);
 
       if (input.Contains(':'))
-      {
-        int day, month, year = DateTime.Now.Year;
+        return ParseThisYearDateString(input);
 
-        if (!int.TryParse(vals[0], out month))
-        {
-          logger.LogError($"Couldn't parse value {vals[0]} to int for month");
-          return DateTime.MinValue;
-        }
-
-        if (!int.TryParse(vals[1], out day))
-        {
-          logger.LogError($"Couldn't parse value {vals[1]} to int for day");
-          return DateTime.MinValue;
-        }
-
-        string[] time = vals[2].Split(':');
-
-        int hour, minute;
-
-        if (!int.TryParse(time[0], out hour))
-        {
-          logger.LogError($"Couldn't parse value {time[0]} to int for hour");
-          return DateTime.MinValue;
-        }
-
-        if (!int.TryParse(time[1], out minute))
-        {
-          logger.LogError($"Couldn't parse value {time[1]} to int for minute");
-          return DateTime.MinValue;
-        }
-
-        dateTime = new DateTime(year, month, day, hour, minute, 0);
-      }
       else
+        return ParseGenericDateString(input);
+    }
+
+    private DateTime ParseTodayDateString(string dateString)
+    {
+      string timeString = CheckMatchAndGetFirst(dateString, "^Today (.*)$", "TodayTime");
+      if (timeString == null)
+        return DateTime.MinValue;
+
+      string[] vals = timeString.Split(':');
+      if (vals.Length != 2)
       {
-        int day, month, year;
-
-        if (!int.TryParse(vals[0], out month))
-        {
-          logger.LogError($"Couldn't parse value {vals[0]} to int for month");
-          return DateTime.MinValue;
-        }
-
-        if (!int.TryParse(vals[1], out day))
-        {
-          logger.LogError($"Couldn't parse value {vals[1]} to int for day");
-          return DateTime.MinValue;
-        }
-
-        if (!int.TryParse(vals[2], out year))
-        {
-          logger.LogError($"Couldn't parse value {vals[2]} to int for year");
-          return DateTime.MinValue;
-        }
-
-        dateTime = new DateTime(year, month, day);
+        logger.LogError($"Splitting value {timeString} on char ':' resulted in {vals.Length} elements, not 2");
+        return DateTime.MinValue;
       }
 
-      return dateTime;
+      int hour = ParseInt(vals[0], "TodayHour");
+      int mins = ParseInt(vals[1], "TodayMinute");
+
+      return new DateTime(
+        currentDateTime.Year,
+        currentDateTime.Month,
+        currentDateTime.Day,
+        hour,
+        mins,
+        0);
+    }
+
+    private DateTime ParseYesterdayDayDateString(string dateString)
+    {
+      string timeString = CheckMatchAndGetFirst(dateString, "^Y day (.*)$", "YDayTime");
+      if (timeString == null)
+        timeString = CheckMatchAndGetFirst(dateString, "^Yesterday (.*)$", "YesterdayTime");
+
+      if (timeString == null)
+        return DateTime.MinValue;
+
+      string[] vals = timeString.Split(':');
+      if (vals.Length != 2)
+      {
+        logger.LogError($"Splitting value {timeString} on char ':' resulted in {vals.Length} elements, not 2");
+        return DateTime.MinValue;
+      }
+
+      int hour = ParseInt(vals[0], "TodayHour");
+      int mins = ParseInt(vals[1], "TodayMinute");
+
+      TimeSpan oneDaySpan = new TimeSpan(1, 0, 0, 0);
+
+      return new DateTime(
+        currentDateTime.Year,
+        currentDateTime.Month,
+        currentDateTime.Day,
+        hour,
+        mins,
+        0) - oneDaySpan;
+    }
+
+    private DateTime ParseMinutesAgoDateString(string dateString)
+    {
+      string minsString = CheckMatchAndGetFirst(dateString, @"^(\d*) mins ago$", "MinutesAgo");
+      if (minsString == null)
+        CheckMatchAndGetFirst(dateString, "^ (.*) minutes ago$", "MinutesAgo");
+
+      if (minsString == null)
+        return DateTime.MinValue;
+
+      int minutesAgo = ParseInt(minsString, "MinutesAgo");
+
+      TimeSpan minsAgoSpan = new TimeSpan(0, minutesAgo, 0);
+      return currentDateTime - minsAgoSpan;
+    }
+
+    private DateTime ParseThisYearDateString(string dateString)
+    {
+      string[] vals = dateString.Split(' ');
+
+      int day, month, year = currentDateTime.Year;
+
+      if (!int.TryParse(vals[0], out month))
+      {
+        logger.LogError($"Couldn't parse value {vals[0]} to int for month");
+        return DateTime.MinValue;
+      }
+
+      if (!int.TryParse(vals[1], out day))
+      {
+        logger.LogError($"Couldn't parse value {vals[1]} to int for day");
+        return DateTime.MinValue;
+      }
+
+      string[] time = vals[2].Split(':');
+
+      int hour, minute;
+
+      if (!int.TryParse(time[0], out hour))
+      {
+        logger.LogError($"Couldn't parse value {time[0]} to int for hour");
+        return DateTime.MinValue;
+      }
+
+      if (!int.TryParse(time[1], out minute))
+      {
+        logger.LogError($"Couldn't parse value {time[1]} to int for minute");
+        return DateTime.MinValue;
+      }
+
+      return new DateTime(year, month, day, hour, minute, 0);
+    }
+
+    private DateTime ParseGenericDateString(string dateString)
+    {
+      string[] vals = dateString.Split(' ');
+      int day, month, year;
+
+      if (!int.TryParse(vals[0], out month))
+      {
+        logger.LogError($"Couldn't parse value {vals[0]} to int for month");
+        return DateTime.MinValue;
+      }
+
+      if (!int.TryParse(vals[1], out day))
+      {
+        logger.LogError($"Couldn't parse value {vals[1]} to int for day");
+        return DateTime.MinValue;
+      }
+
+      if (!int.TryParse(vals[2], out year))
+      {
+        logger.LogError($"Couldn't parse value {vals[2]} to int for year");
+        return DateTime.MinValue;
+      }
+
+      return new DateTime(year, month, day);
     }
 
     private long ParseSizeULong(string input)
@@ -291,6 +394,21 @@ namespace PirateAPI.Parsers.Torrents
       }
 
       return val;
+    }
+
+    private string RemoveHtmlElements(string input)
+    {
+      if (!input.Contains("<") || !input.Contains(">"))
+        return input;
+
+      while (input.Contains("<"))
+      {
+        int openIndex = input.IndexOf("<");
+        int closeIndex = input.IndexOf(">");
+        input = input.Remove(openIndex, closeIndex - openIndex + 1);
+      }
+
+      return input;
     }
     #endregion
   }

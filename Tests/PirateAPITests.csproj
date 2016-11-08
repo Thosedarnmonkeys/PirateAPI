@@ -113,8 +113,11 @@
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListBestProxyNowSlow.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
+    <Content Include="Resources\TorrentRows\TorrentRowMinutesAgoPublish.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowNoMagnetLink.txt" />
+    <Content Include="Resources\TorrentRows\TorrentRowTodayWordPublish.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt" />
+    <Content Include="Resources\TorrentRows\TorrentRowYdayPublish.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponse5Items.txt" />
     <Content Include="Resources\TorznabResponses\TorznabResponseNoMagnets.txt">
       <SubType>Designer</SubType>

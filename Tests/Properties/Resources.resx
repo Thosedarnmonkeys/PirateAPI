@@ -175,11 +175,17 @@
   <data name="TorrentRowAnonymousUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowAnonymousUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TorrentRowMinutesAgoPublish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRows\TorrentRowMinutesAgoPublish.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="TorrentRowNoMagnetLink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowNoMagnetLink.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TorrentRowNoUploaderStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowNoUploaderStatus.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TorrentRowTodayWordPublish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRows\TorrentRowTodayWordPublish.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TorrentRowTrustedUploader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowTrustedUploader.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -189,6 +195,9 @@
   </data>
   <data name="TorrentRowWhiteSpaceAroundTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorrentRows\TorrentRowWhiteSpaceAroundTitle.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TorrentRowYdayPublish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorrentRows\TorrentRowYdayPublish.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TorznabResponse5Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorznabResponses\TorznabResponse5Items.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

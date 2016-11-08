@@ -151,5 +151,74 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctTorrent, torrent);
     }
 
+    [Test]
+    public void TestParsePublishTodayWord()
+    {
+      string unparsedRow = Resources.TorrentRowTodayWordPublish;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "BBC.World.News.2016.09.21.(Eng.Subs).SDTV.x264-[2Maverick]",
+        Link = "magnet:?xt=urn:btih:2e39ea1e7bc8bb4bf336f8107b33e4cbe8520b6e&dn=BBC.World.News.2016.09.21.%28Eng.Subs%29.SDTV.x264-%5B2Maverick%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2016, 11, 8, 10, 40, 00),
+        UploaderName = "TvTeam",
+        UploaderStatus = TorrentUploaderStatus.Vip,
+        Size = 196608000,
+        Seeds = 0,
+        Leeches = 2
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
+    }
+
+    [Test]
+    public void TestParsePublishMinutesAgo()
+    {
+      string unparsedRow = Resources.TorrentRowMinutesAgoPublish;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO",
+        Link = "magnet:?xt=urn:btih:9a5ba6f454374e561445b793bd241d0ab6d4d716&dn=Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2016, 11, 8, 13, 16, 00),
+        UploaderName = "TvTeam",
+        UploaderStatus = TorrentUploaderStatus.Vip,
+        Size = 1513975971,
+        Seeds = 0,
+        Leeches = 0
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
+    }
+
+    [Test]
+    public void TestParsePublishYdayWord()
+    {
+      string unparsedRow = Resources.TorrentRowYdayPublish;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent correctTorrent = new Torrent
+      {
+        Title = "Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta",
+        Link = "magnet:?xt=urn:btih:cd73cdc6abbd19a9e319dc3607ec7c3e3d107b39&dn=Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+        PublishDate = new DateTime(2016, 11, 7, 20, 50, 00),
+        UploaderName = "TvTeam",
+        UploaderStatus = TorrentUploaderStatus.Vip,
+        Size = 966,
+        Seeds = 0,
+        Leeches = 3
+      };
+
+      Assert.AreEqual(correctTorrent, torrent);
+    }
+
   }
 }
