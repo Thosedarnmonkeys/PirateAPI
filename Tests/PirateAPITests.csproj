@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tests\CapsReponseBuilderTests.cs" />
     <Compile Include="Tests\HtmlRowExtractorTests.cs" />
     <Compile Include="Tests\HtmlTorrentTableRowParserTests.cs" />
     <Compile Include="Tests\HtmlTorrentTableRowWithoutMagnetLinkParserTests.cs" />
@@ -100,7 +101,10 @@
     <None Include="Resources\TorrentRows\TorrentRow0Seeds0Leeches.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\CapsResponses\CapsResponseLimit0.txt" />
     <Content Include="Resources\CapsResponses\CapsResponseBasic.txt" />
+    <Content Include="Resources\CapsResponses\CapsResponseLimit1.txt" />
+    <Content Include="Resources\CapsResponses\CapsResponseLimit9.txt" />
     <Content Include="Resources\PiratePages\PiratePageDifferentShowName.txt" />
     <Content Include="Resources\PiratePages\PiratePageHDOnly.txt" />
     <Content Include="Resources\PiratePages\PiratePageSDOnly.txt" />

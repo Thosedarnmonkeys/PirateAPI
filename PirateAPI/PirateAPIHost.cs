@@ -46,16 +46,18 @@ namespace PirateAPI
     private Proxy bestProxy;
     private List<Proxy> proxies;
     private Timer refreshProxiesTimer;
+    private int apiLimit;
     #endregion
 
     #region constructor
-    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, ILogger logger, IWebClient webClient)
+    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, int apiLimit, ILogger logger, IWebClient webClient)
     {
       WebRoot = webRoot;
       Port = port;
       ProxyLocationPrefs = proxyLocationPreferences;
       ProxyRefreshInterval = proxyResfreshInterval;
       MagnetSearchProxiesOnly = magnetSearchProxiesOnly;
+      this.apiLimit = apiLimit;
       this.logger = logger;
       this.webClient = webClient;
       proxyPicker = new PirateProxyPicker(proxyLocationPreferences, blacklistedProxies, logger);
@@ -140,7 +142,7 @@ namespace PirateAPI
     private string ProcessCapsRequest()
     {
       CapsResponseBuilder builder = new CapsResponseBuilder();
-      return builder.BuildResponse();
+      return builder.BuildResponse(apiLimit);
     }
 
     private string ProcessTvSearchRequest(string request)
@@ -173,7 +175,7 @@ namespace PirateAPI
         while (remainingAttempts > 0)
         {
           //try getting a response from proxy up to 3 times
-          PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient);
+          PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
           try
           {
             torrents = requestResolver.Resolve(pirateRequest);

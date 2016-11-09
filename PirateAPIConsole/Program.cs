@@ -20,10 +20,11 @@ namespace PirateAPIConsole
       List<string> blackList = new List<string>() { };
       TimeSpan proxyRefreshInterval = new TimeSpan(1, 0, 0);
       bool magnetSearchProxiesOnly = false;
+      int apiLimit = 30;
       ILogger logger = new FileAndConsoleLogger(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt");
       IWebClient webClient = new BasicWebClient(logger);
 
-      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPref, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, logger, webClient);
+      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPref, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, logger, webClient);
 
       host.StartServing();
 

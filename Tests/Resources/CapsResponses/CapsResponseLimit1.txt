@@ -2,7 +2,7 @@
 <caps>
   <server version="1.0" title="PirateAPI" strapline="A Torznab API for TPB" url="https://github.com/Thosedarnmonkeys/PirateAPI"/>
 
-  <limits max="50" default="50"/>
+  <limits max="1" default="1"/>
 
   <registration available="no" open="no" />
 

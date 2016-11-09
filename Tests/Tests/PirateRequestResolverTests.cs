@@ -29,7 +29,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -120,7 +120,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -211,7 +211,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -303,7 +303,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 6,
@@ -406,7 +406,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -498,7 +498,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
@@ -589,7 +589,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Offset = 5,
@@ -623,7 +623,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -716,7 +716,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 6,
@@ -820,7 +820,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -916,7 +916,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -1007,7 +1007,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -1098,7 +1098,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -1190,7 +1190,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
@@ -1263,7 +1263,7 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestSingleEpisodeNoSeason()
     {
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), null);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), null, 100);
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
@@ -1289,7 +1289,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
       PirateRequest request = new PirateRequest
       {
         Offset = 0,
@@ -1383,7 +1383,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, new DateTime(2016, 9, 6));
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100, new DateTime(2016, 9, 6));
       PirateRequest request = new PirateRequest
       {
         Limit = 5,
@@ -1453,7 +1453,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responseStrings);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient);
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100);
 
       PirateRequest request = new PirateRequest
       {
@@ -1485,7 +1485,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient webClient = new StubWebClient(responses);
 
-      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, new DateTime(2016, 10, 31));
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100, new DateTime(2016, 10, 31));
       PirateRequest request = new PirateRequest
       {
         Limit = 5,

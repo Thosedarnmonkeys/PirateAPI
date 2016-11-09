@@ -9,9 +9,15 @@ namespace PirateAPI.ResponseBuilders.Caps
 {
   public class CapsResponseBuilder
   {
-    public string BuildResponse()
+    public string BuildResponse(int apiLimit)
     {
-      return Resources.CapsResponseTemplate;
+      if (apiLimit < 0)
+        apiLimit = 0;
+
+      string capsTemplate = Resources.CapsResponseTemplate;
+      capsTemplate = capsTemplate.Replace("{apilimit}", apiLimit.ToString());
+      capsTemplate = capsTemplate.Replace("{apidefault}", apiLimit.ToString());
+      return capsTemplate;
     }
   }
 }

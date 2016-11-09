@@ -25,13 +25,15 @@ namespace PirateAPI.RequestResolver
     private ITorrentRowParser rowParser;
     private TorrentNameSanityChecker checker;
     private MagnetsInSearchTester magnetTester;
+    private int apiLimit;
     #endregion
 
     #region constructor
-    public PirateRequestResolver(ILogger logger, IWebClient webClient, DateTime? currentDate = null)
+    public PirateRequestResolver(ILogger logger, IWebClient webClient, int apiLimit, DateTime? currentDate = null)
     {
       this.logger = logger;
       this.webClient = webClient;
+      this.apiLimit = apiLimit;
       if (currentDate.HasValue)
         this.currentDate = currentDate.Value;
 
@@ -64,11 +66,11 @@ namespace PirateAPI.RequestResolver
       int requestPage = (int)Math.Floor((double)request.Offset / 30);
       int firstPageOffset = request.Offset%30;
       bool isFirstPage = true;
-      int limit = request.Limit ?? 100;
+      int limit = Math.Min(request.Limit ?? 100, apiLimit);
       List<Torrent> results = new List<Torrent>();
 
       //run till we reach required number
-      while (results.Count < 50 && results.Count < limit)
+      while (results.Count < limit)
       {
         //Get page
         string requestUrl;
@@ -89,8 +91,11 @@ namespace PirateAPI.RequestResolver
         }
 
         if (rows.Count == 0)
+        {
           //we have run out of results
+          logger.LogMessage($"Reached end of results with {results.Count}/{limit} torrents");
           break;
+        }
 
         //first row is always headers
         rows.RemoveAt(0);
@@ -101,7 +106,7 @@ namespace PirateAPI.RequestResolver
           if (IsValidTorrentForRequest(request, torrent))
           {
             results.Add(torrent);
-            logger.LogMessage($"Got {results.Count}/{Math.Min(limit, 50)} torrents");
+            logger.LogMessage($"Got {results.Count}/{limit} torrents");
           }
         }
 

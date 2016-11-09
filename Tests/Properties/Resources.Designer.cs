@@ -62,23 +62,100 @@ namespace PirateAPITests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-        ///   &lt;caps&gt;
-        ///      &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
+        ///&lt;caps&gt;
+        ///  &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
         ///
-        ///      &lt;limits max=&quot;1000&quot; default=&quot;100&quot;/&gt;
+        ///  &lt;limits max=&quot;50&quot; default=&quot;50&quot;/&gt;
         ///
-        ///      &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
+        ///  &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
         ///
-        ///      &lt;searching&gt;
-        ///         &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
-        ///         &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
-        ///         &lt;movie-search available=&quot;no&quot; supportedParams=&quot;q&quot; /&gt;
-        ///      &lt;/searching&gt;
-        ///        /// [rest of string was truncated]&quot;;.
+        ///  &lt;searching&gt;
+        ///      &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///      &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
+        ///  &lt;/searching&gt;
+        ///
+        ///  &lt;categories&gt;
+        ///      &lt;category id=&quot;5000&quot; name=&quot;TV&quot;&gt;
+        ///        &lt;subcat id=&quot;5030&quot; name=&quot;SDTV&quot;/&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CapsResponseBasic {
             get {
                 return ResourceManager.GetString("CapsResponseBasic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;caps&gt;
+        ///  &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
+        ///
+        ///  &lt;limits max=&quot;0&quot; default=&quot;0&quot;/&gt;
+        ///
+        ///  &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
+        ///
+        ///  &lt;searching&gt;
+        ///      &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///      &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
+        ///  &lt;/searching&gt;
+        ///
+        ///  &lt;categories&gt;
+        ///      &lt;category id=&quot;5000&quot; name=&quot;TV&quot;&gt;
+        ///        &lt;subcat id=&quot;5030&quot; name=&quot;SDTV&quot;/&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CapsResponseLimit0 {
+            get {
+                return ResourceManager.GetString("CapsResponseLimit0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;caps&gt;
+        ///  &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
+        ///
+        ///  &lt;limits max=&quot;1&quot; default=&quot;1&quot;/&gt;
+        ///
+        ///  &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
+        ///
+        ///  &lt;searching&gt;
+        ///      &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///      &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
+        ///  &lt;/searching&gt;
+        ///
+        ///  &lt;categories&gt;
+        ///      &lt;category id=&quot;5000&quot; name=&quot;TV&quot;&gt;
+        ///        &lt;subcat id=&quot;5030&quot; name=&quot;SDTV&quot;/&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CapsResponseLimit1 {
+            get {
+                return ResourceManager.GetString("CapsResponseLimit1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;caps&gt;
+        ///  &lt;server version=&quot;1.0&quot; title=&quot;PirateAPI&quot; strapline=&quot;A Torznab API for TPB&quot; url=&quot;https://github.com/Thosedarnmonkeys/PirateAPI&quot;/&gt;
+        ///
+        ///  &lt;limits max=&quot;9&quot; default=&quot;9&quot;/&gt;
+        ///
+        ///  &lt;registration available=&quot;no&quot; open=&quot;no&quot; /&gt;
+        ///
+        ///  &lt;searching&gt;
+        ///      &lt;search available=&quot;yes&quot; supportedParams=&quot;q&quot; /&gt;
+        ///      &lt;tv-search available=&quot;yes&quot; supportedParams=&quot;q,season,ep&quot; /&gt;
+        ///  &lt;/searching&gt;
+        ///
+        ///  &lt;categories&gt;
+        ///      &lt;category id=&quot;5000&quot; name=&quot;TV&quot;&gt;
+        ///        &lt;subcat id=&quot;5030&quot; name=&quot;SDTV&quot;/&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CapsResponseLimit9 {
+            get {
+                return ResourceManager.GetString("CapsResponseLimit9", resourceCulture);
             }
         }
         
@@ -506,11 +583,11 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;fakeUrl&quot; /&gt;
         ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
         ///&lt;size&gt;1024&lt;/size&gt;
         ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
-        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
+        ///&lt;torznab: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponse5Items {
             get {
@@ -527,7 +604,7 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/title&gt;
-        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6 [rest of string was truncated]&quot;;.
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;amp;tr=udp%3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseNoMagnets {
             get {
@@ -544,7 +621,7 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]&lt;/title&gt;
-        ///&lt;link&gt;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2 [rest of string was truncated]&quot;;.
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;amp;tr=udp%3A%2F%2Ftracker.lee [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleEpisode {
             get {
@@ -561,11 +638,11 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
-        ///&lt;link&gt;fakeUrl&lt;/link&gt;
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;fakeUrl&quot; /&gt;
         ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
         ///&lt;size&gt;1024&lt;/size&gt;
         ///&lt;enclosure url=&quot;fakeUrl&quot; length=&quot;1024&quot; type=&quot;application/x-bittorrent&quot; /&gt;
-        ///&lt;torznab:attr name=&quot;seeders&quot; value=&quot;1&quot; [rest of string was truncated]&quot;;.
+        ///&lt;torznab: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleItem {
             get {
@@ -582,7 +659,7 @@ namespace PirateAPITests.Properties {
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
         ///&lt;title&gt;Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]&lt;/title&gt;
-        ///&lt;link&gt;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6 [rest of string was truncated]&quot;;.
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&amp;amp;dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&amp;amp;tr=udp%3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TorznabResponseSingleSeason {
             get {
