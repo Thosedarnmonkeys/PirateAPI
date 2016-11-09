@@ -29,8 +29,9 @@ namespace PirateAPI.Logging
         return;
       }
 
-      string formattedMessage = FormatErrorMessage(DateTime.Now, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatErrorMessage(DateTime.Now, x));
+      DateTime nowTime = DateTime.Now;
+      string formattedMessage = FormatErrorMessage(nowTime, message);
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatErrorMessage(nowTime, x));
       SetConsoleErrorColour();
       Console.WriteLine(formattedMessage);
     }
@@ -49,8 +50,9 @@ namespace PirateAPI.Logging
         return;
       }
 
-      string formattedMessage = FormatExceptionMessage(DateTime.Now, e, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatExceptionMessage(DateTime.Now, e, x));
+      DateTime nowTime = DateTime.Now;
+      string formattedMessage = FormatExceptionMessage(nowTime, e, message);
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatExceptionMessage(nowTime, e, x));
       SetConsoleErrorColour();
       Console.WriteLine(formattedMessage);
     }
@@ -63,8 +65,9 @@ namespace PirateAPI.Logging
         return;
       }
 
-      string formattedMessage = FormatMessage(DateTime.Now, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatMessage(DateTime.Now, x));
+      DateTime nowTime = DateTime.Now;
+      string formattedMessage = FormatMessage(nowTime, message);
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatMessage(nowTime, x));
       SetConsoleMessageColour();
       Console.WriteLine(formattedMessage);
     }
