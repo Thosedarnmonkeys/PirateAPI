@@ -1,22 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-   <caps>
-      <server version="1.0" title="PirateAPI" strapline="A Torznab API for TPB" url="https://github.com/Thosedarnmonkeys/PirateAPI"/>
+<caps>
+  <server version="1.0" title="PirateAPI" strapline="A Torznab API for TPB" url="https://github.com/Thosedarnmonkeys/PirateAPI"/>
 
-      <limits max="1000" default="100"/>
+  <limits max="50" default="30"/>
 
-      <registration available="no" open="no" />
+  <registration available="no" open="no" />
 
-      <searching>
-         <search available="yes" supportedParams="q" />
-         <tv-search available="yes" supportedParams="q,season,ep" />
-         <movie-search available="no" supportedParams="q" />
-      </searching>
+  <searching>
+      <search available="yes" supportedParams="q" />
+      <tv-search available="yes" supportedParams="q,season,ep" />
+  </searching>
 
-      <categories>
-         <category id="5000" name="TV">
-            <subcat id="5030" name="SDTV"/>
-            <subcat id="5040" name="HDTV"/>
-         </category>
-      </categories>
-   </caps>
-</xml>
+  <categories>
+      <category id="5000" name="TV">
+        <subcat id="5030" name="SDTV"/>
+        <subcat id="5040" name="HDTV"/>
+      </category>
+  </categories>
+</caps>

@@ -71,7 +71,7 @@ namespace PirateAPI.RequestResolver
       List<Torrent> results = new List<Torrent>();
 
       //run till we reach required number
-      while (results.Count < limit)
+      while (results.Count < 50 && results.Count < limit)
       {
         //Get page
         string requestUrl;
