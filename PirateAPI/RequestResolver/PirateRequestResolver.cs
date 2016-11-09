@@ -102,7 +102,10 @@ namespace PirateAPI.RequestResolver
         {
           Torrent torrent = rowParser.ParseRow(row);
           if (IsValidTorrentForRequest(request, torrent))
+          {
             results.Add(torrent);
+            logger.LogMessage($"Got {results.Count}/{Math.Min(limit, 50)} torrents");
+          }
         }
 
         requestPage++;
@@ -196,7 +199,10 @@ namespace PirateAPI.RequestResolver
       double age = Math.Floor((currentDate - torrent.PublishDate).TotalDays);
 
       if (age > request.MaxAge)
+      {
+        logger.LogMessage("Torrent invalid, older than allowed max age");
         return false;
+      }
 
       if (request.Season.HasValue && request.Episode.HasValue)
         return checker.Check(request.ShowName, request.Season.Value, request.Episode.Value, torrent.Title);

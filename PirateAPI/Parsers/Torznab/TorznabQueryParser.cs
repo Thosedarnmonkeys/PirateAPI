@@ -97,6 +97,25 @@ namespace PirateAPI.Parsers.Torznab
         }
       }
 
+      logger.LogMessage("Parsed request for:");
+
+      if (parsedRequest.ShowName != null)
+        logger.LogMessage($"Title: {parsedRequest.ShowName}");
+
+      if (parsedRequest.Season != null)
+        logger.LogMessage($"Season: {parsedRequest.Season}");
+
+      if (parsedRequest.Episode != null )
+        logger.LogMessage($"Episode: {parsedRequest.Episode}");
+
+      if (parsedRequest.MaxAge != null)
+        logger.LogMessage($"MaxAge: {parsedRequest.MaxAge}");
+
+      if (parsedRequest.Limit != null)
+        logger.LogMessage($"Limit: {parsedRequest.Limit}");
+
+        logger.LogMessage($"Quality: {parsedRequest.Quality}");
+
       return parsedRequest;
     }
 

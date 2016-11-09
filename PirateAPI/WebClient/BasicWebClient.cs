@@ -29,6 +29,7 @@ namespace PirateAPI.WebClient
 
       try
       {
+        logger.LogMessage($"Downloading from {address}");
         System.Net.WebClient client = new System.Net.WebClient();
         return client.DownloadString(address);
       }

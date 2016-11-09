@@ -12,6 +12,7 @@ namespace PirateAPI.SanityCheckers
   {
     #region private fields
     private ILogger logger;
+    private const string torrentFailCheckPreamble = "Torrent failed sanity check:";
     #endregion
 
     #region constructor
@@ -63,9 +64,12 @@ namespace PirateAPI.SanityCheckers
                                     .Replace("]", " ")
                                     .Replace("&", "and")
                                     .ToLower();
-                        
+
       if (!normalisedInput.Contains(normalisedShowName))
+      {
+        logger.LogMessage($"{torrentFailCheckPreamble} torrent name {normalisedInput} didn't contain show name {showName}");
         return false;
+      }
 
       if (episode.HasValue && season.HasValue)
         return CheckSpecificEpisode(season.Value, episode.Value, normalisedInput);
@@ -114,6 +118,7 @@ namespace PirateAPI.SanityCheckers
       if (paddedInput.Contains(zeroedAbbrevString))
         return true;
 
+      logger.LogMessage($"{torrentFailCheckPreamble} torrent name input didn't contain season number {season}");
       return false;
     }
 
@@ -144,6 +149,7 @@ namespace PirateAPI.SanityCheckers
       if (paddedInput.Contains(verboseString))
         return true;
 
+      logger.LogMessage($"{torrentFailCheckPreamble} torrent name {input} didn't contain season number {season} and episode number {episode}");
       return false;
     }
     #endregion
