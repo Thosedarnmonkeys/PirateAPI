@@ -39,7 +39,7 @@ namespace PirateAPI.Logging
 
     protected string FormatExceptionMessage(DateTime logDateTime, Exception e, string message = null)
     {
-      return string.Format(logMessageFormat, DateTime.Now, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
+      return string.Format(logMessageFormat, logDateTime, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
     }
     #endregion
   }
