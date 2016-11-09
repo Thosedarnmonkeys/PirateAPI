@@ -60,9 +60,6 @@ namespace PirateAPI.RequestResolver
       }
       rowParser = proxyHasSearchMagnets.Value ? new HtmlTorrentTableRowParser(logger) : new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, webClient, logger);
 
-      if (!string.IsNullOrWhiteSpace(request.ShowName))
-        request.ShowName = request.ShowName.Replace("+", " ");
-
       //Set up initial values
       int requestPage = (int)Math.Floor((double)request.Offset / 30);
       int firstPageOffset = request.Offset%30;

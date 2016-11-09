@@ -36,7 +36,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -127,7 +127,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://adifferentfakepirateproxy.com",
       };
 
@@ -310,7 +310,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -413,7 +413,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -504,7 +504,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -595,7 +595,7 @@ namespace PirateAPITests.Tests
         Offset = 5,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -630,7 +630,7 @@ namespace PirateAPITests.Tests
         Offset = 15,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -723,7 +723,7 @@ namespace PirateAPITests.Tests
         Offset = 4,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -827,7 +827,7 @@ namespace PirateAPITests.Tests
         Offset = 30,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -923,7 +923,7 @@ namespace PirateAPITests.Tests
         Offset = 45,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -1014,7 +1014,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.HD,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -1105,7 +1105,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.SD,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -1196,7 +1196,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
         Season = 2
       };
@@ -1269,7 +1269,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
         Episode = 2
       };
@@ -1296,7 +1296,7 @@ namespace PirateAPITests.Tests
         Limit = 5,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
         Season = 2,
         Episode = 1
@@ -1390,7 +1390,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
         MaxAge = 250
       };
@@ -1461,7 +1461,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
@@ -1492,7 +1492,7 @@ namespace PirateAPITests.Tests
         Offset = 0,
         Quality = VideoQuality.Both,
         ExtendedAttributes = true,
-        ShowName = "Rick+And+Morty",
+        ShowName = "Rick And Morty",
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 

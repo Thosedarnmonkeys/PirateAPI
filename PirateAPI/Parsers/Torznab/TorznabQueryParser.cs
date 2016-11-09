@@ -76,7 +76,7 @@ namespace PirateAPI.Parsers.Torznab
             break;
 
           case "q":
-            parsedRequest.ShowName = tuple.Item2;
+            parsedRequest.ShowName = ParseShowName(tuple.Item2);
             break;
 
           case "cat":
@@ -216,6 +216,19 @@ namespace PirateAPI.Parsers.Torznab
       }
 
       return match.Groups[1].Value;
+    }
+
+    private string ParseShowName(string value)
+    {
+      if (string.IsNullOrWhiteSpace(value))
+      {
+        logger.LogError($"TorznabQueryParser.ParseShowName was passed a null or empty string");
+        return null;
+      }
+
+      value = value.Replace("+", " ");
+      value = value.Replace("%20", " ");
+      return value;
     }
 
     private int? ParseInt(string value, string paramName)

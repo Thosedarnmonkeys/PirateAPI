@@ -26,7 +26,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -53,7 +53,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 20,
@@ -80,7 +80,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 50,
         Limit = 100,
@@ -107,7 +107,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+Different+Thing",
+        ShowName = "A Different Thing",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -119,6 +119,34 @@ namespace PirateAPITests.Tests
 
       Assert.AreEqual(correctRequest, parsedRequest);
     }
+
+    [Test]
+    public void TestParsesSearchQueryWithHTMLSpaces()
+    {
+      string torznabQuery = "http://localhost:8080/api?t=tvsearch&q=A%20Different%20Thing&cat=5030,5040&extended=1&offset=0&limit=100";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "A Different Thing",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Offset = 0,
+        Limit = 100,
+        ExtendedAttributes = true,
+        Quality = VideoQuality.Both
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+    }
+
 
     [Test]
     public void TestParsesExtendedAttributes()
@@ -134,7 +162,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -161,7 +189,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://adifferentfakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -188,7 +216,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -215,7 +243,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = 100,
@@ -242,7 +270,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = null,
@@ -269,7 +297,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = null,
@@ -297,7 +325,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = null,
@@ -325,7 +353,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Offset = 0,
         Limit = null,
@@ -354,7 +382,7 @@ namespace PirateAPITests.Tests
 
       PirateRequest correctRequest = new PirateRequest
       {
-        ShowName = "A+TV+Show",
+        ShowName = "A TV Show",
         PirateProxyURL = "http://fakepirateproxy.com",
         Quality = VideoQuality.Both,
         MaxAge = 30
