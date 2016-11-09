@@ -75,7 +75,7 @@ namespace PirateAPI.Parsers.Torrents
       }
 
       string statusPattern = $@"href=""\/user\/{torrent.UploaderName}"">.*?<img.*?title=""(.*?)""";
-      string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus");
+      string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus", true);
       torrent.UploaderStatus = ParseUploaderStatus(statusString);
 
       string publishPattern = @"""detDesc"">.*?Uploaded (.*?),";
@@ -107,11 +107,17 @@ namespace PirateAPI.Parsers.Torrents
 
     protected string CheckMatchAndGetFirst(string input, string pattern, string paramName)
     {
+      return CheckMatchAndGetFirst(input, pattern, paramName, false);
+    }
+
+    protected string CheckMatchAndGetFirst(string input, string pattern, string paramName, bool suppressErrors)
+    {
       Regex regex = new Regex(pattern);
 
       if (!regex.IsMatch(input))
       {
-        logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input} for Torrent prop {paramName}");
+        if (!suppressErrors)
+          logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input} for Torrent prop {paramName}");
         return null;
       }
 
