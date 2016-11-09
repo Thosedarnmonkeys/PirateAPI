@@ -9,9 +9,17 @@ namespace PirateAPI.Logging
   public abstract class AbstractLogger : ILogger
   {
     #region protected consts
-    protected const string logMessageFormat = "{0}  |  {1}  |  {2}";
+    protected const string logMessageFormat = "{0} | {1} | {2}";
     protected const string messageText = "Info ";
     protected const string errorText = "Error";
+    #endregion
+
+    #region protected properties
+
+    protected int logMessagePreambleLength
+    {
+      get { return FormatExceptionMessage(DateTime.Now, null, "").Length; }
+    }
     #endregion
 
     #region public abstract methods
@@ -20,8 +28,8 @@ namespace PirateAPI.Logging
     public abstract void LogError(string message);
     #endregion
 
-    #region private methods
-    protected string FormatErrorMessage(DateTime logDateTime, string message)
+    #region protected methods
+    protected virtual string FormatErrorMessage(DateTime logDateTime, string message)
     {
       if (string.IsNullOrWhiteSpace(message))
         message = "Message passed was null or whitespace";
@@ -29,7 +37,7 @@ namespace PirateAPI.Logging
       return string.Format(logMessageFormat, logDateTime, errorText, message);
     }
 
-    protected string FormatMessage(DateTime logDateTime, string message)
+    protected virtual string FormatMessage(DateTime logDateTime, string message)
     {
       if (string.IsNullOrWhiteSpace(message))
         message = "Message passed was null or whitespace";
@@ -37,7 +45,7 @@ namespace PirateAPI.Logging
       return string.Format(logMessageFormat, logDateTime, messageText, message);
     }
 
-    protected string FormatExceptionMessage(DateTime logDateTime, Exception e, string message = null)
+    protected virtual string FormatExceptionMessage(DateTime logDateTime, Exception e, string message = null)
     {
       return string.Format(logMessageFormat, logDateTime, errorText, (message ?? "") + (message == null || e == null ? "" : ": ") + e?.Message);
     }

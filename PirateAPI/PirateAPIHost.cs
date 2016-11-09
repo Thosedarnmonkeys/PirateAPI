@@ -67,6 +67,7 @@ namespace PirateAPI
     #region public methods
     public bool StartServing()
     {
+      logger.LogMessage("PirateAPI is starting...");
       IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
       proxies = MagnetSearchProxiesOnly ? proxyProvider.ListMagnetInSearchProxies() : proxyProvider.ListProxies();
       if (proxies == null)
