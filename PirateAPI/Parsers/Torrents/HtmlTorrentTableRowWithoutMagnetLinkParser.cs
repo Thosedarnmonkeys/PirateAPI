@@ -44,7 +44,7 @@ namespace PirateAPI.Parsers.Torrents
       if (string.IsNullOrWhiteSpace(rowString))
         return null;
 
-      string pageLinkPattern = @"div><a href=""(.*?)"" title=""Download this torrent using magnet";
+      string pageLinkPattern = @"href=""(\S+)"" title=""Download this torrent using magnet";
       string pagePath = CheckMatchAndGetFirst(rowString, pageLinkPattern, "Link");
 
       if (pagePath == null)
