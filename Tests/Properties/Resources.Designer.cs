@@ -160,6 +160,20 @@ namespace PirateAPITests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;tr class=&quot;header&quot;&gt;
+        ///			&lt;th&gt;Type&lt;/th&gt;
+        ///			&lt;th&gt;&lt;div class=&quot;sortby&quot;&gt;Name&lt;/div&gt;&lt;div class=&quot;viewswitch&quot;&gt; View: &lt;a href=&quot;/switchview.php?view=s&quot;&gt;Single&lt;/a&gt; / Double&amp;nbsp;&lt;/div&gt;&lt;/th&gt;
+        ///			&lt;th&gt;&lt;abbr title=&quot;Seeders&quot;&gt;SE&lt;/abbr&gt;&lt;/th&gt;
+        ///			&lt;th&gt;&lt;abbr title=&quot;Leechers&quot;&gt;LE&lt;/abbr&gt;&lt;/th&gt;
+        ///		&lt;/tr&gt;.
+        /// </summary>
+        internal static string NonTorrentRow {
+            get {
+                return ResourceManager.GetString("NonTorrentRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;
         ///    &lt;title&gt;The Pirate Bay - The galaxy&apos;s most resilient bittorrent site&lt;/title&gt;
         ///    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;

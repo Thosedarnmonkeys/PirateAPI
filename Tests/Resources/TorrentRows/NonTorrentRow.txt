@@ -1,0 +1,6 @@
+﻿<tr class="header">
+			<th>Type</th>
+			<th><div class="sortby">Name</div><div class="viewswitch"> View: <a href="/switchview.php?view=s">Single</a> / Double&nbsp;</div></th>
+			<th><abbr title="Seeders">SE</abbr></th>
+			<th><abbr title="Leechers">LE</abbr></th>
+		</tr>

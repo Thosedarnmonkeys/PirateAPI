@@ -97,9 +97,6 @@ namespace PirateAPI.RequestResolver
           break;
         }
 
-        //first row is always headers
-        rows.RemoveAt(0);
-
         foreach (string row in rows)
         {
           Torrent torrent = rowParser.ParseRow(row);

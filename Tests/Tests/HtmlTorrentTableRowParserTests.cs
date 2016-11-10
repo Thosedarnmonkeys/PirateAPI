@@ -220,5 +220,16 @@ namespace PirateAPITests.Tests
       Assert.AreEqual(correctTorrent, torrent);
     }
 
+    [Test]
+    public void TestParseNonTorrentRow()
+    {
+      string unparsedRow = Resources.NonTorrentRow;
+
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+
+      Torrent torrent = parser.ParseRow(unparsedRow);
+
+      Assert.IsNull(torrent);
+    }
   }
 }

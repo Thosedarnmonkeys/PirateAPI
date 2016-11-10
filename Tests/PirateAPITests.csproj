@@ -116,6 +116,7 @@
     <Content Include="Resources\SingleTorrentPages\RickAndMortySeason2.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListBestProxyNowSlow.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt" />
+    <Content Include="Resources\TorrentRows\NonTorrentRow.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowMinutesAgoPublish.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowNoMagnetLink.txt" />
