@@ -8,6 +8,7 @@ using PirateAPI.WebServer;
 using PirateAPI.Logging;
 using PirateAPI.Parsers.Torrents;
 using PirateAPI.Parsers.Torznab;
+using PirateAPI.Properties;
 using PirateAPI.ProxyPicker;
 using PirateAPI.ProxyProviders;
 using PirateAPI.ProxyProviders.ThePirateBayProxyList;
@@ -47,6 +48,7 @@ namespace PirateAPI
     private List<Proxy> proxies;
     private Timer refreshProxiesTimer;
     private int apiLimit;
+    private string emptyTorznabResponse = Resources.TorznabResponseTemplate.Replace("{0}", "");
     #endregion
 
     #region constructor
@@ -169,7 +171,7 @@ namespace PirateAPI
         if (pirateRequest == null)
         {
           logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
-          return null;
+          return emptyTorznabResponse;
         }
 
         int remainingAttempts = 3;
@@ -184,8 +186,8 @@ namespace PirateAPI
           catch (Exception e)
           {
             logger.LogException(e, "PirateRequestResolver.Resolve threw exception");
-            logger.LogError("PirateRequestResolver.Resolve threw error, returning null string");
-            return null;
+            logger.LogError("PirateRequestResolver.Resolve threw error, returning empty torznab result");
+            return emptyTorznabResponse;
           }
 
           if (torrents != null)
@@ -202,8 +204,8 @@ namespace PirateAPI
           Proxy proxy = proxyPicker.BestProxy(proxies);
           if (proxy == null)
           {
-            logger.LogError("PirateProxyPicker.BestProxy returned null, reutrning null string");
-            return null;
+            logger.LogError("PirateProxyPicker.BestProxy returned null, returning empty torznab result");
+            return emptyTorznabResponse;
           }
           bestProxy = proxy;
         }
@@ -213,8 +215,8 @@ namespace PirateAPI
       string response = responseBuilder.BuildResponse(torrents);
       if (response == null)
       {
-        logger.LogError("TorznabResponseBuilder.BuildReponse returned null, returning null string");
-        return null;
+        logger.LogError("TorznabResponseBuilder.BuildReponse returned null, returning empty torznab result");
+        return emptyTorznabResponse;
       }
 
       return response;
