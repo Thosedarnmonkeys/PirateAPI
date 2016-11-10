@@ -35,6 +35,7 @@ namespace PirateAPI.ProxyInfoGatherers
         return null;
       }
 
+      logger.LogMessage($"Testing domain {domain} for magnet links in search page");
       string top100Url = domain + top100VideosPath;
       string top100Page = webClient.DownloadString(top100Url);
       if (string.IsNullOrWhiteSpace(top100Page))

@@ -76,6 +76,7 @@ namespace PirateAPI.RequestResolver
         string requestUrl;
         requestUrl = string.IsNullOrWhiteSpace(request.ShowName) ? ConstructQueryForBrowsePage(request, requestPage) : ConstructQueryForTvSearchPage(request, requestPage);
 
+        logger.LogMessage("Downloading search results page");
         string piratePage = webClient.DownloadString(requestUrl);
 
         if (piratePage == null)
