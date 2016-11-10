@@ -50,6 +50,9 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
+      if (!IsTorrentRow(rowString))
+        return null;
+
       rowString = rowString.Replace(Environment.NewLine, "")
                            .Replace("\n", "")
                            .Replace("\r", "")
@@ -128,6 +131,16 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region private methods
+
+    private bool IsTorrentRow(string rowString)
+    {
+      if (!rowString.ToLower().Contains("uploaded")
+          && !rowString.ToLower().Contains("magnet"))
+        return false;
+
+      return true;
+    }
+
     private Tuple<string, string> CheckMatchAndGetFirstTuple(string input, string pattern, string firstParam, string secondParam)
     {
       Regex regex = new Regex(pattern);
