@@ -135,7 +135,7 @@ namespace PirateAPI.Parsers.Torrents
     private bool IsTorrentRow(string rowString)
     {
       if (!rowString.ToLower().Contains("uploaded")
-          && !rowString.ToLower().Contains("magnet"))
+          || rowString.ToLower().Contains(@"class=""sortby"""))
         return false;
 
       return true;
