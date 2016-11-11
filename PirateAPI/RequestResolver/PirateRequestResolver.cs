@@ -119,7 +119,7 @@ namespace PirateAPI.RequestResolver
       if (results.Count >= limit)
         results = results.GetRange(0, limit);
 
-      logger.LogMessage($"Returning {results.Count} results");
+      logger.LogMessage($"Returning {results.Count} torrents");
       return results;
     }
     #endregion
