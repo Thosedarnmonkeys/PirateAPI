@@ -57,7 +57,7 @@ namespace PirateAPI.Parsers.Torznab
         paramsAndValues.Add(new Tuple<string, string>(paramAndValue[0], paramAndValue[1]));
       }
 
-      PirateRequest parsedRequest = new PirateRequest() { PirateProxyURL = pirateProxy};
+      PirateRequest parsedRequest = new PirateRequest() { PirateProxyURL = pirateProxy };
 
       foreach (Tuple<string, string> tuple in paramsAndValues)
       {
@@ -105,7 +105,7 @@ namespace PirateAPI.Parsers.Torznab
       if (parsedRequest.Season != null)
         logger.LogMessage($"Season: {parsedRequest.Season}");
 
-      if (parsedRequest.Episode != null )
+      if (parsedRequest.Episode != null)
         logger.LogMessage($"Episode: {parsedRequest.Episode}");
 
       if (parsedRequest.MaxAge != null)
@@ -114,7 +114,10 @@ namespace PirateAPI.Parsers.Torznab
       if (parsedRequest.Limit != null)
         logger.LogMessage($"Limit: {parsedRequest.Limit}");
 
-        logger.LogMessage($"Quality: {parsedRequest.Quality}");
+      logger.LogMessage($"Quality: {parsedRequest.Quality}");
+
+      if (parsedRequest.Offset != 0)
+        logger.LogMessage($"Offset: {parsedRequest.Offset}");
 
       return parsedRequest;
     }
