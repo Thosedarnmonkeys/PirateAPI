@@ -17,6 +17,7 @@ namespace PirateAPIConsole
     #region Main
     static void Main(string[] args)
     {
+      Console.Title = "PirateAPI";
       ConsoleLogger logger = new ConsoleLogger();
 
       //create waitHandle
