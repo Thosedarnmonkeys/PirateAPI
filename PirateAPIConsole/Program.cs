@@ -14,27 +14,13 @@ namespace PirateAPIConsole
 {
   public class Program
   {
-    #region private consts
-    private const string iniFileName = "PirateAPIConsole.ini";
-    #endregion
-
     #region Main
     static void Main(string[] args)
     {
-      //PirateApiHost vals
-      string webRoot = "";
-      int port = 8080;
-      List<string> locationPref = new List<string> { "uk" };
-      List<string> blackList = new List<string>() { };
-      TimeSpan proxyRefreshInterval = new TimeSpan(1, 0, 0);
-      bool magnetSearchProxiesOnly = false;
-      int apiLimit = 30;
-      ILogger logger = new FileAndConsoleLogger(Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt");
-      IWebClient webClient = new BasicWebClient(logger);
-
+      ConsoleLogger logger = new ConsoleLogger();
 
       //create waitHandle
-      bool createdNew = false;
+      bool createdNew;
       EventWaitHandle waitHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "PirateAPIConsoleWaitHandleEvent", out createdNew);
       if (!createdNew)
       {
@@ -49,7 +35,7 @@ namespace PirateAPIConsole
       }
 
       //start PirateAPIHost
-      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPref, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, logger, webClient);
+      PirateAPIHost host = PirateAPIHostBuilder.Build();
       host.StartServing();
 
       //wait untill signaled to stop
@@ -58,32 +44,6 @@ namespace PirateAPIConsole
       {
         signaledToStop = waitHandle.WaitOne();
       } while (!signaledToStop);
-    }
-    #endregion
-
-    #region private methods
-    private Dictionary<string, string> ReadIniFileOptions()
-    {
-      string iniFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + iniFileName;
-
-      if (!File.Exists(iniFilePath))
-        CreateDefaultIniFile();
-
-      return new Dictionary<string, string>();
-    }
-
-    private void CreateDefaultIniFile()
-    {
-      string iniFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + iniFileName;
-      Assembly assembly = Assembly.GetExecutingAssembly();
-      using (Stream stream = assembly.GetManifestResourceStream("PirateAPIConsole.PirateAPIConsole.ini"))
-      {
-        using (StreamReader reader = new StreamReader(stream))
-        {
-          string defaultIniFileContents = reader.ReadToEnd();
-          File.WriteAllText(iniFilePath, defaultIniFileContents);
-        }
-      }
     }
     #endregion
   }

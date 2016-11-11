@@ -53,6 +53,7 @@
     <Compile Include="Parsers\Torznab\PirateRequest.cs" />
     <Compile Include="Parsers\Torznab\TorznabQueryParser.cs" />
     <Compile Include="PirateAPIHost.cs" />
+    <Compile Include="PirateAPIHostBuilder.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

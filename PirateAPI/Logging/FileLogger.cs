@@ -17,10 +17,10 @@ namespace PirateAPI.Logging
     public FileLogger(string path)
     {
       if (string.IsNullOrWhiteSpace(path))
-        throw new ArgumentException("Provided filepath was null or empty", nameof(path));
+        throw new ArgumentException("Provided logfile path was null or empty", nameof(path));
 
       if (path.Any(c => Path.GetInvalidPathChars().Contains(c)))
-        throw new ArgumentException("Provided filepath contains invalid path characters");
+        throw new ArgumentException("Provided logfile path contains invalid path characters");
 
       logFilePath = path;
     }
@@ -88,6 +88,17 @@ namespace PirateAPI.Logging
     #region private methods
     private void CreateLogFileIfMissing()
     {
+      string dirPath = Path.GetDirectoryName(logFilePath);
+
+      if (string.IsNullOrWhiteSpace(dirPath))
+      {
+        LogError($"Couldn't get dir path from logfile path {logFilePath}");
+        return;
+      }
+
+      if (!Directory.Exists(dirPath))
+        Directory.CreateDirectory(dirPath);
+
       if (!File.Exists(logFilePath))
         using (File.Create(logFilePath))
         {
