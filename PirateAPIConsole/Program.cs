@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 using PirateAPI;
 using PirateAPI.Logging;
 using PirateAPI.WebClient;
+using System.Reflection;
 
 namespace PirateAPIConsole
 {
   public class Program
   {
+    #region private consts
+    private const string iniFileName = "PirateAPIConsole.ini";
+    #endregion
+
+    #region Main
     static void Main(string[] args)
     {
       //PirateApiHost vals
@@ -53,5 +59,32 @@ namespace PirateAPIConsole
         signaledToStop = waitHandle.WaitOne();
       } while (!signaledToStop);
     }
+    #endregion
+
+    #region private methods
+    private Dictionary<string, string> ReadIniFileOptions()
+    {
+      string iniFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + iniFileName;
+
+      if (!File.Exists(iniFilePath))
+        CreateDefaultIniFile();
+
+      return new Dictionary<string, string>();
+    }
+
+    private void CreateDefaultIniFile()
+    {
+      string iniFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + iniFileName;
+      Assembly assembly = Assembly.GetExecutingAssembly();
+      using (Stream stream = assembly.GetManifestResourceStream("PirateAPIConsole.PirateAPIConsole.ini"))
+      {
+        using (StreamReader reader = new StreamReader(stream))
+        {
+          string defaultIniFileContents = reader.ReadToEnd();
+          File.WriteAllText(iniFilePath, defaultIniFileContents);
+        }
+      }
+    }
+    #endregion
   }
 }
