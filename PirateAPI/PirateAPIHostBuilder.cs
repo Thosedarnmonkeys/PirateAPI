@@ -56,8 +56,8 @@ namespace PirateAPI
       if (!(config.ContainsKey(portName) && int.TryParse(config[portName], out port)))
         port = defaultPort;
 
-      List<string> locationPrefs = config.ContainsKey(locPrefName) ? TurnCommaSeperatedStringToList(config[locPrefName]) : defaultLocationPrefs.ToList();
-      List<string> blackList = config.ContainsKey(blacklistName) ? TurnCommaSeperatedStringToList(config[blacklistName]) : defaultBlackList.ToList();
+      List<string> locationPrefs = config.ContainsKey(locPrefName) ? TurnCommaSeparatedStringToList(config[locPrefName]) : defaultLocationPrefs.ToList();
+      List<string> blackList = config.ContainsKey(blacklistName) ? TurnCommaSeparatedStringToList(config[blacklistName]) : defaultBlackList.ToList();
       TimeSpan proxyRefreshInterval = config.ContainsKey(refreshIntName) ? ParseTimeSpan(config[refreshIntName]) : defaultProxyRefreshInterval;
 
       bool magnetSearchProxiesOnly;
@@ -124,12 +124,15 @@ namespace PirateAPI
       }
     }
 
-    private static List<string> TurnCommaSeperatedStringToList(string input)
+    private static List<string> TurnCommaSeparatedStringToList(string input)
     {
       List<string> list = new List<string>();
 
       if (!input.Contains(","))
+      {
+        list.Add(input);
         return list;
+      }
 
       string[] vals = input.Split(',');
       list.AddRange(vals);
@@ -138,7 +141,7 @@ namespace PirateAPI
 
     private static TimeSpan ParseTimeSpan(string input)
     {
-      List<string> list = TurnCommaSeperatedStringToList(input);
+      List<string> list = TurnCommaSeparatedStringToList(input);
 
       if (list.Count != 4)
         return defaultProxyRefreshInterval;
