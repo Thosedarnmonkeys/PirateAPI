@@ -100,6 +100,11 @@ namespace PirateAPI.RequestResolver
 
         foreach (string row in rows)
         {
+          //check if we've reached limit
+          if (results.Count >= limit)
+            break;
+
+          //if not, attempt to parse and add row
           Torrent torrent = rowParser.ParseRow(row);
           if (IsValidTorrentForRequest(request, torrent))
           {
@@ -111,7 +116,7 @@ namespace PirateAPI.RequestResolver
         requestPage++;
       }
 
-      if (results.Count > limit)
+      if (results.Count >= limit)
         results = results.GetRange(0, limit);
 
       return results;
