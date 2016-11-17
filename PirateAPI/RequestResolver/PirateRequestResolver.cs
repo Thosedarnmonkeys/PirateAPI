@@ -98,11 +98,11 @@ namespace PirateAPI.RequestResolver
           break;
         }
 
-        foreach (string row in rows)
+        Parallel.ForEach(rows, row =>
         {
           //check if we've reached limit
           if (results.Count >= limit)
-            break;
+            return;
 
           //if not, attempt to parse and add row
           Torrent torrent = rowParser.ParseRow(row);
@@ -111,7 +111,7 @@ namespace PirateAPI.RequestResolver
             results.Add(torrent);
             logger.LogMessage($"Got {results.Count}/{limit} torrents");
           }
-        }
+        });
 
         requestPage++;
       }

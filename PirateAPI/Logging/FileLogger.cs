@@ -11,6 +11,7 @@ namespace PirateAPI.Logging
   {
     #region private fields
     private string logFilePath;
+    private object lockObj = new object();
     #endregion
 
     #region constructor
@@ -38,9 +39,13 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = FormatMessage(DateTime.Now, message);
-      using (StreamWriter writer = new StreamWriter(logFilePath, true))
+
+      lock (lockObj)
       {
-        writer.WriteLine(formattedMessage);
+        using (StreamWriter writer = new StreamWriter(logFilePath, true))
+        {
+          writer.WriteLine(formattedMessage);
+        }
       }
     }
 
@@ -55,9 +60,13 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = FormatErrorMessage(DateTime.Now, message);
-      using (StreamWriter writer = new StreamWriter(logFilePath, true))
+
+      lock (lockObj)
       {
-        writer.WriteLine(formattedMessage);
+        using (StreamWriter writer = new StreamWriter(logFilePath, true))
+        {
+          writer.WriteLine(formattedMessage);
+        } 
       }
     }
 
@@ -78,9 +87,13 @@ namespace PirateAPI.Logging
       CreateLogFileIfMissing();
 
       string formattedMessage = FormatExceptionMessage(DateTime.Now, e, message);
-      using (StreamWriter writer = new StreamWriter(logFilePath, true))
+
+      lock (lockObj)
       {
-        writer.WriteLine(formattedMessage);
+        using (StreamWriter writer = new StreamWriter(logFilePath, true))
+        {
+          writer.WriteLine(formattedMessage);
+        } 
       }
     }
     #endregion
@@ -104,7 +117,7 @@ namespace PirateAPI.Logging
         {
           //empty so we create empty file and close it
         };
-    } 
+    }
     #endregion
   }
 }
