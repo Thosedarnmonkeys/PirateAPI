@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgTypes\ProxyUpdatedEventArgs.cs" />
     <Compile Include="HtmlExtractors\HtmlRowExtractor.cs" />
     <Compile Include="Logging\AbstractLogger.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
@@ -80,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ResponseBuilders\Caps\CapsResponseTemplate.txt" />
+    <EmbeddedResource Include="PirateAPI.ini" />
     <None Include="ResponseBuilders\Torznab\TorznabResponseTemplate.txt" />
   </ItemGroup>
   <ItemGroup>

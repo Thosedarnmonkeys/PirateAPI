@@ -37,10 +37,6 @@ namespace PirateAPI
     private const string loggingName = "loggingmode";
     #endregion
 
-    #region private enum LoggingMode
-    private enum LoggingMode { ConsoleWindow, File, FileAndConsoleWindow }
-    #endregion
-
     #region private consts
     private const string iniFileName = "PirateAPIConsole.ini";
     #endregion
@@ -111,7 +107,7 @@ namespace PirateAPI
     {
       string iniFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + iniFileName;
       Assembly assembly = Assembly.GetExecutingAssembly();
-      using (Stream stream = assembly.GetManifestResourceStream("PirateAPIConsole.PirateAPIConsole.ini"))
+      using (Stream stream = assembly.GetManifestResourceStream("PirateAPI.PirateAPI.ini"))
       {
         if (stream == null)
           throw new Exception("Assembly.GetManifestResourceStream return a null stream for name PirateAPIConsole.PirateAPIConsole.ini");

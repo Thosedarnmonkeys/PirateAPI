@@ -16,6 +16,7 @@ using PirateAPI.RequestResolver;
 using PirateAPI.ResponseBuilders.Caps;
 using PirateAPI.ResponseBuilders.Torznab;
 using PirateAPI.WebClient;
+using PirateAPI.EventArgTypes;
 
 namespace PirateAPI
 {
@@ -23,13 +24,17 @@ namespace PirateAPI
   {
     //Broad workflow:
 
-    //On StartServing() Proxypicker picks proxy to use, refreshes every hour or if there is error
+    //On StartServing() Proxypicker picks proxy to use, refreshes at specified interval or if there is error
 
-    //WebServer gets request
+    //BasicWebServer gets request
     //TorznabQueryParser parses Torznab string to PirateRequest obj
-    //PirateRequestResolver takes PirateRequest, returns list Torrent obj
+    //PirateRequestResolver takes PirateRequest, returns list of Torrent obj
     //TorznabResponseBuilder takes list of torrents, returns torznab string
-    //Webserver returns torznab string
+    //BasicWebserver returns torznab string
+
+    #region public events 
+    public event EventHandler<ProxyUpdatedEventArgs> ProxyUpdated;
+    #endregion
 
     #region public properties
     public string WebRoot { get; private set; }
@@ -37,6 +42,41 @@ namespace PirateAPI
     public List<string> ProxyLocationPrefs { get; private set; }
     public TimeSpan ProxyRefreshInterval { get; private set; }
     public bool MagnetSearchProxiesOnly { get; set; }
+    public Proxy BestProxy
+    {
+      get { return bestProxy; }
+      private set
+      {
+        if (bestProxy == null)
+          bestProxy = value;
+
+        if (!bestProxy.Equals(value))
+        {
+          bestProxy = value;
+          ProxyUpdated?.Invoke(this, new ProxyUpdatedEventArgs() {Proxy = bestProxy});
+        }
+      }
+    }
+
+    public LoggingMode LoggingMode
+    {
+      get
+      {
+        if (logger == null)
+          return LoggingMode.File;
+
+        if (logger is FileAndConsoleLogger)
+          return LoggingMode.FileAndConsoleWindow;
+
+        if (logger is FileLogger)
+          return LoggingMode.File;
+
+        if (logger is ConsoleLogger)
+          return LoggingMode.ConsoleWindow;
+        
+        return LoggingMode.File;
+      }
+    }
     #endregion
 
     #region private fields
@@ -78,7 +118,7 @@ namespace PirateAPI
         return false;
       }
 
-      bestProxy = proxyPicker.BestProxy(proxies);
+      BestProxy = proxyPicker.BestProxy(proxies);
 
       refreshProxiesTimer = new Timer(ProxyRefreshInterval.TotalMilliseconds);
       refreshProxiesTimer.Elapsed += OnRefreshProxiesTimerInterval;
@@ -207,7 +247,7 @@ namespace PirateAPI
             logger.LogError("PirateProxyPicker.BestProxy returned null, returning empty torznab result");
             return emptyTorznabResponse;
           }
-          bestProxy = proxy;
+          BestProxy = proxy;
         }
       }
 
@@ -238,7 +278,7 @@ namespace PirateAPI
       }
 
       proxyPicker.ClearTempBlacklist();
-      bestProxy = proxyPicker.BestProxy(proxies);
+      BestProxy = proxyPicker.BestProxy(proxies);
     }
     #endregion
   }

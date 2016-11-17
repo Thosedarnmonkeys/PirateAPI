@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace PirateAPI.Logging
 {
+  public enum LoggingMode { ConsoleWindow, File, FileAndConsoleWindow }
+
   public abstract class AbstractLogger : ILogger
   {
     #region protected consts
