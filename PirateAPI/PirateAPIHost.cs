@@ -47,6 +47,9 @@ namespace PirateAPI
       get { return bestProxy; }
       private set
       {
+        if (value == null)
+          return;
+
         if (bestProxy == null)
           bestProxy = value;
 

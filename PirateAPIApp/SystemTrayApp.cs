@@ -11,7 +11,7 @@ namespace PirateAPIApp
   public class SystemTrayForm : Form
   {
     #region private fields
-    private ContextMenu trayMenu;
+    private ContextMenuStrip trayMenu;
     private NotifyIcon trayIcon;
     private PirateAPIHost apiHost;
     #endregion
@@ -26,15 +26,15 @@ namespace PirateAPIApp
         AllocConsole();
         Console.Title = "PirateAPI Log";
       }
-      trayMenu = new ContextMenu();
-      trayMenu.MenuItems.Add("Current Proxy:");
-      trayMenu.MenuItems.Add(apiHost?.BestProxy?.Domain);
-      trayMenu.MenuItems.Add("Exit", OnExitClick);
+      trayMenu = new ContextMenuStrip();
+      trayMenu.Items.Add("Current Proxy:");
+      trayMenu.Items.Add(apiHost?.BestProxy?.Domain);
+      trayMenu.Items.Add("Exit", null, OnExitClick);
 
       trayIcon = new NotifyIcon();
       trayIcon.Icon = new Icon(@"C:\Users\sennever.APTECO\Source\Repos\SurfacePenOnlyMode\SurfacePenOnlyMode\Images\PenIcon.ico");
       trayIcon.Text = "PirateAPI";
-      trayIcon.ContextMenu = trayMenu;
+      trayIcon.ContextMenuStrip = trayMenu;
       trayIcon.Visible = true;
 
       apiHost.ProxyUpdated += OnApiHostProxyUpdated;
@@ -46,7 +46,7 @@ namespace PirateAPIApp
     #region private methods
     private void OnApiHostProxyUpdated(object sender, ProxyUpdatedEventArgs e)
     {
-      trayMenu.MenuItems[1].Text = e.Proxy.Domain;
+      trayMenu.Items[1].Text = e.Proxy.Domain;
     }
 
     private void OnExitClick(object sender, EventArgs e)
