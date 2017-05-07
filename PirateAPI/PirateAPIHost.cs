@@ -33,7 +33,7 @@ namespace PirateAPI
     //BasicWebserver returns torznab string
 
     #region public events 
-    public event EventHandler<ProxyUpdatedEventArgs> ProxyUpdated;
+    public event EventHandler<ProxyUpdatedEventArgs> ProxiesUpdated;
     #endregion
 
     #region public properties
@@ -42,21 +42,21 @@ namespace PirateAPI
     public List<string> ProxyLocationPrefs { get; private set; }
     public TimeSpan ProxyRefreshInterval { get; private set; }
     public bool MagnetSearchProxiesOnly { get; set; }
-    public Proxy BestProxy
+    public List<Proxy> BestProxies
     {
-      get { return bestProxy; }
+      get { return bestProxies; }
       private set
       {
         if (value == null)
           return;
 
-        if (bestProxy == null)
-          bestProxy = value;
+        if (bestProxies == null)
+          bestProxies = value;
 
-        if (!bestProxy.Equals(value))
+        if (!bestProxies.Equals(value))
         {
-          bestProxy = value;
-          ProxyUpdated?.Invoke(this, new ProxyUpdatedEventArgs() {Proxy = bestProxy});
+          bestProxies = value;
+          ProxiesUpdated?.Invoke(this, new ProxyUpdatedEventArgs() {Proxies = bestProxies});
         }
       }
     }
@@ -87,7 +87,7 @@ namespace PirateAPI
     private ILogger logger;
     private IWebClient webClient;
     private PirateProxyPicker proxyPicker;
-    private Proxy bestProxy;
+    private List<Proxy> bestProxies;
     private List<Proxy> proxies;
     private Timer refreshProxiesTimer;
     private int apiLimit;
@@ -121,7 +121,7 @@ namespace PirateAPI
         return false;
       }
 
-      BestProxy = proxyPicker.BestProxy(proxies);
+      BestProxies = proxyPicker.BestProxy(proxies);
 
       refreshProxiesTimer = new Timer(ProxyRefreshInterval.TotalMilliseconds);
       refreshProxiesTimer.Elapsed += OnRefreshProxiesTimerInterval;
@@ -210,7 +210,7 @@ namespace PirateAPI
       while (torrents == null)
       {
         //create request using the current best proxy
-        PirateRequest pirateRequest = torznabParser.Parse(request, bestProxy.Domain);
+        PirateRequest pirateRequest = torznabParser.Parse(request, bestProxies);
         if (pirateRequest == null)
         {
           logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
