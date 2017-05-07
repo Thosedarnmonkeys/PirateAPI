@@ -30,7 +30,7 @@ namespace PirateAPI.ProxyPicker
     public List<Proxy> BestProxies(List<Proxy> proxies)
     {
       IEnumerable<Proxy> goodProxies = from p in proxies
-                                       where !permBlackListedDomains.Contains(p.Domain) &&!tempBlackListedDomains.Contains(p.Domain)
+                                       where !permBlackListedDomains.Contains(p.Domain) && !tempBlackListedDomains.Contains(p.Domain) && p.IsResponding == true
                                        select p;
 
       if (goodProxies.Count() == 0)
@@ -39,32 +39,45 @@ namespace PirateAPI.ProxyPicker
         return null;
       }
 
-      IEnumerable<Proxy> matchedProxies = null;
+      List<Proxy> matchedProxies = new List<Proxy>();
 
       if (locationPrefs != null && locationPrefs.Count != 0)
       {
         foreach(string loc in locationPrefs)
         {
-          if (goodProxies.Any(p => p.Country == loc))
-          {
-            matchedProxies = from p in goodProxies
-                                    where p.Country == loc
-                                    select p;
+          IEnumerable<Proxy> fastProxies = from p in proxies
+                                           where p.Country == loc && (p.Speed == ProxySpeed.VeryFast || p.Speed == ProxySpeed.Fast)
+                                           select p;
+
+          matchedProxies.AddRange(fastProxies);
+
+          if (matchedProxies.Count >= 10)
             break;
-          }
         }
       }
 
+      if (locationPrefs != null && locationPrefs.Count != 0 && matchedProxies.Count < 10)
+      {
+        foreach (string loc in locationPrefs)
+        {
+          IEnumerable<Proxy> fastProxies = from p in proxies
+                                           where p.Country == loc && p.Speed == ProxySpeed.Slow
+                                           select p;
+
+          matchedProxies.AddRange(fastProxies);
+
+          if (matchedProxies.Count >= 10)
+            break;
+        }
+      }
+
+      
       if (matchedProxies == null)
-        matchedProxies = goodProxies;
+        matchedProxies = goodProxies.ToList();
 
-      matchedProxies = matchedProxies.OrderBy(p => p.Speed);
+      logger.LogMessage($"Picker chose {matchedProxies.Count} proxies with speed {matchedProxies.Max(p => p.Speed)} and above");
 
-      Proxy bestProxy = matchedProxies.FirstOrDefault();
-
-      logger.LogMessage($"Picker determined best proxy was domain {bestProxy.Domain} with speed {bestProxy.Speed} and location {bestProxy.Country.ToUpper()}");
-
-      return bestProxy;
+      return matchedProxies;
     }
 
     public void TempBlacklistDomain(string domain)
