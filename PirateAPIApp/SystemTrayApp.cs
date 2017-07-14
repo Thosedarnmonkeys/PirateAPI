@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using PirateAPI;
 using PirateAPI.EventArgTypes;
 using PirateAPI.Logging;
+using PirateAPIApp.Properties;
 
 namespace PirateAPIApp
 {
@@ -44,8 +45,7 @@ namespace PirateAPIApp
       trayMenu.Items.Add("Exit", null, OnExitClick);
 
       trayIcon = new NotifyIcon();
-      trayIcon.Icon =
-        new Icon(@"C:\Users\sennever.APTECO\Source\Repos\SurfacePenOnlyMode\SurfacePenOnlyMode\Images\PenIcon.ico");
+      trayIcon.Icon = Resources.PirateIcon;
       trayIcon.Text = "PirateAPI";
       trayIcon.ContextMenuStrip = trayMenu;
       trayIcon.Visible = true;
