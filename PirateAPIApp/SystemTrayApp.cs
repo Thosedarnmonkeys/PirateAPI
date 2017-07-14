@@ -35,6 +35,7 @@ namespace PirateAPIApp
         Console.Title = "PirateAPI Log";
         consoleHandler = HandleConsoleClose;
         SetConsoleCtrlHandler(consoleHandler, true);
+        SetConsoleIcon(Resources.PirateIcon.Handle);
       }
       trayMenu = new ContextMenuStrip();
       trayMenu.Items.Add(new ToolStripLabel("Current Proxy:"));
@@ -90,6 +91,9 @@ namespace PirateAPIApp
 
     [DllImport("kernel32.dll", SetLastError = true)]
     private static extern bool SetConsoleCtrlHandler(ConsoleEventDelegate callback, bool add);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    static extern bool SetConsoleIcon(IntPtr hIcon);
     #endregion
 
     #region overriden methods
