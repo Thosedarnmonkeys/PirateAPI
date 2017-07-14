@@ -27,7 +27,7 @@ namespace PirateAPI.ProxyPicker
     #endregion
 
     #region public methods
-    public List<Proxy> BestProxies(List<Proxy> proxies)
+    public Proxy BestProxy(List<Proxy> proxies)
     {
       IEnumerable<Proxy> goodProxies = from p in proxies
                                        where !permBlackListedDomains.Contains(p.Domain) && !tempBlackListedDomains.Contains(p.Domain) && p.IsResponding == true

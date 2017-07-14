@@ -10,6 +10,6 @@ namespace PirateAPI.EventArgTypes
 {
   public class ProxyUpdatedEventArgs : EventArgs
   {
-    public List<Proxy> Proxies { get; set; }
+    public Proxy Proxy { get; set; }
   }
 }
