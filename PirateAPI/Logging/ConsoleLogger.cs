@@ -89,10 +89,13 @@ namespace PirateAPI.Logging
       while (messageSubstr.Length > maxMessageWidth)
       {
         int lineBreakIndex = maxMessageWidth - 1;
-        for (int i = 0; i < maxMessageWidth; i++)
+        for (int i = lineBreakIndex; i > 0; i--)
         {
           if (messageSubstr[i] == ' ')
+          {
             lineBreakIndex = i;
+            break;
+          }
         }
 
         string splitLine = messageSubstr.Substring(0, lineBreakIndex);

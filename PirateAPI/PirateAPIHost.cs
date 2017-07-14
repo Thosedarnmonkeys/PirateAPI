@@ -51,7 +51,10 @@ namespace PirateAPI
           return;
 
         if (bestProxy == null)
+        {
           bestProxy = value;
+          ProxyUpdated?.Invoke(this, new ProxyUpdatedEventArgs() { Proxy = bestProxy });
+        }
 
         if (!bestProxy.Equals(value))
         {
@@ -152,6 +155,20 @@ namespace PirateAPI
       }
 
       return true;
+    }
+
+    public void RefreshProxies()
+    {
+      IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
+      proxies = proxyProvider.ListProxies();
+      if (proxies == null)
+      {
+        logger.LogError("Failed to refresh proxies: ThePirateBayProxyListProvider.ListProxies returned null");
+        return;
+      }
+
+      proxyPicker.ClearTempBlacklist();
+      BestProxy = proxyPicker.BestProxy(proxies);
     }
     #endregion
 
@@ -268,20 +285,6 @@ namespace PirateAPI
     private void OnRefreshProxiesTimerInterval(object sender, ElapsedEventArgs e)
     {
       RefreshProxies();
-    }
-
-    private void RefreshProxies()
-    {
-      IProxyProvider proxyProvider = new ThePirateBayProxyListProvider(logger, webClient);
-      proxies = proxyProvider.ListProxies();
-      if (proxies == null)
-      {
-        logger.LogError("Failed to refresh proxies: ThePirateBayProxyListProvider.ListProxies returned null");
-        return;
-      }
-
-      proxyPicker.ClearTempBlacklist();
-      BestProxy = proxyPicker.BestProxy(proxies);
     }
     #endregion
   }
