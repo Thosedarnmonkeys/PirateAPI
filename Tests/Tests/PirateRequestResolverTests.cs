@@ -40,7 +40,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -131,7 +131,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://adifferentfakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -222,7 +222,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -317,7 +317,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -420,7 +420,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -511,7 +511,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -602,7 +602,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>();
       Assert.AreEqual(correctResponse, torrentStrings);
 
@@ -637,7 +637,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -730,7 +730,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -834,7 +834,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
         {
           new Torrent()
@@ -930,7 +930,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1021,7 +1021,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1061,7 +1061,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
           Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 4955735608,
@@ -1112,7 +1112,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1204,7 +1204,7 @@ namespace PirateAPITests.Tests
         Season = 2
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1233,7 +1233,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
           Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 4955735608,
@@ -1244,7 +1244,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
           Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 6, 28, 6, 3, 0),
           UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 9334060183,
@@ -1278,7 +1278,7 @@ namespace PirateAPITests.Tests
       };
 
 
-      Assert.Throws<ArgumentException>(() => resolver.Resolve(request));
+      Assert.Throws<ArgumentException>(() => resolver.Resolve(request, PirateRequestResoveStrategy.Series));
     }
 
     [Test]
@@ -1305,7 +1305,7 @@ namespace PirateAPITests.Tests
         Episode = 1
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1398,14 +1398,14 @@ namespace PirateAPITests.Tests
         MaxAge = 250
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
         {
           Title = "Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks",
           Link = "magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 6, 28, 6, 3, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 6, 28, 6, 3, 0),
           UploaderName = "fauxcon",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 9334060183,
@@ -1416,7 +1416,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]",
           Link = "magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 14, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 7, 2, 3, 14, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 4955735608,
@@ -1427,7 +1427,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Rick and Morty Season 1[BDRip 1080p AC3][AtaraxiaPrime]",
           Link = "magnet:?xt=urn:btih:687a7cda14d35bf06a67964b6bda6d02328429e9&dn=Rick+and+Morty+Season+1%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 7, 2, 3, 12, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 7, 2, 3, 12, 0),
           UploaderName = "AtaraxiaPrime",
           UploaderStatus = TorrentUploaderStatus.None,
           Size = 4830388434,
@@ -1468,7 +1468,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrents = resolver.Resolve(request);
+      List<Torrent> torrents = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
 
       Assert.IsNull(torrents);
     }
@@ -1499,7 +1499,7 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request);
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResoveStrategy.Series);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()

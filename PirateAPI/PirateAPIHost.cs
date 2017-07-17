@@ -241,7 +241,7 @@ namespace PirateAPI
           PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
           try
           {
-            torrents = requestResolver.Resolve(pirateRequest);
+            torrents = requestResolver.Resolve(pirateRequest, PirateRequestResoveStrategy.Parallel);
           }
           catch (Exception e)
           {
