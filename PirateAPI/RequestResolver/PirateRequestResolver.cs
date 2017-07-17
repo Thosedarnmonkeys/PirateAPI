@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 using PirateAPI.HtmlExtractors;
 using PirateAPI.Logging;
 using PirateAPI.ProxyInfoGatherers;
+using PirateAPI.RequestResolver.RowParseStrategies;
 using PirateAPI.SanityCheckers;
 using PirateAPI.WebClient;
 
 namespace PirateAPI.RequestResolver
 {
+  public enum PirateRequestResoveStrategy { Series, Parallel }
+
   public class PirateRequestResolver
   {
     #region private fields
@@ -44,7 +47,7 @@ namespace PirateAPI.RequestResolver
     #endregion
 
     #region public methods
-    public List<Torrent> Resolve(PirateRequest request)
+    public List<Torrent> Resolve(PirateRequest request, PirateRequestResoveStrategy resolveStrat)
     {
       string errorMessage;
       if (!IsRequestValid(request, out errorMessage))
@@ -68,6 +71,22 @@ namespace PirateAPI.RequestResolver
       bool isFirstPage = true;
       int limit = Math.Min(request.Limit ?? 100, apiLimit);
       List<Torrent> results = new List<Torrent>();
+      IRowParseStrategy parseStrategy;
+      Func<Torrent, bool> sanityCheck = t => IsValidTorrentForRequest(request, t);
+      switch (resolveStrat)
+      {
+        case PirateRequestResoveStrategy.Series:
+          parseStrategy = new SeriesRowParseStrategy(sanityCheck, logger);
+          break;
+
+        case PirateRequestResoveStrategy.Parallel:
+          parseStrategy = new ParallelRowParseStrategy(sanityCheck, logger);
+          break;
+
+        default:
+          throw new ArgumentOutOfRangeException(nameof(resolveStrat), resolveStrat, null);
+      }
+
 
       //run till we reach required number
       while (results.Count < limit)
@@ -98,20 +117,15 @@ namespace PirateAPI.RequestResolver
           break;
         }
 
-        Parallel.ForEach(rows, row =>
+        //parse rows and add to results
+        List<Torrent> parsedRows = parseStrategy.ParseRows(rows, rowParser, limit);
+        if (parsedRows == null)
         {
-          //check if we've reached limit
-          if (results.Count >= limit)
-            return;
+          logger.LogError("Parse strategy couldn't complete, ending request early");
+          break;
+        }
 
-          //if not, attempt to parse and add row
-          Torrent torrent = rowParser.ParseRow(row);
-          if (IsValidTorrentForRequest(request, torrent))
-          {
-            results.Add(torrent);
-            logger.LogMessage($"Got {results.Count}/{limit} torrents");
-          }
-        });
+        results.AddRange(parsedRows);
 
         requestPage++;
       }

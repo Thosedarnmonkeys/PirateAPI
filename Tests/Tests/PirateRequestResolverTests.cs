@@ -229,7 +229,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Arrow.S04E23.HDTV.x264-LOL[ettv]",
           Link = "magnet:?xt=urn:btih:d83c61ea0b60b641cf13f61bfbf8095113e9573d&dn=Arrow.S04E23.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 5, 26, 3, 21, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 5, 26, 3, 21, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 315358342,
@@ -240,7 +240,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Arrow.S04E15.HDTV.x264-LOL[ettv]",
           Link = "magnet:?xt=urn:btih:941a4cc66d4cb39b23a5cc9f59948eb22f72eff5&dn=Arrow.S04E15.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 2, 25, 3, 1, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 2, 25, 3, 1, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 256413261,
@@ -251,7 +251,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Arrow Season 4 Complete x264-TJ [TJET]",
           Link = "magnet:?xt=urn:btih:0a3a4ac8aa690951a5d19593e8c1b83a61382baf&dn=Arrow+Season+4+Complete+x264-TJ+%5BTJET%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 5, 26, 4, 5, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 5, 26, 4, 5, 0),
           UploaderName = "CenaCme",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 6579307167,
@@ -262,7 +262,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Arrow.S04E11.HDTV.x264-LOL[ettv]",
           Link = "magnet:?xt=urn:btih:c1c2a53e4bf77af86550f4b0ea64287acdda248d&dn=Arrow.S04E11.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 1, 28, 3, 3, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 1, 28, 3, 3, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 247661544,
@@ -273,7 +273,7 @@ namespace PirateAPITests.Tests
         {
           Title = "Arrow.S04E20.HDTV.x264-LOL[ettv]",
           Link = "magnet:?xt=urn:btih:25387dadd54dade2a5ccba39b3a6e206886a00d0&dn=Arrow.S04E20.HDTV.x264-LOL%5Bettv%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
-          PublishDate = new DateTime(2016, 5, 5, 3, 0, 0),
+          PublishDate = new DateTime(DateTime.Now.Year, 5, 5, 3, 0, 0),
           UploaderName = "ettv",
           UploaderStatus = TorrentUploaderStatus.Vip,
           Size = 253518567,
@@ -281,6 +281,9 @@ namespace PirateAPITests.Tests
           Leeches = 12
         }
       };
+      correctResponse = correctResponse.OrderBy(t => t.Title).ToList();
+      torrentStrings = torrentStrings.OrderBy(t => t.Title).ToList();
+
       Assert.AreEqual(correctResponse, torrentStrings);
 
       List<string> addressesRequested = new List<string>
