@@ -151,6 +151,7 @@ namespace PirateAPI.Parsers.Torznab
       switch (match.Groups[1].Value)
       {
         case "tvsearch":
+        case "search":
           return TorznabQueryType.TvSearch;
 
         case "caps":

@@ -394,6 +394,34 @@ namespace PirateAPITests.Tests
     }
 
     [Test]
+    public void TestParsesSearchAsTvSearch()
+    {
+      string torznabQuery = "/api?t=search&cat=5030,5040&extended=1&offset=0&limit=30&q=Doctor+Who+2005+Meet+the+Thirteenth+Doctor";
+      string pirateProxy = "http://fakepirateproxy.com";
+
+      TorznabQueryParser parser = new TorznabQueryParser(new StubLogger());
+
+      TorznabQueryType correctQueryType = TorznabQueryType.TvSearch;
+      TorznabQueryType queryType = parser.DiscernQueryType(torznabQuery);
+      Assert.AreEqual(correctQueryType, queryType);
+
+      PirateRequest correctRequest = new PirateRequest
+      {
+        ShowName = "Doctor Who 2005 Meet the Thirteenth Doctor",
+        PirateProxyURL = "http://fakepirateproxy.com",
+        Quality = VideoQuality.Both,
+        Limit = 30,
+        ExtendedAttributes = true,
+        Offset = 0
+      };
+
+      PirateRequest parsedRequest = parser.Parse(torznabQuery, pirateProxy);
+
+      Assert.AreEqual(correctRequest, parsedRequest);
+
+    }
+
+    [Test]
     public void TestCapsResponse()
     {
       string torznabQuery = "http://localhost:8080/api?t=caps";
