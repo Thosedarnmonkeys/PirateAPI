@@ -25,7 +25,7 @@
 <item>
 <title>Rick and Morty Season 2[BDRip 1080p AC3][AtaraxiaPrime]</title>
 <torznab:attr name="magneturl" value="magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
-<pubDate>Sat, 02 Jul 2016 03:14:00 +0000</pubDate>
+<pubDate>Sun, 02 Jul 2017 03:14:00 +0000</pubDate>
 <size>4955735608</size>
 <enclosure url="magnet:?xt=urn:btih:668c251eab6a3155fbe7a7ef52bd062787c49320&amp;dn=Rick+and+Morty+Season+2%5BBDRip+1080p+AC3%5D%5BAtaraxiaPrime%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="4955735608" type="application/x-bittorrent" />
 <torznab:attr name="seeders" value="43" />
@@ -34,7 +34,7 @@
 <item>
 <title>Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks</title>
 <torznab:attr name="magneturl" value="magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
-<pubDate>Tue, 28 Jun 2016 06:03:00 +0000</pubDate>
+<pubDate>Wed, 28 Jun 2017 06:03:00 +0000</pubDate>
 <size>9334060183</size>
 <enclosure url="magnet:?xt=urn:btih:d64161416fe4cba97131237d810dfc77f6640d14&amp;dn=Rick.and.Morty.Season.2.1080p.BluRay.x264.with.commentary.tracks&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="9334060183" type="application/x-bittorrent" />
 <torznab:attr name="seeders" value="34" />
