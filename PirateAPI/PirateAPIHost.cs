@@ -89,6 +89,7 @@ namespace PirateAPI
     private IWebServer webServer;
     private ILogger logger;
     private IWebClient webClient;
+    private PirateRequestResolveStrategy resolveStrategy;
     private PirateProxyPicker proxyPicker;
     private Proxy bestProxy;
     private List<Proxy> proxies;
@@ -98,7 +99,7 @@ namespace PirateAPI
     #endregion
 
     #region constructor
-    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, int apiLimit, ILogger logger, IWebClient webClient)
+    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, int apiLimit, PirateRequestResolveStrategy resolveStrategy, ILogger logger, IWebClient webClient)
     {
       WebRoot = webRoot;
       Port = port;
@@ -106,6 +107,7 @@ namespace PirateAPI
       ProxyRefreshInterval = proxyResfreshInterval;
       MagnetSearchProxiesOnly = magnetSearchProxiesOnly;
       this.apiLimit = apiLimit;
+      this.resolveStrategy = resolveStrategy;
       this.logger = logger;
       this.webClient = webClient;
       proxyPicker = new PirateProxyPicker(proxyLocationPreferences, blacklistedProxies, logger);
@@ -241,12 +243,6 @@ namespace PirateAPI
           PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
           try
           {
-            var resolveStrategy = PirateRequestResoveStrategy.Parallel;
-
-            #if DEBUG
-                resolveStrategy = PirateRequestResoveStrategy.Series;
-            #endif
-
             torrents = requestResolver.Resolve(pirateRequest, resolveStrategy);
           }
           catch (Exception e)

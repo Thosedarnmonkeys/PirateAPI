@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using PirateAPI.Logging;
+using PirateAPI.RequestResolver;
 using PirateAPI.WebClient;
 
 namespace PirateAPI
@@ -23,6 +24,7 @@ namespace PirateAPI
     private const int defaultAPILimit = 30;
     private static readonly string defaultLogFilePath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "PirateAPILog.txt";
     private static readonly ILogger defaultLogger = new FileAndConsoleLogger(defaultLogFilePath);
+    private static readonly PirateRequestResolveStrategy defaultStrategy = PirateRequestResolveStrategy.Parallel;
     #endregion
 
     #region ini file param names
@@ -35,6 +37,7 @@ namespace PirateAPI
     private const string apiLimitName = "maxsearchresults";
     private const string logPathName = "logfilepath";
     private const string loggingName = "loggingmode";
+    private const string requestResolveMode = "requestresolvemode";
     #endregion
 
     #region private consts
@@ -64,6 +67,8 @@ namespace PirateAPI
       if (!(config.ContainsKey(apiLimitName) && int.TryParse(config[apiLimitName], out apiLimit)))
         apiLimit = defaultAPILimit;
 
+      PirateRequestResolveStrategy resolveStrat = config.ContainsKey(requestResolveMode) ? ParseResolveStrategy(config[requestResolveMode]) : defaultStrategy;
+
       string logFilePath = config.ContainsKey(logPathName) ? config[logPathName] : defaultLogFilePath;
       if (string.IsNullOrWhiteSpace(logFilePath))
         logFilePath = defaultLogFilePath;
@@ -72,7 +77,7 @@ namespace PirateAPI
 
       IWebClient webClient = new BasicWebClient(logger);
 
-      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPrefs, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, logger, webClient);
+      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPrefs, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, resolveStrat, logger, webClient);
       return host;
     }
     #endregion
@@ -181,6 +186,16 @@ namespace PirateAPI
         default:
           return defaultLogger;
       }
+    }
+
+    private static PirateRequestResolveStrategy ParseResolveStrategy(string input)
+    {
+      PirateRequestResolveStrategy strategy;
+
+      if (!Enum.TryParse(input, out strategy))
+        return defaultStrategy;
+
+      return strategy;
     }
     #endregion
   }

@@ -16,7 +16,7 @@ using PirateAPI.WebClient;
 
 namespace PirateAPI.RequestResolver
 {
-  public enum PirateRequestResoveStrategy { Series, Parallel }
+  public enum PirateRequestResolveStrategy { Series, Parallel }
 
   public class PirateRequestResolver
   {
@@ -47,7 +47,7 @@ namespace PirateAPI.RequestResolver
     #endregion
 
     #region public methods
-    public List<Torrent> Resolve(PirateRequest request, PirateRequestResoveStrategy resolveStrat)
+    public List<Torrent> Resolve(PirateRequest request, PirateRequestResolveStrategy resolveStrat)
     {
       string errorMessage;
       if (!IsRequestValid(request, out errorMessage))
@@ -75,11 +75,11 @@ namespace PirateAPI.RequestResolver
       Func<Torrent, bool> sanityCheck = t => IsValidTorrentForRequest(request, t);
       switch (resolveStrat)
       {
-        case PirateRequestResoveStrategy.Series:
+        case PirateRequestResolveStrategy.Series:
           parseStrategy = new SeriesRowParseStrategy(sanityCheck, logger);
           break;
 
-        case PirateRequestResoveStrategy.Parallel:
+        case PirateRequestResolveStrategy.Parallel:
           parseStrategy = new ParallelRowParseStrategy(sanityCheck, logger);
           break;
 
