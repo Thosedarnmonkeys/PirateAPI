@@ -181,7 +181,7 @@ namespace PirateAPI.Parsers.Torznab
       if (args.Count == 1 && args[0] == "t=caps")
         return true;
 
-      if (!args.Any(a => a == "t=tvsearch"))
+      if (!args.Any(a => a == "t=tvsearch" || a == "t=search"))
         return false;
 
       string categoryPattern = $"^cat={sdCategory}|{hdCategory}|{sdCategory},{hdCategory}|{hdCategory},{sdCategory}$";
