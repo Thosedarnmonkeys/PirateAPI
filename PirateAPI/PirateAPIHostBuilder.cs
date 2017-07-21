@@ -41,7 +41,7 @@ namespace PirateAPI
     #endregion
 
     #region private consts
-    private const string iniFileName = "PirateAPIConsole.ini";
+    private const string iniFileName = "PirateAPI.ini";
     #endregion
 
     #region public methods

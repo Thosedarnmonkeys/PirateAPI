@@ -172,6 +172,18 @@ namespace PirateAPI
       proxyPicker.ClearTempBlacklist();
       BestProxy = proxyPicker.BestProxy(proxies);
     }
+
+    public void ReportSettings()
+    {
+      logger.LogMessage("Settings loaded");
+      logger.LogMessage($"Web Root: {WebRoot}");
+      logger.LogMessage($"Port: {Port}");
+      logger.LogMessage($"Proxy Location Prefs: {string.Join(", ", ProxyLocationPrefs)}");
+      logger.LogMessage($"Proxy Refresh Interval: {ProxyRefreshInterval.Days} Days, {ProxyRefreshInterval.Hours} Hours, {ProxyRefreshInterval.Minutes} Minutes, {ProxyRefreshInterval.Seconds} Seconds");
+      logger.LogMessage($"Use Proxies With Magnets InSearch Only: {MagnetSearchProxiesOnly}");
+      logger.LogMessage($"Max Search Results: {apiLimit}");
+      logger.LogMessage($"Request Resolve Mode: {resolveStrategy}");
+    }
     #endregion
 
     #region private methods

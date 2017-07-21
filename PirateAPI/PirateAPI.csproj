@@ -86,7 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ResponseBuilders\Caps\CapsResponseTemplate.txt" />
-    <EmbeddedResource Include="PirateAPI.ini" />
+    <EmbeddedResource Include="PirateAPI.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="ResponseBuilders\Torznab\TorznabResponseTemplate.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -53,6 +53,8 @@ namespace PirateAPIApp
 
       apiHost.ProxyUpdated += OnApiHostProxyUpdated;
 
+      apiHost.ReportSettings();
+
       apiHost.StartServing();
     }
 
