@@ -69,11 +69,11 @@ namespace PirateAPI.Parsers.Torrents
         return null;
 
       string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
-      torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName");
+      torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName", true);
 
       if (torrent.UploaderName == null)
       {
-        string anonymousPattern = @"ULed by <i>(.*?)<\/i>";
+        string anonymousPattern = @"ULed\sby\s<i>(.*?)<\/i>";
         torrent.UploaderName = CheckMatchAndGetFirst(rowString, anonymousPattern, "UploaderNameAnonymous");
       }
 
@@ -81,15 +81,15 @@ namespace PirateAPI.Parsers.Torrents
       string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus", true);
       torrent.UploaderStatus = ParseUploaderStatus(statusString);
 
-      string publishPattern = @"""detDesc"">.*?Uploaded (.*?),";
+      string publishPattern = @"""detDesc"">.*?Uploaded\s(.*?),";
       string publishString = CheckMatchAndGetFirst(rowString, publishPattern, "PublishDate");
       torrent.PublishDate = ParsePublishDateTime(publishString);
 
-      string sizePattern = @"""detDesc"">.*?Size (.*?),";
+      string sizePattern = @"""detDesc"">.*?Size\s(.*?),";
       string sizeString = CheckMatchAndGetFirst(rowString, sizePattern, "Size");
       torrent.Size = ParseSizeULong(sizeString);
 
-      string seedsAndLeechesPattern = @"<td align=""right"">(.*?)<";
+      string seedsAndLeechesPattern = @"<td\salign=""right"">(.*?)<";
       Tuple<string, string> seedsAndLeechesTuple = CheckMatchAndGetFirstTuple(rowString, seedsAndLeechesPattern, "Seeds", "Leeches");
       if (seedsAndLeechesTuple != null)
       {
@@ -215,7 +215,7 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseTodayDateString(string dateString)
     {
-      string timeString = CheckMatchAndGetFirst(dateString, "^Today (.*)$", "TodayTime");
+      string timeString = CheckMatchAndGetFirst(dateString, @"^Today\s(.*)$", "TodayTime");
       if (timeString == null)
         return DateTime.MinValue;
 
@@ -240,9 +240,9 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseYesterdayDayDateString(string dateString)
     {
-      string timeString = CheckMatchAndGetFirst(dateString, "^Y day (.*)$", "YDayTime");
+      string timeString = CheckMatchAndGetFirst(dateString, @"^Y\sday\s(.*)$", "YDayTime");
       if (timeString == null)
-        timeString = CheckMatchAndGetFirst(dateString, "^Yesterday (.*)$", "YesterdayTime");
+        timeString = CheckMatchAndGetFirst(dateString, @"^Yesterday\s(.*)$", "YesterdayTime");
 
       if (timeString == null)
         return DateTime.MinValue;
@@ -270,9 +270,9 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseMinutesAgoDateString(string dateString)
     {
-      string minsString = CheckMatchAndGetFirst(dateString, @"^(\d*) mins ago$", "MinutesAgo");
+      string minsString = CheckMatchAndGetFirst(dateString, @"^(\d*)\smins\sago$", "MinutesAgo");
       if (minsString == null)
-        CheckMatchAndGetFirst(dateString, "^ (.*) minutes ago$", "MinutesAgo");
+        CheckMatchAndGetFirst(dateString, @"^(.*)\sminutes\sago$", "MinutesAgo");
 
       if (minsString == null)
         return DateTime.MinValue;
@@ -285,7 +285,8 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseThisYearDateString(string dateString)
     {
-      string[] vals = dateString.Split(' ');
+      //split on any whitespace
+      string[] vals = dateString.Split(null);
 
       int day, month, year = currentDateTime.Year;
 
@@ -322,7 +323,8 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseGenericDateString(string dateString)
     {
-      string[] vals = dateString.Split(' ');
+      //split on any whitespace
+      string[] vals = dateString.Split(null); 
       int day, month, year;
 
       if (!int.TryParse(vals[0], out month))
@@ -357,7 +359,8 @@ namespace PirateAPI.Parsers.Torrents
       input = input.Replace("&nbsp;", " ");
       input = input.Replace("Â ", " ");
 
-      string[] vals = input.Split(' ');
+      //split on any whitespace
+      string[] vals = input.Split(null);
 
       double qualifiedSize;
 
