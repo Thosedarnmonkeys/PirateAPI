@@ -285,8 +285,7 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseThisYearDateString(string dateString)
     {
-      //split on any whitespace
-      string[] vals = dateString.Split(null);
+      string[] vals = dateString.Split();
 
       int day, month, year = currentDateTime.Year;
 
@@ -323,8 +322,7 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseGenericDateString(string dateString)
     {
-      //split on any whitespace
-      string[] vals = dateString.Split(null); 
+      string[] vals = dateString.Split(); 
       int day, month, year;
 
       if (!int.TryParse(vals[0], out month))
@@ -359,8 +357,7 @@ namespace PirateAPI.Parsers.Torrents
       input = input.Replace("&nbsp;", " ");
       input = input.Replace("Â ", " ");
 
-      //split on any whitespace
-      string[] vals = input.Split(null);
+      string[] vals = input.Split();
 
       double qualifiedSize;
 
