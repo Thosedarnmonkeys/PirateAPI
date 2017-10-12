@@ -10,5 +10,6 @@ namespace PirateAPI.WebClient
   public interface IWebClient
   {
     string DownloadString(string address);
+    int TimeoutMillis { get; }
   }
 }

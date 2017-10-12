@@ -13,6 +13,8 @@ namespace PirateAPITests.Tests.StubClasses
 
     public List<string> RequestsMade { get; set; } = new List<string>();
 
+    public int TimeoutMillis => 0;
+
     public StubWebClient(List<string> responseStrings)
     {
       this.responseStrings = responseStrings;

@@ -12,17 +12,21 @@ namespace PirateAPI.WebClient
   public class BasicWebClient : System.Net.WebClient, IWebClient
   {
     private ILogger logger;
-    private const int timeoutMillis = 3000;
+    private int timeoutMillis;
 
-    public BasicWebClient(ILogger logger)
+    public int TimeoutMillis => timeoutMillis;
+
+    public BasicWebClient(int timeoutMillis, ILogger logger)
     {
+      this.timeoutMillis = timeoutMillis;
+
       if (logger == null)
         throw new ArgumentException("BasicWebClient Constructor was passed a null ILogger", nameof(logger));
 
       this.logger = logger;
     }
 
-    public string DownloadString(string address)
+    public new string DownloadString(string address)
     {
       if (string.IsNullOrWhiteSpace(address))
       {

@@ -183,6 +183,7 @@ namespace PirateAPI
       logger.LogMessage($"Use Proxies With Magnets InSearch Only: {MagnetSearchProxiesOnly}");
       logger.LogMessage($"Max Search Results: {apiLimit}");
       logger.LogMessage($"Request Resolve Mode: {resolveStrategy}");
+      logger.LogMessage($"Request Timeout in Millis: {webClient.TimeoutMillis}");
     }
     #endregion
 
