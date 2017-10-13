@@ -31,7 +31,7 @@ namespace PirateAPI.Logging
 
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatErrorMessage(nowTime, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatErrorMessage(nowTime, x));
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage);
       SetConsoleErrorColour();
       Console.WriteLine(formattedMessage);
     }
@@ -52,7 +52,7 @@ namespace PirateAPI.Logging
 
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatExceptionMessage(nowTime, e, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatExceptionMessage(nowTime, e, x));
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage);
       SetConsoleErrorColour();
       Console.WriteLine(formattedMessage);
     }
@@ -67,16 +67,16 @@ namespace PirateAPI.Logging
 
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatMessage(nowTime, message);
-      formattedMessage = AddLineBreaksIfRequired(formattedMessage, x => FormatMessage(nowTime, x));
+      formattedMessage = AddLineBreaksIfRequired(formattedMessage);
       SetConsoleMessageColour();
       Console.WriteLine(formattedMessage);
     }
     #endregion
 
     #region private methods
-    private string AddLineBreaksIfRequired(string message, Func<string, string> messageReformatMethod)
+    private string AddLineBreaksIfRequired(string message)
     {
-      if (string.IsNullOrWhiteSpace(message) || messageReformatMethod == null)
+      if (string.IsNullOrWhiteSpace(message))
         return null;
 
       if (message.Length < Console.BufferWidth)
@@ -84,6 +84,7 @@ namespace PirateAPI.Logging
 
       List<string> messageLines = new List<string>();
       int maxMessageWidth = Console.BufferWidth - logMessagePreambleLength;
+      string messagePreamble = message.Substring(0, logMessagePreambleLength);
       string messageSubstr = message.Substring(logMessagePreambleLength);
 
       while (messageSubstr.Length > maxMessageWidth)
@@ -99,13 +100,13 @@ namespace PirateAPI.Logging
         }
 
         string splitLine = messageSubstr.Substring(0, lineBreakIndex);
-        messageLines.Add(messageReformatMethod.Invoke(splitLine));
+        messageLines.Add(messagePreamble + splitLine);
 
         int whiteSpaceCompensation = messageSubstr[lineBreakIndex] == ' ' ? 1 : 0;
         messageSubstr = messageSubstr.Substring(lineBreakIndex + whiteSpaceCompensation);
       }
 
-      messageLines.Add(messageReformatMethod.Invoke(messageSubstr));
+      messageLines.Add(messagePreamble + messageSubstr);
 
       string formedLine = "";
       messageLines.ForEach(x => formedLine += x + "\n");
