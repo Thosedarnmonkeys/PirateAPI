@@ -97,8 +97,9 @@ namespace PirateAPI
         CreateDefaultIniFile();
 
       string[] iniFileLines = File.ReadAllLines(iniFilePath);
-      iniFileLines = iniFileLines.Where(l => !l.StartsWith("#")).ToArray();
-      iniFileLines = iniFileLines.Where(l => !string.IsNullOrWhiteSpace(l)).ToArray();
+      iniFileLines = (from l in iniFileLines
+                      where !l.StartsWith("#") && !string.IsNullOrWhiteSpace(l)
+                      select l).ToArray();
 
       Dictionary<string, string> valsDict = new Dictionary<string, string>();
 
