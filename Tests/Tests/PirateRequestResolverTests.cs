@@ -1546,10 +1546,80 @@ namespace PirateAPITests.Tests
         "http://fakepirateproxy.com/torrent/rickandmortyseason2",
         "http://fakepirateproxy.com/torrent/rickandmortyseason1",
         "http://fakepirateproxy.com/torrent/rickandmortyseason1and2",
-        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208"
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
 
+    }
+
+    [Test]
+    public void TestParallelParsingStopsAfterLimitReached()
+    {
+      List<string> responses = new List<string>()
+      {
+        Resources.PiratePageTop100NoMagnets,
+        Resources.PiratePageSearch3RowsNoMagnets,
+        Resources.RickAndMortySeason2,
+        Resources.RickAndMortySeason2,
+        Resources.RickAndMortySeason2,
+        Resources.PiratePageNoResults
+      };
+
+      StubWebClient webClient = new StubWebClient(responses);
+      webClient.pageDelays = new Dictionary<int, int>()
+      {
+        {3, 1000},
+        {4, 1000}
+      };
+
+      PirateRequestResolver resolver = new PirateRequestResolver(new StubLogger(), webClient, 100, new DateTime(2016, 10, 31));
+      PirateRequest request = new PirateRequest
+      {
+        Limit = 1,
+        Offset = 0,
+        Quality = VideoQuality.Both,
+        ExtendedAttributes = true,
+        ShowName = "Rick And Morty",
+        PirateProxyURL = "http://fakepirateproxy.com",
+      };
+
+      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Parallel);
+      List<Torrent> correctResponse = new List<Torrent>
+      {
+        new Torrent()
+        {
+          Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
+          Link = "magnet:?xt=urn:btih:0494a80532b5b05dde567c61220d93406b7e22e7&dn=Rick+and+Morty+Season+2+%5BWEBRIP%5D+%5B1080p%5D+%5BHEVC%5D&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969",
+          PublishDate = new DateTime(2015, 11, 3),
+          UploaderName = ".BONE.",
+          UploaderStatus = TorrentUploaderStatus.Vip,
+          Size = 2394284168,
+          Seeds = 590,
+          Leeches = 109
+        },
+      };
+
+      Assert.AreEqual(correctResponse, torrentStrings);
+
+      Assert.AreEqual(5, webClient.RequestsMade.Count);
+
+      List<string> addressesRequested = new List<string>
+      {
+        "http://fakepirateproxy.com/top/200",
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/0/99/205,208",
+      };
+      Assert.AreEqual(addressesRequested[0], webClient.RequestsMade[0]);
+      Assert.AreEqual(addressesRequested[1], webClient.RequestsMade[1]);
+
+      List<string> expectedTorrentPages = new List<string>()
+      {
+        "http://fakepirateproxy.com/torrent/rickandmortyseason1",
+        "http://fakepirateproxy.com/torrent/rickandmortyseason1and2",
+        "http://fakepirateproxy.com/torrent/rickandmortyseason2",
+     };
+
+      List<string> actualTorrentPages = webClient.RequestsMade.Skip(2).ToList();
+      actualTorrentPages.Sort();
+      Assert.AreEqual(expectedTorrentPages, actualTorrentPages);
     }
   }
 }

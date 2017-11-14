@@ -31,21 +31,25 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
     #endregion
 
     #region public methods
-    public List<Torrent> ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit)
+    public void ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit, List<Torrent> results)
     {
       if (rows == null)
       {
         logger.LogError($"SeriesRowParseStartegy.ParseRows was passed a null values for {nameof(rows)}");
-        return null;
+        return;
       }
 
       if (parser == null)
       {
         logger.LogError($"SeriesRowParseStartegy.ParseRows was passed a null values for {nameof(parser)}");
-        return null;
+        return;
       }
 
-      var results = new List<Torrent>();
+      if (results == null)
+      {
+        logger.LogError($"SeriesRowParseStartegy.ParseRows was passed a null values for {nameof(results)}");
+        return;
+      }
 
       logger.LogMessage("Parsing torrents in series");
       foreach (HtmlNode row in rows)
@@ -54,14 +58,15 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
           break;
 
         Torrent torrent = parser.ParseRow(row);
+        if (torrent == null)
+          return;
+
         if (PassesSanityCheck(torrent))
         {
           results.Add(torrent);
           logger.LogMessage($"Got {results.Count}/{limit} torrents");
         }
       }
-
-      return results;
     }
 
     #endregion

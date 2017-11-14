@@ -11,6 +11,6 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
 {
   public interface IRowParseStrategy
   {
-    List<Torrent> ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit);
+    void ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit, List<Torrent> results);
   }
 }

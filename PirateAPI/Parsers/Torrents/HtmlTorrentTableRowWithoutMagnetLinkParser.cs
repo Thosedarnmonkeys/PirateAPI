@@ -15,14 +15,16 @@ namespace PirateAPI.Parsers.Torrents
     private ILogger logger;
     private IWebClient webClient;
     private readonly string domain;
+    private Func<bool> okToMakeWebRequestFunc;
     #endregion
 
     #region constructor
-    public HtmlTorrentTableRowWithoutMagnetLinkParser(string domain, IWebClient webclient, ILogger logger) : base(logger)
+    public HtmlTorrentTableRowWithoutMagnetLinkParser(string domain, Func<bool> okToMakeWebRequestFunc,IWebClient webclient, ILogger logger) : base(logger)
     {
       this.webClient = webclient;
       this.logger = logger;
       this.domain = domain;
+      this.okToMakeWebRequestFunc = okToMakeWebRequestFunc;
     }
     #endregion
 
@@ -47,6 +49,9 @@ namespace PirateAPI.Parsers.Torrents
 
       string pagePath = GetChildNodeAttributeValue(row, "td/a", "href");
       if (pagePath == null)
+        return null;
+
+      if (!okToMakeWebRequestFunc.Invoke())
         return null;
 
       string pageUrl = domain + pagePath;

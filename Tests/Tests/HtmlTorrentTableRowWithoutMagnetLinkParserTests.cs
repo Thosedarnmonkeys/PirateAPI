@@ -25,7 +25,7 @@ namespace PirateAPITests.Tests
       doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Torrent correctTorrent = new Torrent()
@@ -56,7 +56,7 @@ namespace PirateAPITests.Tests
       doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
@@ -76,7 +76,7 @@ namespace PirateAPITests.Tests
 
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
@@ -96,7 +96,7 @@ namespace PirateAPITests.Tests
 
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);

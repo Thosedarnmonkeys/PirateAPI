@@ -54,15 +54,6 @@ namespace PirateAPI.RequestResolver
         throw new ArgumentException($"{nameof(request)} was not a valid PirateRequest");
       }
 
-      //Test if proxy has magnet links in search pages
-      bool? proxyHasSearchMagnets = magnetTester.DomainHasMagnetsInSearch(request.PirateProxyURL);
-      if (!proxyHasSearchMagnets.HasValue)
-      {
-        logger.LogError($"Pirate proxy domain {request.PirateProxyURL} failed to respond when testing for magnets in search pages");
-        return null;
-      }
-      rowParser = proxyHasSearchMagnets.Value ? new HtmlTorrentTableRowParser(logger) : new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, webClient, logger);
-
       //Set up initial values
       int requestPage = (int)Math.Floor((double)request.Offset / 30);
       int firstPageOffset = request.Offset%30;
@@ -85,6 +76,16 @@ namespace PirateAPI.RequestResolver
           throw new ArgumentOutOfRangeException(nameof(resolveStrat), resolveStrat, null);
       }
 
+      //Test if proxy has magnet links in search pages
+      bool? proxyHasSearchMagnets = magnetTester.DomainHasMagnetsInSearch(request.PirateProxyURL);
+      if (!proxyHasSearchMagnets.HasValue)
+      {
+        logger.LogError($"Pirate proxy domain {request.PirateProxyURL} failed to respond when testing for magnets in search pages");
+        return null;
+      }
+      rowParser = proxyHasSearchMagnets.Value ? 
+                  new HtmlTorrentTableRowParser(logger) : 
+                  new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, () => results.Count < limit, webClient, logger);
 
       //run till we reach required number
       while (results.Count < limit)
@@ -134,14 +135,7 @@ namespace PirateAPI.RequestResolver
         }
 
         //parse rows and add to results
-        List<Torrent> parsedRows = parseStrategy.ParseRows(rows, rowParser, limit);
-        if (parsedRows == null)
-        {
-          logger.LogError("Parse strategy couldn't complete, ending request early");
-          break;
-        }
-
-        results.AddRange(parsedRows);
+        parseStrategy.ParseRows(rows, rowParser, limit, results);
 
         requestPage++;
       }
