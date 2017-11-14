@@ -8,7 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using PirateAPI.HtmlExtractors;
 using PirateAPI.Logging;
 using PirateAPI.ProxyInfoGatherers;
 using PirateAPI.RequestResolver.RowParseStrategies;

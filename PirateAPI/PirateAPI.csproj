@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArgTypes\ProxyUpdatedEventArgs.cs" />
-    <Compile Include="HtmlExtractors\HtmlRowExtractor.cs" />
     <Compile Include="Logging\AbstractLogger.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\FileAndConsoleLogger.cs" />

@@ -54,7 +54,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Tests\CapsReponseBuilderTests.cs" />
-    <Compile Include="Tests\HtmlRowExtractorTests.cs" />
     <Compile Include="Tests\HtmlTorrentTableRowParserTests.cs" />
     <Compile Include="Tests\HtmlTorrentTableRowWithoutMagnetLinkParserTests.cs" />
     <Compile Include="Tests\MagnetsInSearchTesterTests.cs" />
