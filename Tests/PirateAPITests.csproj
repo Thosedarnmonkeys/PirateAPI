@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.6.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.6.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -67,7 +71,9 @@
     <Compile Include="Tests\WebServerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\PiratePages\PiratePageNoResults.txt" />
     <None Include="Resources\PiratePages\PiratePageSearchSplit.txt" />
     <None Include="Resources\PiratePages\PiratePageSearch5Rows.txt" />
@@ -117,7 +123,9 @@
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListBestProxyNowSlow.txt" />
     <Content Include="Resources\ThePirateBayProxyListResponses\ProxyListSimple.txt" />
     <Content Include="Resources\TorrentRows\NonTorrentRow.txt" />
-    <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt" />
+    <Content Include="Resources\TorrentRows\TorrentRowAnonymousUploader.txt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\TorrentRows\TorrentRowMinutesAgoPublish.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowNoMagnetLink.txt" />
     <Content Include="Resources\TorrentRows\TorrentRowTodayWordPublish.txt" />

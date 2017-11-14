@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using NUnit.Framework;
 using PirateAPI.Parsers.Torrents;
 using PirateAPITests.Properties;
@@ -20,11 +21,12 @@ namespace PirateAPITests.Tests
       StubWebClient webClient = new StubWebClient(response);
       StubLogger logger = new StubLogger();
 
-      string torrentRow = Resources.TorrentRowNoMagnetLink;
+      var doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
       HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
-      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+      Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Torrent correctTorrent = new Torrent()
       {
@@ -50,11 +52,12 @@ namespace PirateAPITests.Tests
       StubWebClient webClient = new StubWebClient(response);
       StubLogger logger = new StubLogger();
 
-      string torrentRow = Resources.TorrentRowNoMagnetLink;
+      var doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
       HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
-      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+      Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
       Assert.AreEqual(1, webClient.RequestsMade.Count);
@@ -68,11 +71,13 @@ namespace PirateAPITests.Tests
       StubWebClient webClient = new StubWebClient(response);
       StubLogger logger = new StubLogger();
 
-      string torrentRow = Resources.TorrentRowNoMagnetLink;
+      var doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
+
       string domain = "fakedomain.com";
 
       HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
-      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+      Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
       Assert.AreEqual(1, webClient.RequestsMade.Count);
@@ -86,14 +91,16 @@ namespace PirateAPITests.Tests
       StubWebClient webClient = new StubWebClient(response);
       StubLogger logger = new StubLogger();
 
-      string torrentRow = "Test";
+      var doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
+
       string domain = "fakedomain.com";
 
       HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, webClient, logger);
-      Torrent parsedTorrent = parser.ParseRow(torrentRow);
+      Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
-      Assert.AreEqual(0, webClient.RequestsMade.Count);
+      Assert.AreEqual(1, webClient.RequestsMade.Count);
     }
 
 

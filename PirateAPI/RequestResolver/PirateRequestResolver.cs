@@ -7,6 +7,7 @@ using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using PirateAPI.HtmlExtractors;
 using PirateAPI.Logging;
 using PirateAPI.ProxyInfoGatherers;
@@ -24,7 +25,6 @@ namespace PirateAPI.RequestResolver
     private ILogger logger;
     private IWebClient webClient;
     private DateTime currentDate = DateTime.Now;
-    private HtmlRowExtractor rowExtractor;
     private ITorrentRowParser rowParser;
     private TorrentNameSanityChecker checker;
     private MagnetsInSearchTester magnetTester;
@@ -40,7 +40,6 @@ namespace PirateAPI.RequestResolver
       if (currentDate.HasValue)
         this.currentDate = currentDate.Value;
 
-      rowExtractor = new HtmlRowExtractor(logger);
       checker = new TorrentNameSanityChecker(logger);
       magnetTester = new MagnetsInSearchTester(webClient, logger);
     }
@@ -101,7 +100,25 @@ namespace PirateAPI.RequestResolver
         if (piratePage == null)
           return null;
 
-        List<string> rows = rowExtractor.ExtractRows(piratePage);
+        if (!piratePage.Contains("<tr"))
+        {
+          //we have run out of results, this page has no torrent rows
+          logger.LogMessage($"Reached end of results with {results.Count}/{limit} torrents");
+          break;
+        }
+
+        var doc = new HtmlDocument();
+        doc.LoadHtml(piratePage);
+        HtmlNodeCollection rows = doc.DocumentNode.SelectNodes("//tr");
+        if (rows == null)
+        {
+          logger.LogError($"Couldn't extract table rows from web page {requestUrl}");
+          return null;
+        }
+
+        //first row is always table headers, so remove it
+        if (rows.Count != 0)
+          rows.RemoveAt(0);
 
         //if first page, remove up to offset
         if (isFirstPage)
@@ -112,7 +129,7 @@ namespace PirateAPI.RequestResolver
 
         if (rows.Count == 0)
         {
-          //we have run out of results
+          //we have run out of results, the offset has left no rows as valid
           logger.LogMessage($"Reached end of results with {results.Count}/{limit} torrents");
           break;
         }
@@ -236,18 +253,21 @@ namespace PirateAPI.RequestResolver
       return true;
     }
 
-    private void MatchRowsToOffset(int offset, List<string> rows)
+    private void MatchRowsToOffset(int offset, HtmlNodeCollection rows)
     {
       if (rows.Count == 0)
         return;
 
-      if (offset >= rows.Count - 1)
+      if (offset > rows.Count - 1)
       {
         rows.Clear();
         return;
       }
 
-      rows.RemoveRange(1, offset);
+      for (int i = 0; i < offset; i++)
+      {
+        rows.RemoveAt(0);
+      }
     }
     #endregion
   }

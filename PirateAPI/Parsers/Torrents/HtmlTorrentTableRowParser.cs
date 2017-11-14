@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using PirateAPI.Logging;
 
 namespace PirateAPI.Parsers.Torrents
@@ -29,7 +30,7 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region constructor
-    public HtmlTorrentTableRowParser(ILogger logger) : this(logger, null) {}
+    public HtmlTorrentTableRowParser(ILogger logger) : this(logger, null) { }
 
     public HtmlTorrentTableRowParser(ILogger logger, DateTime? fixedDateTime)
     {
@@ -42,85 +43,73 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region public methods
-    public virtual Torrent ParseRow(string rowString)
+    public virtual Torrent ParseRow(HtmlNode row)
     {
-      if (string.IsNullOrWhiteSpace(rowString))
+      if (row == null)
       {
-        logger.LogError($"HtmlTorrentTableRowParser.ParseRow was passed a null or empty string for {nameof(rowString)}");
+        logger.LogError("HtmlTorrentTableRowParser.ParseRow was passed a null row");
         return null;
       }
 
-      if (!IsTorrentRow(rowString))
+      if (!IsTorrentRow(row))
         return null;
 
-      rowString = rowString.Replace(Environment.NewLine, "")
-                           .Replace("\n", "")
-                           .Replace("\r", "")
-                           .Replace("\t", "")
-                           .Replace("&amp;", "&");
+      var torrent = new Torrent();
 
-      Torrent torrent = new Torrent();
-
-      string namePattern = @"""detName"">\s*?<a.*?>\s*?(\w.*?)\s*?<";
-      torrent.Title = CheckMatchAndGetFirst(rowString, namePattern, "Title");
-
-      torrent.Link = ParseLink(rowString);
+      string link = ParseLink(row);
+      torrent.Link = HtmlEntity.DeEntitize(link);
       if (torrent.Link == null)
         return null;
 
-      string uploaderPattern = @"href=""\/user\/(.*?)\/?""";
-      torrent.UploaderName = CheckMatchAndGetFirst(rowString, uploaderPattern, "UploaderName", true);
+      string title = GetChildNodeInnerText(row, "td/div/a");
+      title = title.Trim();
+      torrent.Title = HtmlEntity.DeEntitize(title);
 
+      string uploaderName = GetChildNodeInnerText(row, "td/font/a");
+      torrent.UploaderName = HtmlEntity.DeEntitize(uploaderName);
       if (torrent.UploaderName == null)
       {
-        string anonymousPattern = @"ULed\sby\s<i>(.*?)<\/i>";
-        torrent.UploaderName = CheckMatchAndGetFirst(rowString, anonymousPattern, "UploaderNameAnonymous");
+        uploaderName = GetChildNodeInnerText(row, "td/font/i");
+        torrent.UploaderName = HtmlEntity.DeEntitize(uploaderName);
       }
 
-      string statusPattern = $@"href=""\/user\/{torrent.UploaderName}"">.*?<img.*?title=""(.*?)""";
-      string statusString = CheckMatchAndGetFirst(rowString, statusPattern, "UploaderStatus", true);
-      torrent.UploaderStatus = ParseUploaderStatus(statusString);
+      string uploaderStatusString = GetChildNodeAttributeValue(row, "td/a/img", "title", 1);
+      if (uploaderStatusString == null)
+        uploaderStatusString = GetChildNodeAttributeValue(row, "td/a/img", "title", 2);
+      torrent.UploaderStatus = ParseUploaderStatus(uploaderStatusString);
 
-      string publishPattern = @"""detDesc"">.*?Uploaded\s(.*?),";
-      string publishString = CheckMatchAndGetFirst(rowString, publishPattern, "PublishDate");
+      string publishString = GetChildNodeInnerText(row, "td/font");
+      publishString = CheckMatchAndGetFirst(publishString, "Uploaded (.*?),");
       torrent.PublishDate = ParsePublishDateTime(publishString);
 
-      string sizePattern = @"""detDesc"">.*?Size\s(.*?),";
-      string sizeString = CheckMatchAndGetFirst(rowString, sizePattern, "Size");
-      torrent.Size = ParseSizeULong(sizeString);
+      string sizeString = GetChildNodeInnerText(row, "td/font");
+      sizeString = CheckMatchAndGetFirst(sizeString, "Size (.*),");
+      if (sizeString != null)
+        torrent.Size = ParseSizeULong(sizeString);
 
-      string seedsAndLeechesPattern = @"<td\salign=""right"">(.*?)<";
-      Tuple<string, string> seedsAndLeechesTuple = CheckMatchAndGetFirstTuple(rowString, seedsAndLeechesPattern, "Seeds", "Leeches");
-      if (seedsAndLeechesTuple != null)
-      {
-        torrent.Seeds = ParseInt(seedsAndLeechesTuple.Item1, "Seeds");
-        torrent.Leeches = ParseInt(seedsAndLeechesTuple.Item2, "Leeches");
-      }
+      string seedsString = GetChildNodeInnerText(row, "td", 2);
+      torrent.Seeds = ParseInt(seedsString);
+
+      string leechesString = GetChildNodeInnerText(row, "td", 3);
+      torrent.Leeches = ParseInt(leechesString);
 
       return torrent;
     }
     #endregion
 
     #region protected methods
-    protected virtual string ParseLink(string rowString)
+    protected virtual string ParseLink(HtmlNode row)
     {
-      string linkPattern = @"href=""(magnet:\?.*?)""";
-      return CheckMatchAndGetFirst(rowString, linkPattern, "Link");
+      return  GetChildNodeAttributeValue(row, "td/a", "href");
     }
 
-    protected string CheckMatchAndGetFirst(string input, string pattern, string paramName)
-    {
-      return CheckMatchAndGetFirst(input, pattern, paramName, false);
-    }
-
-    protected string CheckMatchAndGetFirst(string input, string pattern, string paramName, bool suppressErrors)
+    protected string CheckMatchAndGetFirst(string input, string pattern)
     {
       Regex regex = new Regex(pattern);
 
       if (!regex.IsMatch(input))
       {
-        if (!suppressErrors)
-          logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input} for Torrent prop {paramName}");
+        logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input}");
         return null;
       }
 
@@ -128,40 +117,60 @@ namespace PirateAPI.Parsers.Torrents
 
       return match.Groups[1].Value;
     }
+
+    protected string GetChildNodeInnerText(HtmlNode parentNode, string childNodePath, int? childIndex = null)
+    {
+      HtmlNode childNode = GetChildNode(parentNode, childNodePath, childIndex);
+      return childNode?.InnerText;
+    }
+
+    protected string GetChildNodeAttributeValue(HtmlNode parentNode, string childNodePath, string attributeName, int? childIndex = null)
+    {
+      HtmlNode childNode = GetChildNode(parentNode, childNodePath, childIndex);
+      return childNode?.GetAttributeValue(attributeName, null);
+    }
     #endregion
 
     #region private methods
 
-    private bool IsTorrentRow(string rowString)
+    private HtmlNode GetChildNode(HtmlNode parentNode, string childNodePath, int? childIndex = null)
     {
-      if (!rowString.ToLower().Contains("uploaded")
-          || rowString.ToLower().Contains(@"class=""sortby"""))
-        return false;
-
-      return true;
-    }
-
-    private Tuple<string, string> CheckMatchAndGetFirstTuple(string input, string pattern, string firstParam, string secondParam)
-    {
-      Regex regex = new Regex(pattern);
-
-      if (!regex.IsMatch(input))
+      if (parentNode == null)
       {
-        logger.LogError($"Regex pattern {pattern} couldn't be matched to string {input} for Torrent props {firstParam} and {secondParam}");
+        logger.LogError($"HtmlTorrentTableRowParser.GetChildNode was passed null value for {nameof(parentNode)}");
         return null;
       }
 
-      MatchCollection matches = regex.Matches(input);
-
-      if (matches.Count != 2)
+      if (childNodePath == null)
       {
-        logger.LogError($"Regex pattern {pattern} had {matches.Count} matches, instead of 2, for input {input}");
-        return new Tuple<string, string>("0", "0");
+        logger.LogError($"HtmlTorrentTableRowParser.GetChildNode was passed null value for {nameof(childNodePath)}");
+        return null;
       }
 
-      string seeds = matches[0].Groups[1].Value;
-      string leeches = matches[1].Groups[1].Value;
-      return new Tuple<string, string>(seeds, leeches);
+      HtmlNodeCollection childNodes = parentNode.SelectNodes(childNodePath);
+      if (childNodes == null || childNodes.Count == 0)
+      {
+        logger.LogError($"Got no child nodes for pattern {childNodePath} from parent node {parentNode.InnerHtml}");
+        return null;
+      }
+
+      if (childIndex.HasValue && childNodes.Count <= childIndex.Value)
+      {
+        logger.LogError(
+          $"Was asked for child with index of {childIndex}, using path {childNodePath} but there were only {childNodes.Count} matching nodes on parent node {parentNode.InnerHtml}");
+        return null;
+      }
+
+      return childNodes[childIndex ?? 0];
+    }
+
+    private bool IsTorrentRow(HtmlNode row)
+    {
+      string classAttributeValue = row.GetAttributeValue("class", "noclass");
+      if (classAttributeValue == "noclass" || classAttributeValue == "alt")
+        return true;
+
+      return false;
     }
 
     private TorrentUploaderStatus ParseUploaderStatus(string input)
@@ -169,12 +178,12 @@ namespace PirateAPI.Parsers.Torrents
       if (string.IsNullOrWhiteSpace(input))
         return TorrentUploaderStatus.None;
 
-      switch (input)
+      switch (input.ToLower())
       {
-        case "VIP":
+        case "vip":
           return TorrentUploaderStatus.Vip;
 
-        case "Trusted":
+        case "trusted":
           return TorrentUploaderStatus.Trusted;
 
         default:
@@ -209,13 +218,12 @@ namespace PirateAPI.Parsers.Torrents
       if (input.Contains(':'))
         return ParseThisYearDateString(input);
 
-      else
-        return ParseGenericDateString(input);
+      return ParseGenericDateString(input);
     }
 
     private DateTime ParseTodayDateString(string dateString)
     {
-      string timeString = CheckMatchAndGetFirst(dateString, @"^Today\s(.*)$", "TodayTime");
+      string timeString = CheckMatchAndGetFirst(dateString, @"^Today\s(.*)$");
       if (timeString == null)
         return DateTime.MinValue;
 
@@ -226,8 +234,8 @@ namespace PirateAPI.Parsers.Torrents
         return DateTime.MinValue;
       }
 
-      int hour = ParseInt(vals[0], "TodayHour");
-      int mins = ParseInt(vals[1], "TodayMinute");
+      int hour = ParseInt(vals[0]);
+      int mins = ParseInt(vals[1]);
 
       return new DateTime(
         currentDateTime.Year,
@@ -240,9 +248,9 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseYesterdayDayDateString(string dateString)
     {
-      string timeString = CheckMatchAndGetFirst(dateString, @"^Y\sday\s(.*)$", "YDayTime");
+      string timeString = CheckMatchAndGetFirst(dateString, @"^Y\sday\s(.*)$");
       if (timeString == null)
-        timeString = CheckMatchAndGetFirst(dateString, @"^Yesterday\s(.*)$", "YesterdayTime");
+        timeString = CheckMatchAndGetFirst(dateString, @"^Yesterday\s(.*)$");
 
       if (timeString == null)
         return DateTime.MinValue;
@@ -254,8 +262,8 @@ namespace PirateAPI.Parsers.Torrents
         return DateTime.MinValue;
       }
 
-      int hour = ParseInt(vals[0], "TodayHour");
-      int mins = ParseInt(vals[1], "TodayMinute");
+      int hour = ParseInt(vals[0]);
+      int mins = ParseInt(vals[1]);
 
       TimeSpan oneDaySpan = new TimeSpan(1, 0, 0, 0);
 
@@ -270,14 +278,14 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseMinutesAgoDateString(string dateString)
     {
-      string minsString = CheckMatchAndGetFirst(dateString, @"^(\d*)\smins\sago$", "MinutesAgo");
+      string minsString = CheckMatchAndGetFirst(dateString, @"^(\d*)\smins\sago$");
       if (minsString == null)
-        CheckMatchAndGetFirst(dateString, @"^(.*)\sminutes\sago$", "MinutesAgo");
+        CheckMatchAndGetFirst(dateString, @"^(.*)\sminutes\sago$");
 
       if (minsString == null)
         return DateTime.MinValue;
 
-      int minutesAgo = ParseInt(minsString, "MinutesAgo");
+      int minutesAgo = ParseInt(minsString);
 
       TimeSpan minsAgoSpan = new TimeSpan(0, minutesAgo, 0);
       return currentDateTime - minsAgoSpan;
@@ -322,7 +330,7 @@ namespace PirateAPI.Parsers.Torrents
 
     private DateTime ParseGenericDateString(string dateString)
     {
-      string[] vals = dateString.Split(); 
+      string[] vals = dateString.Split();
       int day, month, year;
 
       if (!int.TryParse(vals[0], out month))
@@ -391,24 +399,24 @@ namespace PirateAPI.Parsers.Torrents
           break;
 
         //Stopping here, because you should too
-        
+
         default:
           multiplier = 1;
           logger.LogError($"Couldn't match string {vals[1]} to size quantifier");
           break;
       }
 
-      long size = (long)(qualifiedSize*multiplier);
+      long size = (long)(qualifiedSize * multiplier);
 
       return size;
     }
 
-    private int ParseInt(string input, string paramName)
+    private int ParseInt(string input)
     {
       int val;
       if (!int.TryParse(input, out val))
       {
-        logger.LogError($"Couldn't parse value {input} to int for {paramName}");
+        logger.LogError($"Couldn't parse value {input} to int");
         return 0;
       }
 
@@ -429,6 +437,8 @@ namespace PirateAPI.Parsers.Torrents
 
       return input;
     }
+
+
     #endregion
   }
 }

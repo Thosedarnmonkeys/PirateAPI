@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using PirateAPI.Logging;
 using PirateAPI.Parsers.Torrents;
 using PirateAPI.Parsers.Torznab;
@@ -32,7 +33,7 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
     #endregion
 
     #region public methods
-    public List<Torrent> ParseRows(List<string> rows, ITorrentRowParser parser, int limit)
+    public List<Torrent> ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit)
     {
       if (rows == null)
       {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using PirateAPI.Logging;
 using PirateAPI.WebClient;
 
@@ -27,9 +28,9 @@ namespace PirateAPI.Parsers.Torrents
 
     #region public methods
 
-    public override Torrent ParseRow(string rowString)
+    public override Torrent ParseRow(HtmlNode row)
     {
-      Torrent torrent = base.ParseRow(rowString);
+      Torrent torrent = base.ParseRow(row);
       if (torrent == null)
         return null;
 
@@ -39,14 +40,12 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region protected methods
-    protected override string ParseLink(string rowString)
+    protected override string ParseLink(HtmlNode row)
     {
-      if (string.IsNullOrWhiteSpace(rowString))
+      if (row == null)
         return null;
 
-      string pageLinkPattern = @"href=""(\S+)"" title=""Download this torrent using magnet";
-      string pagePath = CheckMatchAndGetFirst(rowString, pageLinkPattern, "Link");
-
+      string pagePath = GetChildNodeAttributeValue(row, "td/a", "href");
       if (pagePath == null)
         return null;
 
@@ -58,8 +57,10 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
-      string magnetPattern = @"href=""(magnet:\?.*?)""";
-      string magnetLink = CheckMatchAndGetFirst(torrentPage, magnetPattern, "Link");
+      var doc = new HtmlDocument();
+      doc.LoadHtml(torrentPage);
+
+      string magnetLink = GetChildNodeAttributeValue(doc.DocumentNode, "//body/div/div/div/div/div/div/div/div/a", "href");
       return magnetLink?.Replace("&amp;", "&");
     }
     #endregion

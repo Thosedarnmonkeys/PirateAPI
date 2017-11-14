@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using NUnit.Framework;
 using PirateAPI.Parsers.Torrents;
 using PirateAPITests.Tests.StubClasses;
@@ -16,11 +17,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseVipUploaderStatus()
     {
-      string unparsedRow = Resources.TorrentRowVipUploader;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowVipUploader);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
@@ -39,11 +41,13 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseNoUploaderStatus()
     {
-      string unparsedRow = Resources.TorrentRowNoUploaderStatus;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowNoUploaderStatus);
+
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Stranger Things vol. 1 & 2 soundtrack",
@@ -62,11 +66,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseTrustedUploaderStatus()
     {
-      string unparsedRow = Resources.TorrentRowTrustedUploader;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowTrustedUploader);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Stranger.Things.S01E05.720p.WEBRip.x264-SKGTV[ettv]",
@@ -85,11 +90,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParses0SeedsAnd0Leeches()
     {
-      string unparsedRow = Resources.TorrentRow0Seeds0Leeches;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRow0Seeds0Leeches);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Edie Brickell & New Bohemians - Stranger Things (2006)",
@@ -108,11 +114,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseTitleRemoveSurroundWhitespace()
     {
-      string unparsedRow = Resources.TorrentRowWhiteSpaceAroundTitle;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowWhiteSpaceAroundTitle);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Rick and Morty Season 2 [WEBRIP] [1080p] [HEVC]",
@@ -131,11 +138,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseAnonymousUploader()
     {
-      string unparsedRow = Resources.TorrentRowAnonymousUploader;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowAnonymousUploader);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Rick and Morty Season 1 [1080p] [HEVC]",
@@ -154,11 +162,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParsePublishTodayWord()
     {
-      string unparsedRow = Resources.TorrentRowTodayWordPublish;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowTodayWordPublish);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "BBC.World.News.2016.09.21.(Eng.Subs).SDTV.x264-[2Maverick]",
@@ -177,11 +186,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParsePublishMinutesAgo()
     {
-      string unparsedRow = Resources.TorrentRowMinutesAgoPublish;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowMinutesAgoPublish);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Mothers.and.Daughters.2016.BRRip.XviD.AC3-EVO",
@@ -200,11 +210,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParsePublishYdayWord()
     {
-      string unparsedRow = Resources.TorrentRowYdayPublish;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.TorrentRowYdayPublish);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
       {
         Title = "Occultic.Nine.S01E05.720p.HEVC.x265-MeGusta",
@@ -223,11 +234,12 @@ namespace PirateAPITests.Tests
     [Test]
     public void TestParseNonTorrentRow()
     {
-      string unparsedRow = Resources.NonTorrentRow;
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(Resources.NonTorrentRow);
 
       HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
 
-      Torrent torrent = parser.ParseRow(unparsedRow);
+      Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(torrent);
     }

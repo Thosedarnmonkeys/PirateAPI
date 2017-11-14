@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using PirateAPI.Logging;
 
 namespace PirateAPI.HtmlExtractors
@@ -27,31 +28,15 @@ namespace PirateAPI.HtmlExtractors
     #region public methods
     public List<string> ExtractRows(string html)
     {
-      if (string.IsNullOrWhiteSpace(html))
+      HtmlDocument doc = new HtmlDocument();
+      doc.LoadHtml(html);
+      var nodes = doc.DocumentNode.SelectNodes("//tr");
+      List<string> rows = nodes?.Select(n => n.OuterHtml).ToList() ?? new List<string>();
+      for (int i = 0; i < rows.Count; i++)
       {
-        logger.LogError($"HtmlRowExtractor.ExtractRows was passed a null or empty string for {nameof(html)}");
-        return new List<string>();
-      }
-
-      html = html.Replace(Environment.NewLine, "")
-                 .Replace("\n", "")
-                 .Replace("\r", "")
-                 .Replace("\t", "");
-
-      string tableRowsRegexPattern = @"(<tr.*?>.*?<\/tr>)";
-      Regex tableRowsRegex = new Regex(tableRowsRegexPattern);
-
-      if (!tableRowsRegex.IsMatch(html))
-      {
-        return new List<string>();
-      }
-
-      MatchCollection matches = tableRowsRegex.Matches(html);
-      List<string> rows = new List<string>();
-
-      foreach (Match match in matches)
-      {
-        rows.Add(match.Value);
+        rows[i] = rows[i].Replace("\n", "")
+                         .Replace("\r", "")
+                         .Replace("\t", "");
       }
 
       return rows;
