@@ -47,7 +47,11 @@ namespace PirateAPI.ProxyInfoGatherers
       string magnetLinkPattern = @"href=""magnet:\?.*?""";
       Regex regex = new Regex(magnetLinkPattern);
 
-      return regex.IsMatch(top100Page);
+      bool hasMagnets = regex.IsMatch(top100Page);
+      string hasHasNot = hasMagnets ? "has" : "doesn't have";
+      logger.LogMessage($"Domain {domain} {hasHasNot} magnets in search page");
+
+      return hasMagnets;
     } 
     #endregion
   }
