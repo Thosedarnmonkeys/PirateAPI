@@ -64,7 +64,7 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
         if (torrent == null)
           return;
 
-        if (PassesSanityCheck(torrent))
+        if (results.Count < limit && PassesSanityCheck(torrent))
         {
           results.Add(torrent);
           logger.LogMessage($"Got {results.Count}/{limit} torrents");
