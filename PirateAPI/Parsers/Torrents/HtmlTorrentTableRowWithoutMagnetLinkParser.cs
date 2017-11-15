@@ -47,7 +47,13 @@ namespace PirateAPI.Parsers.Torrents
       if (row == null)
         return null;
 
-      string pagePath = GetChildNodeAttributeValue(row, "td/a", "href");
+      //making a new HtmlDocument because agility is a piece of shit
+      //using the below xpath will not work on the passed in HtmlNode, but taking it's html and making a new HtmlDocument will
+      //go fucking figure
+      HtmlDocument bullshitFuckingFix = new HtmlDocument();
+      bullshitFuckingFix.LoadHtml(row.OuterHtml);
+
+      string pagePath = GetChildNodeAttributeValue(bullshitFuckingFix.DocumentNode, "//a[@title='Download this torrent using magnet']", "href");
       if (pagePath == null)
         return null;
 
