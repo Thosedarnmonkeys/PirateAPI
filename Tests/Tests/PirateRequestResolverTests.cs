@@ -1546,6 +1546,7 @@ namespace PirateAPITests.Tests
         "http://fakepirateproxy.com/torrent/rickandmortyseason2",
         "http://fakepirateproxy.com/torrent/rickandmortyseason1",
         "http://fakepirateproxy.com/torrent/rickandmortyseason1and2",
+        "http://fakepirateproxy.com/search/Rick%20And%20Morty/1/99/205,208",
       };
       Assert.AreEqual(addressesRequested, webClient.RequestsMade);
 

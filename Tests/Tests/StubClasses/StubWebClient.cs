@@ -24,7 +24,7 @@ namespace PirateAPITests.Tests.StubClasses
 
     public string DownloadString(string address)
     {
-      if (pageDelays.ContainsKey(RequestsMade.Count))
+      if (pageDelays != null && pageDelays.ContainsKey(RequestsMade.Count))
         Thread.Sleep(pageDelays[RequestsMade.Count]);
 
       RequestsMade.Add(address);
