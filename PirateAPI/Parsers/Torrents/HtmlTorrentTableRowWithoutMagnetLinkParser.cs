@@ -65,7 +65,7 @@ namespace PirateAPI.Parsers.Torrents
       var doc = new HtmlDocument();
       doc.LoadHtml(torrentPage);
 
-      string magnetLink = GetChildNodeAttributeValue(doc.DocumentNode, "//body/div/div/div/div/div/div/div/div/a", "href");
+      string magnetLink = GetChildNodeAttributeValue(doc.DocumentNode, "//a[@title='Get this torrent']", "href");
       return magnetLink?.Replace("&amp;", "&");
     }
     #endregion
