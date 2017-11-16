@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 using Microsoft.Win32;
 using PirateAPI.WebServer;
@@ -17,6 +19,7 @@ using PirateAPI.ResponseBuilders.Caps;
 using PirateAPI.ResponseBuilders.Torznab;
 using PirateAPI.WebClient;
 using PirateAPI.EventArgTypes;
+using Timer = System.Timers.Timer;
 
 namespace PirateAPI
 {
@@ -96,6 +99,7 @@ namespace PirateAPI
     private Timer refreshProxiesTimer;
     private int apiLimit;
     private string emptyTorznabResponse = Resources.TorznabResponseTemplate.Replace("{0}", "");
+    private double requestTimeout;
     #endregion
 
     #region constructor
@@ -238,52 +242,14 @@ namespace PirateAPI
         return null;
       }
 
-      List<Torrent> torrents = null;
-      while (torrents == null)
+      List<Torrent> torrents = new List<Torrent>();
+      TimeSpan timeLimit = new TimeSpan(0, 0, 60);
+      Task timedTask = Task.Factory.StartNew(() => MakeTvRequests(torznabParser, request, torrents));
+      timedTask.Wait(timeLimit);
+
+      if (torrents.Count == 0)
       {
-        //create request using the current best proxy
-        PirateRequest pirateRequest = torznabParser.Parse(request, bestProxy.Domain);
-        if (pirateRequest == null)
-        {
-          logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
-          return emptyTorznabResponse;
-        }
-
-        int remainingAttempts = 3;
-        while (remainingAttempts > 0)
-        {
-          //try getting a response from proxy up to 3 times
-          PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
-          try
-          {
-            torrents = requestResolver.Resolve(pirateRequest, resolveStrategy);
-          }
-          catch (Exception e)
-          {
-            logger.LogException(e, "PirateRequestResolver.Resolve threw exception");
-            logger.LogError("PirateRequestResolver.Resolve threw error, returning empty torznab result");
-            return emptyTorznabResponse;
-          }
-
-          if (torrents != null)
-            break;
-
-          remainingAttempts--;
-        }
-
-        //if null here then either proxy never responded or we have a malformed response/request which throws exception
-        if (torrents == null)
-        {
-          //remove proxy from current pool and try again on next loop using next best proxy
-          proxyPicker.TempBlacklistDomain(bestProxy.Domain);
-          Proxy proxy = proxyPicker.BestProxy(proxies);
-          if (proxy == null)
-          {
-            logger.LogError("PirateProxyPicker.BestProxy returned null, returning empty torznab result");
-            return emptyTorznabResponse;
-          }
-          BestProxy = proxy;
-        }
+        return emptyTorznabResponse;
       }
 
       TorznabResponseBuilder responseBuilder = new TorznabResponseBuilder(logger);
@@ -295,6 +261,56 @@ namespace PirateAPI
       }
 
       return response;
+    }
+
+    private void MakeTvRequests(TorznabQueryParser torznabParser, string request, List<Torrent> torrents)
+    {
+      while (torrents.Count == 0)
+      {
+        //create request using the current best proxy
+        PirateRequest pirateRequest = torznabParser.Parse(request, bestProxy.Domain);
+        if (pirateRequest == null)
+        {
+          logger.LogError("TorznabQueryParser.Parse returned null, returning null string");
+          return;
+        }
+
+        int remainingAttempts = 3;
+        while (remainingAttempts > 0)
+        {
+          //try getting a response from proxy up to 3 times
+          PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
+          try
+          {
+            requestResolver.Resolve(pirateRequest, resolveStrategy, torrents);
+          }
+          catch (Exception e)
+          {
+            logger.LogException(e, "PirateRequestResolver.Resolve threw exception");
+            logger.LogError("PirateRequestResolver.Resolve threw error, returning empty torznab result");
+            return;
+          }
+
+          if (torrents.Count != 0)
+            break;
+
+          remainingAttempts--;
+        }
+
+        //if null here then either proxy never responded or we have a malformed response/request which throws exception
+        if (torrents.Count == 0)
+        {
+          //remove proxy from current pool and try again on next loop using next best proxy
+          proxyPicker.TempBlacklistDomain(bestProxy.Domain);
+          Proxy proxy = proxyPicker.BestProxy(proxies);
+          if (proxy == null)
+          {
+            logger.LogError("PirateProxyPicker.BestProxy returned null, returning empty torznab result");
+            return;
+          }
+          BestProxy = proxy;
+        }
+      }
     }
 
     private void OnRefreshProxiesTimerInterval(object sender, ElapsedEventArgs e)

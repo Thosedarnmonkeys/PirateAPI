@@ -45,7 +45,7 @@ namespace PirateAPI.RequestResolver
     #endregion
 
     #region public methods
-    public List<Torrent> Resolve(PirateRequest request, PirateRequestResolveStrategy resolveStrat)
+    public void Resolve(PirateRequest request, PirateRequestResolveStrategy resolveStrat, List<Torrent> results)
     {
       string errorMessage;
       if (!IsRequestValid(request, out errorMessage))
@@ -59,7 +59,6 @@ namespace PirateAPI.RequestResolver
       int firstPageOffset = request.Offset%30;
       bool isFirstPage = true;
       int limit = Math.Min(request.Limit ?? 100, apiLimit);
-      List<Torrent> results = new List<Torrent>();
       IRowParseStrategy parseStrategy;
       Func<Torrent, bool> sanityCheck = t => IsValidTorrentForRequest(request, t);
       switch (resolveStrat)
@@ -81,7 +80,7 @@ namespace PirateAPI.RequestResolver
       if (!proxyHasSearchMagnets.HasValue)
       {
         logger.LogError($"Pirate proxy domain {request.PirateProxyURL} failed to respond when testing for magnets in search pages");
-        return null;
+        return;
       }
       rowParser = proxyHasSearchMagnets.Value ? 
                   new HtmlTorrentTableRowParser(logger) : 
@@ -98,7 +97,7 @@ namespace PirateAPI.RequestResolver
         string piratePage = webClient.DownloadString(requestUrl);
 
         if (piratePage == null)
-          return null;
+          return;
 
         if (!piratePage.Contains("<tr"))
         {
@@ -113,7 +112,7 @@ namespace PirateAPI.RequestResolver
         if (rows == null)
         {
           logger.LogError($"Couldn't extract table rows from web page {requestUrl}");
-          return null;
+          return;
         }
 
         //first row is always table headers, so remove it
@@ -143,8 +142,7 @@ namespace PirateAPI.RequestResolver
       if (results.Count >= limit)
         results = results.GetRange(0, limit);
 
-      logger.LogMessage($"Returning {results.Count} torrents");
-      return results;
+      logger.LogMessage($"Obtained {results.Count} torrents");
     }
     #endregion
 
