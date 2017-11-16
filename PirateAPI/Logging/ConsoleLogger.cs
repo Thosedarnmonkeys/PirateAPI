@@ -92,7 +92,7 @@ namespace PirateAPI.Logging
         int lineBreakIndex = maxMessageWidth - 1;
         for (int i = lineBreakIndex; i > 0; i--)
         {
-          if (messageSubstr[i] == ' ')
+          if (messageSubstr[i] == ' ' || messageSubstr[i] == '\t')
           {
             lineBreakIndex = i;
             break;
