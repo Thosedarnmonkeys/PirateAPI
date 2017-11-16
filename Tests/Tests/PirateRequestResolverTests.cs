@@ -40,7 +40,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -131,7 +132,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://adifferentfakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -222,7 +224,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -317,7 +320,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -420,7 +424,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -511,7 +516,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -602,7 +608,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>();
       Assert.AreEqual(correctResponse, torrentStrings);
 
@@ -637,7 +644,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -730,7 +738,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -834,7 +843,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
         {
           new Torrent()
@@ -930,7 +940,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1021,7 +1032,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1112,7 +1124,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1204,7 +1217,8 @@ namespace PirateAPITests.Tests
         Season = 2
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1278,7 +1292,8 @@ namespace PirateAPITests.Tests
       };
 
 
-      Assert.Throws<ArgumentException>(() => resolver.Resolve(request, PirateRequestResolveStrategy.Series));
+      List<Torrent> torrentStrings = new List<Torrent>();
+      Assert.Throws<ArgumentException>(() => resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings));
     }
 
     [Test]
@@ -1305,7 +1320,8 @@ namespace PirateAPITests.Tests
         Episode = 1
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1398,7 +1414,8 @@ namespace PirateAPITests.Tests
         MaxAge = 250
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1468,9 +1485,10 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrents = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
 
-      Assert.IsNull(torrents);
+      Assert.AreEqual(torrentStrings, new List<Torrent>());
     }
 
     [Test]
@@ -1499,7 +1517,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Series);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1583,7 +1602,8 @@ namespace PirateAPITests.Tests
         PirateProxyURL = "http://fakepirateproxy.com",
       };
 
-      List<Torrent> torrentStrings = resolver.Resolve(request, PirateRequestResolveStrategy.Parallel);
+      List<Torrent> torrentStrings = new List<Torrent>();
+      resolver.Resolve(request, PirateRequestResolveStrategy.Parallel, torrentStrings);
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
