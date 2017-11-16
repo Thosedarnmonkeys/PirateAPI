@@ -68,6 +68,9 @@ namespace PirateAPI.Parsers.Torrents
         return null;
       }
 
+      if (!okToMakeWebRequestFunc.Invoke())
+        return null;
+
       var doc = new HtmlDocument();
       doc.LoadHtml(torrentPage);
 
