@@ -6,6 +6,7 @@ using System.Linq;
 using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using PirateAPI.Logging;
@@ -45,8 +46,10 @@ namespace PirateAPI.RequestResolver
     #endregion
 
     #region public methods
-    public void Resolve(PirateRequest request, PirateRequestResolveStrategy resolveStrat, List<Torrent> results)
+    public void Resolve(PirateRequest request, PirateRequestResolveStrategy resolveStrat, List<Torrent> results, CancellationToken token)
     {
+      token.ThrowIfCancellationRequested();
+
       string errorMessage;
       if (!IsRequestValid(request, out errorMessage))
       {
@@ -64,11 +67,11 @@ namespace PirateAPI.RequestResolver
       switch (resolveStrat)
       {
         case PirateRequestResolveStrategy.Series:
-          parseStrategy = new SeriesRowParseStrategy(sanityCheck, logger);
+          parseStrategy = new SeriesRowParseStrategy(sanityCheck, logger, token);
           break;
 
         case PirateRequestResolveStrategy.Parallel:
-          parseStrategy = new ParallelRowParseStrategy(sanityCheck, logger);
+          parseStrategy = new ParallelRowParseStrategy(sanityCheck, logger, token);
           break;
 
         default:
@@ -83,12 +86,14 @@ namespace PirateAPI.RequestResolver
         return;
       }
       rowParser = proxyHasSearchMagnets.Value ? 
-                  new HtmlTorrentTableRowParser(logger) : 
-                  new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, () => results.Count < limit, webClient, logger);
+                  new HtmlTorrentTableRowParser(logger, token) : 
+                  new HtmlTorrentTableRowWithoutMagnetLinkParser(request.PirateProxyURL, () => results.Count < limit, webClient, logger, token);
 
       //run till we reach required number
       while (results.Count < limit)
       {
+        token.ThrowIfCancellationRequested();
+
         //Get page
         string requestUrl;
         requestUrl = string.IsNullOrWhiteSpace(request.ShowName) ? ConstructQueryForBrowsePage(request, requestPage) : ConstructQueryForTvSearchPage(request, requestPage);

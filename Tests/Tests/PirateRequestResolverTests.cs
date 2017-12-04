@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using PirateAPITests.Tests.StubClasses;
 using PirateAPITests.Properties;
@@ -41,7 +42,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -133,7 +134,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -225,7 +226,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -321,7 +322,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -425,7 +426,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -517,7 +518,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -609,7 +610,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>();
       Assert.AreEqual(correctResponse, torrentStrings);
 
@@ -645,7 +646,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -739,7 +740,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -844,7 +845,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
         {
           new Torrent()
@@ -941,7 +942,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1033,7 +1034,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1125,7 +1126,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1218,7 +1219,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1293,7 +1294,7 @@ namespace PirateAPITests.Tests
 
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      Assert.Throws<ArgumentException>(() => resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings));
+      Assert.Throws<ArgumentException>(() => resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken()));
     }
 
     [Test]
@@ -1321,7 +1322,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1415,7 +1416,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1486,7 +1487,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
 
       Assert.AreEqual(torrentStrings, new List<Torrent>());
     }
@@ -1518,7 +1519,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Series, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()
@@ -1603,7 +1604,7 @@ namespace PirateAPITests.Tests
       };
 
       List<Torrent> torrentStrings = new List<Torrent>();
-      resolver.Resolve(request, PirateRequestResolveStrategy.Parallel, torrentStrings);
+      resolver.Resolve(request, PirateRequestResolveStrategy.Parallel, torrentStrings, new CancellationToken());
       List<Torrent> correctResponse = new List<Torrent>
       {
         new Torrent()

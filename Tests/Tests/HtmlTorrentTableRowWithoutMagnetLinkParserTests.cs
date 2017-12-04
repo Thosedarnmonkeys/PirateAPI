@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NUnit.Framework;
@@ -25,7 +26,7 @@ namespace PirateAPITests.Tests
       doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger, new CancellationToken());
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Torrent correctTorrent = new Torrent()
@@ -56,7 +57,7 @@ namespace PirateAPITests.Tests
       doc.LoadHtml(Resources.TorrentRowNoMagnetLink);
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger, new CancellationToken());
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
@@ -76,7 +77,7 @@ namespace PirateAPITests.Tests
 
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger, new CancellationToken());
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
@@ -96,7 +97,7 @@ namespace PirateAPITests.Tests
 
       string domain = "fakedomain.com";
 
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => true, webClient, logger, new CancellationToken());
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Assert.IsNull(parsedTorrent);
@@ -116,7 +117,7 @@ namespace PirateAPITests.Tests
 
       bool okToDownload = true;
       
-      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => okToDownload, webClient, logger);
+      HtmlTorrentTableRowWithoutMagnetLinkParser parser = new HtmlTorrentTableRowWithoutMagnetLinkParser(domain, () => okToDownload, webClient, logger, new CancellationToken());
       Torrent parsedTorrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 
       Torrent correctTorrent = new Torrent()

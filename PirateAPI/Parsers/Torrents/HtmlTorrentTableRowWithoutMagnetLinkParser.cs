@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using PirateAPI.Logging;
@@ -19,7 +20,7 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region constructor
-    public HtmlTorrentTableRowWithoutMagnetLinkParser(string domain, Func<bool> okToMakeWebRequestFunc,IWebClient webclient, ILogger logger) : base(logger)
+    public HtmlTorrentTableRowWithoutMagnetLinkParser(string domain, Func<bool> okToMakeWebRequestFunc,IWebClient webclient, ILogger logger, CancellationToken token) : base(logger, token)
     {
       this.webClient = webclient;
       this.logger = logger;
@@ -32,6 +33,8 @@ namespace PirateAPI.Parsers.Torrents
 
     public override Torrent ParseRow(HtmlNode row)
     {
+      token.ThrowIfCancellationRequested();
+
       Torrent torrent = base.ParseRow(row);
       if (torrent == null)
         return null;
@@ -48,7 +51,7 @@ namespace PirateAPI.Parsers.Torrents
         return null;
 
       //making a new HtmlDocument because agility is a piece of shit
-      //using the below xpath will not work on the passed in HtmlNode, but taking it's html and making a new HtmlDocument will
+      //using the below xpath will not work on the passed in HtmlNode, but taking its html and making a new HtmlDocument will
       //go fucking figure
       HtmlDocument bullshitFuckingFix = new HtmlDocument();
       bullshitFuckingFix.LoadHtml(row.OuterHtml);
@@ -60,6 +63,8 @@ namespace PirateAPI.Parsers.Torrents
       if (!okToMakeWebRequestFunc.Invoke())
         return null;
 
+      token.ThrowIfCancellationRequested();
+
       string pageUrl = domain + pagePath;
       string torrentPage = webClient.DownloadString(pageUrl);
       if (torrentPage == null)
@@ -70,6 +75,8 @@ namespace PirateAPI.Parsers.Torrents
 
       if (!okToMakeWebRequestFunc.Invoke())
         return null;
+
+      token.ThrowIfCancellationRequested();
 
       var doc = new HtmlDocument();
       doc.LoadHtml(torrentPage);

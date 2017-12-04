@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NUnit.Framework;
@@ -20,7 +21,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowVipUploader);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -45,7 +46,7 @@ namespace PirateAPITests.Tests
       doc.LoadHtml(Resources.TorrentRowNoUploaderStatus);
 
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -69,7 +70,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowTrustedUploader);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -93,7 +94,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRow0Seeds0Leeches);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -117,7 +118,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowWhiteSpaceAroundTitle);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -141,7 +142,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowAnonymousUploader);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -165,7 +166,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowTodayWordPublish);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken(), new DateTime(2016, 11, 8, 14, 6, 0));
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -189,7 +190,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowMinutesAgoPublish);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken(), new DateTime(2016, 11, 8, 14, 6, 0));
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -213,7 +214,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.TorrentRowYdayPublish);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new DateTime(2016, 11, 8, 14, 6, 0));
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken(), new DateTime(2016, 11, 8, 14, 6, 0));
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
       Torrent correctTorrent = new Torrent
@@ -237,7 +238,7 @@ namespace PirateAPITests.Tests
       HtmlDocument doc = new HtmlDocument();
       doc.LoadHtml(Resources.NonTorrentRow);
 
-      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger());
+      HtmlTorrentTableRowParser parser = new HtmlTorrentTableRowParser(new StubLogger(), new CancellationToken());
 
       Torrent torrent = parser.ParseRow(doc.DocumentNode.SelectSingleNode("tr"));
 

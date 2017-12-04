@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using PirateAPI.Logging;
@@ -14,10 +15,11 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
     #region private fields
     private ILogger logger;
     private Func<Torrent, bool> sanityCheck;
+    private CancellationToken token;
     #endregion
 
     #region constructor
-    public SeriesRowParseStrategy(Func<Torrent, bool> sanityCheck, ILogger logger)
+    public SeriesRowParseStrategy(Func<Torrent, bool> sanityCheck, ILogger logger, CancellationToken token)
     {
       if (logger == null)
         throw new ArgumentNullException(nameof(logger));
@@ -27,12 +29,15 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
 
       this.logger = logger;
       this.sanityCheck = sanityCheck;
+      this.token = token;
     }
     #endregion
 
     #region public methods
     public void ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit, List<Torrent> results)
     {
+      token.ThrowIfCancellationRequested();
+
       if (rows == null)
       {
         logger.LogError($"SeriesRowParseStartegy.ParseRows was passed a null values for {nameof(rows)}");
@@ -54,12 +59,16 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
       logger.LogMessage("Parsing torrents in series");
       foreach (HtmlNode row in rows)
       {
+        token.ThrowIfCancellationRequested();
+
         if (results.Count >= limit)
           break;
 
         Torrent torrent = parser.ParseRow(row);
         if (torrent == null)
           return;
+
+        token.ThrowIfCancellationRequested();
 
         if (PassesSanityCheck(torrent))
         {

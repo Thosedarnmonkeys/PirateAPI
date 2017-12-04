@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using PirateAPI.Logging;
@@ -14,6 +15,10 @@ namespace PirateAPI.Parsers.Torrents
     #region private fields
     private ILogger logger;
     private DateTime? fixedDateTime;
+    #endregion
+
+    #region protected fields
+    protected CancellationToken token;
     #endregion
 
     #region private properties
@@ -30,21 +35,24 @@ namespace PirateAPI.Parsers.Torrents
     #endregion
 
     #region constructor
-    public HtmlTorrentTableRowParser(ILogger logger) : this(logger, null) { }
+    public HtmlTorrentTableRowParser(ILogger logger, CancellationToken token) : this(logger, token, null) { }
 
-    public HtmlTorrentTableRowParser(ILogger logger, DateTime? fixedDateTime)
+    public HtmlTorrentTableRowParser(ILogger logger, CancellationToken token, DateTime? fixedDateTime)
     {
       if (logger == null)
         throw new ArgumentException("HtmlTorrentTableRowParser Constructor was passed a null ILogger", nameof(logger));
 
       this.logger = logger;
       this.fixedDateTime = fixedDateTime;
+      this.token = token;
     }
     #endregion
 
     #region public methods
     public virtual Torrent ParseRow(HtmlNode row)
     {
+      token.ThrowIfCancellationRequested();
+
       if (row == null)
       {
         logger.LogError("HtmlTorrentTableRowParser.ParseRow was passed a null row");

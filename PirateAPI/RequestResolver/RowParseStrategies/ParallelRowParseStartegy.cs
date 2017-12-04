@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using PirateAPI.Logging;
@@ -15,11 +16,12 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
     #region private fields
     private ILogger logger;
     private Func<Torrent, bool> sanityCheck;
+    private CancellationToken token;
     #endregion
 
     #region constructor
 
-    public ParallelRowParseStrategy(Func<Torrent, bool> sanityCheck, ILogger logger)
+    public ParallelRowParseStrategy(Func<Torrent, bool> sanityCheck, ILogger logger, CancellationToken token)
     {
       if (logger == null)
         throw new ArgumentNullException(nameof(logger));
@@ -29,6 +31,7 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
 
       this.logger = logger;
       this.sanityCheck = sanityCheck;
+      this.token = token;
     }
     #endregion
 
@@ -36,6 +39,8 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
 
     public void ParseRows(HtmlNodeCollection rows, ITorrentRowParser parser, int limit, List<Torrent> results)
     {
+      token.ThrowIfCancellationRequested();
+
       if (rows == null)
       {
         logger.LogError($"ParallelRowParseStartegy.ParseRows was passed a null values for {nameof(rows)}");
@@ -57,12 +62,16 @@ namespace PirateAPI.RequestResolver.RowParseStrategies
       logger.LogMessage("Parsing torrents in parallel");
       Parallel.ForEach(rows, row =>
       {
+        token.ThrowIfCancellationRequested();
+
         if (results.Count >= limit)
           return;
 
         Torrent torrent = parser.ParseRow(row);
         if (torrent == null)
           return;
+
+        token.ThrowIfCancellationRequested();
 
         if (results.Count < limit && PassesSanityCheck(torrent))
         {

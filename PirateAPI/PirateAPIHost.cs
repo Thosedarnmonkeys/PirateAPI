@@ -244,10 +244,18 @@ namespace PirateAPI
         return null;
       }
 
+      CancellationTokenSource tokenSource = new CancellationTokenSource();
+      CancellationToken token = tokenSource.Token;
       List<Torrent> torrents = new List<Torrent>();
       TimeSpan timeLimit = new TimeSpan(0, 0, requestTimeOut);
-      Task timedTask = Task.Factory.StartNew(() => MakeTvRequests(torznabParser, request, torrents));
+      Task timedTask = Task.Factory.StartNew(() => MakeTvRequests(torznabParser, request, torrents, token));
       timedTask.Wait(timeLimit);
+
+      if (token.IsCancellationRequested)
+      {
+        logger.LogMessage("Time limit hit");
+      }
+
 
       if (torrents.Count == 0)
       {
@@ -265,7 +273,7 @@ namespace PirateAPI
       return response;
     }
 
-    private void MakeTvRequests(TorznabQueryParser torznabParser, string request, List<Torrent> torrents)
+    private void MakeTvRequests(TorznabQueryParser torznabParser, string request, List<Torrent> torrents, CancellationToken token)
     {
       while (torrents.Count == 0)
       {
@@ -280,11 +288,17 @@ namespace PirateAPI
         int remainingAttempts = 3;
         while (remainingAttempts > 0)
         {
+          token.ThrowIfCancellationRequested();
+
           //try getting a response from proxy up to 3 times
           PirateRequestResolver requestResolver = new PirateRequestResolver(logger, webClient, apiLimit);
           try
           {
-            requestResolver.Resolve(pirateRequest, resolveStrategy, torrents);
+            requestResolver.Resolve(pirateRequest, resolveStrategy, torrents, token);
+          }
+          catch (TaskCanceledException e)
+          {
+            throw;
           }
           catch (Exception e)
           {
