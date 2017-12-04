@@ -18,6 +18,7 @@ namespace PirateAPI.Logging
     #region private fields
     private bool messageColourState;
     private bool errorColourState;
+    private object lockObj = new object();
     #endregion
 
     #region public methods
@@ -32,8 +33,11 @@ namespace PirateAPI.Logging
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatErrorMessage(nowTime, message);
       formattedMessage = AddLineBreaksIfRequired(formattedMessage);
-      SetConsoleErrorColour();
-      Console.WriteLine(formattedMessage);
+      lock (lockObj)
+      {
+        SetConsoleErrorColour();
+        Console.WriteLine(formattedMessage);
+      }
     }
 
     public override void LogException(Exception e, string message = null)
@@ -53,8 +57,11 @@ namespace PirateAPI.Logging
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatExceptionMessage(nowTime, e, message);
       formattedMessage = AddLineBreaksIfRequired(formattedMessage);
-      SetConsoleErrorColour();
-      Console.WriteLine(formattedMessage);
+      lock (lockObj)
+      {
+        SetConsoleErrorColour();
+        Console.WriteLine(formattedMessage);
+      }
     }
 
     public override void LogMessage(string message)
@@ -68,8 +75,11 @@ namespace PirateAPI.Logging
       DateTime nowTime = DateTime.Now;
       string formattedMessage = FormatMessage(nowTime, message);
       formattedMessage = AddLineBreaksIfRequired(formattedMessage);
-      SetConsoleMessageColour();
-      Console.WriteLine(formattedMessage);
+      lock (lockObj)
+      {
+        SetConsoleMessageColour();
+        Console.WriteLine(formattedMessage);
+      }
     }
     #endregion
 
