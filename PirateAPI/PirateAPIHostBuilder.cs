@@ -26,6 +26,7 @@ namespace PirateAPI
     private static readonly ILogger defaultLogger = new FileAndConsoleLogger(defaultLogFilePath);
     private static readonly PirateRequestResolveStrategy defaultStrategy = PirateRequestResolveStrategy.Parallel;
     private const int defaultWebClientTimoutMillis = 10000;
+    private const int defaultOverallRequestTimeout = 60;
     #endregion
 
     #region ini file param names
@@ -40,6 +41,7 @@ namespace PirateAPI
     private const string loggingName = "loggingmode";
     private const string requestResolveMode = "requestresolvemode";
     private const string requestTimeoutMillis = "requesttimeoutmillis";
+    private const string maxOverallRequestTime = "maxoverallrequesttimeout";
     #endregion
 
     #region private consts
@@ -81,9 +83,13 @@ namespace PirateAPI
       if (!(config.ContainsKey(requestTimeoutMillis) && int.TryParse(config[requestTimeoutMillis], out timeoutMillis)))
         timeoutMillis = defaultWebClientTimoutMillis;
 
+      int overallRequestTimeout;
+      if (!(config.ContainsKey(maxOverallRequestTime) && int.TryParse(config[maxOverallRequestTime], out overallRequestTimeout)))
+        overallRequestTimeout = defaultOverallRequestTimeout;
+
       IWebClient webClient = new BasicWebClient(timeoutMillis, logger);
 
-      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPrefs, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, resolveStrat, logger, webClient);
+      PirateAPIHost host = new PirateAPIHost(webRoot, port, locationPrefs, blackList, proxyRefreshInterval, magnetSearchProxiesOnly, apiLimit, resolveStrat, overallRequestTimeout, logger, webClient);
       return host;
     }
     #endregion

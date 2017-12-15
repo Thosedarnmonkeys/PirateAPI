@@ -99,11 +99,11 @@ namespace PirateAPI
     private Timer refreshProxiesTimer;
     private int apiLimit;
     private string emptyTorznabResponse = Resources.TorznabResponseTemplate.Replace("{0}", "");
-    private double requestTimeout;
+    private int requestTimeOut;
     #endregion
 
     #region constructor
-    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, int apiLimit, PirateRequestResolveStrategy resolveStrategy, ILogger logger, IWebClient webClient)
+    public PirateAPIHost(string webRoot, int port, List<string> proxyLocationPreferences, List<string> blacklistedProxies, TimeSpan proxyResfreshInterval, bool magnetSearchProxiesOnly, int apiLimit, PirateRequestResolveStrategy resolveStrategy, int requestTimeOut, ILogger logger, IWebClient webClient)
     {
       WebRoot = webRoot;
       Port = port;
@@ -114,6 +114,7 @@ namespace PirateAPI
       this.resolveStrategy = resolveStrategy;
       this.logger = logger;
       this.webClient = webClient;
+      this.requestTimeOut = requestTimeOut;
       proxyPicker = new PirateProxyPicker(proxyLocationPreferences, blacklistedProxies, logger);
     }
     #endregion
@@ -243,7 +244,7 @@ namespace PirateAPI
       }
 
       List<Torrent> torrents = new List<Torrent>();
-      TimeSpan timeLimit = new TimeSpan(0, 0, 60);
+      TimeSpan timeLimit = new TimeSpan(0, 0, requestTimeOut);
       Task timedTask = Task.Factory.StartNew(() => MakeTvRequests(torznabParser, request, torrents));
       timedTask.Wait(timeLimit);
 

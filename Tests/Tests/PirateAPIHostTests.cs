@@ -32,7 +32,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -66,7 +66,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -101,7 +101,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -135,7 +135,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -171,7 +171,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(0, 0, 5), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(0, 0, 5), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -221,7 +221,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -263,7 +263,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(0, 0, 5), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(0, 0, 5), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -313,7 +313,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -350,7 +350,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.IsTrue(host.StopServing());
 
@@ -368,7 +368,7 @@ namespace PirateAPITests.Tests
       List<string> responses = new List<string>();
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 50, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 50, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -396,7 +396,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -433,7 +433,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(apiHost.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -468,7 +468,7 @@ namespace PirateAPITests.Tests
       };
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost apiHost = new PirateAPIHost(webroot, port, proxyLocationPrefsList, null, new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(apiHost.StartServing());
       Assert.AreEqual(1, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -503,7 +503,7 @@ namespace PirateAPITests.Tests
 
       StubWebClient client = new StubWebClient(responses);
 
-      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), true, 100, PirateRequestResolveStrategy.Series, new StubLogger(), client);
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), true, 100, PirateRequestResolveStrategy.Series, 60, new StubLogger(), client);
       Assert.IsTrue(host.StartServing());
       Assert.AreEqual(7, client.RequestsMade.Count);
       Assert.AreEqual("https://thepiratebay-proxylist.org/api/v1/proxies", client.RequestsMade[0]);
@@ -527,6 +527,69 @@ namespace PirateAPITests.Tests
       response = SetSizeAndLengthTo3SigFig(response);
       Assert.AreEqual(correctResponse, response);
     }
+
+    [Test]
+    public void TestTimeoutIsRespectedSeries()
+    {
+      int port = 8101;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch5Rows,
+        Resources.PiratePageSingleEpisode,
+      };
+      StubWebClient client = new StubWebClient(responses);
+      client.pageDelays = new Dictionary<int, int>
+      {
+        {3, 1000000}
+      };
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Series, 5, new StubLogger(), client);
+      Assert.IsTrue(host.StartServing());
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=100";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(4, client.RequestsMade.Count);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[2]);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[3]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      Assert.AreEqual(correctResponse, response);
+    }
+
+    [Test]
+    public void TestTimeoutIsRespectedParallel()
+    {
+      int port = 8101;
+      string webroot = "";
+      List<string> proxyLocationPrefsList = new List<string>() { "uk", "us", "sd" };
+      List<string> responses = new List<string>()
+      {
+        Resources.ProxyListSimple,
+        Resources.PiratePageTop100WithMagnets,
+        Resources.PiratePageSearch5Rows,
+        Resources.PiratePageSingleEpisode,
+      };
+      StubWebClient client = new StubWebClient(responses);
+      client.pageDelays = new Dictionary<int, int>
+      {
+        {3, 1000000}
+      };
+      PirateAPIHost host = new PirateAPIHost(webroot, port, proxyLocationPrefsList, new List<string>(), new TimeSpan(1, 0, 0), false, 100, PirateRequestResolveStrategy.Parallel, 5, new StubLogger(), client);
+      Assert.IsTrue(host.StartServing());
+      string request = $"http://localhost:{port}/api?t=tvsearch&q=Rick+And+Morty&cat=5030,5040&ep=1&season=2&limit=100";
+      WebClient webClient = new WebClient();
+      string response = webClient.DownloadString(request);
+      Assert.AreEqual(4, client.RequestsMade.Count);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty%20S02E01/0/99/205,208", client.RequestsMade[2]);
+      Assert.AreEqual("https://gameofbay.org/search/Rick%20And%20Morty%20S02E01/1/99/205,208", client.RequestsMade[3]);
+
+      string correctResponse = Resources.TorznabResponseSingleEpisode;
+      Assert.AreEqual(correctResponse, response);
+    }
+
 
 
     private string SetSizeAndLengthTo3SigFig(string input)
