@@ -134,6 +134,9 @@
     <Content Include="Resources\TorznabResponses\TorznabResponseNoMagnets.txt">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisodeFullPage.txt">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\TorznabResponses\TorznabResponseSingleEpisode.txt">
       <SubType>Designer</SubType>
     </Content>

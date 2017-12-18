@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="1.0" xmlns:torznab="http://torznab.com/schemas/2015/feed">
+<channel>
+<title>PirateAPI</title>
+<description>PirateBay Torznab API</description>
+<link>https://github.com/Thosedarnmonkeys/PirateAPI</link>
+<item>
+<title>Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>217987493</size>
+<enclosure url="magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="217987493" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="25" />
+<torznab:attr name="peers" value="32" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.720p.HDTV.x264-BATV[EtHD]</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:557e9645fe4978a13344897ecef352fca9acc251&amp;dn=Rick.and.Morty.S02E01.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>749584621</size>
+<enclosure url="magnet:?xt=urn:btih:557e9645fe4978a13344897ecef352fca9acc251&amp;dn=Rick.and.Morty.S02E01.720p.HDTV.x264-BATV%5BEtHD%5D&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="749584621" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="17" />
+<torznab:attr name="peers" value="20" />
+</item>
+<item>
+<title>Rick_and_Morty_S02E01</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:1ffb54f72363facedd9c7c3a72470a33fcf32946&amp;dn=Rick_and_Morty_S02E01&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Thu, 02 Jul 2015 00:00:00 +0000</pubDate>
+<size>145824972</size>
+<enclosure url="magnet:?xt=urn:btih:1ffb54f72363facedd9c7c3a72470a33fcf32946&amp;dn=Rick_and_Morty_S02E01&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="145824972" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="1" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick and Morty S02E01-E02 (Leaked) (600x300)</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:0649e51d1dce5d418518325f7cb973034abc1cef&amp;dn=Rick+and+Morty+S02E01-E02+%28Leaked%29+%28600x300%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Thu, 02 Jul 2015 00:00:00 +0000</pubDate>
+<size>370383604</size>
+<enclosure url="magnet:?xt=urn:btih:0649e51d1dce5d418518325f7cb973034abc1cef&amp;dn=Rick+and+Morty+S02E01-E02+%28Leaked%29+%28600x300%29&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="370383604" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="1" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:74b6ac581cd54687c8fd1da25f89ab01fe098d05&amp;dn=Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>925810288</size>
+<enclosure url="magnet:?xt=urn:btih:74b6ac581cd54687c8fd1da25f89ab01fe098d05&amp;dn=Rick.and.Morty.S02E01.1080p.WEB-DL.DD5.1.H.264-RARBG&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="925810288" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="1" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.720p.HDTV.x265.P11 MKV</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:3040a80e723a2313a2dc02b8fa32f9faa0e0f997&amp;dn=Rick.and.Morty.S02E01.720p.HDTV.x265.P11+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+<size>253620000</size>
+<enclosure url="magnet:?xt=urn:btih:3040a80e723a2313a2dc02b8fa32f9faa0e0f997&amp;dn=Rick.and.Morty.S02E01.720p.HDTV.x265.P11+MKV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="253620000" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="1" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.HDTV.x264-BATV</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:bead9442b11d44b450636d9b1a65470a5c0e2628&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>218000000</size>
+<enclosure url="magnet:?xt=urn:btih:bead9442b11d44b450636d9b1a65470a5c0e2628&amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="218000000" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="0" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.XviD-AFG</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:64db340e34bdc2cd5cec2a07246e556e8574434b&amp;dn=Rick.and.Morty.S02E01.XviD-AFG&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>419000000</size>
+<enclosure url="magnet:?xt=urn:btih:64db340e34bdc2cd5cec2a07246e556e8574434b&amp;dn=Rick.and.Morty.S02E01.XviD-AFG&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="419000000" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="0" />
+<torznab:attr name="peers" value="1" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01.480p.x264-mSD</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:52f52ce98dce70dde40e629358bb548086908e57&amp;dn=Rick.and.Morty.S02E01.480p.x264-mSD&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+<size>140000000</size>
+<enclosure url="magnet:?xt=urn:btih:52f52ce98dce70dde40e629358bb548086908e57&amp;dn=Rick.and.Morty.S02E01.480p.x264-mSD&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="140000000" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="0" />
+<torznab:attr name="peers" value="0" />
+</item>
+<item>
+<title>Rick.and.Morty.S02E01-03.1080p.WEBRip.AAC.2.0.H.264-Phr0stY</title>
+<torznab:attr name="magneturl" value="magnet:?xt=urn:btih:b569dba66a7bd46ef5a9909e7f4ea1335f0f8862&amp;dn=Rick.and.Morty.S02E01-03.1080p.WEBRip.AAC.2.0.H.264-Phr0stY&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" />
+<pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+<size>3490000000</size>
+<enclosure url="magnet:?xt=urn:btih:b569dba66a7bd46ef5a9909e7f4ea1335f0f8862&amp;dn=Rick.and.Morty.S02E01-03.1080p.WEBRip.AAC.2.0.H.264-Phr0stY&amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969" length="3490000000" type="application/x-bittorrent" />
+<torznab:attr name="seeders" value="0" />
+<torznab:attr name="peers" value="1" />
+</item>
+</channel>
+</rss>

@@ -220,6 +220,9 @@
   <data name="TorznabResponseSingleEpisode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorznabResponses\TorznabResponseSingleEpisode.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="TorznabResponseSingleEpisodeFullPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TorznabResponses\TorznabResponseSingleEpisodeFullPage.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="TorznabResponseSingleItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TorznabResponses\TorznabResponseSingleItem.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

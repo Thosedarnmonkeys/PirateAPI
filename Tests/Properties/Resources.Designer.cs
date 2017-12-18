@@ -651,6 +651,23 @@ namespace PirateAPITests.Properties {
         ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
         ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
         ///&lt;item&gt;
+        ///&lt;title&gt;Rick.and.Morty.S02E01.HDTV.x264-BATV[ettv]&lt;/title&gt;
+        ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;magnet:?xt=urn:btih:f9e844d430fd38e36ece24938c3d613f875af3eb&amp;amp;dn=Rick.and.Morty.S02E01.HDTV.x264-BATV%5Bettv%5D&amp;amp;tr=udp%3A%2F%2Ftracker.lee [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TorznabResponseSingleEpisodeFullPage {
+            get {
+                return ResourceManager.GetString("TorznabResponseSingleEpisodeFullPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+        ///&lt;rss version=&quot;1.0&quot; xmlns:torznab=&quot;http://torznab.com/schemas/2015/feed&quot;&gt;
+        ///&lt;channel&gt;
+        ///&lt;title&gt;PirateAPI&lt;/title&gt;
+        ///&lt;description&gt;PirateBay Torznab API&lt;/description&gt;
+        ///&lt;link&gt;https://github.com/Thosedarnmonkeys/PirateAPI&lt;/link&gt;
+        ///&lt;item&gt;
         ///&lt;title&gt;Show Name S01E01 SD&lt;/title&gt;
         ///&lt;torznab:attr name=&quot;magneturl&quot; value=&quot;fakeUrl&quot; /&gt;
         ///&lt;pubDate&gt;Wed, 07 Sep 2016 00:00:00 +0000&lt;/pubDate&gt;
