@@ -189,6 +189,7 @@ namespace PirateAPI
       logger.LogMessage($"Max Search Results: {apiLimit}");
       logger.LogMessage($"Request Resolve Mode: {resolveStrategy}");
       logger.LogMessage($"Request Timeout in Millis: {webClient.TimeoutMillis}");
+      logger.LogMessage($"Maximum Request Duration: {requestTimeOut}");
     }
     #endregion
 
