@@ -57,7 +57,7 @@ namespace PirateAPI.ProxyProviders.ThePirateBayProxyList
       }
       catch (Exception e)
       {
-        logger.LogException(e, "ThePirateBayProxyListProvider.GetProxysListingString threw exception trying to download string");
+        logger.LogException(e, "ThePirateBayProxyListProvider.ListProxyImpl threw exception trying to download string");
         return new List<Proxy>();
       }
 
